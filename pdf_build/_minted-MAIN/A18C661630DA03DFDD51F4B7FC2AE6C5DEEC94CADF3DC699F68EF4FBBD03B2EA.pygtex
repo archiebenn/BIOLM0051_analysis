@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c+ch}{\PYGZsh{}!/bin/bash}
-\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}job\PYGZhy{}name=blast\PYGZus{}job}
-\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}partition=teach\PYGZus{}cpu}
-\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}time=01:00:00}
-\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}mem=2000M}
-
-blastn\PYG{+w}{ }\PYGZhy{}db\PYG{+w}{ }nt\PYG{+w}{ }\PYGZhy{}query\PYG{+w}{ }sequence.fa\PYG{+w}{ }\PYGZhy{}out\PYG{+w}{ }results.out\PYG{+w}{ }\PYGZhy{}remote
-\end{Verbatim}
