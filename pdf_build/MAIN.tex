@@ -1,6 +1,6 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt]{article}
 
-\usepackage{geometry}
+\usepackage[margin=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{natbib}
@@ -10,15 +10,18 @@
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
 \usepackage{microtype}  % nicer typesetting
 \usepackage{inconsolata}  % nicer font for comments in code blocks
+\usepackage{librecaslon}
 
 \linespread{1.1}
-\geometry{margin=2.5cm}
-
 \bibliographystyle{plainnat}
+
+\title{\LARGE\textbf{Short Analysis Pipeline}\\\vspace{1mm}\large BIOLM0051}
+\author{Archie Benn}
+\date{}
 
 % COMPILE WITH: pdflatex -shell-escape MAIN.tex 
 \begin{document}
-
+\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Abstract} %200 WORDS
@@ -33,7 +36,6 @@ for record in SeqIO.parse("sequence.fasta", "fasta"):
     print(record.id, record.seq.translate())
 \end{minted} 
 \newline
-
 Some Bash script:
 \begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!5]{bash}
 #!/bin/bash
@@ -80,6 +82,6 @@ normalized = data.apply(lambda x: np.log2(x+1))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Supplementary Data}
-GitHub repository for this project, including data: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
+Please find supplementary data within the GitHub repository for this project: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
