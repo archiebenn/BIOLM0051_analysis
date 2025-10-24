@@ -6,7 +6,7 @@
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
 \bibitem[Kent(2002)]{kent2002blat}
-W~James Kent.
+WJ~Kent.
 \newblock Blat—the blast-like alignment tool.
 \newblock \emph{Genome research}, 12\penalty0 (4):\penalty0 656--664, 2002.
 
@@ -18,7 +18,7 @@ MJ~Wolin, TL~Miller, and CS~Stewart.
 
 \bibitem[Baker et~al.(1997)Baker, Zambryski, Staskawicz, and
   Dinesh-Kumar]{baker1997signaling}
-Barbara Baker, Patricia Zambryski, Brian Staskawicz, and SP~Dinesh-Kumar.
+B~Baker, P~Zambryski, B~Staskawicz, and SP~Dinesh-Kumar.
 \newblock Signaling in plant-microbe interactions.
 \newblock \emph{Science}, 276\penalty0 (5313):\penalty0 726--733, 1997.
 
