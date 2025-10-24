@@ -3,17 +3,16 @@
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 \usepackage{minted}   % syntax highlighting in code blocks
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=black]{hyperref}
 \usepackage{microtype}  % nicer typesetting
 \usepackage{inconsolata}  % nicer font for comments in code blocks
 \usepackage{librecaslon}
 
 \linespread{1.1}
-\bibliographystyle{plainnat}
 
 \title{\LARGE\textbf{Short Analysis Pipeline}\\\vspace{1mm}\large BIOLM0051}
 \author{Archie Benn}
@@ -69,13 +68,15 @@ normalized = data.apply(lambda x: np.log2(x+1))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Discussion}
+Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe even from this guy \cite{baker1997signaling,wolin1997microbe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{References}
-\bibliography{references.bib}
+\bibliographystyle{unsrtnat}
+\bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
