@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.18)  24 OCT 2025 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.18)  24 OCT 2025 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ab/Dropbox/university/bioinformatics_projects/intro_to_bioinformatics_report/MAIN
-(/home/ab/Dropbox/university/bioinformatics_projects/intro_to_bioinformatics_report/MAIN.tex
+**/home/ab/Dropbox/university/bioinformatics_projects/intro_to_bioinformatics_report/pdf_build/MAIN
+(/home/ab/Dropbox/university/bioinformatics_projects/intro_to_bioinformatics_report/pdf_build/MAIN.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./sn-jnl.cls
@@ -573,31 +573,31 @@ Package hyperref Info: Link coloring ON on input line 91.
 \openout3 = `MAIN.out'.
 
 \c@lstlisting=\count337
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 136.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 136.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 132.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 132.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 136.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 132.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 136.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 132.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 136.
+(Font)              size <8> substituted on input line 132.
 
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 136.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 132.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 136.
+(Font)              size <6> substituted on input line 132.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 136.
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 132.
 
-Package natbib Warning: Citation `bib1' on page 1 undefined on input line 139.
+Package natbib Warning: Citation `bib1' on page 1 undefined on input line 135.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -605,11 +605,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 161.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 157.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 161.
+(Font)              size <5> substituted on input line 157.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -618,127 +618,86 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.195 \end{verbatim}
+l.191 \end{verbatim}
                     ]
-LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 221.
-LaTeX Font Info:    No file OMScmss.fd. on input line 221.
+LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 217.
+LaTeX Font Info:    No file OMScmss.fd. on input line 217.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 221.
+(Font)              for symbol `textbraceleft' on input line 217.
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 228.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 224.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 263.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 259.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 263.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 259.
 
-Overfull \hbox (7.55843pt too wide) in paragraph at lines 257--269
+Overfull \hbox (7.55843pt too wide) in paragraph at lines 253--265
 []$[]$ 
  []
 
 
-Package natbib Warning: Citation `bib1' on page 3 undefined on input line 275.
+Package natbib Warning: Citation `bib1' on page 3 undefined on input line 271.
 
 
-Package natbib Warning: Citation `bib2' on page 3 undefined on input line 275.
+Package natbib Warning: Citation `bib2' on page 3 undefined on input line 271.
 
 
-Package natbib Warning: Citation `bib3' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib3' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib4' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib4' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib5' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib5' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib6' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib6' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib7' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib7' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib8' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib8' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib9' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib9' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib10' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib10' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib11' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib11' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib12' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib12' on page 3 undefined on input line 273.
 
 
-Package natbib Warning: Citation `bib13' on page 3 undefined on input line 277.
+Package natbib Warning: Citation `bib13' on page 3 undefined on input line 273.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-
-LaTeX Warning: Reference `fig1' on page 6 undefined on input line 356.
-
-
-LaTeX Warning: Reference `tab3' on page 6 undefined on input line 356.
-
-
-Underfull \hbox (badness 1859) in paragraph at lines 372--373
-\OT1/cmr/m/n/10 of a clin-i-cal trial then addi-tional infor-ma-tion will be required. Please visit
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
-\OT1/cmr/m/n/10 ([][]$https : / / www . nature . com / nature-[]research / editorial-[]policies$[][]) for Nature Port-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
-\OT1/cmr/m/n/10 fo-lio jour-nals, ([][]$https : / / www . springer . com / gp / authors-[]editors / journal-[]author /
- []
-
-
-Underfull \hbox (badness 4634) in paragraph at lines 372--373
-\OT1/cmr/m/n/10 journal-[]author-[]helpdesk / publishing-[]ethics / 14214$[][]) for Springer Nature jour-nals,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
-\OT1/cmr/m/n/10 or ([][]$https : / / www . biomedcentral . com / getpublished / editorial-[]policies # ethics + and +
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
 
 Package hyperref Warning: Difference (4) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 388.
+(hyperref)                than one, level fixed on input line 292.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 396.
+(hyperref)                than one, level fixed on input line 300.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ [4]
 No file MAIN.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -746,7 +705,7 @@ Package natbib Warning: There were undefined citations.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8] (./MAIN.aux)
+ [5{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./MAIN.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -759,25 +718,22 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `MAIN.out' has not changed.
-(rerunfilecheck)             Checksum: 917F857CDDCC390ECCC8C1F116FB23F7;2901.
+(rerunfilecheck)             Checksum: B777EA459F2E235ED02511F01B7F8BB5;2720.
  ) 
 Here is how much of TeX's memory you used:
- 14889 strings out of 474222
- 225061 string characters out of 5748733
+ 14835 strings out of 474222
+ 223931 string characters out of 5748733
  1953975 words of memory out of 5000000
- 36837 multiletter control sequences out of 15000+600000
- 585658 words of font info for 144 fonts, out of 8000000 for 9000
+ 36797 multiletter control sequences out of 15000+600000
+ 584659 words of font info for 141 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,15n,93p,810b,1626s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on MAIN.pdf (8 pages, 315459 bytes).
+ 90i,15n,93p,820b,1626s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on MAIN.pdf (5 pages, 269809 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
