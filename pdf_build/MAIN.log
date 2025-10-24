@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.18)  24 OCT 2025 21:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.18)  24 OCT 2025 21:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -587,7 +587,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
 (Font)              scaled to size 10.95pt on input line 2.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
@@ -604,11 +604,11 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/it' will be
 (Font)              scaled to size 10.95pt on input line 3.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 48.
+(Font)              <12> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 48.
+(Font)              <8> on input line 53.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 48.
+(Font)              <6> on input line 53.
 \openout3 = `MAIN.pyg'.
 
 
@@ -633,15 +633,15 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `MAIN.out' has not changed.
-(rerunfilecheck)             Checksum: 769F9E12F9FE247A9E5F0C4152E78A23;488.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 runsystem(rm MAIN.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 17607 strings out of 474222
- 299827 string characters out of 5748733
+ 17599 strings out of 474222
+ 299763 string characters out of 5748733
  1936975 words of memory out of 5000000
- 39616 multiletter control sequences out of 15000+600000
+ 39608 multiletter control sequences out of 15000+600000
  563210 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,5n,79p,1001b,667s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -652,10 +652,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on MAIN.pdf (2 pages, 94158 bytes).
+Output written on MAIN.pdf (2 pages, 92911 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  10 named destinations out of 1000 (max. 500000)
- 14377 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 14337 words of extra memory for PDF output out of 14400 (max. 10000000)
 
