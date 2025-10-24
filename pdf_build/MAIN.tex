@@ -4,11 +4,14 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{natbib}
-\usepackage{minted}
+\usepackage{minted}   % syntax highlighting in code blocks
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{microtype}  % nicer typesetting
+\usepackage{inconsolata}  % nicer font for comments in code blocks
 
+\linespread{1.1}
 \geometry{margin=2.5cm}
 
 \bibliographystyle{plainnat}
@@ -17,11 +20,12 @@
 \begin{document}
 
 \section*{Abstract} %200 WORDS
+This is a test paragraph to see how microtype improves the appearance of text. Notice how the spacing between letters and words is subtly adjusted to create a smoother, more even texture across the page. Microtype helps with justification, kerning, and overall typographic finesse, making long passages of text easier to read and giving the document a more polished, professional look.
 \section{Introduction}
 \section{Methods}
 
 Some python code: 
-\begin{minted}[fontsize=\small, bgcolor=gray!5, frame=single]{python}
+\begin{minted}[fontsize=\small, bgcolor=gray!5, framesep=1.5mm, frame=single]{python}
 from Bio import SeqIO
 for record in SeqIO.parse("sequence.fasta", "fasta"):
     print(record.id, record.seq.translate())
@@ -29,7 +33,7 @@ for record in SeqIO.parse("sequence.fasta", "fasta"):
 \newline
 
 Some Bash script:
-\begin{minted}[fontsize=\small, frame=single, bgcolor=gray!5]{bash}
+\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!5]{bash}
 #!/bin/bash
 #SBATCH --job-name=blast_job
 #SBATCH --partition=teach_cpu
@@ -41,6 +45,17 @@ blastn -db nt -query sequence.fa -out results.out -remote
 
 
 \section{Results}
+In this study, we analysed the gene expression levels across multiple samples using RNA-seq data. The expression values $x_i$ for gene $i$ were normalised using the log-transformation:
+\[
+y_i = \log_2(x_i + 1)
+\]
+to stabilise variance. Data processing was performed using Python scripts:
+
+\begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!5]{python}
+import pandas as pd
+data = pd.read_csv("expression.csv")
+normalized = data.apply(lambda x: np.log2(x+1))
+\end{minted}
 \section{Discussion}
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -49,5 +64,4 @@ blastn -db nt -query sequence.fa -out results.out -remote
 
 \section{Supplementary Data}
 GitHub repository for this project, including data: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
-
 \end{document}
