@@ -1,0 +1,23 @@
+!!AA_MULTIPLE_ALIGNMENT 1.0
+ squid.msf  MSF: 110  Type: P  October 25, 2025 08:39  Check: 679  ..
+
+ Name: test1  Len:    110  Check: 3183  Weight: -1.00
+ Name: test2  Len:    110  Check: 1009  Weight: -1.00
+ Name: test3  Len:    110  Check: 6487  Weight: -1.00
+
+//
+
+       1                                                   50
+test1  -----MGDVE KGKKIFIMKC SQCHTVEKGG KHKTGPNLHG LFGRKTGQAP
+test2  -----MGDVE KGKKIFVQKC AQCHTVEKGG KHKTGPNLHG LFGRKTGQAA
+test3  MTEFKAGSAK KGATLFKTRC LQCHTVEKGG PHKVGPNLHG IFGRHSGQAE
+
+       51                                                 100
+test1  GYSYTAANKN KGIIWGEDTL MEYLENPKKY IPGTKMIFVG IKKKEERADL
+test2  GFSYTDANKN KGITWGEDTL MEYLENPKKY IPGTKMIFAG IKKKGERADL
+test3  GYSYTDANIK KNVLWDENNM SEYLTNPKKY IPGTKMAFGG LKKEKDRNDL
+
+       101   
+test1  IAYLKKATNE
+test2  IAYLKKATNE
+test3  ITYLK-----

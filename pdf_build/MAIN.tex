@@ -11,7 +11,11 @@
 \usepackage{microtype}  % nicer typesetting
 \usepackage{libertinus}
 \usepackage{inconsolata}  % nicer font for comments in code blocks
-
+\usepackage{texshade}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning} 
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
 
 \linespread{1.05}
 
@@ -28,19 +32,81 @@
 A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.\newline
 
 Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Abstract} %200 WORDS
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Methods}
 
+%%%%%%%%%%%%%%%
+% Pipeline workflow figure
+%%%%%%%%%%%%%%%
+\begin{figure}[htbp]
+\begin{center}
+\vspace{3em}
+\smartdiagramset{
+    set color list={red!20, red!30,red!40,red!50},
+    sequence item border size=1.2\pgflinewidth,
+    sequence item border color=black,sequence item font size=\footnotesize,
+    sequence item text color=black, 
+    additions={
+            additional item shape=rectangle,
+            additional item fill color=black!10,
+            additional item border color=black,
+            additional item font=\footnotesize,
+            additional arrow line width=2pt,
+            additional arrow tip=to,
+            additional arrow color=black,
+        }
+}
+\smartdiagramadd[sequence diagram]{Concatenate FASTQ,ORF finder,BLAST, Alignment}
+{above of sequence-item1/FASTQ files, below of sequence-item4/Aligned Sequences}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item4/additional-module2}
+\vspace{4em}
+\caption{Workflow of analysis pipeline.}
+    \label{fig:workflow}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%
+% Pipeline workflow figure
+%%%%%%%%%%%%%%%
+
+
+
+
 Some python code: 
+%%%%%%%%%%%%%%%
+% Python block
+%%%%%%%%%%%%%%%
 \begin{minted}[fontsize=\small, bgcolor=gray!5, framesep=1.5mm, frame=single]{python}
 from Bio import SeqIO
 for record in SeqIO.parse("sequence.fasta", "fasta"):
     print(record.id, record.seq.translate())
 \end{minted} 
-\newline
+%%%%%%%%%%%%%%%
+% Python block
+%%%%%%%%%%%%%%%
+
 Some Bash script:
+%%%%%%%%%%%%%%%
+% Bash block
+%%%%%%%%%%%%%%%
 \begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!5]{bash}
 #!/bin/bash
 #SBATCH --job-name=blast_job
@@ -50,6 +116,9 @@ Some Bash script:
 
 blastn -db nt -query sequence.fa -out results.out -remote
 \end{minted}
+%%%%%%%%%%%%%%%
+% Bash block
+%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -67,6 +136,25 @@ import pandas as pd
 data = pd.read_csv("expression.csv")
 normalized = data.apply(lambda x: np.log2(x+1))
 \end{minted}
+
+Alignment results using Clustal Omega on some test data: 
+%%%%%%%%%%%%%%%
+% Texshade alignment
+%%%%%%%%%%%%%%%
+\begin{figure}[htbp]
+\begin{texshade}{../data/testing/clustalo-I20251025-093857-0026-94127824-p1m.aln-msf}
+\threshold[40]{50}
+\setends{1}{80..100}
+\showconsensus[ColdHot]{bottom}
+\defconsensus{-}{lower}{upper}
+\showlegend
+\end{texshade}
+\caption{Alignment using Clustal Omega and Identity mode in texshade}
+\label{fig:workflow}
+\end{figure}
+%%%%%%%%%%%%%%%
+% Texshade alignment
+%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
