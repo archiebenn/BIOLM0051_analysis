@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx}
@@ -7,12 +7,13 @@
 \usepackage{minted}   % syntax highlighting in code blocks
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=black]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
 \usepackage{microtype}  % nicer typesetting
+\usepackage{libertinus}
 \usepackage{inconsolata}  % nicer font for comments in code blocks
-\usepackage{librecaslon}
 
-\linespread{1.1}
+
+\linespread{1.05}
 
 \title{\LARGE\textbf{Short Analysis Pipeline}\\\vspace{1mm}\large BIOLM0051}
 \author{Archie Benn}
@@ -23,8 +24,12 @@
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Scenario}
+A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.\newline
+
+Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
+
 \section*{Abstract} %200 WORDS
-This is a test paragraph to see how microtype improves the appearance of text. Notice how the spacing between letters and words is subtly adjusted to create a smoother, more even texture across the page. Microtype helps with justification, kerning, and overall typographic finesse, making long passages of text easier to read and giving the document a more polished, professional look.
 \section*{Introduction}
 \section*{Methods}
 
@@ -74,7 +79,6 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check .bib ordering for years and surnames etc.
-\section*{References}
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,6 +87,6 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Supplementary Data}
-Please find supplementary data within the GitHub repository for this project: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
+Supplementary data can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
