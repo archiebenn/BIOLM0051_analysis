@@ -52,6 +52,7 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Methods}
+The FASTQ files in this report are small and the use of HPC resources in this case is not necessary. However, this workflow is designed to scale easily to similar analyses with much larger datasets. All steps here are able to run on an HPC cluster without modification, demonstrating reproduciility, automation, and capacity for high-throughput analyses.
 
 %%%%%%%%%%%%%%%
 % Pipeline workflow figure
@@ -79,7 +80,7 @@ Given the serious implications for public health, food safety, and wildlife cons
 \smartdiagramconnect{to-}{sequence-item1/additional-module1}
 \smartdiagramconnect{-to}{sequence-item4/additional-module2}
 \vspace{4em}
-\caption{Workflow of analysis pipeline.}
+\caption{Workflow of Snakemake analysis pipeline.}
     \label{fig:workflow}
 \end{center}
 \end{figure}
@@ -94,7 +95,7 @@ Some python code:
 %%%%%%%%%%%%%%%
 % Python block
 %%%%%%%%%%%%%%%
-\begin{minted}[fontsize=\small, bgcolor=gray!5, framesep=1.5mm, frame=single]{python}
+\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{python}
 from Bio import SeqIO
 for record in SeqIO.parse("sequence.fasta", "fasta"):
     print(record.id, record.seq.translate())
@@ -107,7 +108,7 @@ Some Bash script:
 %%%%%%%%%%%%%%%
 % Bash block
 %%%%%%%%%%%%%%%
-\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!5]{bash}
+\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{bash}
 #!/bin/bash
 #SBATCH --job-name=blast_job
 #SBATCH --partition=teach_cpu
@@ -131,7 +132,7 @@ y_i = \log_2(x_i + 1)
 \]
 to stabilise variance. Data processing was performed using Python scripts:
 
-\begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!5]{python}
+\begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!1]{python}
 import pandas as pd
 data = pd.read_csv("expression.csv")
 normalized = data.apply(lambda x: np.log2(x+1))
@@ -173,8 +174,20 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 
 
 
+
+%Acknowledging the use of HPC Facilities
+%When you write articles about your research for publication, 
+%conference proceedings or for other reasons, please acknowledge use of the ACRC facilities by including the following:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgments}
+This work was carried out using the computational facilities of the Advanced Computing Research Centre, University of Bristol - \url{http://www.bristol.ac.uk/acrc/}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Supplementary Data}
-Supplementary data can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/intro_to_bioinformatics_report.git}
+Supplementary data can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
