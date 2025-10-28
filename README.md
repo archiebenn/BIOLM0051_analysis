@@ -3,7 +3,7 @@
 - Python 3.12+
   _(Tested with 3.12.3)_
 
-A virtual environment is recommended to ensure reproducibility
+Setting up the virtual environment below is recommended to ensure reproducibility
 
 ### Setting up Environment
 - Clone this repo onto your local machine and navigate into this directory.  
