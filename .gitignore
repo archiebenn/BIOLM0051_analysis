@@ -1,5 +1,5 @@
 # latex  files to ignore
-report_src/*.pdf
+LaTeX/*.pdf
 *.out
 *.log
 *.aux
