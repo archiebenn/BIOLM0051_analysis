@@ -1,8 +1,19 @@
-# files to ignore
+# latex  files to ignore
+report_src/*.pdf
 *.out
 *.log
 *.aux
 _minted-*
 *.bbl
 *.blg
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
 
+# ignore venv 
+.venv/
+venv/
+env/
