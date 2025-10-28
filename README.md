@@ -2,11 +2,13 @@
 
 This should include steps to reproduce analysis
 ### Requirements  
-- Python 3.12+  
+- Python 3.12+
+
+A virtual environment is recommended to ensure reproducibility
 
 ### Setting up Environment
-First, clone this repo onto your local machine and navigate into this directory.  
-Then set up the project environment using the provided `requirements.txt` file:
+- Clone this repo onto your local machine and navigate into this directory.  
+- Set up the project environment using the provided `requirements.txt` file:
 ```
 python3 -m venv report-env  
 source report-env/bin/activate  
