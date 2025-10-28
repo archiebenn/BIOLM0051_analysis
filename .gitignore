@@ -1,5 +1,4 @@
 # latex  files to ignore
-LaTeX/*.pdf
 *.out
 *.log
 *.aux
