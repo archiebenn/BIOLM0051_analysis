@@ -116,29 +116,54 @@ Some Bash script:
 #SBATCH --time=01:00:00
 #SBATCH --mem=2000M
 
-blastn -db nt -query sequence.fa -out results.out -remote
+blastn -db nt -query sequence.fa -out results.out -outfmt 7 -remote
 \end{minted}
 %%%%%%%%%%%%%%%
 % Bash block
 %%%%%%%%%%%%%%%
+
+
+
+\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{bash}
+# BLASTP 2.17.0+
+# Query: OMRGCv2f_11922010_1 [212 - 1072] [TARA OCEANS OM-RGCv2: [NPST] North Pacific 
+# Subtropical and Polar Front Provinces (MRGID:21484)]
+# RID: G20BB3A3016
+# Database: swissprot
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, 
+# q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
+OMRGCv2f_11922010_1	A5UYW4.1	55.556	63	28	0	220	282	6	68	1.39e-17	85.1
+OMRGCv2f_11922010_1	A7NS65.1	55.556	63	28	0	220	282	6	68	1.87e-17	84.7
+OMRGCv2f_11922010_1	Q7NBW0.2	53.226	62	29	0	220	281	6	67	9.62e-16	79.7
+OMRGCv2f_11922010_1	B0BTI6.1	56.250	64	27	1	220	282	5	68	2.25e-15	78.6
+OMRGCv2f_11922010_1	A3N3J9.1	56.250	64	27	1	220	282	5	68	2.43e-15	78.6
+OMRGCv2f_11922010_1	Q9HJ83.1	55.385	65	27	1	220	282	4	68	3.42e-15	78.2
+OMRGCv2f_11922010_1	Q56237.2	50.000	62	31	0	220	281	6	67	7.13e-15	76.3
+OMRGCv2f_11922010_1	B9MJZ0.1	53.125	64	29	1	220	282	6	69	8.16e-15	77.0
+OMRGCv2f_11922010_1	O66921.1	51.613	62	30	0	220	281	8	69	1.02e-14	76.6
+OMRGCv2f_11922010_1	P50027.1	53.521	71	32	1	213	282	1	71	1.18e-14	76.3
+\end{minted}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\begin{table}[ht]
+\centering
+\begin{tabular}{l l r r r r}
+\hline
+Query & Subject & \% Identity & Alignment Length & E-value & Bitscore \\
+\hline
+OMRGCv2f\_11922010\_1 & A5UYW4.1 & 55.56 & 63 & 1.3e-17 & 85.1 \\
+OMRGCv2f\_11922010\_1 & A7NS65.1 & 55.56 & 63 & 1.8e-17 & 83.5 \\
+% ... repeat for top 15
+\hline
+\end{tabular}
+\caption{Top 15 BLASTP hits for sample OMRGCv2f\_11922010\_1 against SwissProt.}
+\label{tab:blast_top15}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{Results}
-\tikz \graph [phylogenetic tree layout,
-              balanced minimum evolution,
-              grow'=right, sibling distance=0pt,
-              distance matrix={
-                0 4 9 9 9 9 9
-                4 0 9 9 9 9 9
-                9 9 0 2 7 7 7
-                9 9 2 0 7 7 7
-                9 9 7 7 0 3 5
-                9 9 7 7 3 0 5
-                9 9 7 7 5 5 0}]
-  { a, b, c, d, e, f, g };
 
 \begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!1]{python}
 import pandas as pd
@@ -151,7 +176,7 @@ Alignment results using Clustal Omega on some test data:
 % Texshade alignment
 %%%%%%%%%%%%%%%
 \begin{figure}[htbp]
-\begin{texshade}{../data/testing/clustalo-I20251025-093857-0026-94127824-p1m.aln-msf}
+\begin{texshade}{../data/dummy_data/clustalo-I20251025-093857-0026-94127824-p1m.aln-msf}
 \threshold[80]{50}
 \setends{1}{0..110}
 \showconsensus[ColdHot]{bottom}
