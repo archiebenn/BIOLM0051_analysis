@@ -1,7 +1,7 @@
 ## Project repository for "Introduction to Bioinformatics" module on MSc Bioinformatics 2025/26  
 ### Requirements  
 - Python 3.12+
-(tested with 3.12.3)
+  (Tesed with 3.12.3)
 
 A virtual environment is recommended to ensure reproducibility
 
