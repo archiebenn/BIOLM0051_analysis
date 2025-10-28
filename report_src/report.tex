@@ -127,11 +127,18 @@ blastn -db nt -query sequence.fa -out results.out -remote
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Results}
-In this study, we analysed the gene expression levels across multiple samples using RNA-seq data. The expression values $x_i$ for gene $i$ were normalised using the log-transformation:
-\[
-y_i = \log_2(x_i + 1)
-\]
-to stabilise variance. Data processing was performed using Python scripts:
+\tikz \graph [phylogenetic tree layout,
+              balanced minimum evolution,
+              grow'=right, sibling distance=0pt,
+              distance matrix={
+                0 4 9 9 9 9 9
+                4 0 9 9 9 9 9
+                9 9 0 2 7 7 7
+                9 9 2 0 7 7 7
+                9 9 7 7 0 3 5
+                9 9 7 7 3 0 5
+                9 9 7 7 5 5 0}]
+  { a, b, c, d, e, f, g };
 
 \begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!1]{python}
 import pandas as pd
