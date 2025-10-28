@@ -5,7 +5,7 @@
 
 Setting up the virtual environment below is recommended to ensure reproducibility
 
-### Setting up Environment
+### Step 1: Setting up the virtual Environment
 - Clone this repo onto your local machine and navigate into this directory.  
 - Set up the project environment using the provided `requirements.txt` file:
 ```
