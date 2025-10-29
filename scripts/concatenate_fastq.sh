@@ -2,7 +2,10 @@
 # concatenate_fastq.sh - this script will concatenate FASTQ sample parts into one whole FASTQ for each of the samples given
 
 cd data/samples 
-ls *.FASTQ
-for i in ls *.FASTQ; do
-    echo "File 1: $i"
+
+for letter in {A..D}; do
+    x=$letter
+    echo "File $x consists of:"
+    ls sample$x*
 done
+
