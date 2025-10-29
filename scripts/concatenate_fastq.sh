@@ -21,7 +21,9 @@ for x in {A..D}; do                                                   # loops fo
     sed -i 's/^@\(.*\) /\1_/g' "sample${x}_processed.FASTQ"           # sed substitution to remove header spaces - check headers (start with @) capture up to space and replace with capture followed by underscore, globally
     sed -i '/^$/d' "sample${x}_processed.FASTQ"                       # sed deletion - delete any empty lines in the multi-read fastq
 
-    # this removes any duplicate lines following each other (which should never occur in fastq)
+    sed -i -e '$a\' "sample${x}_processed.FASTQ"                      # sed append - ensure last line of processed file ends in newline (not required for other parts as headers are made to have newline (above), but final line will not have a following header)
+
+    # the following removes any duplicate lines following each other (which should never occur in fastq)
     temp="sample${x}_temp.FASTQ"                                      # make temporary file to write while loop to so it's not writing over input file
     previous=""                                                       # starts previous = empty string
     while read -r line; do                                            #  loop over each line in file   
