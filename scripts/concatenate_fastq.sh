@@ -1,5 +1,5 @@
 #!/bin/bash
-# concatenate_fastq.sh - this script will concatenate FASTQ sample parts into one whole FASTQ for each of the samples given
+# concatenate_fastq.sh - this script will concatenate FASTQ sample parts into one whole FASTQ for each of the samples given and move to a new directory in results/
 
 # change directory into data/samples where samples are downloaded.
 # if running direct from scripts/ directory cd data/ will fail, so an error message is printed
