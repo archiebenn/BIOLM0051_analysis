@@ -1,6 +1,6 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
-\usepackage[margin=2cm]{geometry}
+\usepackage[left=4cm,right=4cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage[numbers]{natbib}
@@ -9,49 +9,117 @@
 \usepackage{xcolor}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
 \usepackage{microtype}  % nicer typesetting
-\usepackage{libertinus}
+\usepackage{libertinus}% serif font for main body text
+\usepackage{helvet} % sans serif font for headings/tables etc
+\usepackage{sectsty}
+\usepackage{caption} 
+\captionsetup{font={footnotesize,sf}, 
+                    labelfont=bf,
+                    textfont={color=black!70}} % sans serif figure and table captions
 \usepackage{inconsolata}  % nicer font for comments in code blocks
 \usepackage{texshade}
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows, positioning} 
 \usepackage{smartdiagram}
 \usesmartdiagramlibrary{additions}
+\usepackage{fancyhdr}
+\usepackage{lastpage} % can reference last page number with this
+\usepackage{titlesec}
+\usepackage{lipsum}
 
-\linespread{1.05}
+
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[R]{Page \thepage\ of \pageref*{LastPage}} % page numbers top right and 'x of y'
+\renewcommand{\headrulewidth}{0pt} % remove header underline
+\linespread{1.1}
+
+
+
+% changing section heading fonts and sizing/spacing
+\titleformat{\section}
+  {\normalsize\sffamily\bfseries} % font size & style
+  {\thesection}{1em}{}       % number + spacing
+\titlespacing*{\section}
+  {0pt}{1.5ex plus .2ex}{0.2em} % left, before, after spacing
+
+\titleformat{\subsection}
+  {\small\sffamily\bfseries}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}
+  {0pt}{1.25ex plus .2ex}{0.5ex}
+
+
+
+\bibliographystyle{unsrtnat}
+\renewcommand{\bibfont}{\sffamily\footnotesize\color{black!70}}
+
+
 
 \title{\LARGE\textbf{Short Analysis Pipeline}\\\vspace{1mm}\large BIOLM0051}
 \author{Archie Benn}
 \date{}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COMPILE WITH THE FOLLOWING: 
 %pdflatex -shell-escape report.tex 
+%Preamble end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 \maketitle
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Scenario}
-A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.\newline
+\subsection*{\textit{Scenario}}
+A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.
 
 Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
 \section*{Abstract} %200 WORDS
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\lipsum[1-2]
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
 \section*{Introduction}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\lipsum[3-4]
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section*{Methods}
 The FASTQ files in this report are small and the use of HPC resources in this case is not necessary. However, this workflow is designed to scale easily to similar analyses with much larger datasets. All steps here are able to run on an HPC cluster without modification, demonstrating reproduciility, automation, and capacity for high-throughput analyses.
 
@@ -85,11 +153,6 @@ The FASTQ files in this report are small and the use of HPC resources in this ca
     \label{fig:workflow}
 \end{center}
 \end{figure}
-%%%%%%%%%%%%%%%
-% Pipeline workflow figure
-%%%%%%%%%%%%%%%
-
-
 
 
 Some python code: 
@@ -101,9 +164,6 @@ from Bio import SeqIO
 for record in SeqIO.parse("sequence.fasta", "fasta"):
     print(record.id, record.seq.translate())
 \end{minted} 
-%%%%%%%%%%%%%%%
-% Python block
-%%%%%%%%%%%%%%%
 
 Some Bash script:
 %%%%%%%%%%%%%%%
@@ -118,52 +178,41 @@ Some Bash script:
 
 blastn -db nt -query sequence.fa -out results.out -outfmt 7 -remote
 \end{minted}
+
+
 %%%%%%%%%%%%%%%
-% Bash block
+% Table
 %%%%%%%%%%%%%%%
-
-
-
-\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{bash}
-# BLASTP 2.17.0+
-# Query: OMRGCv2f_11922010_1 [212 - 1072] [TARA OCEANS OM-RGCv2: [NPST] North Pacific 
-# Subtropical and Polar Front Provinces (MRGID:21484)]
-# RID: G20BB3A3016
-# Database: swissprot
-# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, 
-# q. start, q. end, s. start, s. end, evalue, bit score
-# 500 hits found
-OMRGCv2f_11922010_1	A5UYW4.1	55.556	63	28	0	220	282	6	68	1.39e-17	85.1
-OMRGCv2f_11922010_1	A7NS65.1	55.556	63	28	0	220	282	6	68	1.87e-17	84.7
-OMRGCv2f_11922010_1	Q7NBW0.2	53.226	62	29	0	220	281	6	67	9.62e-16	79.7
-OMRGCv2f_11922010_1	B0BTI6.1	56.250	64	27	1	220	282	5	68	2.25e-15	78.6
-OMRGCv2f_11922010_1	A3N3J9.1	56.250	64	27	1	220	282	5	68	2.43e-15	78.6
-OMRGCv2f_11922010_1	Q9HJ83.1	55.385	65	27	1	220	282	4	68	3.42e-15	78.2
-OMRGCv2f_11922010_1	Q56237.2	50.000	62	31	0	220	281	6	67	7.13e-15	76.3
-OMRGCv2f_11922010_1	B9MJZ0.1	53.125	64	29	1	220	282	6	69	8.16e-15	77.0
-OMRGCv2f_11922010_1	O66921.1	51.613	62	30	0	220	281	8	69	1.02e-14	76.6
-OMRGCv2f_11922010_1	P50027.1	53.521	71	32	1	213	282	1	71	1.18e-14	76.3
-\end{minted}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{table}[ht]
 \centering
+\caption{Top 15 BLASTP hits for sample OMRGCv2f\_11922010\_1 against SwissProt.}
+\label{tab:blast_top15}
+\resizebox{\linewidth}{!}{% force margin fit
+\footnotesize\sffamily\color{black!70}
 \begin{tabular}{l l r r r r}
 \hline
-Query & Subject & \% Identity & Alignment Length & E-value & Bitscore \\
+\textbf{\color{black}Query} & \textbf{\color{black}Subject} & \textbf{\color{black}\% Identity} & \textbf{\color{black}Alignment Length} & \textbf{\color{black}E-value} & \textbf{\color{black}Bitscore} \\
 \hline
 OMRGCv2f\_11922010\_1 & A5UYW4.1 & 55.56 & 63 & 1.3e-17 & 85.1 \\
 OMRGCv2f\_11922010\_1 & A7NS65.1 & 55.56 & 63 & 1.8e-17 & 83.5 \\
 % ... repeat for top 15
 \hline
 \end{tabular}
-\caption{Top 15 BLASTP hits for sample OMRGCv2f\_11922010\_1 against SwissProt.}
-\label{tab:blast_top15}
+}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
 
 \section*{Results}
+\lipsum[5-6]
 
 \begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!1]{python}
 import pandas as pd
@@ -186,24 +235,43 @@ Alignment results using Clustal Omega on some test data:
 \caption{Alignment using Clustal Omega and Identity mode in texshade}
 \label{fig:workflow}
 \end{figure}
-%%%%%%%%%%%%%%%
-% Texshade alignment
-%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
 \section*{Discussion}
+\lipsum[5-6]
 Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe even from this guy \cite{baker1997signaling,wolin1997microbe}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check .bib ordering for years and surnames etc.
-\bibliographystyle{unsrtnat}
 \bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
 
 
 
@@ -211,16 +279,23 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 %Acknowledging the use of HPC Facilities
 %When you write articles about your research for publication, 
 %conference proceedings or for other reasons, please acknowledge use of the ACRC facilities by including the following:
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{Acknowledgments}
 This work was carried out using the computational facilities of the Advanced Computing Research Centre, University of Bristol - \url{http://www.bristol.ac.uk/acrc/}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
 \section*{Supplementary Data}
 Supplementary data can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \end{document}
