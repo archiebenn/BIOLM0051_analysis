@@ -1,5 +1,5 @@
 #!/bin/bash
-# run_all.sh - runs all shell scripts in order 
+# run_all.sh - runs all shell scripts in order (for modularity while debugging) with some notes as i go along for each step (for me)
 # run from project root
 
 # 0. ensure all scripts are executable
@@ -7,8 +7,20 @@ chmod +x scripts/*
 
 # 1. check fastq format of samples
 ./scripts/check_fastq.sh
+# here i noticed some weird things: sampleD part3 is not one word, sampleB_part1.FASTQ has two headers, some have 5 lines
 
-# 2. concatenate fastq samples into respective sample multi-read fastq files
+
+
+
+
+# 2. clean single-read fastq samples and concatenate into respective multi-read fastq files
 ./scripts/concatenate_fastq.sh
+# had to include some sed -i substitutions and deletions before they get concatenated:
+# a. make sure header always on new line 
+# b. make sure any spaces in header are replaced with underscore
+# c. delete any empty lines
 
-# 3. convert multi-read fastq files to i swear there we
+
+
+
+# 3. quality control/convert multi-read fastq files to fasta format using seqtk 

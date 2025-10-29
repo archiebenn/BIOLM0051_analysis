@@ -1,5 +1,5 @@
 #!/bin/bash
-# convert_to_fasta.sh
+# fastq_to_fasta.sh - use 
 # this shell script must be run from the project root due to hardcoded paths for file moves 
 
 
