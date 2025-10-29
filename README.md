@@ -1,4 +1,4 @@
-## Project repository for "Introduction to Bioinformatics" module on MSc Bioinformatics 2025/26  
+Heathrow Mystery Meat analysis pipeline
 ### Requirements  
 - Python 3.12+
   _(Tested with 3.12.3)_
