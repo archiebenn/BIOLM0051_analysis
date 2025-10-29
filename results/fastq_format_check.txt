@@ -1,0 +1,74 @@
+sampleA_part1.FASTQ file format:
+    1: @sampleA_p
+    2: ATGTTCATAA
+    3: +
+    4: IIIIIIIIII
+    5: 
+
+sampleA_part2.FASTQ file format:
+    1: @sampleA_p
+    2: ATAACCCAAT
+    3: +
+    4: IIIIIIIIII
+
+sampleA_part3.FASTQ file format:
+    1: @sampleA_p
+    2: GGTGGTCTAA
+    3: +
+    4: IIIIIIIIII
+
+sampleB_part1.FASTQ file format:
+    1: @sampleB_p
+    2: @sampleB_p
+    3: NNNNNCATAA
+    4: +
+    5: #####IIIII
+
+sampleB_part2.FASTQ file format:
+    1: @sampleB_p
+    2: ATAACCCAAT
+    3: +
+    4: IIIIIIIIII
+
+sampleB_part3.FASTQ file format:
+    1: @sampleB_p
+    2: GGCTTAACCG
+    3: +
+    4: HHHHHHHHHH
+
+sampleC_part1.FASTQ file format:
+    1: @sampleC_p
+    2: GGGGCAATCA
+    3: +
+    4: IIIIIIIIII
+
+sampleC_part2.FASTQ file format:
+    1: @sampleC_p
+    2: AAAAAAAAAA
+    3: +
+    4: 730!!!!!!!
+
+sampleC_part3.FASTQ file format:
+    1: @sampleC_p
+    2: TGGAGGGCTA
+    3: +
+    4: IIIIIIIIII
+
+sampleD_part1.FASTQ file format:
+    1: @sampleD_p
+    2: NNNNNNNNNN
+    3: +
+    4: ##########
+
+sampleD_part2.FASTQ file format:
+    1: @sampleD_p
+    2: ATATCACAAT
+    3: +
+    4: IIIIIIIIII
+
+sampleD_part3.FASTQ file format:
+    1: @sampleD p
+    2: GGTGGCCTGA
+    3: +
+    4: 5555555555
+
