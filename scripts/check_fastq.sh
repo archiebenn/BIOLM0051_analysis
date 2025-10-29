@@ -12,7 +12,7 @@ cd data/samples || \
 
 for fastq in *.FASTQ; do
     echo "$fastq file format:" >> fastq_format_check.txt
-    awk '{printf "%5d: %.10s\n", NR, $0}' $fastq >> fastq_format_check.txt
+    awk '{printf "%5d: %.10s\n", NR, $0}' "$fastq" >> fastq_format_check.txt
     echo >> fastq_format_check.txt
 done
 

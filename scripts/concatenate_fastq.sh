@@ -1,5 +1,5 @@
 #!/bin/bash
-# concatenate_fastq.sh - this script will concatenate FASTQ sample parts into one whole FASTQ for each of the samples given and move to a new directory in results/
+# concatenate_fastq.sh - this script will clean sample parts and then concatenate parts into one whole FASTQ for each of the samples given and move to a new directory in results/
 # this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
 
 
@@ -21,8 +21,19 @@ for x in {A..D}; do                                                   # loops fo
     sed -i 's/^@\(.*\) /\1_/g' "sample${x}_processed.FASTQ"           # sed substitution to remove header spaces - check headers (start with @) capture up to space and replace with capture followed by underscore, globally
     sed -i '/^$/d' "sample${x}_processed.FASTQ"                       # sed deletion - delete any empty lines in the multi-read fastq
 
+    # this removes any duplicate lines following each other (which should never occur in fastq)
+    temp="sample${x}_temp.FASTQ"                                      # make temporary file to write while loop to so it's not writing over input file
+    previous=""                                                       # starts previous = empty string
+    while read -r line; do                                            #  loop over each line in file   
+        if [[ "$line" != "$previous" ]]; then                         # if line is not equal to the previous line...
+            echo "$line"                                              # echo the line
+        fi
+        previous="$line"                                              # set previous to that line (so will run through and change each previous to the current line and repeat through the file)
+    done < "sample${x}_processed.FASTQ" > "$temp"                     # while loop reads from sample${x}_processed.FASTQ but outputs to temp file
+
+    mv "$temp" "sample${x}_processed.FASTQ"                           # copy temp file over sample${x}_processed.FASTQ
     mv sample${x}_processed.FASTQ ../../$fastq_folder                 # move the concatenated file to processed fastq directory in other part of repo
 done
 
 echo
-echo "Processing complete. Find concatenated FASTQ files in $folder"  # helps user know where to find processed FASTA files
+echo "Processing complete. Find concatenated FASTQ files in $fastq_folder"  # helps user know where to find processed FASTA files
