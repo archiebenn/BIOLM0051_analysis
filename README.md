@@ -2,6 +2,7 @@
 ### Requirements  
 - Python 3.12+
   _(Tested with 3.12.3)_
+- `seqtk` (https://github.com/lh3/seqtk.git)  
 
 Setting up the virtual environment below is recommended to ensure reproducibility
 
