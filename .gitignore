@@ -16,4 +16,4 @@ _minted-*
 report-env
 
 # ignore notes
-notes.md
+#notes.md
