@@ -2,7 +2,6 @@
 # check_fastq.sh - a checking script to see if each sample fastq follows fastq format
 # this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
 
-
 # move into samples/ (if running outside project root 'cd data/' will fail and an error message is printed)
 pwd
 cd data/samples || \
@@ -11,7 +10,7 @@ cd data/samples || \
 
 for fastq in *.FASTQ; do                                                             
     echo "$fastq file format:" >> fastq_format_check.txt           # for readability
-    
+
     # cut out first 15 characters of every line, along with line numbering and -ba to catch all lines in file:
     cut -c-15 "$fastq" | nl -ba  >> fastq_format_check.txt         
     echo >> fastq_format_check.txt                                 # space for readability   
