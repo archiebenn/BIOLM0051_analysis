@@ -25,15 +25,15 @@ for x in {A..D}; do                                                   # loops fo
 
     # the following removes any duplicate lines following each other (which should never occur in fastq)
     temp="sample${x}_temp.FASTQ"                                      # make temporary file to write while loop to so it's not writing over input file
-    previous=""                                                       # starts previous = empty string
+    previous=""                                                       # set previous = empty 
     while read -r line; do                                            #  loop over each line in file   
         if [[ "$line" != "$previous" ]]; then                         # if line is not equal to the previous line...
-            echo "$line"                                              # echo the line
+            echo "$line"                                              # echo the line (into temp file)
         fi
-        previous="$line"                                              # set previous to that line (so will run through and change each previous to the current line and repeat through the file)
+        previous="$line"                                              # set 'previous' to the current line. the process will then repeat for the next line
     done < "sample${x}_processed.FASTQ" > "$temp"                     # while loop reads from sample${x}_processed.FASTQ but outputs to temp file
 
-    mv "$temp" "sample${x}_processed.FASTQ"                           # copy temp file over sample${x}_processed.FASTQ
+    mv "$temp" "sample${x}_processed.FASTQ"                           # copy temp file over sample${x}_processed.FASTQ when finished
     mv sample${x}_processed.FASTQ ../../$fastq_folder                 # move the concatenated file to processed fastq directory in other part of repo
 done
 
