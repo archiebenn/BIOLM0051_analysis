@@ -1,74 +1,74 @@
 sampleA_part1.FASTQ file format:
-    1: @sampleA_p
-    2: ATGTTCATAA
-    3: +
-    4: IIIIIIIIII
-    5: 
+     1	@sampleA_part_1
+     2	ATGTTCATAAACCGC
+     3	+
+     4	IIIIIIIIIIIIIII
+     5	
 
 sampleA_part2.FASTQ file format:
-    1: @sampleA_p
-    2: ATAACCCAAT
-    3: +
-    4: IIIIIIIIII
+     1	@sampleA_part_2
+     2	ATAACCCAATACCAA
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleA_part3.FASTQ file format:
-    1: @sampleA_p
-    2: GGTGGTCTAA
-    3: +
-    4: IIIIIIIIII
+     1	@sampleA_part_3
+     2	GGTGGTCTAACAGGC
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleB_part1.FASTQ file format:
-    1: @sampleB_p
-    2: @sampleB_p
-    3: NNNNNCATAA
-    4: +
-    5: #####IIIII
+     1	@sampleB_part1
+     2	@sampleB_part1
+     3	NNNNNCATAAACCGA
+     4	+
+     5	#####IIIIIIIIII
 
 sampleB_part2.FASTQ file format:
-    1: @sampleB_p
-    2: ATAACCCAAT
-    3: +
-    4: IIIIIIIIII
+     1	@sampleB_part2
+     2	ATAACCCAATACCAA
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleB_part3.FASTQ file format:
-    1: @sampleB_p
-    2: GGCTTAACCG
-    3: +
-    4: HHHHHHHHHH
+     1	@sampleB_part3
+     2	GGCTTAACCGGTATT
+     3	+
+     4	HHHHHHHHHHHHHHH
 
 sampleC_part1.FASTQ file format:
-    1: @sampleC_p
-    2: GGGGCAATCA
-    3: +
-    4: IIIIIIIIII
+     1	@sampleC_part1
+     2	GGGGCAATCACACGC
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleC_part2.FASTQ file format:
-    1: @sampleC_p
-    2: AAAAAAAAAA
-    3: +
-    4: 730!!!!!!!
+     1	@sampleC_part2
+     2	AAAAAAAAAAAAAAA
+     3	+
+     4	730!!!!!!!!!!!!
 
 sampleC_part3.FASTQ file format:
-    1: @sampleC_p
-    2: TGGAGGGCTA
-    3: +
-    4: IIIIIIIIII
+     1	@sampleC_part3
+     2	TGGAGGGCTAACAGG
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleD_part1.FASTQ file format:
-    1: @sampleD_p
-    2: NNNNNNNNNN
-    3: +
-    4: ##########
+     1	@sampleD_part1
+     2	NNNNNNNNNNCTCGC
+     3	+
+     4	##########IIIII
 
 sampleD_part2.FASTQ file format:
-    1: @sampleD_p
-    2: ATATCACAAT
-    3: +
-    4: IIIIIIIIII
+     1	@sampleD_part2
+     2	ATATCACAATACCAA
+     3	+
+     4	IIIIIIIIIIIIIII
 
 sampleD_part3.FASTQ file format:
-    1: @sampleD p
-    2: GGTGGCCTGA
-    3: +
-    4: 5555555555
+     1	@sampleD part3
+     2	GGTGGCCTGACTGGC
+     3	+
+     4	555555555555555
 
