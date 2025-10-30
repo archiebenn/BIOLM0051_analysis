@@ -18,7 +18,7 @@ for x in {A..D}; do                                                   # loops fo
     cat "${files[@]}" > "sample${x}_processed.FASTQ"                  # concatenate full array of files to sample{letter of loop}_processed.FASTQ
     
     sed -i 's/\([^\n]\)@/\1\n@/g' "sample${x}_processed.FASTQ"        # sed substitution to have headers on newline - if @ is preceded by a non-newline character, insert a newline character before '@' and the '@' itsef, globally 
-    sed -i 's/^@\(.*\) /\1_/g' "sample${x}_processed.FASTQ"           # sed substitution to remove header spaces - check headers (start with @) capture up to space and replace with capture followed by underscore, globally
+    sed -i 's/^@\(.*\) /@\1_/g' "sample${x}_processed.FASTQ"           # sed substitution to remove header spaces - check headers (start with @) capture up to space and replace with capture followed by underscore, globally
     sed -i '/^$/d' "sample${x}_processed.FASTQ"                       # sed deletion - delete any empty lines in the multi-read fastq
 
     sed -i -e '$a\' "sample${x}_processed.FASTQ"                      # sed append - ensure last line of processed file ends in newline (not required for other parts as headers are made to have newline (above), but final line will not have a following header)
