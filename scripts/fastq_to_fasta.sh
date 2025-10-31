@@ -2,9 +2,6 @@
 # fastq_to_fasta.sh - using seqtk for quality control with phred algorithm and to convert multi-line fastq to fasta sequence
 # this shell script must be run from the project root due to hardcoded paths for file moves 
 
-# activate env
-micromamba activate report-env
-
 # move into results/ (if running outside project root 'cd results/' will fail and an error message is printed)
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
@@ -27,16 +24,8 @@ for fastq in FASTQ_processed/*.FASTQ; do
 done
 echo
 
-for fasta in FASTA_raw/*.fasta; do
-
-
-
-
-
-
+#for fasta in FASTA_raw/*.fasta; do
 
 
 echo "FASTA conversion completed. Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
 
-# deactivate env
-micromamba deactivate
