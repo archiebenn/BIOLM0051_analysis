@@ -10,7 +10,7 @@ cd data/samples || \
 fastq_folder=results/FASTQ_processed                                  
 
 # make processed fastq directory with folder name after moving two levels up and safe to re-run
-mkdir -p ../../$fastq_folder                                         
+mkdir -p ../../"$fastq_folder"                                         
 
 # loops for A, B, C, D (can be changed depending on downloaded file names)
 for x in {A..D}; do      
@@ -60,7 +60,7 @@ for x in {A..D}; do
     mv "$temp" "sample${x}_processed.FASTQ"
 
     # move the concatenated file to processed fastq directory in other part of repo                           
-    mv sample${x}_processed.FASTQ ../../$fastq_folder                 
+    mv sample${x}_processed.FASTQ ../../"$fastq_folder"                 
 done
 
 echo

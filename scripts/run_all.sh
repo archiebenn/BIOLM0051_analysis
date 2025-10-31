@@ -11,4 +11,5 @@ chmod +x scripts/*
 # 2. clean single-read fastq samples and concatenate into respective multi-read fastq files
 ./scripts/concatenate_fastq.sh
 
-# 3. quality control/convert multi-read fastq files to fasta format using seqtk 
+# 3. quality control/convert multi-read fastq files to single fasta format using seqtk 
+./scripts/fastq_to_fasta.sh

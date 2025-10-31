@@ -23,4 +23,14 @@ for fastq in FASTQ_processed/*.FASTQ; do
 
 done
 echo
+
+for fasta in FASTA_raw/*.fasta; do
+
+    
+
+
+
+
+
+
 echo "FASTA conversion completed. Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
