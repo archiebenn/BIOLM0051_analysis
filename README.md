@@ -1,16 +1,13 @@
 # Heathrow "Mystery Meat" analysis pipeline
 ### Requirements  
-- Python 3.12+
-  _(Tested with 3.12.3)_
-- `seqtk` (https://github.com/lh3/seqtk.git)  
+- micromamba installation  
 
 Setting up the virtual environment below is recommended to ensure reproducibility
 
-### Step 1: Setting up the virtual Environment
+### Step 1: Setting up and activating the virtual Environment
 - Clone this repo onto your local machine and navigate into this directory.  
-- Set up the project environment using the provided `requirements.txt` file:
-```
-python3 -m venv report-env  
-source report-env/bin/activate  
-pip install -r requirements.txt  
+- Set up the project environment using the provided `environment.yml` file.
+```bash
+micromamba create -n BIOLM0051-env -f environment.yml
+micromamba activate BIOLM0051-env
 ```
