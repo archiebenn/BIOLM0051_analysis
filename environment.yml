@@ -1,4 +1,4 @@
-name: report-env
+name: BIOLM0051-env
 channels:
   - bioconda
   - conda-forge
@@ -95,4 +95,3 @@ dependencies:
   - xorg-libxtst=1.2.5=hb9d3cd8_3
   - zstd=1.5.7=hb8e6e7a_2
 
-prefix: "/home/ab/.local/micromamba/envs/report-env"
