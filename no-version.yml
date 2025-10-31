@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python
+  - numpy
+  - pandas
+  - biopython
+  - seqtk
+  - fastqc
+  - fastp
+  - pip
