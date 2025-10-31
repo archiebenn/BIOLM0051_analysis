@@ -1,8 +1,8 @@
 # Heathrow "Mystery Meat" analysis pipeline
 ### Requirements  
-- micromamba installation  
+- `micromamba` installation  
 
-Setting up the virtual environment below is recommended to ensure reproducibility
+Setting up the `micromamba` environment below is recommended to ensure reproducibility by ensuring the same software, packages, and versions are installed.
 
 ### Step 1: Setting up and activating the virtual Environment
 - Clone this repo onto your local machine and navigate into this directory.  
