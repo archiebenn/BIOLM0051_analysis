@@ -13,7 +13,7 @@ for fasta in FASTA_processed/*.fasta; do
     name=$(basename "$fasta" _q20.fasta)
 
     echo
-    echo "Currently BLAST searching "$fasta"..."
+    echo "Carrying out a BLAST search on "$fasta"..."
 
     # run blastn nucleotide search remotely and save hits as a .tsv file (can be adapted for running on hpc with local db)
     blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 6 -remote
@@ -23,13 +23,10 @@ for fasta in FASTA_processed/*.fasta; do
         echo "=== BLAST log for "$name"_blast.tsv ==="
         date
         blastn -version
-        
+
         echo "Command used:"
         echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 6 -remote"
         
-        # to verify the exact same fasta file can be used to reproduce can create a checksum
-        echo "Fasta input checksum:"
-        md5sum "$fasta"
     } > "$name"_blast.log
 
     # move both into blast folder
@@ -37,4 +34,5 @@ for fasta in FASTA_processed/*.fasta; do
 
 done
 
+echo "BLAST searches complete. Find blast tsvs and log files in results/blast_output/"
 cd ..
