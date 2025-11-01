@@ -6,6 +6,8 @@
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
+mkdir ../../results
+
 # for loop to catch every FASTQ file
 for fastq in *.FASTQ; do  
 
@@ -19,7 +21,8 @@ for fastq in *.FASTQ; do
     echo >> FASTQ_format_check.txt                                   
 done
 
-# move file to results folder:
 mv FASTQ_format_check.txt ../../results/                           
 echo
 echo "FASTQ check complete. Find output in results/"
+
+cd ../../

@@ -7,25 +7,28 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # make directories for raw FASTA and trimmed FASTA sequences
+mkdir -p FASTQC_reports
 mkdir -p FASTA_raw
-mkdir -p FASTA_masked
+mkdir -p FASTA_processed
 
 for fastq in FASTQ_processed/*.FASTQ; do
 
     # extract base name of file
     name=$(basename "$fastq" _processed.FASTQ)
 
+    # run fastqc for a report on the merged fastq file
+    fastqc "$fastq" -o FASTQC_reports/
+
     # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
     seqtk seq -a "$fastq" | tr -d ' ' > "FASTA_raw/${name}_raw.fasta"
 
     # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
-    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "FASTA_masked/${name}_Q20.fasta"
+    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "FASTA_processed/${name}_Q20.fasta"
 
 done
 echo
 
-#for fasta in FASTA_raw/*.fasta; do
+echo "Find fastqc reports in results/FASTQC_reports"  
+echo "Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
 
-
-echo "FASTA conversion completed. Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
-
+cd ../

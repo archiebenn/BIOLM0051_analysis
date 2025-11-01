@@ -9,4 +9,5 @@ dependencies:
   - seqtk
   - fastqc
   - fastp
+  - blast
   - pip

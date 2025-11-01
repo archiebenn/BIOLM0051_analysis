@@ -65,5 +65,6 @@ done
 
 echo
 
-# helps user know where to find processed FASTA files
 echo "Processing complete. Find concatenated FASTQ files in $fastq_folder" 
+
+cd ../../
