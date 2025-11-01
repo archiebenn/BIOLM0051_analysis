@@ -13,3 +13,6 @@ chmod +x scripts/*
 
 # 3. quality control/convert multi-read fastq files to single fasta format using seqtk 
 ./scripts/fastq_to_fasta.sh
+
+# 4. blast searching
+./scripts/blast.sh
