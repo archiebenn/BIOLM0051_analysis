@@ -16,7 +16,7 @@ for fastq in FASTQ_processed/*.FASTQ; do
     # extract base name of file
     name=$(basename "$fastq" _processed.FASTQ)
 
-    # run fastqc for a report on the merged fastq file
+    # run fastqc for a report on the merged fastq file (reports not on github)
     fastqc "$fastq" -o FASTQC_reports/
 
     # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
