@@ -1,6 +1,6 @@
 # latex  files to ignore
 *.out
-*.log
+LaTeX/*.log
 *.aux
 _minted-*
 *.bbl
