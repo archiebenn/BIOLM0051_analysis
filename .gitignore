@@ -1,3 +1,6 @@
+# ignore results folder (generated from scripts)
+results/
+
 # latex  files to ignore
 *.out
 LaTeX/*.log
