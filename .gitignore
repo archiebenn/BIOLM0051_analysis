@@ -1,5 +1,5 @@
-# ignore results folder (generated from scripts)
-results/
+# ignore fastqc html reports 
+results/FASTQC_reports/*
 
 # latex  files to ignore
 *.out
