@@ -1,3 +1,9 @@
+# BLASTN 2.17.0+
+# Query: sampleD_part1
+# RID: GMFM83UN014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleD_part1	MF460363.1	98.252	515	8	1	11	524	5414	5928	0.0	915
 sampleD_part1	JX454992.1	98.252	515	8	1	11	524	5414	5928	0.0	915
 sampleD_part1	JX454989.1	98.252	515	8	1	11	524	5410	5924	0.0	915
@@ -498,6 +504,12 @@ sampleD_part1	MG679451.1	84.932	438	63	3	88	523	1	437	4.19e-122	453
 sampleD_part1	OR520623.1	83.438	477	76	3	49	523	1	476	4.19e-122	453
 sampleD_part1	OR520622.1	83.438	477	76	3	49	523	1	476	4.19e-122	453
 sampleD_part1	MG679428.1	85.321	436	53	6	88	517	1	431	1.95e-120	448
+# BLASTN 2.17.0+
+# Query: sampleD_part2
+# RID: GMFM83UN014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleD_part2	MF460363.1	96.190	525	20	0	1	525	5929	6453	0.0	891
 sampleD_part2	JX454992.1	96.190	525	20	0	1	525	5929	6453	0.0	891
 sampleD_part2	JX454973.1	96.190	525	20	0	1	525	5912	6436	0.0	891
@@ -998,6 +1010,12 @@ sampleD_part2	AY248598.1	83.559	444	73	0	1	444	145	588	5.51e-111	416
 sampleD_part2	MG912796.1	84.496	387	60	0	58	444	10096	9710	1.98e-110	414
 sampleD_part2	LR968550.1	82.836	402	69	0	43	444	5914	6315	3.32e-108	407
 sampleD_part2	EF380324.1	82.313	441	78	0	4	444	484	924	2.00e-105	398
+# BLASTN 2.17.0+
+# Query: sampleD_part3
+# RID: GMFM83UN014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1000 hits found
 sampleD_part3	PV741063.1	100.000	108	0	0	385	492	7338	7445	5.63e-46	200
 sampleD_part3	PV741063.1	100.000	74	0	0	1	74	6954	7027	4.48e-27	137
 sampleD_part3	PV741062.1	100.000	108	0	0	385	492	7338	7445	5.63e-46	200
@@ -1998,3 +2016,4 @@ sampleD_part3	PV621799.1	100.000	108	0	0	385	492	7338	7445	5.63e-46	200
 sampleD_part3	PV621799.1	100.000	74	0	0	1	74	6954	7027	4.48e-27	137
 sampleD_part3	PV692096.1	100.000	108	0	0	385	492	7338	7445	5.63e-46	200
 sampleD_part3	PV692096.1	100.000	74	0	0	1	74	6954	7027	4.48e-27	137
+# BLAST processed 3 queries

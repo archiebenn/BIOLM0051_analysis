@@ -15,8 +15,8 @@ for fasta in FASTA_processed/*.fasta; do
     echo
     echo "Carrying out a BLAST search on "$fasta"..."
 
-    # run blastn nucleotide search remotely and save hits as a .tsv file (can be adapted for running on hpc with local db)
-    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 6 -remote
+    # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
+    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote
 
     # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
     {
@@ -25,7 +25,7 @@ for fasta in FASTA_processed/*.fasta; do
         blastn -version
 
         echo "Command used:"
-        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 6 -remote"
+        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote"
         
     } > "$name"_blast.log
 

@@ -1,3 +1,9 @@
+# BLASTN 2.17.0+
+# Query: sampleA_part_1
+# RID: GMF46ZD0016
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 503 hits found
 sampleA_part_1	OP205215.1	97.524	525	13	0	1	525	5361	5885	0.0	922
 sampleA_part_1	OP205204.1	97.524	525	13	0	1	525	5361	5885	0.0	922
 sampleA_part_1	OP205199.1	97.524	525	13	0	1	525	5361	5885	0.0	922
@@ -501,6 +507,12 @@ sampleA_part_1	MH046964.1	89.641	473	49	0	53	525	3	475	2.34e-174	627
 sampleA_part_1	MH046963.1	89.641	473	49	0	53	525	3	475	2.34e-174	627
 sampleA_part_1	MH046962.1	89.641	473	49	0	53	525	3	475	2.34e-174	627
 sampleA_part_1	MH046961.1	89.641	473	49	0	53	525	3	475	2.34e-174	627
+# BLASTN 2.17.0+
+# Query: sampleA_part_2
+# RID: GMF46ZD0016
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 502 hits found
 sampleA_part_2	OP205215.1	99.605	506	2	0	1	506	5886	6391	0.0	926
 sampleA_part_2	OP205212.1	99.605	506	2	0	1	506	5886	6391	0.0	926
 sampleA_part_2	OP205211.1	99.605	506	2	0	1	506	5886	6391	0.0	926
@@ -1003,6 +1015,12 @@ sampleA_part_2	MW316154.1	86.166	506	70	0	1	506	5888	6393	5.21e-151	549
 sampleA_part_2	MW316153.1	86.166	506	70	0	1	506	5890	6395	5.21e-151	549
 sampleA_part_2	MW316152.1	86.166	506	70	0	1	506	5890	6395	5.21e-151	549
 sampleA_part_2	OQ554065.1	85.968	506	71	0	1	506	5890	6395	6.73e-150	545
+# BLASTN 2.17.0+
+# Query: sampleA_part_3
+# RID: GMF46ZD0016
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 549 hits found
 sampleA_part_3	OP205203.1	93.352	361	24	0	141	501	6551	6911	6.31e-160	579
 sampleA_part_3	OP205203.1	100.000	34	0	0	1	34	6411	6444	7.86e-05	63.9
 sampleA_part_3	OP205201.1	93.352	361	24	0	141	501	6551	6911	6.31e-160	579
@@ -1552,3 +1570,4 @@ sampleA_part_3	JF339972.1	88.211	246	29	0	256	501	6669	6914	1.98e-75	298
 sampleA_part_3	HM060334.1	88.211	246	29	0	256	501	6669	6914	1.98e-75	298
 sampleA_part_3	PQ632151.1	87.805	246	30	0	256	501	6676	6921	9.21e-74	292
 sampleA_part_3	NC_005276.1	87.805	246	30	0	256	501	6673	6918	9.21e-74	292
+# BLAST processed 3 queries

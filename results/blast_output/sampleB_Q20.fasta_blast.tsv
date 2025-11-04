@@ -1,3 +1,9 @@
+# BLASTN 2.17.0+
+# Query: sampleB_part1
+# RID: GMFA8PRE014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleB_part1	MT251289.1	92.308	520	40	0	6	525	5369	5888	0.0	778
 sampleB_part1	MT251288.1	92.308	520	40	0	6	525	5369	5888	0.0	778
 sampleB_part1	MT251286.1	92.308	520	40	0	6	525	5369	5888	0.0	778
@@ -498,6 +504,12 @@ sampleB_part1	OQ554252.1	91.538	520	44	0	6	525	5370	5889	0.0	756
 sampleB_part1	OQ554245.1	91.538	520	44	0	6	525	5370	5889	0.0	756
 sampleB_part1	OQ554244.1	91.538	520	44	0	6	525	5370	5889	0.0	756
 sampleB_part1	OQ554237.1	91.538	520	44	0	6	525	5370	5889	0.0	756
+# BLASTN 2.17.0+
+# Query: sampleB_part2
+# RID: GMFA8PRE014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleB_part2	OQ554110.1	92.803	528	35	1	1	525	5890	6417	0.0	804
 sampleB_part2	MT251225.1	92.614	528	36	1	1	525	5890	6417	0.0	798
 sampleB_part2	OQ554323.1	92.614	528	36	1	1	525	5890	6417	0.0	798
@@ -998,6 +1010,12 @@ sampleB_part2	MT251284.1	90.909	528	45	1	1	525	5889	6416	0.0	749
 sampleB_part2	MT251282.1	90.909	528	45	1	1	525	5889	6416	0.0	749
 sampleB_part2	MT251280.1	90.909	528	45	1	1	525	5889	6416	0.0	749
 sampleB_part2	OQ554048.1	90.909	528	45	1	1	525	5889	6416	0.0	749
+# BLASTN 2.17.0+
+# Query: sampleB_part3
+# RID: GMFA8PRE014
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleB_part3	MT251231.1	89.157	498	54	0	1	498	6417	6914	0.0	664
 sampleB_part3	MT251289.1	88.956	498	55	0	1	498	6417	6914	0.0	658
 sampleB_part3	MT251288.1	88.956	498	55	0	1	498	6417	6914	0.0	658
@@ -1498,3 +1516,4 @@ sampleB_part3	OQ554034.1	88.153	498	59	0	1	498	6418	6915	3.67e-177	636
 sampleB_part3	OQ554033.1	88.153	498	59	0	1	498	6418	6915	3.67e-177	636
 sampleB_part3	OQ553987.1	88.153	498	59	0	1	498	6418	6915	3.67e-177	636
 sampleB_part3	OQ553985.1	88.153	498	59	0	1	498	6418	6915	3.67e-177	636
+# BLAST processed 3 queries

@@ -1,3 +1,9 @@
+# BLASTN 2.17.0+
+# Query: sampleC_part1
+# RID: GMFC3ZRH016
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 669 hits found
 sampleC_part1	MT456024.1	81.737	334	61	0	180	513	129	462	3.34e-103	390
 sampleC_part1	MT456024.1	96.875	64	1	1	51	114	1	63	1.35e-17	106
 sampleC_part1	MT455062.1	81.737	334	61	0	180	513	129	462	3.34e-103	390
@@ -667,6 +673,17 @@ sampleC_part1	PP406789.1	79.641	334	68	0	180	513	75	408	1.58e-91	351
 sampleC_part1	MK567349.1	83.582	268	44	0	180	447	132	399	2.66e-84	327
 sampleC_part1	MK567349.1	98.507	67	0	1	48	114	1	66	6.26e-21	117
 sampleC_part1	MK567341.1	83.582	268	44	0	180	447	37	304	2.66e-84	327
+# BLASTN 2.17.0+
+# Query: sampleC_part2
+# RID: GMFC3ZRH016
+# Database: nt
+# 0 hits found
+# BLASTN 2.17.0+
+# Query: sampleC_part3
+# RID: GMFC3ZRH016
+# Database: nt
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 500 hits found
 sampleC_part3	KF906720.1	89.169	397	43	0	1	397	6525	6921	1.06e-157	571
 sampleC_part3	MT410869.1	89.169	397	43	0	1	397	6525	6921	1.06e-157	571
 sampleC_part3	JN086149.1	89.169	397	43	0	1	397	6525	6921	1.06e-157	571
@@ -1167,3 +1184,4 @@ sampleC_part3	NC_082750.1	77.119	354	81	0	44	397	6580	6933	3.34e-68	274
 sampleC_part3	NC_063781.1	77.299	348	79	0	50	397	6546	6893	3.34e-68	274
 sampleC_part3	AP012233.1	77.119	354	81	0	43	396	6687	7040	3.34e-68	274
 sampleC_part3	DQ874754.1	82.114	246	44	0	2	247	368	613	7.29e-60	246
+# BLAST processed 3 queries
