@@ -167,3 +167,5 @@ echo "Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/
 
 cd ../
 ```
+
+## Part 2 - BLAST searching
