@@ -211,3 +211,20 @@ done
 echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_outputs/"
 cd ..
 ```
+
+### 5) Use `taxonkit` to get taxonomy for 20 phylogenetically distinct outputs from blast tsv
+n.b had to use taxonkit's dump to be able to use taxonkit: downloaded `taxdump.tar.gz` from https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/ and then added to home directory using `mkdir -p /.taxonkit`. then i gunzipped it and moved the 4 dump files into /.taxonkit. probably worth explaining this in readme or something:
+
+```bash
+# make folder
+mkdir -p ~/.taxonkit
+
+# download
+wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+
+# extract
+tar -xzf taxdump.tar.gz
+
+mv citations.dmp  gc.prt merged.dmp readme.txt delnodes.dmp gencode.dmp names.dmp division.dmp images.dmp nodes.dmp ~/.taxonkit/
+```
+
