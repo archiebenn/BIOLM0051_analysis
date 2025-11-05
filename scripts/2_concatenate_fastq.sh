@@ -7,7 +7,7 @@ cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # set FASTQ folder name for ease
-fastq_folder=results/FASTQ_processed                                  
+fastq_folder=results/2_FASTQ_processed                                  
 
 # make processed fastq directory with folder name after moving two levels up and safe to re-run
 mkdir -p ../../"$fastq_folder"                                         

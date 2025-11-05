@@ -7,28 +7,28 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # make directories for raw FASTA and trimmed FASTA sequences
-mkdir -p FASTQC_reports
-mkdir -p FASTA_raw
-mkdir -p FASTA_processed
+mkdir -p 3_FASTQC_reports
+mkdir -p 3_FASTA_raw
+mkdir -p 3_FASTA_processed
 
-for fastq in FASTQ_processed/*.FASTQ; do
+for fastq in 2_FASTQ_processed/*.FASTQ; do
 
     # extract base name of file
     name=$(basename "$fastq" _processed.FASTQ)
 
     # run fastqc for a report on the merged fastq file (reports not on github)
-    fastqc "$fastq" -o FASTQC_reports/
+    fastqc "$fastq" -o 3_FASTQC_reports/
 
     # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
-    seqtk seq -a "$fastq" | tr -d ' ' > "FASTA_raw/${name}_raw.fasta"
+    seqtk seq -a "$fastq" | tr -d ' ' > "3_FASTA_raw/${name}_raw.fasta"
 
     # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
-    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "FASTA_processed/${name}_Q20.fasta"
+    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_processed/${name}_Q20.fasta"
 
 done
 echo
 
-echo "Find fastqc reports in results/FASTQC_reports"  
-echo "Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
+echo "Find fastqc reports in results/3_FASTQC_reports"  
+echo "Find raw FASTA outputs in results/3_FASTA_raw and masked outputs in results/3_FASTA_processed"
 
 cd ../

@@ -1,12 +1,12 @@
 # Notes for project report
 
 ## PART 1 - FASTQ parts to single FASTA for each sample
-### a) make sure all scripts are executable
+### 0) make sure all scripts are executable
 ```bash
 chmod +x scripts/*
 ```
 
-### b) script for preliminary checking of fastq format for each file provided.  
+### 1) script for preliminary checking of fastq format for each file provided.  
 This is just as a preliminary check to see what the data look like without having to open each file. note - won't be helpful for a large number of files, but for this analysis it's fine as only a few:
 ```bash
 #!/bin/bash
@@ -43,7 +43,7 @@ Here i noticed some weird things:
 Therefore I need to come up with a script which 1) cleans the fastq files to ensure they have 4 lines with header, sequence, '+', and quality score lines.  
 I also want to concatenat all these fastq parts to their respective samples, so I will use a for loop which runs over each of the 4 sample names to clean and concatenate
 
-### c) clean single-read fastq samples and concatenate into respective multi-read fastq files
+### 2) clean single-read fastq samples and concatenate into respective multi-read fastq files
 ```bash
 #!/bin/bash
 # concatenate_fastq.sh - this script will clean sample parts and then concatenate parts into one whole FASTQ for each of the samples given and move to a new directory in results/
@@ -128,7 +128,7 @@ Following those `sed` commands is a loop which i was stuck on for a while. sampl
 It's important to note why I am explicitly automating all of this. 1) it could be useful if given more data in the same format, but mainly 2) so that this is all reproducible. If i was to go in and manually edit the files I could come to the same processed fastq but with no evidence as to how I got there.
 
 
-### d) Covert fastq multi-read into multi-read FASTA with processing 
+### 3) Covert fastq multi-read into multi-read FASTA with processing 
 Includes a report on the raw fastq file using `fastqc`. 
 ```bash
 #!/bin/bash
@@ -170,6 +170,7 @@ cd ../
 The main bit to this uses `seqtk` to generate a) a raw fasta file with 3 reads (for each part) and b) a masked fasta file based on the quality scores from the fastq. Here the value of Q20 was set as a threshold, so any bases with a q score < 20 will be masked as an 'N' to reduce possible effects of false positives from BLAST etc. on low quality data. Q20 selected as it's a 99% confidence level for that base.
 
 ## Part 2 - BLAST searching
+### 4) Take processed FASTA files and perform a BLAST search on them, gives tsv output and staxids
 ```bash
 #!/bin/bash
 
@@ -178,9 +179,9 @@ cd results || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # make blast results folder
-mkdir -p blast_output
+mkdir -p 4_blast_outputs
 
-for fasta in FASTA_processed/*.fasta; do
+for fasta in 3_FASTA_processed/*.fasta; do
 
     # extract file base name
     name=$(basename "$fasta" _q20.fasta)
@@ -189,7 +190,7 @@ for fasta in FASTA_processed/*.fasta; do
     echo "Carrying out a BLAST search on "$fasta"..."
 
     # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
-    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote
+    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote
 
     # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
     {
@@ -198,15 +199,15 @@ for fasta in FASTA_processed/*.fasta; do
         blastn -version
 
         echo "Command used:"
-        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote"
+        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt \"6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore\" -remote"
         
     } > "$name"_blast.log
 
     # move both into blast folder
-    mv "$name"_blast.tsv "$name"_blast.log blast_output/
+    mv "$name"_blast.tsv "$name"_blast.log 4_blast_outputs/
 
 done
 
-echo "BLAST searches complete. Find blast tsvs and log files in results/blast_output/"
+echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_outputs/"
 cd ..
 ```

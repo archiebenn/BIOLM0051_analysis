@@ -1,6 +1,0 @@
-=== BLAST log for sampleD_Q20.fasta_blast.tsv ===
-Tue Nov  4 06:01:54 PM GMT 2025
-blastn: 2.17.0+
- Package: blast 2.17.0, build Aug 11 2025 09:46:06
-Command used:
-blastn -query FASTA_processed/sampleD_Q20.fasta -db nt -out sampleD_Q20.fasta_blast.tsv -outfmt 7 -remote
