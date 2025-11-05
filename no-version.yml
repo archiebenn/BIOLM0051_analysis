@@ -10,4 +10,5 @@ dependencies:
   - fastqc
   - fastp
   - blast
+  - taxonkit
   - pip
