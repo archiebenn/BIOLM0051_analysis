@@ -129,8 +129,7 @@ It's important to note why I am explicitly automating all of this. 1) it could b
 
 
 ### d) Covert fastq multi-read into multi-read FASTA with processing 
-Includes a report on the raw fastq file using `fastqc`.  
-
+Includes a report on the raw fastq file using `fastqc`. 
 ```bash
 #!/bin/bash
 # fastq_to_fasta.sh - using seqtk for quality control with phred algorithm and to convert multi-line fastq to fasta sequence
@@ -150,7 +149,7 @@ for fastq in FASTQ_processed/*.FASTQ; do
     # extract base name of file
     name=$(basename "$fastq" _processed.FASTQ)
 
-    # run fastqc for a report on the merged fastq file
+    # run fastqc for a report on the merged fastq file (reports not on github)
     fastqc "$fastq" -o FASTQC_reports/
 
     # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
@@ -167,5 +166,47 @@ echo "Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/
 
 cd ../
 ```
+ 
+The main bit to this uses `seqtk` to generate a) a raw fasta file with 3 reads (for each part) and b) a masked fasta file based on the quality scores from the fastq. Here the value of Q20 was set as a threshold, so any bases with a q score < 20 will be masked as an 'N' to reduce possible effects of false positives from BLAST etc. on low quality data. Q20 selected as it's a 99% confidence level for that base.
 
 ## Part 2 - BLAST searching
+```bash
+#!/bin/bash
+
+# move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
+cd results || \
+{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
+
+# make blast results folder
+mkdir -p blast_output
+
+for fasta in FASTA_processed/*.fasta; do
+
+    # extract file base name
+    name=$(basename "$fasta" _q20.fasta)
+
+    echo
+    echo "Carrying out a BLAST search on "$fasta"..."
+
+    # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
+    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote
+
+    # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
+    {
+        echo "=== BLAST log for "$name"_blast.tsv ==="
+        date
+        blastn -version
+
+        echo "Command used:"
+        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt 7 -remote"
+        
+    } > "$name"_blast.log
+
+    # move both into blast folder
+    mv "$name"_blast.tsv "$name"_blast.log blast_output/
+
+done
+
+echo "BLAST searches complete. Find blast tsvs and log files in results/blast_output/"
+cd ..
+```
