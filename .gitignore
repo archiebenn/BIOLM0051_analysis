@@ -1,5 +1,5 @@
 # ignore fastqc html reports 
-results/FASTQC_reports/*
+results/3_FASTQC_reports/*
 
 # latex  files to ignore
 *.out
