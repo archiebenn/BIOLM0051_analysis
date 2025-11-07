@@ -227,4 +227,4 @@ tar -xzf taxdump.tar.gz
 
 mv citations.dmp  gc.prt merged.dmp readme.txt delnodes.dmp gencode.dmp names.dmp division.dmp images.dmp nodes.dmp ~/.taxonkit/
 ```
-
+Notes from week 7 intro to bioinformatics worksheet on how to filter: *You’re likely to uncover many BLAST hits and many homologs. When we’re trying to determine the taxonomic origin of a sequence it is good practise to include as many homologous sequences as possible. However, the databases we search against have become so large that it often becomes impractical to include all discovered homologs. Therefore, you are going to **filter your BLAST results on Percent Identity, E-value and Query Coverage** (see the grey “Filter results” box above your BLAST hits). Filter your results by specifying thresholds which you find appropriate for selecting homologous sequences for phylogenetic analysis and note them down in the following table:*
