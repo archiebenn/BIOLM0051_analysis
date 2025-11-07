@@ -15,4 +15,7 @@ chmod +x scripts/*
 ./scripts/3_fastq_to_fasta.sh
 
 # 4. blast searching
-./scripts/4_blast.sh
+./scripts/4_blast.sh 
+
+# 5. taxonomies from blast
+./scripts/5_blast_taxonomy.sh
