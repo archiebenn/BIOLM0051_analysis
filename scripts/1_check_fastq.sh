@@ -19,7 +19,8 @@ for fastq in *.FASTQ; do
     cut -c-15 "$fastq" | nl -ba  >> 1_FASTQ_format_check.txt 
 
     # space for readability         
-    echo >> 1_FASTQ_format_check.txt                                   
+    echo >> 1_FASTQ_format_check.txt    
+                          
 done
 
 mv 1_FASTQ_format_check.txt ../../results/1_FASTQ_check                           

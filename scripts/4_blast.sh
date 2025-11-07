@@ -20,7 +20,7 @@ for fasta in 3_FASTA_processed/*.fasta; do
 
     # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
     {
-        echo "=== BLAST log for "$name"_blast.tsv ==="
+        echo "--- 4_blast.sh ---"
         date
         blastn -version
 
