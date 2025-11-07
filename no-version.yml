@@ -11,4 +11,5 @@ dependencies:
   - fastp
   - blast
   - taxonkit
+  - aliview
   - pip
