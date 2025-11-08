@@ -12,4 +12,5 @@ dependencies:
   - blast
   - taxonkit
   - aliview
+  - iqtree
   - pip

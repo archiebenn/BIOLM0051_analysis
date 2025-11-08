@@ -24,7 +24,7 @@ for fastq in 2_FASTQ_processed/*.FASTQ; do
 
     # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
     seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_processed/${name}_Q20.fasta"
-
+    
 done
 echo
 

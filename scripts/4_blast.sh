@@ -20,7 +20,7 @@ for fasta in 3_FASTA_processed/*.fasta; do
 
     # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
     {
-        echo "--- 4_blast.sh ---"
+        echo "--- BLAST log ---"
         date
         blastn -version
 
@@ -31,7 +31,7 @@ for fasta in 3_FASTA_processed/*.fasta; do
 
     # move both into blast folder
     mv "$name"_blast.tsv "$name"_blast.log 4_blast_outputs/
-
+    
 done
 
 echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_outputs/"

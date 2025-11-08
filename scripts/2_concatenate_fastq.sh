@@ -60,8 +60,8 @@ for x in {A..D}; do
     mv "$temp" "sample${x}_processed.FASTQ"
 
     # move the concatenated file to processed fastq directory in other part of repo                           
-    mv sample${x}_processed.FASTQ ../../"$fastq_folder"       
-
+    mv sample${x}_processed.FASTQ ../../"$fastq_folder"     
+      
 done
 
 echo
