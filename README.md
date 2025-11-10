@@ -3,7 +3,7 @@
 If you wish to reproduce this analysis, the following are recommended:
 - `micromamba` installation  
 
-Setting up the `micromamba` environment below is recommended to ensure reproducibility by ensuring the same software, packages, and versions are installed.
+Setting up the `micromamba` environment below is recommended to ensure reproducibility by ensuring the same packages and package versions are installed.
 
 ### Step 1: Setting up and activating the virtual Environment
 - Clone this repo onto your local machine and navigate into this directory.  
