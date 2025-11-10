@@ -7,7 +7,7 @@ Setting up the `micromamba` environment below is recommended to ensure reproduci
 
 ### Step 1: Setting up and activating the virtual Environment
 - Clone this repo onto your local machine and navigate into this directory.  
-- Set up the project environment using the provided `environment.lock.yml` file for an exact environment reproduction with pinned versions of packages (with linux), or the `environment.yml` file for a more portable setup across operating systems
+- Set up the project environment using the provided `environment.lock.yml` file for an exact environment reproduction with pinned versions of packages (linux only), or the `environment.yml` file for a more portable setup across operating systems
 ```bash
 micromamba create -n BIOLM0051-env -f environment.lock.yml  # (or environment.yml)
 micromamba activate BIOLM0051-env
