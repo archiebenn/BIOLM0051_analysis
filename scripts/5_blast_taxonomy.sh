@@ -1,5 +1,5 @@
 #!/bin/bash
-# blast_taxonomy.sh - checks and counts taxonomic results from blast searches
+# blast_taxonomy.sh - filters blast hits, then finds and counts taxonomic results from blast searches using taxonkit
 
 # move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
 cd results || \
@@ -29,3 +29,5 @@ for tsv in 4_blast_outputs/*.tsv; do
 done
 
 cd ..
+
+#### TODO - get it to filter for e values and coverage etc.
