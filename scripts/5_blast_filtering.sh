@@ -8,12 +8,13 @@ cd results || \
 
 mkdir -p 5_blast_filtering
 
-
 for tsv in 4_blast_outputs/*.tsv; do
     
     # 1.split main blast output into each samples' parts:
     # extract base name
     name=$(basename "$tsv" _Q20.fasta_blast.tsv)
+
+    echo "Generating tanonomic lineage counts and sorting unique taxa from BLAST staxid for "$name""
 
     # awk to take the query sequence name (in column 1/$1 of tsv) and retrieve blast hits for that part
     awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv

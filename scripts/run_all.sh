@@ -18,4 +18,7 @@ chmod +x scripts/*
 ./scripts/4_blast.sh 
 
 # 5. taxonomies from blast
-./scripts/5_blast_taxonomy.sh
+./scripts/5_blast_filtering.sh
+
+# 6. trimmed fasta files from top, unique accessions in each part's blast output (trimmed to query sstart - send)
+./scripts/6_efetch.sh
