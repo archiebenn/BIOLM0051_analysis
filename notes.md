@@ -214,7 +214,7 @@ cd ..
 
 Of course, this produces a BLAST tsv dump for all parts (1,2 and 3) of each sample. Now I cannot assume that these parts are from the same loci, so actually i need to make sure i split up the outputs into the parts again before selecting distinct taxa and alignment, otherwise i could be trying to align random different areas (say sequences from part 1 and 3 of a sample), which would be messy.
 
-### 5) Use `taxonkit` to get taxonomy for 20+ phylogenetically distinct outputs from blast tsv
+### 5) Use `taxonkit` to get taxonomy for 20+ phylogenetically distinct outputs from each part of samples' blasts hits
 n.b had to use taxonkit's dump to be able to use taxonkit: downloaded `taxdump.tar.gz` from https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/ and then added to home directory using `mkdir -p /.taxonkit`. then i gunzipped it and moved the 4 dump files into /.taxonkit. probably worth explaining this in readme or something:
 
 ```bash
@@ -229,4 +229,61 @@ tar -xzf taxdump.tar.gz
 
 mv citations.dmp  gc.prt merged.dmp readme.txt delnodes.dmp gencode.dmp names.dmp division.dmp images.dmp nodes.dmp ~/.taxonkit/
 ```
-Notes from week 7 intro to bioinformatics worksheet on how to filter: *You’re likely to uncover many BLAST hits and many homologs. When we’re trying to determine the taxonomic origin of a sequence it is good practise to include as many homologous sequences as possible. However, the databases we search against have become so large that it often becomes impractical to include all discovered homologs. Therefore, you are going to **filter your BLAST results on Percent Identity, E-value and Query Coverage** (see the grey “Filter results” box above your BLAST hits). Filter your results by specifying thresholds which you find appropriate for selecting homologous sequences for phylogenetic analysis and note them down in the following table:*
+Notes from week 7 intro to bioinformatics worksheet on how to filter: *You’re likely to uncover many BLAST hits and many homologs. When we’re trying to determine the taxonomic origin of a sequence it is good practise to include as many homologous sequences as possible. However, the databases we search against have become so large that it often becomes impractical to include all discovered homologs. Therefore, you are going to **filter your BLAST results on Percent Identity, E-value and Query Coverage** (see the grey “Filter results” box above your BLAST hits). Filter your results by specifying thresholds which you find appropriate for selecting homologous sequences for phylogenetic analysis and note them down in the following table:*  
+
+In this script I split up the samples into parts 1, 2 and 3 again. This seems weird but it's actually helpful for QC as it lets me see if any of the parts are issues, rather than having it all together in one blast - it allows me to check phylogenetic consistency across sample parts.  
+
+After splitting back into parts and using their respective blast hits, I run taxonkit on them just as a lineage check for a quick overview, then choose the top hits of each unique staxid i the parts' blast tsv, and end up with a file containign one blast output per staxid which can then be used to access the fasta files. This is essentially to demonstrate that i did not blindly pick the top fasta hits, and that i did inspect them to ensure phylogemetic diversity and taxonomic consistency across the parts.
+
+```bash
+#!/bin/bash
+# blast_filtering.sh - separates blast output back into parts 1, 2 and 3. Then for each part's blast outputs runs taxonkit for an overview, and also selects top hit per staxid for alignment downstream
+
+# move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
+cd results || \
+{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
+
+mkdir -p 5_blast_filtering
+
+
+for tsv in 4_blast_outputs/*.tsv; do
+
+    # extract base name
+    name=$(basename "$tsv" _Q20.fasta_blast.tsv)
+
+    # make sample subfolders 
+    mkdir -p 5_blast_filtering/"$name"
+
+    # split up the blast outputs back into the 3 parts, as cannot assume same sequence loci, before further analysis:
+    # uses awk to take the query sequence name (in column 1/$1 of tsv) and rename a file to that name, output to sample subfolder
+    awk -F'\t' -v out="5_blast_filtering/$name" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv
+
+    # for each part of each sample, sort the top blast hit for each staxid, in order to have a diverse set of accessions across taxa, and run taxonkit 
+    for part in 5_blast_filtering/"$name"/*_blast.tsv; do
+
+        # extract part base name
+        part_name=$(basename "$part" _blast.tsv)
+
+        # run taxonkit lineage based on the staxids generated from full 'part blast tsv' for an overview of taxa hits per sample part
+        cut -f3 5_blast_filtering/"$name"/"$part_name"_blast.tsv | taxonkit lineage > temp.tsv
+
+        # create a sorted/counted file for each of the species detected from blast search and taxonkit, this is just for a guide of the top hits from blast
+        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > 5_blast_filtering/"$name"/"$part_name"_taxonomic_counts.txt
+
+        # awk to print line to output tsv if it hasn't 'seen' that staxid (in column 3/$3) before to ensure no repeated staxids (to not bloat during alignment)
+        awk -F'\t' '!seen[$3]++' 5_blast_filtering/"$name"/"$part_name"_blast.tsv > 5_blast_filtering/"$name"/"$part_name"_unique_taxa.tsv
+
+        # remove as not needed
+        rm temp.tsv 
+    done
+
+done
+
+cd ..
+```
+
+### 6) Selecing tophits from staxid blast and runningefetch to get headers/fastas
+This is essentially to create a candidate pool of sequences i might use in my alignment - note it's not selecting sequences etc. I need to do that manually. 
+
+Also can't just use efetch as this will give me the whole genome/accession sequence which can be 10,000+ bases - so can use `seqtk sebseq` but this took some getting used to/understanding as i needed to create a `.bed` file with sstart-1 and send coordinates from the blast hot to line up properly to my original query sequence. here is a good explanation: https://www.reneshbedre.com/blog/seqtk-subseq.html .
+

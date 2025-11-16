@@ -8,10 +8,10 @@ dependencies:
   - biopython
   - seqtk
   - fastqc
-  - fastp
   - blast
   - taxonkit
   - aliview
   - iqtree
   - figtree
+  - entrez-direct
   - pip
