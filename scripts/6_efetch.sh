@@ -21,7 +21,6 @@ for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
     ##########
     # 2. get fasta and trim from sstart -> send
     ##########
-
     # empty out final fasta file (in case of re-running as uses >> below)
     > 6_efetch_fastas/"$part_name".fasta
 
@@ -41,21 +40,26 @@ for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
             seqstart=$((send - 1))
             seqend=$sstart
         fi
-    
-        # send these values into a .bed file (text file format for storing genomic regions as coordinates)
-        echo -e "${accession}\t$((seqstart))\t${seqend}" > accession_start_end.bed
 
         # retrieve full accession fasta sequence using efetch and store in temp file 
         efetch -db nuccore -format fasta -id "$accession" > temp_full.fasta
 
-        # trim full fasta using bed coordinates generated above (seqtk subseq format: subseq file bed_coordinates) 
+        # retrieve fasta header to use in seqtk subseq below (bed format required must be fasta_header_id start end)
+        # seqname becomes fasta file header, minus the >, then cuts header at space and keeps first field only
+        seqname=$(head -1 temp_full.fasta | sed 's/^>//' | cut -d' ' -f1)
+
+        # send these values into a .bed file (text file format for storing genomic regions as coordinates)
+        echo -e "${seqname}\t$((seqstart))\t${seqend}" > accession_start_end.bed
+
+        # trim full fasta using bed coordinates generated above (seqtk subseq format: file bed_coordinates) 
         seqtk subseq temp_full.fasta accession_start_end.bed >> 6_efetch_fastas/"$part_name".fasta
+
+        # remove unnecesary files
+        rm temp_full.fasta
+        rm accession_start_end.bed
 
     # while loop reads from 'part' blast tsv file (top 20)
     done < 6_efetch_fastas/"$part_name"_blast.tsv
-
-# remove temp
-rm temp_full.fasta
 
 done
 
