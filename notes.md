@@ -212,7 +212,9 @@ echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_
 cd ..
 ```
 
-### 5) Use `taxonkit` to get taxonomy for 20 phylogenetically distinct outputs from blast tsv
+Of course, this produces a BLAST tsv dump for all parts (1,2 and 3) of each sample. Now I cannot assume that these parts are from the same loci, so actually i need to make sure i split up the outputs into the parts again before selecting distinct taxa and alignment, otherwise i could be trying to align random different areas (say sequences from part 1 and 3 of a sample), which would be messy.
+
+### 5) Use `taxonkit` to get taxonomy for 20+ phylogenetically distinct outputs from blast tsv
 n.b had to use taxonkit's dump to be able to use taxonkit: downloaded `taxdump.tar.gz` from https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/ and then added to home directory using `mkdir -p /.taxonkit`. then i gunzipped it and moved the 4 dump files into /.taxonkit. probably worth explaining this in readme or something:
 
 ```bash
