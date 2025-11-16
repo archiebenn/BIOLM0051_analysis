@@ -1,5 +1,6 @@
 #!/bin/bash
 # blast_taxonomy.sh - filters blast hits, then finds and counts taxonomic results from blast searches using taxonkit
+# also separates raw blast hits back into the 3 separate parts before retrieving unique taxa from staxid along with accession numbers
 
 # move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
 cd results || \
@@ -20,20 +21,32 @@ for tsv in 4_blast_outputs/*.tsv; do
     # uses awk to take the query sequence name (in column 1/$1 of tsv) and rename a file to that name
     awk -F'\t' '{print > ($1 "_blast.tsv")}' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv
 
-    # run taxonkit lineage based on the staxids generated from blast script (in blast tsvs). this is for the 
-    cut -f3 4_blast_outputs/"$name"_Q20.fasta_blast.tsv | taxonkit lineage > temp.tsv
+    # move 'part' blast file to sample folder
+    mv "$name"_Q20.fasta_blast.tsv 5_blast_filtering/"$name"
 
-    # create a sorted/counted file for each of the species detected from blast search and taxonkit, this is just for a guide of the top hits from blast
-    cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > "$name"_taxonomic_counts.txt
+    # for each part of each sample, sort the top blast hit for each staxid, in order to have a diverse set of accessions across taxa
+    for parts in 5_blast_filtering/"$name"/*.tsv; do
 
-    # filter blast results sto retrieve top hit for each staxid occurrence. awk prints to output only if it hasn't been 'seen' already in the file, based on staxid from hits
-    awk -F'\t' '!seen[$]++' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv > "$name"_staxid_top_hit.txt.tsv
+        # extract part base name
+        part_name=$(basename "$parts" _blast.tsv)
+
+        # awk to print line to output tsv if it hasn't 'seen' that staxid (in column 3/$3) before to ensure no repeated staxids (to not bloat during alignment)
+        awk -F'\t' '!seen[$3]++' 4_blast_outputs/"$name"/"$part_name"_blast.tsv > "$part_name"_unique_taxa.tsv
+
+        # move to respective folder
+        mv "$part_name"_unique_taxa.tsv 5_blast_filtering/"$name"
+
+        # run taxonkit lineage based on the staxids generated from blast script (in blast tsvs). this is for the 
+        cut -f3 5_blast_filtering/"$name"/"$part_name"_unique_taxa.tsv | taxonkit lineage > temp.tsv
+
+        # create a sorted/counted file for each of the species detected from blast search and taxonkit, this is just for a guide of the top hits from blast
+        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > "$part_name"_taxonomic_counts.txt
 
     # remove as not needed
     rm temp.tsv 
 
     # move all into individual sample folders
-    mv "$name"* 5_blast_filtering/"$name"/
+    mv "$name"* 5_blast_filtering/"$name"
 
 done
 
