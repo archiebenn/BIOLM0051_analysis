@@ -10,10 +10,10 @@ mkdir -p 4_blast_outputs
 for fasta in 3_FASTA_processed/*.fasta; do
 
     # extract file base name
-    name=$(basename "$fasta" _q20.fasta)
+    name=$(basename "$fasta" _Q20.fasta)
 
     echo
-    echo "Carrying out a BLAST search on "$fasta"..."
+    echo "Carrying out a BLAST search on "$name"..."
 
     # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
     blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote

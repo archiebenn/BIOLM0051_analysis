@@ -43,5 +43,3 @@ for tsv in 4_blast_outputs/*.tsv; do
 done
 
 cd ..
-
-#### TODO - get it to filter for e values and coverage etc.
