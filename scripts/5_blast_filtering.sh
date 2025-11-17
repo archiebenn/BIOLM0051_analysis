@@ -23,7 +23,7 @@ for tsv in 4_blast_outputs/*.tsv; do
     awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
 
     ##########
-    # 2. strong filter on % identity for each part for species likelihood
+    # 2. filter on high % identity + length for each part - strong filter for species likelihood
     ##########
     for part in 5_blast_filtering/"$name"*_blast.tsv; do
 
@@ -33,23 +33,33 @@ for tsv in 4_blast_outputs/*.tsv; do
         # filter for 95%+ %identity and minimum 100nt length
         awk '$4 >= 95 && $5 >= 100' 5_blast_filtering/"$part_name"_blast.tsv > 5_blast_filtering/"$part_name"_blast_species.tsv
 
-        # run taxonkit lineage based on the filtered staxid hits
-        cut -f3 5_blast_filtering/"$part_name"_blast_species.tsv | taxonkit lineage > temp.tsv
+        # take staxid, pident, length, evalue for filtered hits and select top one for each staxid. sorted by highest pident
+        cut -f3,4,5,12 5_blast_filtering/"$part_name"_blast_species.tsv | sort -k2,2nr | awk '!seen[$1]++' > acc_pid_ev.tsv
+        
+        # run taxonkit lineage on the staxids
+        cut -f1 acc_pid_ev.tsv | taxonkit lineage > lineage_hits.tsv
 
-        # create sorted/counted file - these are highly likely species for 'part' file
-        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+        # combine accession, pident, evalue, and taxonkit lineage for 'likely taxonomy' overview
+        echo -e "staxid\tpident\tlength\tevalue\ttaxonkit_lineage" > 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+        paste acc_pid_ev.tsv lineage_hits.tsv >> 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+
+        # explanation in empty 'likely taxonomy' files (ie. if lineage hits empty)
+        if [ ! -s lineage_hits.tsv ]; then
+            echo "No hits returned with >= 95% identity and >= 100nt in length from "$part_name". No confidence in species level determination from this sequence." >> 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+        fi
 
         rm 5_blast_filtering/"$part_name"_blast_species.tsv
+        rm acc_pid_ev.tsv 
+        rm lineage_hits.tsv
 
     ##########
-    # 3 .retrieve top blast hit of each unique staxid:
+    # 3 .retrieve top blast hit of each unique staxid - more general to allow varied phylogenies downstream:
     ##########
 
         # sort by staxid, then evalue, then print line if unique staxid. this retrieves top blast hit for each staxid
         sort -k3,3 -k12,12g 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > 5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv
 
     done
-    rm temp.tsv 
 
 done
 
