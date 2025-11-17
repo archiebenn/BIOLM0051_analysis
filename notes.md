@@ -8,33 +8,6 @@ chmod +x scripts/*
 
 ### 1) script for preliminary checking of fastq format for each file provided.  
 This is just as a preliminary check to see what the data look like without having to open each file. note - won't be helpful for a large number of files, but for this analysis it's fine as only a few:
-```bash
-#!/bin/bash
-# check_fastq.sh - a checking script to see if each sample fastq follows fastq format
-# this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
-
-# move into samples/ (if running outside project root 'cd data/' will fail and an error message is printed)
-cd data/samples || \
-{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
-
-# for loop to catch every FASTQ file
-for fastq in *.FASTQ; do  
-
-    # identifier for readability in text file
-    echo "$fastq file format:" >> fastq_format_check.txt         
-
-    # cut out first 15 characters of every line, along with line numbering and -ba to catch all lines in the FASTQ file:
-    cut -c-15 "$fastq" | nl -ba  >> fastq_format_check.txt 
-
-    # space for readability         
-    echo >> fastq_format_check.txt                                   
-done
-
-# move file to results folder:
-mv fastq_format_check.txt ../../results/                           
-echo
-echo "FastQ check complete. Find output in results/"
-```
 Here i noticed some weird things: 
 - sampleD part3 is not one word  
 -  sampleB_part1.FASTQ has two headers  
@@ -44,77 +17,6 @@ Therefore I need to come up with a script which 1) cleans the fastq files to ens
 I also want to concatenat all these fastq parts to their respective samples, so I will use a for loop which runs over each of the 4 sample names to clean and concatenate
 
 ### 2) clean single-read fastq samples and concatenate into respective multi-read fastq files
-```bash
-#!/bin/bash
-# concatenate_fastq.sh - this script will clean sample parts and then concatenate parts into one whole FASTQ for each of the samples given and move to a new directory in results/
-# this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
-
-# move into samples/ (if running outside project root 'cd data/' will fail and an error message is printed)
-cd data/samples || \
-{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
-
-# set FASTQ folder name for ease
-fastq_folder=results/processed_FASTQ                                  
-
-# make processed fastq directory with folder name after moving two levels up and safe to re-run
-mkdir -p ../../$fastq_folder                                         
-
-# loops for A, B, C, D (can be changed depending on downloaded file names)
-for x in {A..D}; do      
-
-    # creates array called files of all FASTQ files beginning with sample{letter of loop}                                             
-    files=(sample${x}*.FASTQ)                                               
-    
-    echo "Concatenating sample${x} files..." 
-
-    # concatenate full array of files to sample{letter of loop}_processed.FASTQ                         
-    cat "${files[@]}" > "sample${x}_processed.FASTQ"                  
-    
-    # sed substitution to have headers on newline - if @ is preceded by a non-newline character, insert a newline character before '@' and the '@' itsef, globally:
-    sed -i 's/\([^\n]\)@/\1\n@/g' "sample${x}_processed.FASTQ"    
-
-    # sed substitution to remove header spaces - check headers (lines that start with @) capture up to space and replace with capture followed by underscore, globally:
-    sed -i 's/^@\(.*\) /@\1_/g' "sample${x}_processed.FASTQ"     
-
-    # sed deletion - delete any empty lines in the multi-read fastq:      
-    sed -i '/^$/d' "sample${x}_processed.FASTQ"                      
-
-    # sed append - ensure last line of processed file ends in newline (not required for other parts as headers are made to have newline (above), but final line will not have a following header)
-    sed -i -e '$a\' "sample${x}_processed.FASTQ"                      
-
-    # the following removes any duplicate lines following each other (which should never occur in fastq)
-    # make temporary file to write while loop to so it's not writing over input file:
-    temp="sample${x}_temp.FASTQ"                                      
-    previous=""
-
-    #  loop over each line in file                                                        
-    while read -r line; do 
-
-        # comparison of current line to previous line. if not equal then...                                             
-        if [[ "$line" != "$previous" ]]; then  
-
-            # ...echo the line (into temp file)                       
-            echo "$line"                                              
-        fi
-
-        # set 'previous' to the current line. the process will then repeat for the next line
-        previous="$line"                    
-
-    # while loop reads from sample${x}_processed.FASTQ but outputs to temp file                          
-    done < "sample${x}_processed.FASTQ" > "$temp"                     
-
-    # copy temp file over sample${x}_processed.FASTQ when finished 
-    mv "$temp" "sample${x}_processed.FASTQ"
-
-    # move the concatenated file to processed fastq directory in other part of repo                           
-    mv sample${x}_processed.FASTQ ../../$fastq_folder                 
-done
-
-echo
-
-# helps user know where to find processed FASTA files
-echo "Processing complete. Find concatenated FASTQ files in $fastq_folder" 
-```
 Here, in order to have an output with correctly formatted fastq I had to do some cleaning.  
 
 I first concatenate each part-file for a sample into a processed concatenated fastq file, which includes all parts for that sample but un-cleaned. The loop then runs through a few `sed` commands which ensure:  
@@ -130,88 +32,11 @@ It's important to note why I am explicitly automating all of this. 1) it could b
 
 ### 3) Covert fastq multi-read into multi-read FASTA with processing 
 Includes a report on the raw fastq file using `fastqc`. 
-```bash
-#!/bin/bash
-# fastq_to_fasta.sh - using seqtk for quality control with phred algorithm and to convert multi-line fastq to fasta sequence
-# this shell script must be run from the project root due to hardcoded paths for file moves 
-
-# move into results/ (if running outside project root 'cd results/' will fail and an error message is printed)
-cd results || \
-{ echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
-
-# make directories for raw FASTA and trimmed FASTA sequences
-mkdir -p FASTQC_reports
-mkdir -p FASTA_raw
-mkdir -p FASTA_processed
-
-for fastq in FASTQ_processed/*.FASTQ; do
-
-    # extract base name of file
-    name=$(basename "$fastq" _processed.FASTQ)
-
-    # run fastqc for a report on the merged fastq file (reports not on github)
-    fastqc "$fastq" -o FASTQC_reports/
-
-    # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
-    seqtk seq -a "$fastq" | tr -d ' ' > "FASTA_raw/${name}_raw.fasta"
-
-    # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
-    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "FASTA_processed/${name}_Q20.fasta"
-
-done
-echo
-
-echo "Find fastqc reports in results/FASTQC_reports"  
-echo "Find raw FASTA outputs in results/FASTA_raw and masked outputs in results/FASTA_masked"
-
-cd ../
-```
  
 The main bit to this uses `seqtk` to generate a) a raw fasta file with 3 reads (for each part) and b) a masked fasta file based on the quality scores from the fastq. Here the value of Q20 was set as a threshold, so any bases with a q score < 20 will be masked as an 'N' to reduce possible effects of false positives from BLAST etc. on low quality data. Q20 selected as it's a 99% confidence level for that base.
 
 ## Part 2 - BLAST searching
 ### 4) Take processed FASTA files and perform a BLAST search on them, gives tsv output and staxids
-```bash
-#!/bin/bash
-
-# move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
-cd results || \
-{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
-
-# make blast results folder
-mkdir -p 4_blast_outputs
-
-for fasta in 3_FASTA_processed/*.fasta; do
-
-    # extract file base name
-    name=$(basename "$fasta" _q20.fasta)
-
-    echo
-    echo "Carrying out a BLAST search on "$fasta"..."
-
-    # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
-    blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote
-
-    # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
-    {
-        echo "=== BLAST log for "$name"_blast.tsv ==="
-        date
-        blastn -version
-
-        echo "Command used:"
-        echo "blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt \"6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore\" -remote"
-        
-    } > "$name"_blast.log
-
-    # move both into blast folder
-    mv "$name"_blast.tsv "$name"_blast.log 4_blast_outputs/
-
-done
-
-echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_outputs/"
-cd ..
-```
-
 Of course, this produces a BLAST tsv dump for all parts (1,2 and 3) of each sample. Now I cannot assume that these parts are from the same loci, so actually i need to make sure i split up the outputs into the parts again before selecting distinct taxa and alignment, otherwise i could be trying to align random different areas (say sequences from part 1 and 3 of a sample), which would be messy.
 
 ### 5) Use `taxonkit` to get taxonomy for 20+ phylogenetically distinct outputs from each part of samples' blasts hits
@@ -233,57 +58,40 @@ Notes from week 7 intro to bioinformatics worksheet on how to filter: *You’re 
 
 In this script I split up the samples into parts 1, 2 and 3 again. This seems weird but it's actually helpful for QC as it lets me see if any of the parts are issues, rather than having it all together in one blast - it allows me to check phylogenetic consistency across sample parts.  
 
-After splitting back into parts and using their respective blast hits, I run taxonkit on them just as a lineage check for a quick overview, then choose the top hits of each unique staxid i the parts' blast tsv, and end up with a file containign one blast output per staxid which can then be used to access the fasta files. This is essentially to demonstrate that i did not blindly pick the top fasta hits, and that i did inspect them to ensure phylogemetic diversity and taxonomic consistency across the parts.
-
-```bash
-#!/bin/bash
-# blast_filtering.sh - separates blast output back into parts 1, 2 and 3. Then for each part's blast outputs runs taxonkit for an overview, and also selects top hit per staxid for alignment downstream
-
-# move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
-cd results || \
-{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
-
-mkdir -p 5_blast_filtering
+After splitting up, I do two things:  
+- 1. I filter the blast hits in the 'part' blast tsvs by 95%+ pident and length >= 100bp. Anything returned from this is a strong likelihood for the actual species present in the sample. I noticed no hits from this for sample B and C, so can say there is **no-confidence on the species level** for these. Samples A and D did return confidence in species level from these blast hits, but notice that sampleD_part3 is human, so likely contaminated  
+- 2. I then took the 'part' blast tsvs and sorted by a) staxid (gets same staxids together) and b) by e-values within each staxid. I then used seen to retrieve only the first of each staxid aka the lowest e value of each staxid. Note i did not filter by e value here as thisis for my phylogenetic tree, so I am less concerned about finding species level hits and instead want a broader range of accessions to build a tree later. This is where I selected my accessions for efetch in the next script. Note this is not me picking accessions for my tree, as i will ahave to do that manually by looking at the fastas and determining which are best for the alignment.
 
 
-for tsv in 4_blast_outputs/*.tsv; do
-
-    # extract base name
-    name=$(basename "$tsv" _Q20.fasta_blast.tsv)
-
-    # make sample subfolders 
-    mkdir -p 5_blast_filtering/"$name"
-
-    # split up the blast outputs back into the 3 parts, as cannot assume same sequence loci, before further analysis:
-    # uses awk to take the query sequence name (in column 1/$1 of tsv) and rename a file to that name, output to sample subfolder
-    awk -F'\t' -v out="5_blast_filtering/$name" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv
-
-    # for each part of each sample, sort the top blast hit for each staxid, in order to have a diverse set of accessions across taxa, and run taxonkit 
-    for part in 5_blast_filtering/"$name"/*_blast.tsv; do
-
-        # extract part base name
-        part_name=$(basename "$part" _blast.tsv)
-
-        # run taxonkit lineage based on the staxids generated from full 'part blast tsv' for an overview of taxa hits per sample part
-        cut -f3 5_blast_filtering/"$name"/"$part_name"_blast.tsv | taxonkit lineage > temp.tsv
-
-        # create a sorted/counted file for each of the species detected from blast search and taxonkit, this is just for a guide of the top hits from blast
-        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > 5_blast_filtering/"$name"/"$part_name"_taxonomic_counts.txt
-
-        # awk to print line to output tsv if it hasn't 'seen' that staxid (in column 3/$3) before to ensure no repeated staxids (to not bloat during alignment)
-        awk -F'\t' '!seen[$3]++' 5_blast_filtering/"$name"/"$part_name"_blast.tsv > 5_blast_filtering/"$name"/"$part_name"_unique_taxa.tsv
-
-        # remove as not needed
-        rm temp.tsv 
-    done
-
-done
-
-cd ..
-```
-
-### 6) Selecing tophits from staxid blast and runningefetch to get headers/fastas
+### 6) Running `efetch` to get fastas, then using sstart and send for each sequence from blast to trim the sequences to match the query
 This is essentially to create a candidate pool of sequences i might use in my alignment - note it's not selecting sequences etc. I need to do that manually. 
 
-Also can't just use efetch as this will give me the whole genome/accession sequence which can be 10,000+ bases - so can use `seqtk sebseq` but this took some getting used to/understanding as i needed to create a `.bed` file with sstart-1 and send coordinates from the blast hot to line up properly to my original query sequence. here is a good explanation: https://www.reneshbedre.com/blog/seqtk-subseq.html .
+Also can't just use efetch as this will give me the whole genome/accession sequence which can be 10,000+ bases - so can use `seqtk sebseq` but this took some getting used to/understanding as i needed to create a `.bed` file with sstart-1 and send coordinates from the blast hot to line up properly to my original query sequence. here is a good explanation: https://www.reneshbedre.com/blog/seqtk-subseq.html .  
+
+End up with fasta file of sequences which match the query sequence from the blast. These are all from phylogemetically distinct staxids as well from when I only selected top blast hit from each staxid in script 5.
+
+#### note on reverse complementing with `seqtk`
+... etc.
+
+        # check if reverse complement necessary
+        if [ "$sstart" -gt "$send" ]; then 
+
+            # seqtk reverse complement function
+            seqtk seq -r temp_trimmed.fasta >> 6_efetch_FASTA/"$part_name".fasta
+        
+        # case for forward strand = keep same
+        else 
+            cat temp_trimmed.fasta >> 6_efetch_FASTA/"$part_name".fasta
+        fi
+
+        rm temp_trimmed.fasta
+        rm temp_full.fasta
+        rm accession_start_end.bed
+
+... etc.
+```
+Added this which will check if the reverse strand is used by blast hit and then if it is (ie sstart > send) it uses seqtk seq -r to do complement. I don't think any of my blast hits have sstart > send, but good to have just in case as that could be by luck. This, along with other coordinate check for seqtk, ensures all fasta sequences are in the same direction and orientation. 
+
+
+
 

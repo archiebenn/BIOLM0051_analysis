@@ -8,10 +8,10 @@ cd results || \
 
 mkdir -p 6_efetch_FASTA
 
-for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
+for tsv in 5_blast_filtering/*_top_hit_per_staxid.tsv; do
 
     # extract base name
-    part_name=$(basename "$tsv" _unique_taxa.tsv)
+    part_name=$(basename "$tsv" _top_hit_per_staxid.tsv)
 
     echo "Retrieving and trimming FASTA files for "$part_name""
     echo 
@@ -21,7 +21,7 @@ for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
     ##########
 
     # extract accession values, sstart, and send from each tsv. choosing top 15
-    cut -f2,10,11 5_blast_filtering/"$part_name"_unique_taxa.tsv | head -n 15 > 6_efetch_FASTA/"$part_name"_blast.tsv
+    cut -f2,10,11 5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv | head -n 15 > 6_efetch_FASTA/"$part_name"_blast.tsv
 
     ##########
     # 2. get fasta and trim from sstart -> send
@@ -33,15 +33,15 @@ for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
     # read accession, sstart, and send from 'part' tsv
     while IFS=$'\t' read accession sstart send; do
 
-        # normalising strand direction: 
-        # forward strand case where sstart < send
+        # normalising strand direction for seqtk to use: 
+        # forward strand: sstart < send
         if [ "$sstart" -lt "$send" ]; then 
 
             # seqtk uses 0-indexed start and 1-indexed end:
             seqstart=$((sstart - 1))
             seqend=$send
 
-        # reverse strand case - swap sstart and send 
+        # reverse strand: sstart > send, swap sstart and send 
         else 
             seqstart=$((send - 1))
             seqend=$sstart
@@ -50,15 +50,27 @@ for tsv in 5_blast_filtering/*_unique_taxa.tsv; do
         # retrieve full accession fasta sequence using efetch and store in temp file 
         efetch -db nuccore -format fasta -id "$accession" > temp_full.fasta
 
-        # extract fasta header for seqtk (no >)
+        # extract fasta header for seqtk (without '>')
         seqname=$(head -1 temp_full.fasta | sed 's/^>//' | cut -d' ' -f1)
 
         # send values into a .bed file for genomic region coordinates
         echo -e "${seqname}\t$((seqstart))\t${seqend}" > accession_start_end.bed
 
-        # trim full fasta using bed coordinates
-        seqtk subseq temp_full.fasta accession_start_end.bed >> 6_efetch_FASTA/"$part_name".fasta
+        # trim full fasta using bed coordinates. reverse complement if needed as well to match query strand
+        seqtk subseq temp_full.fasta accession_start_end.bed > temp_trimmed.fasta
 
+        # check if output orientation requires reverse complement for downstream translation (if from reverse strand)
+        if [ "$sstart" -gt "$send" ]; then 
+
+            # seqtk reverse complement function
+            seqtk seq -r temp_trimmed.fasta >> 6_efetch_FASTA/"$part_name".fasta
+        
+        # case for forward strand = keep same
+        else 
+            cat temp_trimmed.fasta >> 6_efetch_FASTA/"$part_name".fasta
+        fi
+
+        rm temp_trimmed.fasta
         rm temp_full.fasta
         rm accession_start_end.bed
 

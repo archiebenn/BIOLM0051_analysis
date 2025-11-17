@@ -15,34 +15,41 @@ for tsv in 4_blast_outputs/*.tsv; do
     ##########
 
     # extract base name
-    name=$(basename "$tsv" _Q20.fasta_blast.tsv)
+    name=$(basename "$tsv" _blast.tsv)
 
-    echo "Generating tanonomic lineage counts and sorting unique taxa from BLAST staxid for "$name""
+    echo "Splitting sample back into parts, generating likely taxonomic lineages, and sorting BLAST data per staxid for "$name""
 
-    # awk to take the query sequence name and retrieve blast hits for that part
-    awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_Q20.fasta_blast.tsv
+    # take the query sequence name and retrieve blast hits for that part
+    awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
 
     ##########
-    # 2.retrieve top blast hit of each unique staxid:
+    # 2. strong filter on % identity for each part for species likelihood
     ##########
-
-    for part in 5_blast_filtering/*_blast.tsv; do
+    for part in 5_blast_filtering/"$name"*_blast.tsv; do
 
         # extract part base name
         part_name=$(basename "$part" _blast.tsv)
 
-        # run taxonkit lineage based on the blast staxids 
-        cut -f3 5_blast_filtering/"$part_name"_blast.tsv | taxonkit lineage > temp.tsv
+        # filter for 95%+ %identity and minimum 100nt length
+        awk '$4 >= 95 && $5 >= 100' 5_blast_filtering/"$part_name"_blast.tsv > 5_blast_filtering/"$part_name"_blast_species.tsv
 
-        # create sorted/counted file for each of the species detected by taxonkit as a guide
-        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > 5_blast_filtering/"$part_name"_taxonomic_counts.txt
+        # run taxonkit lineage based on the filtered staxid hits
+        cut -f3 5_blast_filtering/"$part_name"_blast_species.tsv | taxonkit lineage > temp.tsv
 
-        # awk to print line to output tsv if unique staxid, retrieves top blast hit for each
-        awk -F'\t' '!seen[$3]++' 5_blast_filtering/"$part_name"_blast.tsv > 5_blast_filtering/"$part_name"_unique_taxa.tsv
+        # create sorted/counted file - these are highly likely species for 'part' file
+        cut -f1,2 temp.tsv | sort | uniq -c | sort -nr > 5_blast_filtering/"$part_name"_likely_taxonomy.txt
 
-        # remove as not needed
-        rm temp.tsv 
+        rm 5_blast_filtering/"$part_name"_blast_species.tsv
+
+    ##########
+    # 3 .retrieve top blast hit of each unique staxid:
+    ##########
+
+        # sort by staxid, then evalue, then print line if unique staxid. this retrieves top blast hit for each staxid
+        sort -k3,3 -k12,12g 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > 5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv
+
     done
+    rm temp.tsv 
 
 done
 

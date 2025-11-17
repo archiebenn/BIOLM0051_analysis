@@ -30,6 +30,10 @@ for fasta in 3_FASTA_Q20/*.fasta; do
         
     } > "$name"_blast.log
 
+    # blast filtering e-values and %identity
+    awk 
+
+
     # move both into blast folder
     mv "$name"_blast.tsv "$name"_blast.log 4_blast_outputs/
     
