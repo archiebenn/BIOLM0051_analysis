@@ -11,7 +11,7 @@ mkdir -p 5_blast_filtering
 for tsv in 4_blast_outputs/*.tsv; do
 
     ##########
-    # 1.split main blast output into each samples' parts:
+    # 1. split main blast output into each samples' parts:
     ##########
 
     # extract base name
@@ -53,7 +53,7 @@ for tsv in 4_blast_outputs/*.tsv; do
         rm lineage_hits.tsv
 
     ##########
-    # 3 .retrieve top blast hit of each unique staxid - more general to allow varied phylogenies downstream:
+    # 3 . collapse blast output by staxid, and take top hit of each - more general to allow varied phylogenies downstream but reduces repeats
     ##########
 
         # sort by staxid, then evalue, then print line if unique staxid. this retrieves top blast hit for each staxid
