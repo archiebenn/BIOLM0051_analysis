@@ -1,8 +1,9 @@
 #!/bin/bash
+# blast.sh - uses processed fasta file and carries out a blast nucletotide search. outputs in tsv format in results folder
 
-# move into results/ (if running outside project root 'cd data/' will fail and an error message is printed)
+# move into results/ 
 cd results || \
-{ echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
+{ echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # make blast results folder
 mkdir -p 4_blast_outputs
@@ -18,7 +19,7 @@ for fasta in 3_FASTA_processed/*.fasta; do
     # run blastn nucleotide search remotely and save hits as a .tsv file with headers/comments (7) (can be adapted for running on hpc with local db)
     blastn -query "$fasta" -db nt -out "$name"_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote
 
-    # create a blast log to detail run date/version/input etc. (even if version locked in micromamba env)
+    # create a blast log to detail run date/version/input etc for transparency
     {
         echo "--- BLAST log ---"
         date

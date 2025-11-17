@@ -1,15 +1,15 @@
 #!/bin/bash
 # check_fastq.sh - a checking script to see if each sample fastq follows fastq format
-# this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
+# run from project root
 
-# move into samples/ (if running outside project root 'cd data/' will fail and an error message is printed)
+# move into samples/ 
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
 mkdir -p ../../results
 mkdir -p ../../results/1_FASTQ_check
 
-# for loop to catch every FASTQ file
+# loop through FASTQs
 for fastq in *.FASTQ; do  
 
     # identifier for readability in text file

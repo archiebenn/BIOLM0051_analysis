@@ -1,43 +1,52 @@
 #!/bin/bash
-# concatenate_fastq.sh - this script will clean sample parts and then concatenate parts into one whole FASTQ for each of the samples given and move to a new directory in results/
-# this shell script must be run from the project root due to hardcoded paths for file moves and folder creation
+# concatenate_fastq.sh - clean and concatenate FASTQ parts into one file
+# run from the project root
 
-# move into samples/ (if running outside project root 'cd data/' will fail and an error message is printed)
+# move into samples/ 
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
-# set FASTQ folder name for ease
 fastq_folder=results/2_FASTQ_processed                                  
 
-# make processed fastq directory with folder name after moving two levels up and safe to re-run
-mkdir -p ../../"$fastq_folder"                                         
+mkdir -p ../../"$fastq_folder"   
 
-# loops for A, B, C, D (can be changed depending on downloaded file names)
-for x in {A..D}; do      
+# loops through samples A-D 
+for letter in {A..D}; do     
 
-    # creates array called files of all FASTQ files beginning with sample{letter of loop}                                             
-    files=(sample${x}*.FASTQ)                                               
+    ##########
+    # 1. concatenate fastq parts together:
+    ##########
+
+    # create array of all FASTQ files for sample                                            
+    files=(sample${letter}*.FASTQ)                                               
     
-    echo "Concatenating sample${x} files..." 
+    echo "Concatenating sample${letter} files..." 
 
-    # concatenate full array of files to sample{letter of loop}_processed.FASTQ                         
-    cat "${files[@]}" > "sample${x}_processed.FASTQ"                  
-    
-    # sed substitution to have headers on newline - if @ is preceded by a non-newline character, insert a newline character before '@' and the '@' itsef, globally:
-    sed -i 's/\([^\n]\)@/\1\n@/g' "sample${x}_processed.FASTQ"    
+    # concatenate full array of files to single file                         
+    cat "${files[@]}" > "sample${letter}_processed.FASTQ"        
 
-    # sed substitution to remove header spaces - check headers (lines that start with @) capture up to space and replace with capture followed by underscore, globally:
-    sed -i 's/^@\(.*\) /@\1_/g' "sample${x}_processed.FASTQ"     
+    ##########
+    # 2. sed commands for text checking/replacing/deleting to keep fastq format:
+    ##########         
 
-    # sed deletion - delete any empty lines in the multi-read fastq:      
-    sed -i '/^$/d' "sample${x}_processed.FASTQ"                      
+    # substitution to ensure @ is always on a newline globally
+    sed -i 's/\([^\n]\)@/\1\n@/g' "sample${letter}_processed.FASTQ"    
 
-    # sed append - ensure last line of processed file ends in newline (not required for other parts as headers are made to have newline (above), but final line will not have a following header)
-    sed -i -e '$a\' "sample${x}_processed.FASTQ"                      
+    # substitution to remove header space
+    sed -i '/^@/s/ /_/g' "sample${letter}_processed.FASTQ"     
 
-    # the following removes any duplicate lines following each other (which should never occur in fastq)
-    # make temporary file to write while loop to so it's not writing over input file:
-    temp="sample${x}_temp.FASTQ"                                      
+    # delete any empty lines in the multi-read fastq:      
+    sed -i '/^$/d' "sample${letter}_processed.FASTQ"                      
+
+    # ensure final line in file is a newline
+    sed -i '$a\' "sample${letter}_processed.FASTQ"                      
+
+    ##########
+    # 3. remove any duplicate lines following each other (which should never occur in fastq)
+    ##########
+
+    # temporary file to write loop to so it's not writing over input file:
+    temp="sample${letter}_temp.FASTQ"                                      
     previous=""
 
     #  loop over each line in file                                                        
@@ -54,13 +63,13 @@ for x in {A..D}; do
         previous="$line"                    
 
     # while loop reads from sample${x}_processed.FASTQ but outputs to temp file                          
-    done < "sample${x}_processed.FASTQ" > "$temp"                     
+    done < "sample${letter}_processed.FASTQ" > "$temp"                     
 
     # copy temp file over sample${x}_processed.FASTQ when finished 
-    mv "$temp" "sample${x}_processed.FASTQ"
+    mv "$temp" "sample${letter}_processed.FASTQ"
 
     # move the concatenated file to processed fastq directory in other part of repo                           
-    mv sample${x}_processed.FASTQ ../../"$fastq_folder"     
+    mv sample${letter}_processed.FASTQ ../../"$fastq_folder"     
       
 done
 
