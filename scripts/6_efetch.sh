@@ -84,5 +84,3 @@ done
 echo "FASTA files from BLAST search retrieved and trimmed to match query sequence hits. Find the FASTA files in results/6_efetch_FASTA"
 
 cd ..
-
-#### NEED to figure out splitting original processed fasta query sequences and concatenating to these files
