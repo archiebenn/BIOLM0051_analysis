@@ -2,6 +2,8 @@
 # run_all.sh - runs all shell scripts in pipeline order
 # run from project root
 
+start=$(date +%s)
+
 # 0. ensure all scripts are executable
 chmod +x scripts/*
 
@@ -22,3 +24,7 @@ chmod +x scripts/*
 
 # 6. trimmed fasta files from top, unique accessions in each part's blast output (trimmed to query sstart - send)
 ./scripts/6_efetch.sh
+
+end=$(date +%s)
+runtime=$((end - start))
+echo "Full analysis runtime: $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))"

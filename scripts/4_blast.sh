@@ -8,7 +8,7 @@ cd results || \
 # make blast results folder
 mkdir -p 4_blast_outputs
 
-for fasta in 3_FASTA_processed/*.fasta; do
+for fasta in 3_FASTA_Q20/*.fasta; do
 
     # extract file base name
     name=$(basename "$fasta" _Q20.fasta)

@@ -8,8 +8,8 @@ cd results || \
 
 # make directories for raw FASTA and trimmed FASTA sequences
 mkdir -p 3_FASTQC_reports
+mkdir -p 3_FASTA_Q20
 mkdir -p 3_FASTA_raw
-mkdir -p 3_FASTA_processed
 
 for fastq in 2_FASTQ_processed/*.FASTQ; do
 
@@ -23,12 +23,12 @@ for fastq in 2_FASTQ_processed/*.FASTQ; do
     seqtk seq -a "$fastq" | tr -d ' ' > "3_FASTA_raw/${name}_raw.fasta"
 
     # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
-    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_processed/${name}_Q20.fasta"
+    seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_Q20/${name}_Q20.fasta"
     
 done
 echo
 
 echo "Find fastqc reports in results/3_FASTQC_reports"  
-echo "Find raw FASTA outputs in results/3_FASTA_raw and masked outputs in results/3_FASTA_processed"
+echo "Find FASTA files results/3_FASTA_Q20 and results/3_FASTA_raw"
 
 cd ../

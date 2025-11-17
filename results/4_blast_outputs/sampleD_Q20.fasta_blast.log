@@ -1,6 +1,0 @@
---- BLAST log ---
-Sun Nov 16 12:49:50 PM GMT 2025
-blastn: 2.17.0+
- Package: blast 2.17.0, build Aug 11 2025 09:46:06
-Command used:
-blastn -query 3_FASTA_processed/sampleD_Q20.fasta -db nt -out sampleD_Q20.fasta_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote
