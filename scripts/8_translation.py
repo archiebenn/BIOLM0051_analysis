@@ -1,43 +1,49 @@
 # 8_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
 
-from Bio.Seq import Seq
 from Bio import SeqIO
-import argparse
 import os
+
+# make results directory
+os.makedirs("../results/8_translated_seqs", exist_ok=True)
+
 
 # set directory where fasta files are kept
 fasta_directory = "../results/7_complete_FASTA/"
 
-# function to generate all 3 translation frames
-def translate_all_frames(sequence):
 
-    # initiate protein list
-    proteins = []
+# function to generate all 3 translation frames and select frame with least stop codons
+def translate_all_frames(sequence):
+    frames = []
+
+    # function to count stop codons
+    def count_stops(frame):
+        return frame.count("*")
 
     for i in range(3):
-
         # translate each sequence with a shift of 0,1,2 bases from the start
         aa = sequence.seq[i:].translate(table=2)
+        frames.append(str(aa))
 
-        # append aa sequence to list
-        proteins.append(aa)
+    # pick frame with least stop codons to save
+    best_protein = min(frames, key=count_stops)
 
-    return proteins
-    
+    # return protein out of function env
+    return best_protein
 
-
-    
 
 # access filenames in fasta directory
-for file in os.listdir(fasta_directory): 
-    
+for file in os.listdir(fasta_directory):
+    # wipe each results file before appending
+    with open(f"../results/8_translated_seqs/{file}_AAs.txt", "w") as f:
+        pass
+
     # use file name and SeqIO to open and then parse the fasta contents
     for sequence in SeqIO.parse(f"{fasta_directory}/{file}", "fasta"):
+        print(sequence.id, len(sequence.seq))
 
-        proteins_list = translate_all_frames(sequence)
-        print(proteins_list)
-        print()
+        # translate each sequence in fasta file and select frame with least stops
+        protein = translate_all_frames(sequence)
 
-
-
-### TO do - need to filter for correct frame (lowest *s?)
+        # write out
+        with open(f"../results/8_translated_seqs/{file}_AAs.txt", "a") as f:
+            f.write(protein + "\n")
