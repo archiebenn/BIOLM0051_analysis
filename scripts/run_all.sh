@@ -19,24 +19,32 @@ chmod +x scripts/*
 # 4. blast searching
 # ./scripts/4_blast.sh 
 
-# 5. taxonomies from blast
+
+# 5. BLAST filtering
+echo "[5] Filtering BLAST hits"
 ./scripts/5_blast_filtering.sh
 
+
 # 6. trimmed fasta files from top, unique accessions in each part's blast output (trimmed to query sstart - send)
+echo "[6] Retrieving FASTA files with efetch"
 ./scripts/6_efetch.sh
 
 # 7. combine the original sample part to its respctive trimmed fasta file
+echo "[7] Concatenating query FASTAs with BLAST FASTAs"
 ./scripts/7_concatenate_fasta.sh
 
 # 8. biopython to translate full fasta files and select appropriate frame for protein sequence
+echo "[8] Using Biopython to translate nt FASTA sequences and select correct frame"
 cd scripts/
 python3 8_translation.py
 cd ..
 
 # 9. alignment use muscle5
+echo "[9] Aligning protein sequences with MUSCLE"
 ./scripts/9_muscle_alignment.sh
 
 # 10. tree build
+echo "[10] Building phylogenetic trees with IQ-TREE"
 ./scripts/10_build_tree.sh
 
 end=$(date +%s)
