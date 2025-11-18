@@ -29,7 +29,9 @@ chmod +x scripts/*
 ./scripts/7_concantenate_fasta.sh
 
 # 8. biopython to translate full fasta files and select appropriate frame for protein sequence
-python3 ./scripts/8_translation.py
+cd scripts/
+python3 8_translation.py
+cd ..
 
 # 9. alignment use muscle5
 ./scripts/9_muscle_alignment.sh
