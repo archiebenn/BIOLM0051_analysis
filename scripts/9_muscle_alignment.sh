@@ -13,6 +13,8 @@ for fasta in 8_protein_FASTA/*.fasta; do
     # extract basename
     name=$(basename "$fasta" _complete.fasta_prot.fasta)
 
+    echo "Aligning sequences in "$name" with MUSCLE"
+
     # run alignment with muscle
     muscle5 -align "$fasta" -output "$name"_alignment.afa 
 

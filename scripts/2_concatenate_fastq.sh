@@ -39,7 +39,10 @@ for letter in {A..D}; do
     sed -i '/^$/d' "sample${letter}_processed.FASTQ"                      
 
     # ensure final line in file is a newline
-    sed -i '$a\' "sample${letter}_processed.FASTQ"                      
+    sed -i '$a\' "sample${letter}_processed.FASTQ"   
+
+    # no underscore after 'part' in headers for consistency
+    sed -i 's/part_/part/g' "sample${letter}_processed.FASTQ"               
 
     ##########
     # 3. remove any duplicate lines following each other (which should never occur in fastq)

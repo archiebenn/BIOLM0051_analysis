@@ -1,7 +1,7 @@
 # 8_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
 
-from Bio import SeqIO
 import os
+from Bio import SeqIO
 
 # make results directory
 os.makedirs("../results/8_protein_FASTA", exist_ok=True)
@@ -11,11 +11,11 @@ os.makedirs("../results/8_protein_FASTA", exist_ok=True)
 fasta_directory = "../results/7_complete_FASTA/"
 
 
-# function to generate all 3 translation frames and select frame with least stop codons
+# generate all 3 translation frames, select frame with least stops
 def translate_all_frames(sequence):
     frames = []
 
-    # function to count stop codons
+    # count stop codons
     def count_stops(frame):
         return frame.count("*")
 
@@ -32,18 +32,18 @@ def translate_all_frames(sequence):
 
 
 # access filenames in fasta directory
-for file in os.listdir(fasta_directory):
+for filename in os.listdir(fasta_directory):
     # wipe each results file before appending
-    with open(f"../results/8_protein_FASTA/{file}_prot.fasta", "w") as f:
+    with open(f"../results/8_protein_FASTA/{filename}_prot.fasta", "w") as f:
         pass
 
     # use file name and SeqIO to open and then parse the fasta contents
-    for sequence in SeqIO.parse(f"{fasta_directory}/{file}", "fasta"):
+    for sequence in SeqIO.parse(f"{fasta_directory}/{filename}", "fasta"):
         print(sequence.id, len(sequence.seq))
 
         # translate each sequence in fasta file and select frame with least stops
         protein = translate_all_frames(sequence)
 
         # write out > + sequence id + protein sequence to results folder
-        with open(f"../results/8_protein_FASTA/{file}_prot.fasta", "a") as f:
+        with open(f"../results/8_protein_FASTA/{filename}_prot.fasta", "a") as f:
             f.write(f">{sequence.id}\n{protein}\n")

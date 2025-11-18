@@ -15,12 +15,12 @@ for file in 9_alignment_files/*.afa; do
 
     echo "Running IQ-TREE on "$name""
 
-    # run iqtree. -nt AUTO flag uses multiple threads to significantly speed up run. 
+    # run iqtree. -nt AUTO flag will select an appropriate no. of threads to use 
     # -m MFP is useing 'model finder plus' as the selected model  
     # -B 1000 is ultra-fast bootstrap approximation with 1000 bootstrap replicates
     iqtree2 -s "$file" -m MFP -B 1000 -bnni -nt AUTO -redo
 
-    # move all tree files to results folder
+    # move all iqtree files to results folder
     mv "$file".* 10_tree_files
 
 done

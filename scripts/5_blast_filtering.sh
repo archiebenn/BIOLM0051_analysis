@@ -1,5 +1,6 @@
 #!/bin/bash
-# blast_filtering.sh - separates blast output back into parts 1, 2 and 3, creates taxonomy overview, and selectes top blast hit for each staxid 
+# blast_filtering.sh - separates blast output back into parts 1, 2 and 3 and selects top blast hit for each staxid
+# includes manual filtering at end
 # run from project root 
 
 # move into results/ 
@@ -7,6 +8,7 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 mkdir -p 5_blast_filtering
+mkdir -p 5_blast_selected
 
 for tsv in 4_blast_outputs/*.tsv; do
 
@@ -17,50 +19,95 @@ for tsv in 4_blast_outputs/*.tsv; do
     # extract base name
     name=$(basename "$tsv" _blast.tsv)
 
-    echo "Splitting sample back into parts, generating possible taxonomic lineages, and sorting BLAST data per staxid for "$name""
+    echo "Splitting "$name" back into parts, sorting BLAST data per staxid, and adding taxonomic lineage."
 
-    # take the query sequence name and retrieve the blast hits for that part name
+    # get query name, retrieve blast lines with that name, and output as new file of blast hits for that query/part
     awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
 
     ##########
-    # 2. filter on high % identity + length for each part - strong filter for species likelihood
+    # 2. take each part blast, retrieve top hit for each unique staxid sorted by e value
     ##########
     for part in 5_blast_filtering/"$name"*_blast.tsv; do
 
         # extract part base name
         part_name=$(basename "$part" _blast.tsv)
 
-        # filter for 95%+ %identity and minimum 100nt length
-        awk '$4 >= 95 && $5 >= 100' 5_blast_filtering/"$part_name"_blast.tsv > 5_blast_filtering/"$part_name"_blast_species.tsv
+        # sort by staxid, then e value, then print line if unique staxid. this retrieves top blast hit for each staxid
+        sort -k3,3 -k12,12g 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > top_hits.tsv
 
-        # take staxid, pident, length, evalue for filtered hits and select top one for each staxid. sorted by highest pident
-        cut -f3,4,5,12 5_blast_filtering/"$part_name"_blast_species.tsv | sort -k2,2nr | awk '!seen[$1]++' > acc_pid_ev.tsv
-        
-        # run taxonkit lineage on the staxids
-        cut -f1 acc_pid_ev.tsv | taxonkit lineage > lineage_hits.tsv
+        # add taxonkit lineage for overview of blast
+        cut -f3 top_hits.tsv | taxonkit lineage > lineages.tsv 
 
-        # combine accession, pident, evalue, and taxonkit lineage for 'possible taxonomy' overview
-        echo -e "staxid\tpident\tlength\tevalue\ttaxonkit_lineage" > 5_blast_filtering/"$part_name"_possible_taxonomy.txt
-        paste acc_pid_ev.tsv lineage_hits.tsv >> 5_blast_filtering/"$part_name"_possible_taxonomy.txt
-
-        # explanation in empty 'possible taxonomy' files (ie. if lineage hits empty)
-        if [ ! -s lineage_hits.tsv ]; then
-            echo "No hits returned with >= 95% identity and >= 100nt in length from "$part_name". No confidence in species level determination from this sequence." >> 5_blast_filtering/"$part_name"_possible_taxonomy.txt
-        fi
-
-        rm 5_blast_filtering/"$part_name"_blast_species.tsv
-        rm acc_pid_ev.tsv 
-        rm lineage_hits.tsv
-
-    ##########
-    # 3 . collapse blast output by staxid, and take top hit of each - more general to allow varied phylogenies downstream but reduces repeats
-    ##########
-
-        # sort by staxid, then evalue, then print line if unique staxid. this retrieves top blast hit for each staxid
-        sort -k3,3 -k12,12g 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > 5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv
+        # paste works as order/line count kept for both temp files
+        paste top_hits.tsv lineages.tsv >  5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv
 
     done
 
 done
+
+rm lineages.tsv 
+rm top_hits.tsv
+
+
+
+##########
+# Selecting samples to manually remove based off lineage/blast filtering
+##########
+
+# remove all of sampleD_part3 based on blast results (human contamination)
+rm 5_blast_filtering/sampleD_part3*
+
+# sampleA_part1 - removing OZ205431 and OZ071514. 
+# regions significantly different to others and belong to Odontoceti (87/88% pident), where rest of hits are Mysticeti (up to 97% pident)
+grep -v -E 'OZ205431|OZ071514' 5_blast_filtering/sampleA_part1_top_hit_per_staxid.tsv > 5_blast_selected/sampleA_part1_selected.tsv
+
+
+# sampleA_part2 - removing OZ205431, MW645456, OZ004775, and OQ554145
+# 99% pident with Eubalaena on 3 hits for this, so very likely to be this genus (right whales) = Mysticeti
+# will remove any hits which are not from ingroup Mysticeti (all Odontoceti again)
+grep 'Mysticeti' 5_blast_filtering/sampleA_part2_top_hit_per_staxid.tsv > 5_blast_selected/sampleA_part2_selected.tsv
+
+
+# sampleA_part3 - removing anything not Mysticeti
+# have decided on Mysticeti as ingroup based on observations from part1 and part2
+# part3 has lower overall pidents and a mix of Mysticeti and Odontoceti (Odontoceti lower across most hits however)
+grep 'Mysticeti' 5_blast_filtering/sampleA_part3_top_hit_per_staxid.tsv > 5_blast_selected/sampleA_part3_selected.tsv
+
+
+# all parts of sampleB - keeping the same (for now)
+# only two unique staxids - both Monodontidae (only consists of 2 species - both hits, but all at 88-92%)
+for sample in 5_blast_filtering/sampleB*_staxid.tsv; do
+    # extract basename
+    name=$(basename "$sample" _top_hit_per_staxid.tsv)
+
+    cp "$sample" 5_blast_selected/"$name"_selected.tsv
+    
+done
+
+
+# sampleC_part1 - keep all Thunnus, minus unclassified species MG204905 and PP661813
+# this was a highly masked region but hit a lot of the Thunnus genus (true tuna), all at about 81% pident. 
+grep 'Thunnus' 5_blast_filtering/sampleC_part1_top_hit_per_staxid.tsv | grep -v -E 'OZ205431|OZ071514'  > 5_blast_selected/sampleC_part1_selected.tsv
+
+
+# sampleC_part2 - no hits from blast as very poor quality reads and mostly masked
+
+
+# sampleC_part3 - keep all scombrinae 
+# some 87-89%  pident reads of 400bp grouped around Thunnus and highest in tsv
+# will also include some other scombrinae genera for phylogenetic tree downstream (about 6-8 non thunnini scombrinae present)
+grep 'Scombrinae' 5_blast_filtering/sampleC_part3_top_hit_per_staxid.tsv > 5_blast_selected/sampleC_part3_selected.tsv
+
+
+# sampleD_part1 
+# 97-98% hits over 542bp for Dermochelys coriacea, so will keep all Americhelydia (10 hits)
+grep 'Americhelydia' 5_blast_filtering/sampleD_part1_top_hit_per_staxid.tsv > 5_blast_selected/sampleD_part1_selected.tsv
+
+
+# sampleD_part2
+# another very strong 96% hit over 525bp (e value 0.0) for Dermochelys coriacea  
+# Americhelydia clade consistently scored e values < 1e-135 so will keep an ingroup again
+grep 'Americhelydia' 5_blast_filtering/sampleD_part2_top_hit_per_staxid.tsv > 5_blast_selected/sampleD_part2_selected.tsv
+
 
 cd ..

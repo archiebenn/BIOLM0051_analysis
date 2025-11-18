@@ -8,27 +8,20 @@ cd results || \
 
 mkdir -p 6_efetch_FASTA
 
-# remove sampleD_part3 based on blast results (human contamination)
-rm 5_blast_filtering/sampleD_part3.*
+##########
+# 1. Running efetch to retrieve fasta files, and trimming to match region blast hit
+##########
 
-for tsv in 5_blast_filtering/*_top_hit_per_staxid.tsv; do
+for tsv in 5_blast_selected/*.tsv; do
 
     # extract base name
-    part_name=$(basename "$tsv" _top_hit_per_staxid.tsv)
+    part_name=$(basename "$tsv" _selected.tsv)
 
     echo "Retrieving and trimming FASTA files for "$part_name""
     echo 
 
-    ##########
-    # 1. retrieve blast values from tsvs
-    ##########
-
     # extract accession values, sstart, and send from each tsv. choosing top 15
-    cut -f2,10,11 5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv | head -n 15 > 6_efetch_FASTA/"$part_name"_blast.tsv
-
-    ##########
-    # 2. get fasta and trim from sstart -> send
-    ##########
+    cut -f2,10,11 5_blast_selected/"$part_name"_selected.tsv | head -n 15 > 6_efetch_FASTA/"$part_name"_blast.tsv
 
     # reset fasta file
     > 6_efetch_FASTA/"$part_name".fasta

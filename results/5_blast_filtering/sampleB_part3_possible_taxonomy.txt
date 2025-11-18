@@ -1,2 +1,0 @@
-staxid	pident	length	evalue	taxonkit_lineage
-No hits returned with >= 95% identity and >= 100nt in length from sampleB_part3. No confidence in species level determination from this sequence.

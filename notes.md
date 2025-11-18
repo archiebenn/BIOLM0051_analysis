@@ -62,9 +62,37 @@ After splitting up, I do two things:
 - 1. I filter the blast hits in the 'part' blast tsvs by 95%+ pident and length >= 100bp. Anything returned from this is a strong likelihood for the actual species present in the sample. I noticed no hits from this for sample B and C, so can say there is **no-confidence on the species level** for these. Samples A and D did return confidence in species level from these blast hits, but notice that sampleD_part3 is human, so likely contaminated  
 - 2. I then took the 'part' blast tsvs and sorted by a) staxid (gets same staxids together) and b) by e-values within each staxid. I then used seen to retrieve only the first of each staxid aka the lowest e value of each staxid. Note i did not filter by e value here as thisis for my phylogenetic tree, so I am less concerned about finding species level hits and instead want a broader range of accessions to build a tree later. This is where I selected my accessions for efetch in the next script. Note this is not me picking accessions for my tree, as i will ahave to do that manually by looking at the fastas and determining which are best for the alignment.
 
+#### Manual removals
+```
+##########
+# Selecting samples to manually remove based off lineage/blast filtering
+##########
+
+# remove all of sampleD_part3 based on blast results (human contamination)
+rm 5_blast_filtering/sampleD_part3*
+
+# sampleA_part1 - removing OZ205431 and OZ071514. 
+# regions significantly different to others and belong to Odontoceti (87/88% pident), where rest of hits are Mysticeti (up to 97% pident)
+grep -v -E 'OZ205431|OZ071514' 5_blast_filtering/sampleA_part_1_top_hit_per_staxid.tsv > temp.tsv 
+mv temp.tsv 5_blast_filtering/sampleA_part_1_top_hit_per_staxid.tsv
+
+
+# sampleA_part2 - removing OZ205431, MW645456, OZ004775, and OQ554145
+# 99% pident with Eubalaena on 3 hits for this, so very likely to be this genus (right whales) = Mysticeti
+# will remove any hits which are not from ingroup Mysticeti (all Odontoceti again)
+grep 'Mysticeti' 5_blast_filtering/sampleA_part_2_top_hit_per_staxid.tsv > temp.tsv 
+mv temp.tsv 5_blast_filtering/sampleA_part_2_top_hit_per_staxid.tsv
+
+
+# sampleA_part3 - removing anything not Mysticeti
+# have decided on Mysticeti as ingroup based on observations from part1 and part2
+# part3 has lower overall pidents and a mix of Mysticeti and Odontoceti (Odontoceti lower across most hits however)
+grep 'Mysticeti' 5_blast_filtering/sampleA_part_3_top_hit_per_staxid.tsv > temp.tsv 
+mv temp.tsv 5_blast_filtering/sampleA_part_3_top_hit_per_staxid.tsv
+```
 
 ### 6) Running `efetch` to get fastas, then using sstart and send for each sequence from blast to trim the sequences to match the query
-FIRST, I delete my sampleD_part3 files here. This is the end for them... (likely human contamination) so need to remember to mention in write up.  
+FIRST, I delete my sampleD_part3 files here. This is the end for them... (likely human contamination) so need to remember to mention in write up. This was right after i made my possible taxonomies list so can mantion how i reviewed those and made the decision based off parts 1 and 2 in sample D.
 
 This is essentially to create a candidate pool of sequences i might use in my alignment - note it's not selecting sequences etc. I need to do that manually. 
 
