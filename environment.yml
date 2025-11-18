@@ -15,4 +15,5 @@ dependencies:
   - figtree
   - entrez-direct
   - seqkit
+  - matplotlib
   - pip

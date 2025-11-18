@@ -17,9 +17,9 @@ for tsv in 4_blast_outputs/*.tsv; do
     # extract base name
     name=$(basename "$tsv" _blast.tsv)
 
-    echo "Splitting sample back into parts, generating likely taxonomic lineages, and sorting BLAST data per staxid for "$name""
+    echo "Splitting sample back into parts, generating possible taxonomic lineages, and sorting BLAST data per staxid for "$name""
 
-    # take the query sequence name and retrieve blast hits for that part
+    # take the query sequence name and retrieve the blast hits for that part name
     awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
 
     ##########
@@ -39,13 +39,13 @@ for tsv in 4_blast_outputs/*.tsv; do
         # run taxonkit lineage on the staxids
         cut -f1 acc_pid_ev.tsv | taxonkit lineage > lineage_hits.tsv
 
-        # combine accession, pident, evalue, and taxonkit lineage for 'likely taxonomy' overview
-        echo -e "staxid\tpident\tlength\tevalue\ttaxonkit_lineage" > 5_blast_filtering/"$part_name"_likely_taxonomy.txt
-        paste acc_pid_ev.tsv lineage_hits.tsv >> 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+        # combine accession, pident, evalue, and taxonkit lineage for 'possible taxonomy' overview
+        echo -e "staxid\tpident\tlength\tevalue\ttaxonkit_lineage" > 5_blast_filtering/"$part_name"_possible_taxonomy.txt
+        paste acc_pid_ev.tsv lineage_hits.tsv >> 5_blast_filtering/"$part_name"_possible_taxonomy.txt
 
-        # explanation in empty 'likely taxonomy' files (ie. if lineage hits empty)
+        # explanation in empty 'possible taxonomy' files (ie. if lineage hits empty)
         if [ ! -s lineage_hits.tsv ]; then
-            echo "No hits returned with >= 95% identity and >= 100nt in length from "$part_name". No confidence in species level determination from this sequence." >> 5_blast_filtering/"$part_name"_likely_taxonomy.txt
+            echo "No hits returned with >= 95% identity and >= 100nt in length from "$part_name". No confidence in species level determination from this sequence." >> 5_blast_filtering/"$part_name"_possible_taxonomy.txt
         fi
 
         rm 5_blast_filtering/"$part_name"_blast_species.tsv
