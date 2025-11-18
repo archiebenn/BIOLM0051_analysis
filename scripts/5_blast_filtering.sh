@@ -19,7 +19,7 @@ for tsv in 4_blast_outputs/*.tsv; do
     # extract base name
     name=$(basename "$tsv" _blast.tsv)
 
-    echo "Splitting "$name" back into parts, sorting BLAST data per staxid, and adding taxonomic lineage."
+    echo "Splitting "$name" back into parts, sorting by staxid, adding taxonomic lineages, and manually selecting BLAST hits."
 
     # get query name, retrieve blast lines with that name, and output as new file of blast hits for that query/part
     awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
