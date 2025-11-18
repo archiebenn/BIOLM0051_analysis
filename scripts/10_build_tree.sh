@@ -21,6 +21,6 @@ for file in 9_alignment_files/*.afa; do
     iqtree2 -s "$file" -m MFP -B 1000 -bnni -nt AUTO -redo
 
     # move all tree files to results folder
-    mv "$file".*/10_tree_files
+    mv "$file".* 10_tree_files
 
 done

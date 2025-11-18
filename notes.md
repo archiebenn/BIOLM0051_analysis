@@ -64,6 +64,8 @@ After splitting up, I do two things:
 
 
 ### 6) Running `efetch` to get fastas, then using sstart and send for each sequence from blast to trim the sequences to match the query
+FIRST, I delete my sampleD_part3 files here. This is the end for them... (likely human contamination) so need to remember to mention in write up.  
+
 This is essentially to create a candidate pool of sequences i might use in my alignment - note it's not selecting sequences etc. I need to do that manually. 
 
 Also can't just use efetch as this will give me the whole genome/accession sequence which can be 10,000+ bases - so can use `seqtk sebseq` but this took some getting used to/understanding as i needed to create a `.bed` file with sstart-1 and send coordinates from the blast hot to line up properly to my original query sequence. here is a good explanation: https://www.reneshbedre.com/blog/seqtk-subseq.html .  

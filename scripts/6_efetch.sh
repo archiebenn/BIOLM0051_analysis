@@ -8,6 +8,9 @@ cd results || \
 
 mkdir -p 6_efetch_FASTA
 
+# remove sampleD_part3 based on blast results (human contamination)
+rm 5_blast_filtering/sampleD_part3.*
+
 for tsv in 5_blast_filtering/*_top_hit_per_staxid.tsv; do
 
     # extract base name
