@@ -26,7 +26,7 @@ chmod +x scripts/*
 ./scripts/6_efetch.sh
 
 # 7. combine the original sample part to its respctive trimmed fasta file
-./scripts/7_concantenate_fasta.sh
+./scripts/7_concatenate_fasta.sh
 
 # 8. biopython to translate full fasta files and select appropriate frame for protein sequence
 cd scripts/
@@ -35,6 +35,9 @@ cd ..
 
 # 9. alignment use muscle5
 ./scripts/9_muscle_alignment.sh
+
+# 10. tree build
+./scripts/10_build_tree.sh
 
 end=$(date +%s)
 runtime=$((end - start))

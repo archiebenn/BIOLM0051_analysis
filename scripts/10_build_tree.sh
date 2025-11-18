@@ -24,3 +24,8 @@ for file in 9_alignment_files/*.afa; do
     mv "$file".* 10_tree_files
 
 done
+
+echo "Script 10 - Tree Builds - complete. Fine IQ-TREE files in results/10_tree_files."
+echo
+
+cd ..

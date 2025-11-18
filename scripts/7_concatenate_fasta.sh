@@ -27,6 +27,8 @@ for sample in 3_FASTA_Q20/*.fasta; do
         # run seqkit grep to match 'part' sequence
         seqkit grep -p "$part_name" 3_FASTA_Q20/"$name"_Q20.fasta > temp.fasta
 
+        echo "Concatenating original file part with efetch FASTAs for "$part_name""
+
         # concatenate original sequence part to efetch
         cat temp.fasta 6_efetch_FASTA/"$part_name".fasta > 7_complete_FASTA/"$part_name"_complete.fasta
 
@@ -36,3 +38,7 @@ for sample in 3_FASTA_Q20/*.fasta; do
 
 done
 
+echo "Script 7 - FASTA concatenation - complete: Concatenated FASTA can be found in results/7_complete_FASTA"
+echo
+
+cd ..

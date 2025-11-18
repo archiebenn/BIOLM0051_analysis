@@ -17,7 +17,8 @@ for tsv in 5_blast_selected/*.tsv; do
     # extract base name
     part_name=$(basename "$tsv" _selected.tsv)
 
-    echo "Retrieving and trimming FASTA files for "$part_name""
+
+    echo "Retrieving and trimming FASTA files for "$part_name" with efetch"
     echo 
 
     # extract accession values, sstart, and send from each tsv. choosing top 15
@@ -77,6 +78,6 @@ for tsv in 5_blast_selected/*.tsv; do
 
 done
 
-echo "FASTA files from BLAST search retrieved and trimmed to match query sequence hits. Find the FASTA files in results/6_efetch_FASTA"
+echo "Script 6 - efetch FASTA - complete. FASTA files from BLAST search retrieved and trimmed to match query sequence hits. Find the FASTA files in results/6_efetch_FASTA"
 
 cd ..

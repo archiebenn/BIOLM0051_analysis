@@ -39,5 +39,5 @@ for fasta in 3_FASTA_Q20/*.fasta; do
     
 done
 
-echo "BLAST searches complete. Find blast tsvs and log files in results/4_blast_outputs/"
+echo "Script 4 - BLAST searches - complete. Find blast tsvs and log files in results/4_blast_outputs/"
 cd ..

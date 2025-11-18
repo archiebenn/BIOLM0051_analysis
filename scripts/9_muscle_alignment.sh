@@ -26,3 +26,7 @@ for fasta in 8_protein_FASTA/*.fasta; do
 
 done
 
+echo "Script 9 - Alignments - complete. Find alignment files in results/9_alignment_files."
+echo
+
+cd ..

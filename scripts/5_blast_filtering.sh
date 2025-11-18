@@ -109,5 +109,7 @@ grep 'Americhelydia' 5_blast_filtering/sampleD_part1_top_hit_per_staxid.tsv > 5_
 # Americhelydia clade consistently scored e values < 1e-135 so will keep an ingroup again
 grep 'Americhelydia' 5_blast_filtering/sampleD_part2_top_hit_per_staxid.tsv > 5_blast_selected/sampleD_part2_selected.tsv
 
-
+echo "Script 5 - BLAST filtering - complete. Find full 'part' BLAST hit and top staxid hit .tsvs in results/blast_filtering" 
+echo "Find manually selected BLAST hits for downstream analysis in results/5_blast_selected"
+echo
 cd ..
