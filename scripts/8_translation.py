@@ -4,7 +4,7 @@ from Bio import SeqIO
 import os
 
 # make results directory
-os.makedirs("../results/8_translated_seqs", exist_ok=True)
+os.makedirs("../results/8_protein_FASTA", exist_ok=True)
 
 
 # set directory where fasta files are kept
@@ -34,7 +34,7 @@ def translate_all_frames(sequence):
 # access filenames in fasta directory
 for file in os.listdir(fasta_directory):
     # wipe each results file before appending
-    with open(f"../results/8_translated_seqs/{file}_AAs.txt", "w") as f:
+    with open(f"../results/8_protein_FASTA/{file}_prot.fasta", "w") as f:
         pass
 
     # use file name and SeqIO to open and then parse the fasta contents
@@ -44,6 +44,6 @@ for file in os.listdir(fasta_directory):
         # translate each sequence in fasta file and select frame with least stops
         protein = translate_all_frames(sequence)
 
-        # write out
-        with open(f"../results/8_translated_seqs/{file}_AAs.txt", "a") as f:
-            f.write(protein + "\n")
+        # write out > + sequence id + protein sequence to results folder
+        with open(f"../results/8_protein_FASTA/{file}_prot.fasta", "a") as f:
+            f.write(f">{sequence.id}\n{protein}\n")
