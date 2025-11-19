@@ -14,8 +14,13 @@ micromamba activate BIOLM0051-env
 ```
 
 ### Step 2: Running the scripts  
+#### Make executable 
+Ensure all the scripts in this repository are executable locally with the following:
+```bash
+chmod +x scripts/*
+```
 #### 2.1 `run_all.sh`
-Run the following from the project root to execute all script in the correct order for this pipeline (ensure this is executable first with `chmod +x scripts/run_all.sh`):  
+Run the following from the project root to execute all script in the correct order for this pipeline: 
 ```bash
 scripts/run_all.sh
 ```
