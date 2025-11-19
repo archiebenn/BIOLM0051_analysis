@@ -23,10 +23,10 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 
 ### Step 1: Setting up and activating the virtual Environment
 - Recommended to ensure reproducibility by ensuring the same packages and package versions are installed.
-- Clone this repo onto your local machine and navigate into this directory.  
-- Set up the project environment using the provided `environment.lock.yml` file for an exact environment reproduction with pinned versions of packages (linux only), or the `environment.yml` file for a more portable setup across operating systems
+- Clone this repo onto your local machine and navigate into this project directory.  
+- Set up the project environment using the provided `environment.yml` file:
 ```bash
-micromamba create -n BIOLM0051-env -f environment.yml  # (or environment.lock.yml)
+micromamba create -n BIOLM0051-env -f environment.yml
 micromamba activate BIOLM0051-env
 ```
 
