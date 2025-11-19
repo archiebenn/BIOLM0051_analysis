@@ -79,7 +79,7 @@ echo
 echo "[10] Building phylogenetic trees with IQ-TREE..."
 sleep 3
 ./scripts/10_build_tree.sh
-echo "Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
+echo "[10]Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
 echo
 
 end=$(date +%s)

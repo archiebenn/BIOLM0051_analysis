@@ -1,0 +1,52 @@
+#nexus
+
+BEGIN Taxa;
+DIMENSIONS ntax=7;
+TAXLABELS
+[1] 'OR253895.1_Sternotherus_carinatus'
+[2] 'NC_014577.1_Kinosternon_leucostomum'
+[3] 'sampleD_part2'
+[4] 'JX454980.1_Eretmochelys_imbricata'
+[5] 'JX454979.1_Lepidochelys_olivacea'
+[6] 'NC_018550.1_Natator_depressa'
+[7] 'NC_009260.1_Macrochelys_temminckii'
+;
+END; [Taxa]
+
+BEGIN Splits;
+DIMENSIONS ntax=7 nsplits=30;
+FORMAT labels=no weights=yes confidences=no intervals=no;
+MATRIX
+	100	 2,
+	100	 3,
+	100	 5,
+	100	 6,
+	56	 5 6,
+	39	 3 5 6,
+	100	 4,
+	67	 1 2 7,
+	100	 7,
+	100	 1 2,
+	100	 1,
+	5	 5 7,
+	6	 3 5 7,
+	7	 4 6,
+	16	 1 2 4,
+	14	 3 5,
+	34	 4 5 6,
+	8	 5 6 7,
+	15	 1 2 3,
+	3	 3 6,
+	8	 6 7,
+	1	 4 7,
+	4	 4 6 7,
+	7	 4 5,
+	2	 3 4,
+	2	 3 4 6,
+	2	 4 5 7,
+	3	 3 6 7,
+	0	 3 7,
+	0	 2 3,
+;
+END; [Splits]
+
