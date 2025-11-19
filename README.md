@@ -1,8 +1,14 @@
 # Heathrow "Mystery Meat" analysis pipeline
 ### Requirements  
 If you wish to reproduce this analysis, the following is required:
-- `micromamba` installation  (see: [https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html])
-- NCBI taxonomy dump is required to run this pipeline (see: [https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/]). Please download and extract with the following before running:
+- `micromamba` installation  (see: [https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html]). To install, execute the following and restart your shell:
+
+```bash
+"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+```
+
+- NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: [https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/]). Please download and extract with the following before running:
+
 ```bash
 mkdir -p ~/.taxonkit
 
@@ -12,7 +18,7 @@ wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
 # extract
 tar -xzf taxdump.tar.gz
 
-mv *.dmp  *.prt readme.txt ~/.taxonkit
+mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
 ### Step 1: Setting up and activating the virtual Environment
