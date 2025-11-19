@@ -24,7 +24,5 @@ for fastq in *.FASTQ; do
 done
 
 mv 1_FASTQ_format_check.txt ../../results/1_FASTQ_check                           
-echo
-echo "FASTQ check complete. Find output in results/"
 
 cd ../../

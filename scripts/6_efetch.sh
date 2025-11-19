@@ -77,6 +77,4 @@ for tsv in 5_blast_selected/*.tsv; do
 
 done
 
-echo "Script 6 - efetch FASTA - complete. FASTA files from BLAST search retrieved and trimmed to match query sequence hits. Find the FASTA files in results/6_efetch_FASTA"
-echo
 cd ..

@@ -62,7 +62,5 @@ for sample in 3_FASTA_Q20/*.fasta; do
 
 done
 
-echo "Script 7 - FASTA concatenation - complete: Concatenated FASTA can be found in results/7_complete_FASTA"
-echo
 
 cd ..

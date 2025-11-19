@@ -40,22 +40,22 @@ echo
 echo "[5] Filtering BLAST hits..."
 sleep 3
 ./scripts/5_blast_filtering.sh
-echo "[5] BLAST hits filtered."
+echo "[5] BLAST hits filtered. Find manually selected BLAST hits for downstream analysis in results/5_blast_selected"
 echo
 
 
 # 6. trimmed fasta files from top, unique accessions in each part's blast output (trimmed to query sstart - send)
-echo "[6] Retrieving FASTA files with efetch..."
+echo "[6] Retrieving and trimming FASTA files with efetch..."
 sleep 3
 ./scripts/6_efetch.sh
-echo "[6] efetch FASTA files retrieved."
+echo "[6] efetch FASTA files retrieved and trimmed to match query."
 echo
 
 # 7. combine the original sample part to its respctive trimmed fasta file
 echo "[7] Concatenating query FASTAs with BLAST FASTAs..."
 sleep 3
 ./scripts/7_concatenate_fasta.sh
-echo "[7] FASTA concatenation complete."
+echo "[7] FASTA concatenation complete. Find complete FASTA files in results/7_complete_FASTA"
 echo
 
 # 8. biopython to translate full fasta files and select appropriate frame for protein sequence
@@ -64,7 +64,7 @@ sleep 3
 cd scripts/
 python3 8_translation.py
 cd ..
-echo "[8] Biopython translation and frame selection complete."
+echo "[8] Biopython translation and frame selection complete. Find protein sequences in results/8_protein_FASTA"
 echo
 
 
@@ -72,14 +72,14 @@ echo
 echo "[9] Aligning protein sequences with MUSCLE..."
 sleep 3
 ./scripts/9_muscle_alignment.sh
-echo "[9] MUSCLE protein alignment complete."
+echo "[9] MUSCLE protein alignment complete. Find alignment files in results/9_alignment_files"
 echo
 
 # 10. tree build
 echo "[10] Building phylogenetic trees with IQ-TREE..."
 sleep 3
 ./scripts/10_build_tree.sh
-echo "Phylogenetic tree builds complete."
+echo "Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
 echo
 
 end=$(date +%s)

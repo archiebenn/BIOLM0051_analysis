@@ -76,7 +76,4 @@ for letter in {A..D}; do
       
 done
 
-echo
-echo "Processing complete. Find concatenated FASTQ files in $fastq_folder" 
-
-cd ../../
+cd ../..

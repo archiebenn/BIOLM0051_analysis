@@ -26,9 +26,5 @@ for fastq in 2_FASTQ_processed/*.FASTQ; do
     seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_Q20/${name}_Q20.fasta"
     
 done
-echo
 
-echo "Find fastqc reports in results/3_FASTQC_reports"  
-echo "Find FASTA files results/3_FASTA_Q20 and results/3_FASTA_raw"
-
-cd ../
+cd ..
