@@ -8,44 +8,79 @@ start=$(date +%s)
 chmod +x scripts/*
 
 # 1. check fastq format of samples
-# ./scripts/1_check_fastq.sh
+echo "[1] FASTQ check beginning..."
+sleep 3
+./scripts/1_check_fastq.sh
+echo "[1] FASTQ check complete"
+echo
 
 # 2. clean single-read fastq samples and concatenate into respective multi-read fastq files
-# ./scripts/2_concatenate_fastq.sh
+echo "[2] FASTQ concatenation beginning..."
+sleep 3
+./scripts/2_concatenate_fastq.sh
+echo "[2] FASTQ concatenation complete,"
+echo
 
 # 3. quality control/convert multi-read fastq files to single fasta format using seqtk 
-# ./scripts/3_fastq_to_fasta.sh
+echo "[3] FastQC and FASTQ->FASTA beginning..."
+sleep 3
+./scripts/3_fastq_to_fasta.sh
+echo "[3] FASTQ->FASTA complete. FastQC html reports can be found in results/3_FASTQC_reports"
+echo
 
 # 4. blast searching
-# ./scripts/4_blast.sh 
+echo "[4] BLAST search beginning..."
+sleep 3
+./scripts/4_blast.sh 
+echo "[4] BLAST searches complete."
+echo
 
 
 # 5. BLAST filtering
-echo "[5] Filtering BLAST hits"
+echo "[5] Filtering BLAST hits..."
+sleep 3
 ./scripts/5_blast_filtering.sh
+echo "[5] BLAST hits filtered."
+echo
 
 
 # 6. trimmed fasta files from top, unique accessions in each part's blast output (trimmed to query sstart - send)
-echo "[6] Retrieving FASTA files with efetch"
+echo "[6] Retrieving FASTA files with efetch..."
+sleep 3
 ./scripts/6_efetch.sh
+echo "[6] efetch FASTA files retrieved."
+echo
 
 # 7. combine the original sample part to its respctive trimmed fasta file
-echo "[7] Concatenating query FASTAs with BLAST FASTAs"
+echo "[7] Concatenating query FASTAs with BLAST FASTAs..."
+sleep 3
 ./scripts/7_concatenate_fasta.sh
+echo "[7] FASTA concatenation complete."
+echo
 
 # 8. biopython to translate full fasta files and select appropriate frame for protein sequence
-echo "[8] Using Biopython to translate nt FASTA sequences and select correct frame"
+echo "[8] Using Biopython to translate nt FASTA sequences and select correct frame..."
+sleep 3
 cd scripts/
 python3 8_translation.py
 cd ..
+echo "[8] Biopython translation and frame selection complete."
+echo
+
 
 # 9. alignment use muscle5
-echo "[9] Aligning protein sequences with MUSCLE"
+echo "[9] Aligning protein sequences with MUSCLE..."
+sleep 3
 ./scripts/9_muscle_alignment.sh
+echo "[9] MUSCLE protein alignment complete."
+echo
 
 # 10. tree build
-echo "[10] Building phylogenetic trees with IQ-TREE"
+echo "[10] Building phylogenetic trees with IQ-TREE..."
+sleep 3
 ./scripts/10_build_tree.sh
+echo "Phylogenetic tree builds complete."
+echo
 
 end=$(date +%s)
 runtime=$((end - start))
