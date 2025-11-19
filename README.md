@@ -1,6 +1,6 @@
 # Heathrow "Mystery Meat" analysis pipeline
 ### Requirements  
-If you wish to reproduce this analysis, the following are recommended:
+If you wish to reproduce this analysis, the following is recommended:
 - `micromamba` installation  (see: [https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html])
 
 Setting up the `micromamba` environment below is recommended to ensure reproducibility by ensuring the same packages and package versions are installed.
