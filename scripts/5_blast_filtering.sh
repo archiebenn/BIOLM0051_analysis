@@ -21,8 +21,14 @@ for tsv in 4_blast_outputs/*.tsv; do
 
     echo "Splitting "$name" back into parts, sorting by staxid, adding taxonomic lineages, and manually selecting BLAST hits."
 
-    # get query name, retrieve blast lines with that name, and output as new file of blast hits for that query/part
-    awk -F'\t' -v out="5_blast_filtering/" '{print > (out "/" $1 "_blast.tsv")}' 4_blast_outputs/"$name"_blast.tsv
+    # take unique part/query names from blast, remove duplicates, and read each one
+    cut -f1 4_blast_outputs/"$name"_blast.tsv | sort -u | while read part_name; do
+
+        # extract all lines with that part name/query from full blast and create 'part' blast
+        grep "$part_name" 4_blast_outputs/"$name"_blast.tsv > 5_blast_filtering/"$part_name"_blast.tsv
+    
+    done
+
 
     ##########
     # 2. take each part blast, retrieve top hit for each unique staxid sorted by e value

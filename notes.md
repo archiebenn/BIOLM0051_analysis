@@ -1,5 +1,13 @@
 # Notes for project report
 
+## General notes  
+- No assumption that samples are necessarily from different species  
+- Should have concatenated by part at the start - part means PCR amplicon, so each 'part' hits same region across samples  
+- Having said that, not easy to know at all because part is just a filename artefact - can't have assumed part1 = part1 = part1 PCR amplicon for instance, so this isn't necessarily wrong  
+- Can say that post-BLAST i saw non-overlap between part1,2,3 in each sample (or minimal) = non-alignable. Upon inspecting sstart and send values for each part across samples, I suspected that they were homologous loci/PCR amplicons - this was confirmed downstream when I performed my MSA which showed strong alignment across parts (MSA for part1/part2/part3).  
+- Will leave in 'incorrect' concatenation before BLAST as doesn't affect biological results (BLASTed FASTA was multi-read), but good to bring up that my assumptions were refined downstream in the analysis and I realised I should be creating alignents per part, not per sample or per sample per part etc. - it was a biologically justified adjustment to structure. I could tell from BLAST results in part4 that parts 1-3 represent non-overlapping, distinct loci, so in part5 I un-did the concatenation per sample. SHOWS CRITICAL REASONING OF PIPELINE so leave in!
+- Final trees are likely going to be per part (ie trees for part1, part2, part3). If samples cluster to similar species across all three it's strong independent evidence for relatedness.  
+
 ## PART 1 - FASTQ parts to single FASTA for each sample
 ### 0) make sure all scripts are executable
 ```bash
@@ -56,7 +64,7 @@ mv citations.dmp  gc.prt merged.dmp readme.txt delnodes.dmp gencode.dmp names.dm
 ```
 Notes from week 7 intro to bioinformatics worksheet on how to filter: *You’re likely to uncover many BLAST hits and many homologs. When we’re trying to determine the taxonomic origin of a sequence it is good practise to include as many homologous sequences as possible. However, the databases we search against have become so large that it often becomes impractical to include all discovered homologs. Therefore, you are going to **filter your BLAST results on Percent Identity, E-value and Query Coverage** (see the grey “Filter results” box above your BLAST hits). Filter your results by specifying thresholds which you find appropriate for selecting homologous sequences for phylogenetic analysis and note them down in the following table:*  
 
-In this script I split up the samples into parts 1, 2 and 3 again. This seems weird but it's actually helpful for QC as it lets me see if any of the parts are issues, rather than having it all together in one blast - it allows me to check phylogenetic consistency across sample parts.  
+In this script I split up the samples into parts 1, 2 and 3 again. This is actually what I should have cocatenated into at the start (per parts as opposed to per sample), but only realised about here. This is ok as blast read each as an individual query anyway so I can just split per part, then rejoin per part after.
 
 After splitting up, I do two things:  
 - 1. I filter the blast hits in the 'part' blast tsvs by 95%+ pident and length >= 100bp. Anything returned from this is a strong likelihood for the actual species present in the sample. I noticed no hits from this for sample B and C, so can say there is **no-confidence on the species level** for these. Samples A and D did return confidence in species level from these blast hits, but notice that sampleD_part3 is human, so likely contaminated  
