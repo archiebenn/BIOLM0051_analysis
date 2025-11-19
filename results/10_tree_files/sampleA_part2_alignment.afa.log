@@ -4,8 +4,8 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
 Command: iqtree2 -s 9_alignment_files/sampleA_part2_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    285136 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Tue Nov 18 22:53:51 2025
+Seed:    226401 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 19 10:22:00 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleA_part2_alignment.afa ... Fasta format detected
@@ -13,53 +13,36 @@ Alignment most likely contains protein sequences
 WARNING: 4 sites contain only gaps or ambiguous characters.
 Alignment has 16 sequences with 175 columns, 29 distinct patterns
 0 parsimony-informative, 4 singleton sites, 171 constant sites
-WARNING: Some sequence names are changed as follows:
-AB201259.1:5893-6395 -> AB201259.1_5893-6395
-PQ997938.1:5892-6394 -> PQ997938.1_5892-6394
-AP006468.1:5896-6398 -> AP006468.1_5896-6398
-MF409248.1:5894-6396 -> MF409248.1_5894-6396
-KC572708.1:6818-7320 -> KC572708.1_6818-7320
-NC_006926.1:5895-6397 -> NC_006926.1_5895-6397
-AP006471.1:5897-6399 -> AP006471.1_5897-6399
-DQ095155.1:526-1031 -> DQ095155.1_526-1031
-AB201257.1:5887-6392 -> AB201257.1_5887-6392
-AP006472.1:5890-6395 -> AP006472.1_5890-6395
-AP006475.1:5885-6390 -> AP006475.1_5885-6390
-DQ095154.1:526-1031 -> DQ095154.1_526-1031
-NC_006931.1:5886-6391 -> NC_006931.1_5886-6391
-NC_007938.1:5891-6396 -> NC_007938.1_5891-6396
-ON675349.1:6305-6810 -> ON675349.1_6305-6810
-
-                       Gap/Ambiguity  Composition  p-value
-   1  AB201259.1_5893-6395     4.57%    passed    100.00%
-   2  PQ997938.1_5892-6394     4.57%    passed    100.00%
-   3  AP006468.1_5896-6398     4.57%    passed    100.00%
-   4  MF409248.1_5894-6396     4.57%    passed    100.00%
-   5  KC572708.1_6818-7320     4.57%    passed    100.00%
-   6  NC_006926.1_5895-6397    4.57%    passed    100.00%
-   7  AP006471.1_5897-6399     4.57%    passed    100.00%
-   8  sampleA_part2            2.86%    passed    100.00%
-   9  DQ095155.1_526-1031      4.00%    passed    100.00%
-  10  AB201257.1_5887-6392     4.00%    passed    100.00%
-  11  AP006472.1_5890-6395     4.00%    passed    100.00%
-  12  AP006475.1_5885-6390     4.00%    passed    100.00%
-  13  DQ095154.1_526-1031      4.00%    passed    100.00%
-  14  NC_006931.1_5886-6391    4.00%    passed    100.00%
-  15  NC_007938.1_5891-6396    4.00%    passed    100.00%
-  16  ON675349.1_6305-6810     4.00%    passed    100.00%
-****  TOTAL                    4.18%  0 sequences failed composition chi2 test (p-value<5%; df=19)
-NOTE: PQ997938.1_5892-6394 is identical to AB201259.1_5893-6395 but kept for subsequent analysis
-NOTE: AB201257.1_5887-6392 is identical to DQ095155.1_526-1031 but kept for subsequent analysis
+                                       Gap/Ambiguity  Composition  p-value
+   1  AB201259.1_Balaenoptera_brydei           4.57%    passed    100.00%
+   2  PQ997938.1_Balaenoptera_ricei            4.57%    passed    100.00%
+   3  AP006468.1_Balaenoptera_acutorostrata    4.57%    passed    100.00%
+   4  MF409248.1_Balaenoptera_borealis         4.57%    passed    100.00%
+   5  KC572708.1_Balaenoptera_physalus         4.57%    passed    100.00%
+   6  NC_006926.1_Balaenoptera_bonaerensis     4.57%    passed    100.00%
+   7  AP006471.1_Eschrichtius_robustus         4.57%    passed    100.00%
+   8  sampleA_part2                            2.86%    passed    100.00%
+   9  DQ095155.1_Eubalaena_australis           4.00%    passed    100.00%
+  10  AB201257.1_Balaenoptera_omurai           4.00%    passed    100.00%
+  11  AP006472.1_Balaena_mysticetus            4.00%    passed    100.00%
+  12  AP006475.1_Caperea_marginata             4.00%    passed    100.00%
+  13  DQ095154.1_Eubalaena_glacialis           4.00%    passed    100.00%
+  14  NC_006931.1_Eubalaena_japonica           4.00%    passed    100.00%
+  15  NC_007938.1_Balaenoptera_edeni           4.00%    passed    100.00%
+  16  ON675349.1_Balaenoptera_musculus         4.00%    passed    100.00%
+****  TOTAL                                    4.18%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: PQ997938.1_Balaenoptera_ricei is identical to AB201259.1_Balaenoptera_brydei but kept for subsequent analysis
+NOTE: AB201257.1_Balaenoptera_omurai is identical to DQ095155.1_Eubalaena_australis but kept for subsequent analysis
 NOTE: 9 identical sequences (see below) will be ignored for subsequent analysis
-NOTE: AP006468.1_5896-6398 (identical to AB201259.1_5893-6395) is ignored but added at the end
-NOTE: MF409248.1_5894-6396 (identical to AB201259.1_5893-6395) is ignored but added at the end
-NOTE: KC572708.1_6818-7320 (identical to AB201259.1_5893-6395) is ignored but added at the end
-NOTE: AP006472.1_5890-6395 (identical to DQ095155.1_526-1031) is ignored but added at the end
-NOTE: AP006475.1_5885-6390 (identical to DQ095155.1_526-1031) is ignored but added at the end
-NOTE: DQ095154.1_526-1031 (identical to DQ095155.1_526-1031) is ignored but added at the end
-NOTE: NC_006931.1_5886-6391 (identical to DQ095155.1_526-1031) is ignored but added at the end
-NOTE: NC_007938.1_5891-6396 (identical to DQ095155.1_526-1031) is ignored but added at the end
-NOTE: ON675349.1_6305-6810 (identical to DQ095155.1_526-1031) is ignored but added at the end
+NOTE: AP006468.1_Balaenoptera_acutorostrata (identical to AB201259.1_Balaenoptera_brydei) is ignored but added at the end
+NOTE: MF409248.1_Balaenoptera_borealis (identical to AB201259.1_Balaenoptera_brydei) is ignored but added at the end
+NOTE: KC572708.1_Balaenoptera_physalus (identical to AB201259.1_Balaenoptera_brydei) is ignored but added at the end
+NOTE: AP006472.1_Balaena_mysticetus (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: AP006475.1_Caperea_marginata (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: DQ095154.1_Eubalaena_glacialis (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: NC_006931.1_Eubalaena_japonica (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: NC_007938.1_Balaenoptera_edeni (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: ON675349.1_Balaenoptera_musculus (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
 Alignment was printed to 9_alignment_files/sampleA_part2_alignment.afa.uniqueseq.phy
 
 For your convenience alignment with unique sequences printed to 9_alignment_files/sampleA_part2_alignment.afa.uniqueseq.phy
@@ -68,11 +51,13 @@ For your convenience alignment with unique sequences printed to 9_alignment_file
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-9329 trees examined
+7239 trees examined
 Threads: 1 / Time: 8.001 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -538
-Threads: 2 / Time: 6.296 sec / Speedup: 1.271 / Efficiency: 64% / LogL: -538
-Threads: 3 / Time: 5.961 sec / Speedup: 1.342 / Efficiency: 45% / LogL: -538
-BEST NUMBER OF THREADS: 2
+Threads: 2 / Time: 5.987 sec / Speedup: 1.336 / Efficiency: 67% / LogL: -538
+Threads: 3 / Time: 5.308 sec / Speedup: 1.507 / Efficiency: 50% / LogL: -538
+WARNING: 4 threads for alignment length 29 will slow down analysis
+Threads: 4 / Time: 6.023 sec / Speedup: 1.328 / Efficiency: 33% / LogL: -538
+BEST NUMBER OF THREADS: 3
 
 Perform fast likelihood tree search using LG+I+G model...
 Estimate model parameters (epsilon = 5.000)
@@ -155,9 +140,9 @@ WARNING: Number of threads seems too high for short alignments. Use -T AUTO to d
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 120  DCMut+F+G4    498.195      31  1058.390     1072.265     1156.499
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
-131  VT            536.059      11  1094.118     1095.737     1128.930
+131  VT            536.059      11  1094.117     1095.737     1128.930
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
-132  VT+I          536.059      12  1096.118     1098.043     1134.095
+132  VT+I          536.059      12  1096.117     1098.043     1134.095
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 133  VT+G4         536.059      12  1096.118     1098.043     1134.095
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
@@ -217,7 +202,7 @@ WARNING: Number of threads seems too high for short alignments. Use -T AUTO to d
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 261  mtART         517.268      11  1056.536     1058.156     1091.349
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
-262  mtART+I       517.144      12  1058.288     1060.214     1096.266
+262  mtART+I       517.144      12  1058.288     1060.214     1096.265
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 263  mtART+G4      517.178      12  1058.356     1060.282     1096.333
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
@@ -225,7 +210,7 @@ WARNING: Number of threads seems too high for short alignments. Use -T AUTO to d
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 275  mtART+F+I     500.742      31  1063.484     1077.358     1161.592
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
-276  mtART+F+G4    500.614      31  1063.228     1077.102     1161.336
+276  mtART+F+G4    500.614      31  1063.227     1077.102     1161.336
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 287  mtZOA         511.936      11  1045.872     1047.492     1080.685
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
@@ -352,26 +337,26 @@ Bayesian Information Criterion:         mtZOA
 Best-fit model: mtZOA chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleA_part2_alignment.afa.model.gz
-CPU time for ModelFinder: 38.778 seconds (0h:0m:38s)
-Wall-clock time for ModelFinder: 20.594 seconds (0h:0m:20s)
+CPU time for ModelFinder: 54.261 seconds (0h:0m:54s)
+Wall-clock time for ModelFinder: 25.680 seconds (0h:0m:25s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 285136)...
+Generating 1000 samples for ultrafast bootstrap (seed: 226401)...
 
 NOTE: 0 MB RAM (0 GB) is required!
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 Estimate model parameters (epsilon = 0.100)
 1. Initial log-likelihood: -511.936
 Optimal log-likelihood: -511.936
-Parameters optimization took 1 rounds (0.000 sec)
-Computing ML distances based on estimated model parameters... 0.002 sec
+Parameters optimization took 1 rounds (0.001 sec)
+Computing ML distances based on estimated model parameters... 0.003 sec
 Computing BIONJ tree...
 0.000 seconds
 Log-likelihood of BIONJ tree: -511.937
 --------------------------------------------------------------------
 |             INITIALIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
-Generating 98 parsimony trees... 0.010 second
-Computing log-likelihood of 94 initial trees ... 0.018 seconds
+Generating 98 parsimony trees... 0.013 second
+Computing log-likelihood of 96 initial trees ... 0.025 seconds
 Current best score: -511.936
 
 Do NNI search on 20 best initial trees
@@ -379,8 +364,8 @@ Estimate model parameters (epsilon = 0.100)
 BETTER TREE FOUND at iteration 1: -511.936
 Iteration 10 / LogL: -511.936 / Time: 0h:0m:0s
 Iteration 20 / LogL: -511.936 / Time: 0h:0m:0s
-Finish initializing candidate tree set (13)
-Current best tree score: -511.936 / CPU time: 0.047
+Finish initializing candidate tree set (10)
+Current best tree score: -511.936 / CPU time: 0.060
 Number of iterations: 20
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
@@ -394,18 +379,182 @@ Iteration 80 / LogL: -511.936 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 90 / LogL: -511.936 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 100 / LogL: -511.936 / Time: 0h:0m:0s (0h:0m:0s left)
 Refining ufboot trees with NNI 1 branch...
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 100 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
 200 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 300 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 400 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 500 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
 600 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 700 samples done
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 800 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
 900 samples done
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 20 will slow down analysis
+WARNING: 3 threads for alignment length 21 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 23 will slow down analysis
+WARNING: 3 threads for alignment length 22 will slow down analysis
 1000 samples done
-Total 882 ufboot trees refined
-TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:2s
+Total 891 ufboot trees refined
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:3s
 
 --------------------------------------------------------------------
 |                    FINALIZING TREE SEARCH                        |
@@ -414,22 +563,22 @@ Performs final model parameters optimization
 Estimate model parameters (epsilon = 0.010)
 1. Initial log-likelihood: -511.936
 Optimal log-likelihood: -511.936
-Parameters optimization took 1 rounds (0.000 sec)
+Parameters optimization took 1 rounds (0.001 sec)
 BEST SCORE FOUND : -511.936
 Creating bootstrap support values...
 Split supports printed to NEXUS file 9_alignment_files/sampleA_part2_alignment.afa.splits.nex
 Total tree length: 0.025
 
 Total number of iterations: 102
-CPU time used for tree search: 4.364 sec (0h:0m:4s)
-Wall-clock time used for tree search: 2.201 sec (0h:0m:2s)
-Total CPU time used: 4.408 sec (0h:0m:4s)
-Total wall-clock time used: 2.223 sec (0h:0m:2s)
+CPU time used for tree search: 9.958 sec (0h:0m:9s)
+Wall-clock time used for tree search: 3.567 sec (0h:0m:3s)
+Total CPU time used: 10.054 sec (0h:0m:10s)
+Total wall-clock time used: 3.600 sec (0h:0m:3s)
 UFBoot trees printed to 9_alignment_files/sampleA_part2_alignment.afa.ufboot
 
 Computing bootstrap consensus tree...
 Reading input file 9_alignment_files/sampleA_part2_alignment.afa.splits.nex...
-7 taxa and 52 splits.
+7 taxa and 53 splits.
 Consensus tree written to 9_alignment_files/sampleA_part2_alignment.afa.contree
 Reading input trees file 9_alignment_files/sampleA_part2_alignment.afa.contree
 Log-likelihood of consensus tree: -511.938
@@ -445,4 +594,4 @@ Ultrafast bootstrap approximation results written to:
   UFBoot trees:                  9_alignment_files/sampleA_part2_alignment.afa.ufboot
   Screen log file:               9_alignment_files/sampleA_part2_alignment.afa.log
 
-Date and Time: Tue Nov 18 22:54:14 2025
+Date and Time: Wed Nov 19 10:22:29 2025

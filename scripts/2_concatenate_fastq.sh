@@ -14,7 +14,7 @@ mkdir -p ../../"$fastq_folder"
 for letter in {A..D}; do     
 
     ##########
-    # 1. concatenate fastq parts together:
+    # concatenate fastq parts together:
     ##########
 
     # create array of all FASTQ files for sample                                            
@@ -26,7 +26,7 @@ for letter in {A..D}; do
     cat "${files[@]}" > "sample${letter}_processed.FASTQ"        
 
     ##########
-    # 2. sed commands for text checking/replacing/deleting to keep fastq format:
+    # sed commands for text checking/replacing/deleting to keep fastq format:
     ##########         
 
     # substitution to ensure @ is always on a newline globally
@@ -45,7 +45,7 @@ for letter in {A..D}; do
     sed -i 's/part_/part/g' "sample${letter}_processed.FASTQ"               
 
     ##########
-    # 3. remove any duplicate lines following each other (which should never occur in fastq)
+    # remove any duplicate lines following each other (which should never occur in fastq)
     ##########
 
     # temporary file to write loop to so it's not writing over input file:

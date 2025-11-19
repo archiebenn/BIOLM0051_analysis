@@ -4,8 +4,8 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
 Command: iqtree2 -s 9_alignment_files/sampleD_part1_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    382779 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Tue Nov 18 22:56:38 2025
+Seed:    58586 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 19 10:25:01 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleD_part1_alignment.afa ... Fasta format detected
@@ -13,35 +13,23 @@ Alignment most likely contains protein sequences
 WARNING: 4 sites contain only gaps or ambiguous characters.
 Alignment has 11 sequences with 177 columns, 45 distinct patterns
 3 parsimony-informative, 12 singleton sites, 162 constant sites
-WARNING: Some sequence names are changed as follows:
-OZ223967.1:5407-5917 -> OZ223967.1_5407-5917
-NC_009260.1:5402-5915 -> NC_009260.1_5402-5915
-DQ256378.1:5335-5848 -> DQ256378.1_5335-5848
-GQ152876.1:1-501 -> GQ152876.1_1-501
-JX454970.1:5405-5910 -> JX454970.1_5405-5910
-JX454977.1:5408-5913 -> JX454977.1_5408-5913
-JQ026233.1:5340-5847 -> JQ026233.1_5340-5847
-JX454979.1:5405-5910 -> JX454979.1_5405-5910
-JX454981.1:5397-5902 -> JX454981.1_5397-5902
-KU254594.1:2-495 -> KU254594.1_2-495
-
-                       Gap/Ambiguity  Composition  p-value
-   1  OZ223967.1_5407-5917     4.52%    passed    100.00%
-   2  sampleD_part1            6.78%    passed     99.95%
-   3  NC_009260.1_5402-5915    3.95%    passed    100.00%
-   4  DQ256378.1_5335-5848     3.95%    passed    100.00%
-   5  GQ152876.1_1-501         5.65%    passed    100.00%
-   6  JX454970.1_5405-5910     5.08%    passed    100.00%
-   7  JX454977.1_5408-5913     5.08%    passed    100.00%
-   8  JQ026233.1_5340-5847     5.08%    passed    100.00%
-   9  JX454979.1_5405-5910     5.08%    passed    100.00%
-  10  JX454981.1_5397-5902     5.08%    passed    100.00%
-  11  KU254594.1_2-495         7.34%    passed    100.00%
-****  TOTAL                    5.24%  0 sequences failed composition chi2 test (p-value<5%; df=19)
-NOTE: JX454977.1_5408-5913 is identical to JX454970.1_5405-5910 but kept for subsequent analysis
-NOTE: JX454981.1_5397-5902 is identical to JX454979.1_5405-5910 but kept for subsequent analysis
+                                    Gap/Ambiguity  Composition  p-value
+   1  OZ223967.1_Natator_depressus          4.52%    passed    100.00%
+   2  sampleD_part1                         6.78%    passed     99.95%
+   3  NC_009260.1_Macrochelys_temminckii    3.95%    passed    100.00%
+   4  DQ256378.1_Chelydra_serpentina        3.95%    passed    100.00%
+   5  GQ152876.1_Dermochelys_coriacea       5.65%    passed    100.00%
+   6  JX454970.1_Eretmochelys_imbricata     5.08%    passed    100.00%
+   7  JX454977.1_Caretta_caretta            5.08%    passed    100.00%
+   8  JQ026233.1_Chelonia_mydas             5.08%    passed    100.00%
+   9  JX454979.1_Lepidochelys_olivacea      5.08%    passed    100.00%
+  10  JX454981.1_Lepidochelys_kempii        5.08%    passed    100.00%
+  11  KU254594.1_Eretmochelys_imbricata     7.34%    passed    100.00%
+****  TOTAL                                 5.24%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: JX454977.1_Caretta_caretta is identical to JX454970.1_Eretmochelys_imbricata but kept for subsequent analysis
+NOTE: JX454981.1_Lepidochelys_kempii is identical to JX454979.1_Lepidochelys_olivacea but kept for subsequent analysis
 NOTE: 1 identical sequences (see below) will be ignored for subsequent analysis
-NOTE: JQ026233.1_5340-5847 (identical to JX454970.1_5405-5910) is ignored but added at the end
+NOTE: JQ026233.1_Chelonia_mydas (identical to JX454970.1_Eretmochelys_imbricata) is ignored but added at the end
 Alignment was printed to 9_alignment_files/sampleD_part1_alignment.afa.uniqueseq.phy
 
 For your convenience alignment with unique sequences printed to 9_alignment_files/sampleD_part1_alignment.afa.uniqueseq.phy
@@ -50,11 +38,12 @@ For your convenience alignment with unique sequences printed to 9_alignment_file
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-2323 trees examined
-Threads: 1 / Time: 8.001 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -630
-Threads: 2 / Time: 5.976 sec / Speedup: 1.339 / Efficiency: 67% / LogL: -630
-Threads: 3 / Time: 5.421 sec / Speedup: 1.476 / Efficiency: 49% / LogL: -630
-BEST NUMBER OF THREADS: 2
+1863 trees examined
+Threads: 1 / Time: 8.003 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -629
+Threads: 2 / Time: 5.662 sec / Speedup: 1.413 / Efficiency: 71% / LogL: -629
+Threads: 3 / Time: 4.884 sec / Speedup: 1.638 / Efficiency: 55% / LogL: -629
+Threads: 4 / Time: 4.396 sec / Speedup: 1.820 / Efficiency: 46% / LogL: -629
+BEST NUMBER OF THREADS: 3
 
 Perform fast likelihood tree search using LG+I+G model...
 Estimate model parameters (epsilon = 5.000)
@@ -62,280 +51,486 @@ Perform nearest neighbor interchange...
 Estimate model parameters (epsilon = 1.000)
 1. Initial log-likelihood: -608.393
 Optimal log-likelihood: -608.393
-Proportion of invariable sites: 0.456
-Gamma shape alpha: 2.478
-Parameters optimization took 1 rounds (0.006 sec)
-Time for fast ML tree search: 0.025 seconds
+Proportion of invariable sites: 0.458
+Gamma shape alpha: 2.499
+Parameters optimization took 1 rounds (0.007 sec)
+Time for fast ML tree search: 0.023 seconds
 
 NOTE: ModelFinder requires 1 MB RAM!
 ModelFinder will test up to 546 protein models (sample size: 177) ...
  No. Model         -LnL         df  AIC          AICc         BIC
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
   1  LG            608.706      17  1251.413     1255.262     1305.407
-  2  LG+I          608.410      18  1252.821     1257.150     1309.992
-  3  LG+G4         608.389      18  1252.779     1257.108     1309.950
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  2  LG+I          608.410      18  1252.821     1257.150     1309.991
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  3  LG+G4         608.389      18  1252.779     1257.108     1309.949
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
   4  LG+I+G4       608.393      19  1254.785     1259.626     1315.132
-  5  LG+R2         608.498      19  1254.996     1259.836     1315.343
-  6  LG+R3         608.445      21  1258.890     1264.851     1325.589
- 14  LG+F          573.001      36  1218.001     1237.030     1332.343
- 15  LG+F+I        573.001      37  1220.001     1240.231     1337.519
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  5  LG+R2         608.498      19  1254.996     1259.836     1315.342
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  6  LG+R3         608.445      21  1258.889     1264.851     1325.589
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 14  LG+F          573.000      36  1218.001     1237.030     1332.342
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 15  LG+F+I        573.000      37  1220.001     1240.231     1337.519
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  16  LG+F+G4       572.590      37  1219.181     1239.411     1336.698
- 17  LG+F+I+G4     573.612      38  1223.223     1244.701     1343.917
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 17  LG+F+I+G4     573.614      38  1223.229     1244.707     1343.922
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  18  LG+F+R2       572.758      38  1221.516     1242.994     1342.209
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  27  WAG           607.853      17  1249.705     1253.554     1303.700
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  28  WAG+I         607.555      18  1251.110     1255.439     1308.281
- 29  WAG+G4        607.539      18  1251.079     1255.408     1308.249
- 30  WAG+I+G4      607.542      19  1253.084     1257.924     1313.430
- 31  WAG+R2        607.646      19  1253.291     1258.132     1313.638
- 40  WAG+F         573.281      36  1218.562     1237.591     1332.904
- 41  WAG+F+I       573.281      37  1220.562     1240.792     1338.080
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 29  WAG+G4        607.539      18  1251.078     1255.408     1308.249
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 30  WAG+I+G4      607.542      19  1253.083     1257.924     1313.430
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 31  WAG+R2        607.645      19  1253.291     1258.132     1313.638
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 40  WAG+F         573.281      36  1218.562     1237.591     1332.903
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 41  WAG+F+I       573.281      37  1220.562     1240.792     1338.079
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  42  WAG+F+G4      572.944      37  1219.888     1240.118     1337.405
- 43  WAG+F+I+G4    573.972      38  1223.944     1245.422     1344.638
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 43  WAG+F+I+G4    573.975      38  1223.949     1245.428     1344.643
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  44  WAG+F+R2      573.064      38  1222.128     1243.607     1342.822
- 53  JTT           607.675      17  1249.349     1253.198     1303.344
- 54  JTT+I         607.252      18  1250.504     1254.833     1307.675
- 55  JTT+G4        607.240      18  1250.481     1254.810     1307.651
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 53  JTT           607.674      17  1249.349     1253.198     1303.343
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 54  JTT+I         607.252      18  1250.504     1254.833     1307.674
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 55  JTT+G4        607.240      18  1250.480     1254.809     1307.651
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  56  JTT+I+G4      607.237      19  1252.474     1257.315     1312.821
- 57  JTT+R2        607.428      19  1252.856     1257.697     1313.203
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 57  JTT+R2        607.428      19  1252.856     1257.696     1313.203
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  66  JTT+F         575.027      36  1222.054     1241.082     1336.395
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  67  JTT+F+I       575.027      37  1224.054     1244.284     1341.571
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  68  JTT+F+G4      574.564      37  1223.129     1243.359     1340.646
- 69  JTT+F+I+G4    575.586      38  1227.172     1248.650     1347.865
- 70  JTT+F+R2      574.769      38  1225.538     1247.017     1346.232
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 69  JTT+F+I+G4    575.589      38  1227.177     1248.655     1347.871
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 70  JTT+F+R2      574.769      38  1225.538     1247.016     1346.232
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  79  JTTDCMut      607.732      17  1249.465     1253.314     1303.459
- 80  JTTDCMut+I    607.326      18  1250.653     1254.982     1307.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 80  JTTDCMut+I    607.326      18  1250.652     1254.982     1307.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  81  JTTDCMut+G4   607.314      18  1250.629     1254.958     1307.799
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  82  JTTDCMut+I+G4 607.312      19  1252.623     1257.464     1312.970
- 83  JTTDCMut+R2   607.491      19  1252.982     1257.822     1313.328
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 83  JTTDCMut+R2   607.491      19  1252.981     1257.822     1313.328
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  92  JTTDCMut+F    574.726      36  1221.453     1240.481     1335.794
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
  93  JTTDCMut+F+I  574.726      37  1223.453     1243.683     1340.970
- 94  JTTDCMut+F+G4 574.283      37  1222.567     1242.797     1340.084
- 95  JTTDCMut+F+I+G4 575.305      38  1226.611     1248.089     1347.304
- 96  JTTDCMut+F+R2 574.475      38  1224.949     1246.427     1345.643
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 94  JTTDCMut+F+G4 574.283      37  1222.566     1242.797     1340.084
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 95  JTTDCMut+F+I+G4 575.308      38  1226.616     1248.094     1347.310
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 96  JTTDCMut+F+R2 574.474      38  1224.949     1246.427     1345.643
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 105  DCMut         617.410      17  1268.820     1272.669     1322.814
-106  DCMut+I       616.932      18  1269.864     1274.194     1327.035
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+106  DCMut+I       616.932      18  1269.864     1274.193     1327.035
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 107  DCMut+G4      616.922      18  1269.844     1274.173     1327.015
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 108  DCMut+I+G4    616.918      19  1271.836     1276.677     1332.183
-109  DCMut+R2      617.148      19  1272.297     1277.138     1332.644
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+109  DCMut+R2      617.148      19  1272.297     1277.137     1332.643
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 118  DCMut+F       575.530      36  1223.060     1242.088     1337.401
-119  DCMut+F+I     575.529      37  1225.059     1245.289     1342.576
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+119  DCMut+F+I     575.529      37  1225.058     1245.289     1342.576
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 120  DCMut+F+G4    575.130      37  1224.260     1244.490     1341.778
-121  DCMut+F+I+G4  576.154      38  1228.308     1249.786     1349.001
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+121  DCMut+F+I+G4  576.157      38  1228.313     1249.791     1349.007
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 122  DCMut+F+R2    575.294      38  1226.587     1248.066     1347.281
-131  VT            606.548      17  1247.095     1250.944     1301.090
-132  VT+I          606.310      18  1248.620     1252.950     1305.791
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+131  VT            606.547      17  1247.095     1250.944     1301.089
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+132  VT+I          606.310      18  1248.620     1252.949     1305.791
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 133  VT+G4         606.294      18  1248.588     1252.917     1305.759
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 134  VT+I+G4       606.301      19  1250.602     1255.443     1310.949
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 135  VT+R2         606.365      19  1250.730     1255.571     1311.077
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 144  VT+F          573.939      36  1219.877     1238.906     1334.219
-145  VT+F+I        573.939      37  1221.877     1242.108     1339.395
-146  VT+F+G4       573.669      37  1221.338     1241.569     1338.856
-147  VT+F+I+G4     574.703      38  1225.406     1246.884     1346.099
-148  VT+F+R2       573.749      38  1223.498     1244.977     1344.192
-157  PMB           605.548      17  1245.096     1248.946     1299.091
-158  PMB+I         605.362      18  1246.723     1251.052     1303.894
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+145  VT+F+I        573.939      37  1221.877     1242.107     1339.395
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+146  VT+F+G4       573.669      37  1221.338     1241.568     1338.856
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+147  VT+F+I+G4     574.706      38  1225.411     1246.890     1346.105
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+148  VT+F+R2       573.749      38  1223.498     1244.976     1344.192
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+157  PMB           605.548      17  1245.096     1248.945     1299.091
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+158  PMB+I         605.361      18  1246.723     1251.052     1303.894
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 159  PMB+G4        605.343      18  1246.685     1251.014     1303.856
-160  PMB+I+G4      605.356      19  1248.713     1253.553     1309.059
-161  PMB+R2        605.389      19  1248.778     1253.618     1309.125
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+160  PMB+I+G4      605.356      19  1248.713     1253.553     1309.060
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+161  PMB+R2        605.389      19  1248.778     1253.618     1309.124
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 170  PMB+F         573.960      36  1219.919     1238.948     1334.261
-171  PMB+F+I       573.960      37  1221.919     1242.150     1339.437
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+171  PMB+F+I       573.960      37  1221.919     1242.149     1339.437
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 172  PMB+F+G4      573.716      37  1221.432     1241.662     1338.950
-173  PMB+F+I+G4    574.754      38  1225.507     1246.986     1346.201
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+173  PMB+F+I+G4    574.757      38  1225.513     1246.991     1346.207
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 174  PMB+F+R2      573.782      38  1223.563     1245.042     1344.257
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 183  Blosum62      605.828      17  1245.656     1249.505     1299.651
-184  Blosum62+I    605.612      18  1247.225     1251.554     1304.396
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+184  Blosum62+I    605.612      18  1247.225     1251.554     1304.395
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 185  Blosum62+G4   605.593      18  1247.186     1251.515     1304.357
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 186  Blosum62+I+G4 605.604      19  1249.207     1254.048     1309.554
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 187  Blosum62+R2   605.654      19  1249.308     1254.149     1309.655
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 196  Blosum62+F    573.371      36  1218.741     1237.770     1333.083
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 197  Blosum62+F+I  573.371      37  1220.741     1240.972     1338.259
-198  Blosum62+F+G4 573.104      37  1220.208     1240.439     1337.726
-199  Blosum62+F+I+G4 574.139      38  1224.278     1245.756     1344.972
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+198  Blosum62+F+G4 573.104      37  1220.208     1240.438     1337.726
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+199  Blosum62+F+I+G4 574.142      38  1224.284     1245.762     1344.978
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 200  Blosum62+F+R2 573.182      38  1222.365     1243.843     1343.058
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 209  Dayhoff       617.401      17  1268.801     1272.650     1322.796
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 210  Dayhoff+I     616.921      18  1269.842     1274.171     1327.012
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 211  Dayhoff+G4    616.911      18  1269.822     1274.151     1326.992
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 212  Dayhoff+I+G4  616.906      19  1271.812     1276.653     1332.159
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 213  Dayhoff+R2    617.138      19  1272.277     1277.118     1332.624
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 222  Dayhoff+F     575.521      36  1223.042     1242.071     1337.384
-223  Dayhoff+F+I   575.521      37  1225.042     1245.273     1342.560
-224  Dayhoff+F+G4  575.120      37  1224.240     1244.470     1341.758
-225  Dayhoff+F+I+G4 576.143      38  1228.286     1249.764     1348.980
-226  Dayhoff+F+R2  575.284      38  1226.569     1248.047     1347.263
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+223  Dayhoff+F+I   575.521      37  1225.042     1245.272     1342.560
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+224  Dayhoff+F+G4  575.120      37  1224.240     1244.470     1341.757
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+225  Dayhoff+F+I+G4 576.146      38  1228.292     1249.770     1348.985
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+226  Dayhoff+F+R2  575.284      38  1226.569     1248.047     1347.262
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 235  mtREV         586.531      17  1207.063     1210.912     1261.057
-236  mtREV+I       585.619      18  1207.239     1211.568     1264.410
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+236  mtREV+I       585.619      18  1207.239     1211.568     1264.409
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 237  mtREV+G4      585.595      18  1207.191     1211.520     1264.361
-238  mtREV+I+G4    585.560      19  1209.121     1213.962     1269.468
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+238  mtREV+I+G4    585.560      19  1209.121     1213.961     1269.468
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 239  mtREV+R2      586.111      19  1210.221     1215.062     1270.568
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 248  mtREV+F       575.695      36  1223.391     1242.419     1337.732
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 249  mtREV+F+I     575.695      37  1225.391     1245.621     1342.908
-250  mtREV+F+G4    574.775      37  1223.550     1243.781     1341.068
-251  mtREV+F+I+G4  575.752      38  1227.504     1248.982     1348.198
-252  mtREV+F+R2    575.285      38  1226.571     1248.049     1347.265
-261  mtART         591.820      17  1217.639     1221.488     1271.634
-262  mtART+I       589.973      18  1215.945     1220.274     1273.116
-263  mtART+G4      589.980      18  1215.959     1220.289     1273.130
-264  mtART+I+G4    589.814      19  1217.629     1222.470     1277.976
-265  mtART+R2      591.129      19  1220.258     1225.098     1280.605
-274  mtART+F       577.805      36  1227.609     1246.638     1341.951
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+250  mtREV+F+G4    574.775      37  1223.550     1243.780     1341.068
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+251  mtREV+F+I+G4  575.755      38  1227.509     1248.988     1348.203
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+252  mtREV+F+R2    575.285      38  1226.571     1248.049     1347.264
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+261  mtART         591.819      17  1217.639     1221.488     1271.633
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+262  mtART+I       589.972      18  1215.945     1220.274     1273.116
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+263  mtART+G4      589.980      18  1215.959     1220.288     1273.130
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+264  mtART+I+G4    589.814      19  1217.628     1222.469     1277.975
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+265  mtART+R2      591.129      19  1220.257     1225.098     1280.604
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+274  mtART+F       577.805      36  1227.609     1246.638     1341.950
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 275  mtART+F+I     577.711      37  1229.422     1249.652     1346.940
-276  mtART+F+G4    575.864      37  1225.728     1245.959     1343.246
-277  mtART+F+I+G4  576.687      38  1229.375     1250.853     1350.068
-278  mtART+F+R2    577.125      38  1230.249     1251.727     1350.943
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+276  mtART+F+G4    575.864      37  1225.728     1245.958     1343.246
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+277  mtART+F+I+G4  576.690      38  1229.379     1250.858     1350.073
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+278  mtART+F+R2    577.124      38  1230.249     1251.727     1350.943
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 287  mtZOA         587.295      17  1208.589     1212.438     1262.584
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 288  mtZOA+I       586.496      18  1208.992     1213.321     1266.163
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 289  mtZOA+G4      586.469      18  1208.938     1213.267     1266.108
-290  mtZOA+I+G4    586.417      19  1210.835     1215.675     1271.182
-291  mtZOA+R2      586.935      19  1211.871     1216.712     1272.218
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+290  mtZOA+I+G4    586.417      19  1210.834     1215.675     1271.181
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+291  mtZOA+R2      586.935      19  1211.871     1216.711     1272.218
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 300  mtZOA+F       576.333      36  1224.666     1243.695     1339.008
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 301  mtZOA+F+I     576.333      37  1226.665     1246.895     1344.183
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 302  mtZOA+F+G4    575.440      37  1224.880     1245.110     1342.398
-303  mtZOA+F+I+G4  576.397      38  1228.795     1250.273     1349.488
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+303  mtZOA+F+I+G4  576.400      38  1228.800     1250.278     1349.494
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 304  mtZOA+F+R2    575.962      38  1227.925     1249.403     1348.618
-313  mtMet         600.383      17  1234.766     1238.615     1288.760
-314  mtMet+I       599.735      18  1235.469     1239.798     1292.640
-315  mtMet+G4      599.711      18  1235.421     1239.750     1292.592
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+313  mtMet         600.383      17  1234.765     1238.614     1288.760
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+314  mtMet+I       599.734      18  1235.469     1239.798     1292.640
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+315  mtMet+G4      599.710      18  1235.421     1239.750     1292.592
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 316  mtMet+I+G4    599.688      19  1237.376     1242.217     1297.723
-317  mtMet+R2      600.066      19  1238.132     1242.973     1298.479
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+317  mtMet+R2      600.066      19  1238.132     1242.972     1298.478
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 326  mtMet+F       578.159      36  1228.319     1247.347     1342.660
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 327  mtMet+F+I     578.159      37  1230.319     1250.549     1347.836
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 328  mtMet+F+G4    577.472      37  1228.944     1249.174     1346.461
-329  mtMet+F+I+G4  578.462      38  1232.924     1254.403     1353.618
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+329  mtMet+F+I+G4  578.465      38  1232.930     1254.408     1353.623
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 330  mtMet+F+R2    577.838      38  1231.676     1253.154     1352.370
-339  mtVer         594.164      17  1222.328     1226.177     1276.323
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+339  mtVer         594.164      17  1222.328     1226.177     1276.322
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 340  mtVer+I       593.248      18  1222.496     1226.825     1279.667
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 341  mtVer+G4      593.231      18  1222.462     1226.791     1279.633
-342  mtVer+I+G4    593.177      19  1224.354     1229.195     1284.701
-343  mtVer+R2      593.792      19  1225.584     1230.425     1285.931
-352  mtVer+F       579.391      36  1230.781     1249.810     1345.122
-353  mtVer+F+I     579.391      37  1232.781     1253.011     1350.299
-354  mtVer+F+G4    578.445      37  1230.890     1251.120     1348.407
-355  mtVer+F+I+G4  579.405      38  1234.809     1256.287     1355.503
-356  mtVer+F+R2    579.016      38  1234.031     1255.510     1354.725
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+342  mtVer+I+G4    593.177      19  1224.354     1229.194     1284.700
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+343  mtVer+R2      593.792      19  1225.584     1230.424     1285.930
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+352  mtVer+F       579.390      36  1230.781     1249.809     1345.122
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+353  mtVer+F+I     579.390      37  1232.781     1253.011     1350.298
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+354  mtVer+F+G4    578.445      37  1230.889     1251.120     1348.407
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+355  mtVer+F+I+G4  579.407      38  1234.814     1256.293     1355.508
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+356  mtVer+F+R2    579.016      38  1234.031     1255.509     1354.725
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 365  mtInv         609.845      17  1253.691     1257.540     1307.685
-366  mtInv+I       609.384      18  1254.768     1259.097     1311.939
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+366  mtInv+I       609.384      18  1254.768     1259.097     1311.938
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 367  mtInv+G4      609.358      18  1254.715     1259.044     1311.886
-368  mtInv+I+G4    609.348      19  1256.696     1261.536     1317.043
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+368  mtInv+I+G4    609.348      19  1256.696     1261.536     1317.042
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 369  mtInv+R2      609.579      19  1257.158     1261.999     1317.505
-378  mtInv+F       575.772      36  1223.544     1242.573     1337.885
-379  mtInv+F+I     575.772      37  1225.544     1245.774     1343.061
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+378  mtInv+F       575.772      36  1223.544     1242.572     1337.885
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+379  mtInv+F+I     575.772      37  1225.543     1245.774     1343.061
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 380  mtInv+F+G4    575.233      37  1224.466     1244.696     1341.983
-381  mtInv+F+I+G4  576.247      38  1228.493     1249.971     1349.187
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+381  mtInv+F+I+G4  576.249      38  1228.499     1249.977     1349.192
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 382  mtInv+F+R2    575.491      38  1226.982     1248.461     1347.676
-391  mtMAM         595.420      17  1224.840     1228.689     1278.835
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+391  mtMAM         595.420      17  1224.840     1228.689     1278.834
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 392  mtMAM+I       590.971      18  1217.942     1222.271     1275.113
-393  mtMAM+G4      591.324      18  1218.648     1222.977     1275.819
-394  mtMAM+I+G4    590.803      19  1219.607     1224.447     1279.953
-395  mtMAM+R2      594.049      19  1226.099     1230.939     1286.445
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+393  mtMAM+G4      591.324      18  1218.648     1222.977     1275.818
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+394  mtMAM+I+G4    590.802      19  1219.605     1224.446     1279.952
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+395  mtMAM+R2      594.049      19  1226.098     1230.939     1286.445
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 404  mtMAM+F       584.194      36  1240.387     1259.416     1354.729
-405  mtMAM+F+I     581.672      37  1237.344     1257.575     1354.862
-406  mtMAM+F+G4    579.973      37  1233.946     1254.176     1351.464
-407  mtMAM+F+I+G4  580.441      38  1236.881     1258.360     1357.575
-408  mtMAM+F+R2    582.798      38  1241.596     1263.074     1362.289
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+405  mtMAM+F+I     581.672      37  1237.344     1257.574     1354.862
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+406  mtMAM+F+G4    579.973      37  1233.946     1254.176     1351.463
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+407  mtMAM+F+I+G4  580.443      38  1236.886     1258.364     1357.579
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+408  mtMAM+F+R2    582.798      38  1241.595     1263.074     1362.289
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 417  HIVb          623.160      17  1280.320     1284.169     1334.314
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 418  HIVb+I        621.054      18  1278.107     1282.436     1335.278
-419  HIVb+G4       621.146      18  1278.293     1282.622     1335.463
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+419  HIVb+G4       621.146      18  1278.292     1282.622     1335.463
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 420  HIVb+I+G4     621.052      19  1280.103     1284.944     1340.450
-421  HIVb+R2       622.525      19  1283.051     1287.892     1343.398
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+421  HIVb+R2       622.525      19  1283.051     1287.891     1343.397
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 430  HIVb+F        583.903      36  1239.807     1258.835     1354.148
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 431  HIVb+F+I      583.999      37  1241.998     1262.228     1359.515
-432  HIVb+F+G4     582.161      37  1238.323     1258.553     1355.841
-433  HIVb+F+I+G4   583.141      38  1242.282     1263.761     1362.976
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+432  HIVb+F+G4     582.161      37  1238.323     1258.553     1355.840
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+433  HIVb+F+I+G4   583.144      38  1242.288     1263.766     1362.981
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 434  HIVb+F+R2     583.305      38  1242.610     1264.088     1363.303
-443  HIVw          635.976      17  1305.952     1309.802     1359.947
-444  HIVw+I        631.660      18  1299.321     1303.650     1356.492
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+443  HIVw          635.976      17  1305.952     1309.801     1359.947
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+444  HIVw+I        631.660      18  1299.321     1303.650     1356.491
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 445  HIVw+G4       632.246      18  1300.492     1304.821     1357.663
-446  HIVw+I+G4     631.628      19  1301.257     1306.097     1361.604
-447  HIVw+R2       634.781      19  1307.561     1312.402     1367.908
-456  HIVw+F        585.492      36  1242.985     1262.014     1357.326
-457  HIVw+F+I      584.104      37  1242.207     1262.438     1359.725
-458  HIVw+F+G4     582.345      37  1238.690     1258.921     1356.208
-459  HIVw+F+I+G4   582.900      38  1241.800     1263.279     1362.494
-460  HIVw+F+R2     584.464      38  1244.928     1266.406     1365.622
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+446  HIVw+I+G4     631.628      19  1301.256     1306.096     1361.603
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+447  HIVw+R2       634.780      19  1307.561     1312.401     1367.908
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+456  HIVw+F        585.492      36  1242.985     1262.013     1357.326
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+457  HIVw+F+I      584.104      37  1242.207     1262.437     1359.725
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+458  HIVw+F+G4     582.345      37  1238.690     1258.920     1356.208
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+459  HIVw+F+I+G4   582.902      38  1241.804     1263.283     1362.498
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+460  HIVw+F+R2     584.464      38  1244.928     1266.406     1365.621
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 469  FLU           616.558      17  1267.115     1270.964     1321.110
-470  FLU+I         615.752      18  1267.504     1271.833     1324.674
-471  FLU+G4        615.734      18  1267.469     1271.798     1324.640
-472  FLU+I+G4      615.711      19  1269.423     1274.264     1329.770
-473  FLU+R2        616.181      19  1270.362     1275.203     1330.709
-482  FLU+F         575.860      36  1223.720     1242.748     1338.061
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+470  FLU+I         615.752      18  1267.503     1271.832     1324.674
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+471  FLU+G4        615.734      18  1267.469     1271.798     1324.639
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+472  FLU+I+G4      615.711      19  1269.423     1274.263     1329.769
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+473  FLU+R2        616.181      19  1270.362     1275.202     1330.708
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+482  FLU+F         575.860      36  1223.719     1242.748     1338.061
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 483  FLU+F+I       575.860      37  1225.720     1245.950     1343.237
-484  FLU+F+G4      574.838      37  1223.677     1243.907     1341.194
-485  FLU+F+I+G4    575.818      38  1227.636     1249.114     1348.330
-486  FLU+F+R2      575.413      38  1226.825     1248.303     1347.519
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+484  FLU+F+G4      574.838      37  1223.676     1243.907     1341.194
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+485  FLU+F+I+G4    575.821      38  1227.641     1249.120     1348.335
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+486  FLU+F+R2      575.412      38  1226.825     1248.303     1347.518
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 495  rtREV         613.701      17  1261.402     1265.251     1315.397
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 496  rtREV+I       613.188      18  1262.377     1266.706     1319.547
-497  rtREV+G4      613.172      18  1262.344     1266.673     1319.515
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+497  rtREV+G4      613.172      18  1262.344     1266.673     1319.514
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 498  rtREV+I+G4    613.161      19  1264.323     1269.164     1324.670
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 499  rtREV+R2      613.427      19  1264.853     1269.694     1325.200
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 508  rtREV+F       574.783      36  1221.567     1240.595     1335.908
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 509  rtREV+F+I     574.783      37  1223.567     1243.797     1341.084
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 510  rtREV+F+G4    574.131      37  1222.262     1242.492     1339.779
-511  rtREV+F+I+G4  575.123      38  1226.247     1247.725     1346.940
-512  rtREV+F+R2    574.478      38  1224.956     1246.434     1345.649
-521  cpREV         599.042      17  1232.084     1235.933     1286.078
-522  cpREV+I       598.630      18  1233.260     1237.589     1290.431
-523  cpREV+G4      598.611      18  1233.222     1237.551     1290.393
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+511  rtREV+F+I+G4  575.126      38  1226.252     1247.730     1346.946
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+512  rtREV+F+R2    574.478      38  1224.955     1246.434     1345.649
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+521  cpREV         599.042      17  1232.083     1235.933     1286.078
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+522  cpREV+I       598.630      18  1233.260     1237.589     1290.430
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+523  cpREV+G4      598.611      18  1233.222     1237.551     1290.392
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 524  cpREV+I+G4    598.607      19  1235.214     1240.055     1295.561
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 525  cpREV+R2      598.794      19  1235.587     1240.428     1295.934
-534  cpREV+F       572.844      36  1217.688     1236.716     1332.029
-535  cpREV+F+I     572.844      37  1219.688     1239.918     1337.205
-536  cpREV+F+G4    572.430      37  1218.860     1239.091     1336.378
-537  cpREV+F+I+G4  573.453      38  1222.906     1244.384     1343.599
-538  cpREV+F+R2    572.600      38  1221.199     1242.678     1341.893
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+534  cpREV+F       572.844      36  1217.687     1236.716     1332.029
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+535  cpREV+F+I     572.844      37  1219.687     1239.918     1337.205
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+536  cpREV+F+G4    572.430      37  1218.860     1239.090     1336.378
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+537  cpREV+F+I+G4  573.456      38  1222.911     1244.390     1343.605
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+538  cpREV+F+R2    572.600      38  1221.199     1242.677     1341.893
 Akaike Information Criterion:           mtREV
 Corrected Akaike Information Criterion: mtREV
 Bayesian Information Criterion:         mtREV
 Best-fit model: mtREV chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleD_part1_alignment.afa.model.gz
-CPU time for ModelFinder: 38.748 seconds (0h:0m:38s)
-Wall-clock time for ModelFinder: 20.847 seconds (0h:0m:20s)
+CPU time for ModelFinder: 54.918 seconds (0h:0m:54s)
+Wall-clock time for ModelFinder: 24.285 seconds (0h:0m:24s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 382779)...
+Generating 1000 samples for ultrafast bootstrap (seed: 58586)...
 
 NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 Estimate model parameters (epsilon = 0.100)
 1. Initial log-likelihood: -586.531
 Optimal log-likelihood: -586.531
 Parameters optimization took 1 rounds (0.001 sec)
-Computing ML distances based on estimated model parameters... 0.002 sec
+Computing ML distances based on estimated model parameters... 0.003 sec
 Computing BIONJ tree...
 0.000 seconds
 Log-likelihood of BIONJ tree: -590.635
 --------------------------------------------------------------------
 |             INITIALIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
-Generating 98 parsimony trees... 0.019 second
-Computing log-likelihood of 98 initial trees ... 0.034 seconds
+Generating 98 parsimony trees... 0.018 second
+Computing log-likelihood of 98 initial trees ... 0.037 seconds
 Current best score: -586.531
 
 Do NNI search on 20 best initial trees
 Estimate model parameters (epsilon = 0.100)
 BETTER TREE FOUND at iteration 1: -586.531
 BETTER TREE FOUND at iteration 2: -586.531
-BETTER TREE FOUND at iteration 4: -586.531
-BETTER TREE FOUND at iteration 7: -586.531
 Iteration 10 / LogL: -586.531 / Time: 0h:0m:0s
-UPDATE BEST LOG-LIKELIHOOD: -586.531
-UPDATE BEST LOG-LIKELIHOOD: -586.531
 UPDATE BEST LOG-LIKELIHOOD: -586.531
 Iteration 20 / LogL: -586.531 / Time: 0h:0m:0s
 Finish initializing candidate tree set (9)
-Current best tree score: -586.531 / CPU time: 0.128
+Current best tree score: -586.531 / CPU time: 0.133
 Number of iterations: 20
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
-UPDATE BEST LOG-LIKELIHOOD: -586.531
 Iteration 30 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
 UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 40 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -586.532 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 50 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 60 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 70 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -586.532 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -590.012 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 80 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 90 / LogL: -590.012 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 100 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -586.532 / Time: 0h:0m:0s (0h:0m:0s left)
 Refining ufboot trees with NNI 1 branch...
 100 samples done
 200 samples done
@@ -347,8 +542,8 @@ Refining ufboot trees with NNI 1 branch...
 800 samples done
 900 samples done
 1000 samples done
-Total 958 ufboot trees refined
-TREE SEARCH COMPLETED AFTER 108 ITERATIONS / Time: 0h:0m:3s
+Total 973 ufboot trees refined
+TREE SEARCH COMPLETED AFTER 103 ITERATIONS / Time: 0h:0m:4s
 
 --------------------------------------------------------------------
 |                    FINALIZING TREE SEARCH                        |
@@ -363,19 +558,19 @@ Creating bootstrap support values...
 Split supports printed to NEXUS file 9_alignment_files/sampleD_part1_alignment.afa.splits.nex
 Total tree length: 0.104
 
-Total number of iterations: 108
-CPU time used for tree search: 6.294 sec (0h:0m:6s)
-Wall-clock time used for tree search: 3.189 sec (0h:0m:3s)
-Total CPU time used: 6.352 sec (0h:0m:6s)
-Total wall-clock time used: 3.219 sec (0h:0m:3s)
+Total number of iterations: 103
+CPU time used for tree search: 12.365 sec (0h:0m:12s)
+Wall-clock time used for tree search: 4.183 sec (0h:0m:4s)
+Total CPU time used: 12.492 sec (0h:0m:12s)
+Total wall-clock time used: 4.226 sec (0h:0m:4s)
 UFBoot trees printed to 9_alignment_files/sampleD_part1_alignment.afa.ufboot
 
 Computing bootstrap consensus tree...
 Reading input file 9_alignment_files/sampleD_part1_alignment.afa.splits.nex...
-10 taxa and 125 splits.
+10 taxa and 127 splits.
 Consensus tree written to 9_alignment_files/sampleD_part1_alignment.afa.contree
 Reading input trees file 9_alignment_files/sampleD_part1_alignment.afa.contree
-Log-likelihood of consensus tree: -586.535
+Log-likelihood of consensus tree: -586.533
 
 Analysis results written to: 
   IQ-TREE report:                9_alignment_files/sampleD_part1_alignment.afa.iqtree
@@ -388,4 +583,4 @@ Ultrafast bootstrap approximation results written to:
   UFBoot trees:                  9_alignment_files/sampleD_part1_alignment.afa.ufboot
   Screen log file:               9_alignment_files/sampleD_part1_alignment.afa.log
 
-Date and Time: Tue Nov 18 22:57:02 2025
+Date and Time: Wed Nov 19 10:25:29 2025

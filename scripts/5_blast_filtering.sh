@@ -13,7 +13,7 @@ mkdir -p 5_blast_selected
 for tsv in 4_blast_outputs/*.tsv; do
 
     ##########
-    # 1. split main blast output into each samples' parts:
+    # split main blast output into each samples' parts:
     ##########
 
     # extract base name
@@ -31,7 +31,7 @@ for tsv in 4_blast_outputs/*.tsv; do
 
 
     ##########
-    # 2. take each part blast, retrieve top hit for each unique staxid sorted by e value
+    # take each part blast, retrieve top hit for each unique staxid sorted by e value
     ##########
     for part in 5_blast_filtering/"$name"*_blast.tsv; do
 
@@ -57,7 +57,7 @@ rm top_hits.tsv
 
 
 ##########
-# Selecting samples to manually remove based off lineage/blast filtering
+# selecting samples to manually remove based off lineage/blast filtering
 ##########
 
 # remove all of sampleD_part3 based on blast results (human contamination)

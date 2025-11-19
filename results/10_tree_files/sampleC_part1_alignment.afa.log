@@ -4,8 +4,8 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
 Command: iqtree2 -s 9_alignment_files/sampleC_part1_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    496082 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Tue Nov 18 22:55:45 2025
+Seed:    155050 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 19 10:24:05 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleC_part1_alignment.afa ... Fasta format detected
@@ -13,54 +13,38 @@ Alignment most likely contains protein sequences
 WARNING: 29 sites contain only gaps or ambiguous characters.
 Alignment has 15 sequences with 174 columns, 44 distinct patterns
 0 parsimony-informative, 1 singleton sites, 173 constant sites
-WARNING: Some sequence names are changed as follows:
-KF369191.1:121-454 -> KF369191.1_121-454
-KJ531382.1:129-462 -> KJ531382.1_129-462
-KT719293.1:69-402 -> KT719293.1_69-402
-KY018834.1:92-425 -> KY018834.1_92-425
-KY438800.1:79-412 -> KY438800.1_79-412
-MG204905.1:58-391 -> MG204905.1_58-391
-KY676041.1:78-411 -> KY676041.1_78-411
-MZ892564.1:129-462 -> MZ892564.1_129-462
-DQ107585.1:129-462 -> DQ107585.1_129-462
-JN097817.1:154-487 -> JN097817.1_154-487
-PP661813.1:20-353 -> PP661813.1_20-353
-KF925362.1:5654-5987 -> KF925362.1_5654-5987
-KP975906.1:128-461 -> KP975906.1_128-461
-AB097669.1:6518-6851 -> AB097669.1_6518-6851
-
-                      Gap/Ambiguity  Composition  p-value
-   1  sampleC_part1          28.74%    failed      0.13%
-   2  KF369191.1_121-454     36.78%    passed    100.00%
-   3  KJ531382.1_129-462     36.78%    passed    100.00%
-   4  KT719293.1_69-402      36.78%    passed    100.00%
-   5  KY018834.1_92-425      36.78%    passed    100.00%
-   6  KY438800.1_79-412      36.78%    passed    100.00%
-   7  MG204905.1_58-391      36.78%    passed    100.00%
-   8  KY676041.1_78-411      36.78%    passed    100.00%
-   9  MZ892564.1_129-462     36.78%    passed    100.00%
-  10  DQ107585.1_129-462     36.78%    passed    100.00%
-  11  JN097817.1_154-487     36.78%    passed    100.00%
-  12  PP661813.1_20-353      36.78%    passed    100.00%
-  13  KF925362.1_5654-5987   36.78%    passed    100.00%
-  14  KP975906.1_128-461     36.78%    passed    100.00%
-  15  AB097669.1_6518-6851   36.78%    passed    100.00%
-****  TOTAL                  36.25%  1 sequences failed composition chi2 test (p-value<5%; df=19)
-NOTE: KJ531382.1_129-462 is identical to KF369191.1_121-454 but kept for subsequent analysis
+                                  Gap/Ambiguity  Composition  p-value
+   1  sampleC_part1                      28.74%    failed      0.13%
+   2  KF369191.1_Thunnus_sp.             36.78%    passed    100.00%
+   3  KJ531382.1_Thunnus_sp.             36.78%    passed    100.00%
+   4  KT719293.1_Thunnus_sp.             36.78%    passed    100.00%
+   5  KY018834.1_Thunnus_sp.             36.78%    passed    100.00%
+   6  KY438800.1_Thunnus_environmental   36.78%    passed    100.00%
+   7  MG204905.1_Thunnus_sp.             36.78%    passed    100.00%
+   8  KY676041.1_Thunnus_tonggol         36.78%    passed    100.00%
+   9  MZ892564.1_Thunnus_albacares       36.78%    passed    100.00%
+  10  DQ107585.1_Thunnus_thynnus         36.78%    passed    100.00%
+  11  JN097817.1_Thunnus_orientalis      36.78%    passed    100.00%
+  12  PP661813.1_Thunnus_sp.             36.78%    passed    100.00%
+  13  KF925362.1_Thunnus_maccoyii        36.78%    passed    100.00%
+  14  KP975906.1_Thunnus_obesus          36.78%    passed    100.00%
+  15  AB097669.1_Thunnus_thynnus         36.78%    passed    100.00%
+****  TOTAL                              36.25%  1 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: KJ531382.1_Thunnus_sp. is identical to KF369191.1_Thunnus_sp. but kept for subsequent analysis
 WARNING: Your alignment contains too many identical sequences!
 NOTE: 12 identical sequences (see below) will be ignored for subsequent analysis
-NOTE: KT719293.1_69-402 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: KY018834.1_92-425 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: KY438800.1_79-412 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: MG204905.1_58-391 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: KY676041.1_78-411 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: MZ892564.1_129-462 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: DQ107585.1_129-462 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: JN097817.1_154-487 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: PP661813.1_20-353 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: KF925362.1_5654-5987 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: KP975906.1_128-461 (identical to KF369191.1_121-454) is ignored but added at the end
-NOTE: AB097669.1_6518-6851 (identical to KF369191.1_121-454) is ignored but added at the end
+NOTE: KT719293.1_Thunnus_sp. (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: KY018834.1_Thunnus_sp. (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: KY438800.1_Thunnus_environmental (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: MG204905.1_Thunnus_sp. (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: KY676041.1_Thunnus_tonggol (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: MZ892564.1_Thunnus_albacares (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: DQ107585.1_Thunnus_thynnus (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: JN097817.1_Thunnus_orientalis (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: PP661813.1_Thunnus_sp. (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: KF925362.1_Thunnus_maccoyii (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: KP975906.1_Thunnus_obesus (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
+NOTE: AB097669.1_Thunnus_thynnus (identical to KF369191.1_Thunnus_sp.) is ignored but added at the end
 Alignment was printed to 9_alignment_files/sampleC_part1_alignment.afa.uniqueseq.phy
 
 For your convenience alignment with unique sequences printed to 9_alignment_files/sampleC_part1_alignment.afa.uniqueseq.phy
@@ -69,10 +53,10 @@ For your convenience alignment with unique sequences printed to 9_alignment_file
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-40250 trees examined
+30577 trees examined
 Threads: 1 / Time: 8.000 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -433
-Threads: 2 / Time: 7.398 sec / Speedup: 1.081 / Efficiency: 54% / LogL: -433
-Threads: 3 / Time: 7.074 sec / Speedup: 1.131 / Efficiency: 38% / LogL: -433
+Threads: 2 / Time: 7.311 sec / Speedup: 1.094 / Efficiency: 55% / LogL: -433
+Threads: 3 / Time: 7.140 sec / Speedup: 1.120 / Efficiency: 37% / LogL: -433
 BEST NUMBER OF THREADS: 2
 
 Perform fast likelihood tree search using LG+I+G model...
@@ -84,7 +68,7 @@ Optimal log-likelihood: -432.940
 Proportion of invariable sites: 0.499
 Gamma shape alpha: 0.020
 Parameters optimization took 1 rounds (0.001 sec)
-Time for fast ML tree search: 0.005 seconds
+Time for fast ML tree search: 0.004 seconds
 
 NOTE: ModelFinder requires 0 MB RAM!
 ModelFinder will test up to 546 protein models (sample size: 174) ...
@@ -265,8 +249,8 @@ Bayesian Information Criterion:         mtREV
 Best-fit model: mtREV chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleC_part1_alignment.afa.model.gz
-CPU time for ModelFinder: 43.983 seconds (0h:0m:43s)
-Wall-clock time for ModelFinder: 22.697 seconds (0h:0m:22s)
+CPU time for ModelFinder: 43.833 seconds (0h:0m:43s)
+Wall-clock time for ModelFinder: 22.712 seconds (0h:0m:22s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 496082)...
+Generating 1000 samples for ultrafast bootstrap (seed: 155050)...
 ERROR: It makes no sense to perform bootstrap with less than 4 sequences.

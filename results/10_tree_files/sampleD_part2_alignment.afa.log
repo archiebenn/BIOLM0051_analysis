@@ -4,48 +4,35 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
 Command: iqtree2 -s 9_alignment_files/sampleD_part2_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    494918 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Tue Nov 18 22:57:02 2025
+Seed:    630291 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 19 10:25:29 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleD_part2_alignment.afa ... Fasta format detected
 Alignment most likely contains protein sequences
 Alignment has 12 sequences with 175 columns, 35 distinct patterns
 7 parsimony-informative, 3 singleton sites, 165 constant sites
-WARNING: Some sequence names are changed as follows:
-OR253895.1:5908-6431 -> OR253895.1_5908-6431
-NC_014577.1:5899-6422 -> NC_014577.1_5899-6422
-JX454980.1:5918-6442 -> JX454980.1_5918-6442
-JX454979.1:5918-6442 -> JX454979.1_5918-6442
-NC_018550.1:5939-6463 -> NC_018550.1_5939-6463
-JX454969.1:5929-6453 -> JX454969.1_5929-6453
-FR694649.1:5923-6447 -> FR694649.1_5923-6447
-JX454976.1:5925-6449 -> JX454976.1_5925-6449
-JX454982.1:5922-6446 -> JX454982.1_5922-6446
-DQ256378.1:5850-6374 -> DQ256378.1_5850-6374
-NC_009260.1:5917-6441 -> NC_009260.1_5917-6441
-
-                       Gap/Ambiguity  Composition  p-value
-   1  OR253895.1_5908-6431     0.57%    passed    100.00%
-   2  NC_014577.1_5899-6422    0.57%    passed    100.00%
-   3  sampleD_part2            3.43%    passed    100.00%
-   4  JX454980.1_5918-6442     0.00%    passed    100.00%
-   5  JX454979.1_5918-6442     0.00%    passed    100.00%
-   6  NC_018550.1_5939-6463    0.00%    passed    100.00%
-   7  JX454969.1_5929-6453     0.00%    passed    100.00%
-   8  FR694649.1_5923-6447     0.00%    passed    100.00%
-   9  JX454976.1_5925-6449     0.00%    passed    100.00%
-  10  JX454982.1_5922-6446     0.00%    passed    100.00%
-  11  DQ256378.1_5850-6374     0.00%    passed    100.00%
-  12  NC_009260.1_5917-6441    0.00%    passed    100.00%
-****  TOTAL                    0.38%  0 sequences failed composition chi2 test (p-value<5%; df=19)
-NOTE: NC_018550.1_5939-6463 is identical to JX454979.1_5918-6442 but kept for subsequent analysis
+                                     Gap/Ambiguity  Composition  p-value
+   1  OR253895.1_Sternotherus_carinatus      0.57%    passed    100.00%
+   2  NC_014577.1_Kinosternon_leucostomum    0.57%    passed    100.00%
+   3  sampleD_part2                          3.43%    passed    100.00%
+   4  JX454980.1_Eretmochelys_imbricata      0.00%    passed    100.00%
+   5  JX454979.1_Lepidochelys_olivacea       0.00%    passed    100.00%
+   6  NC_018550.1_Natator_depressa           0.00%    passed    100.00%
+   7  JX454969.1_Dermochelys_coriacea        0.00%    passed    100.00%
+   8  FR694649.1_Caretta_caretta             0.00%    passed    100.00%
+   9  JX454976.1_Chelonia_mydas              0.00%    passed    100.00%
+  10  JX454982.1_Lepidochelys_kempii         0.00%    passed    100.00%
+  11  DQ256378.1_Chelydra_serpentina         0.00%    passed    100.00%
+  12  NC_009260.1_Macrochelys_temminckii     0.00%    passed    100.00%
+****  TOTAL                                  0.38%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: NC_018550.1_Natator_depressa is identical to JX454979.1_Lepidochelys_olivacea but kept for subsequent analysis
 NOTE: 5 identical sequences (see below) will be ignored for subsequent analysis
-NOTE: JX454969.1_5929-6453 (identical to JX454979.1_5918-6442) is ignored but added at the end
-NOTE: FR694649.1_5923-6447 (identical to JX454979.1_5918-6442) is ignored but added at the end
-NOTE: JX454976.1_5925-6449 (identical to JX454979.1_5918-6442) is ignored but added at the end
-NOTE: JX454982.1_5922-6446 (identical to JX454979.1_5918-6442) is ignored but added at the end
-NOTE: DQ256378.1_5850-6374 (identical to JX454979.1_5918-6442) is ignored but added at the end
+NOTE: JX454969.1_Dermochelys_coriacea (identical to JX454979.1_Lepidochelys_olivacea) is ignored but added at the end
+NOTE: FR694649.1_Caretta_caretta (identical to JX454979.1_Lepidochelys_olivacea) is ignored but added at the end
+NOTE: JX454976.1_Chelonia_mydas (identical to JX454979.1_Lepidochelys_olivacea) is ignored but added at the end
+NOTE: JX454982.1_Lepidochelys_kempii (identical to JX454979.1_Lepidochelys_olivacea) is ignored but added at the end
+NOTE: DQ256378.1_Chelydra_serpentina (identical to JX454979.1_Lepidochelys_olivacea) is ignored but added at the end
 Alignment was printed to 9_alignment_files/sampleD_part2_alignment.afa.uniqueseq.phy
 
 For your convenience alignment with unique sequences printed to 9_alignment_files/sampleD_part2_alignment.afa.uniqueseq.phy
@@ -54,11 +41,12 @@ For your convenience alignment with unique sequences printed to 9_alignment_file
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-8120 trees examined
-Threads: 1 / Time: 8.001 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -621
-Threads: 2 / Time: 6.368 sec / Speedup: 1.256 / Efficiency: 63% / LogL: -621
-Threads: 3 / Time: 5.926 sec / Speedup: 1.350 / Efficiency: 45% / LogL: -621
-BEST NUMBER OF THREADS: 2
+6031 trees examined
+Threads: 1 / Time: 8.000 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -621
+Threads: 2 / Time: 5.476 sec / Speedup: 1.461 / Efficiency: 73% / LogL: -621
+Threads: 3 / Time: 4.875 sec / Speedup: 1.641 / Efficiency: 55% / LogL: -621
+Threads: 4 / Time: 4.618 sec / Speedup: 1.732 / Efficiency: 43% / LogL: -621
+BEST NUMBER OF THREADS: 3
 
 Perform fast likelihood tree search using LG+I+G model...
 Estimate model parameters (epsilon = 5.000)
@@ -69,7 +57,7 @@ Optimal log-likelihood: -590.321
 Proportion of invariable sites: 0.468
 Gamma shape alpha: 998.447
 Parameters optimization took 1 rounds (0.003 sec)
-Time for fast ML tree search: 0.010 seconds
+Time for fast ML tree search: 0.009 seconds
 
 NOTE: ModelFinder requires 0 MB RAM!
 ModelFinder will test up to 546 protein models (sample size: 175) ...
@@ -338,10 +326,10 @@ Bayesian Information Criterion:         mtZOA
 Best-fit model: mtZOA chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleD_part2_alignment.afa.model.gz
-CPU time for ModelFinder: 39.123 seconds (0h:0m:39s)
-Wall-clock time for ModelFinder: 20.780 seconds (0h:0m:20s)
+CPU time for ModelFinder: 52.722 seconds (0h:0m:52s)
+Wall-clock time for ModelFinder: 23.426 seconds (0h:0m:23s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 494918)...
+Generating 1000 samples for ultrafast bootstrap (seed: 630291)...
 
 NOTE: 0 MB RAM (0 GB) is required!
 WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
@@ -349,7 +337,7 @@ Estimate model parameters (epsilon = 0.100)
 1. Initial log-likelihood: -561.044
 Optimal log-likelihood: -561.044
 Parameters optimization took 1 rounds (0.000 sec)
-Computing ML distances based on estimated model parameters... 0.002 sec
+Computing ML distances based on estimated model parameters... 0.001 sec
 Computing BIONJ tree...
 0.000 seconds
 Log-likelihood of BIONJ tree: -561.045
@@ -357,7 +345,7 @@ Log-likelihood of BIONJ tree: -561.045
 |             INITIALIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
 Generating 98 parsimony trees... 0.014 second
-Computing log-likelihood of 63 initial trees ... 0.012 seconds
+Computing log-likelihood of 54 initial trees ... 0.013 seconds
 Current best score: -561.044
 
 Do NNI search on 20 best initial trees
@@ -367,7 +355,7 @@ UPDATE BEST LOG-LIKELIHOOD: -561.044
 Iteration 10 / LogL: -561.044 / Time: 0h:0m:0s
 Iteration 20 / LogL: -561.044 / Time: 0h:0m:0s
 Finish initializing candidate tree set (7)
-Current best tree score: -561.044 / CPU time: 0.053
+Current best tree score: -561.044 / CPU time: 0.058
 Number of iterations: 20
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
@@ -376,23 +364,27 @@ Iteration 30 / LogL: -561.044 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 40 / LogL: -561.044 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 50 / LogL: -561.045 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 60 / LogL: -561.044 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 70 / LogL: -561.045 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -564.349 / Time: 0h:0m:0s (0h:0m:0s left)
 Iteration 80 / LogL: -561.045 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 90 / LogL: -561.045 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 100 / LogL: -561.044 / Time: 0h:0m:0s (0h:0m:0s left)
+UPDATE BEST LOG-LIKELIHOOD: -561.044
+Iteration 90 / LogL: -561.044 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -561.045 / Time: 0h:0m:0s (0h:0m:0s left)
 Refining ufboot trees with NNI 1 branch...
+WARNING: 3 threads for alignment length 23 will slow down analysis
 100 samples done
 200 samples done
 300 samples done
 400 samples done
 500 samples done
 600 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
 700 samples done
 800 samples done
 900 samples done
+WARNING: 3 threads for alignment length 23 will slow down analysis
 1000 samples done
-Total 859 ufboot trees refined
-TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:2s
+Total 887 ufboot trees refined
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:0m:3s
 
 --------------------------------------------------------------------
 |                    FINALIZING TREE SEARCH                        |
@@ -401,17 +393,17 @@ Performs final model parameters optimization
 Estimate model parameters (epsilon = 0.010)
 1. Initial log-likelihood: -561.044
 Optimal log-likelihood: -561.044
-Parameters optimization took 1 rounds (0.000 sec)
+Parameters optimization took 1 rounds (0.001 sec)
 BEST SCORE FOUND : -561.044
 Creating bootstrap support values...
 Split supports printed to NEXUS file 9_alignment_files/sampleD_part2_alignment.afa.splits.nex
 Total tree length: 0.059
 
 Total number of iterations: 102
-CPU time used for tree search: 4.707 sec (0h:0m:4s)
-Wall-clock time used for tree search: 2.376 sec (0h:0m:2s)
-Total CPU time used: 4.755 sec (0h:0m:4s)
-Total wall-clock time used: 2.400 sec (0h:0m:2s)
+CPU time used for tree search: 9.990 sec (0h:0m:9s)
+Wall-clock time used for tree search: 3.373 sec (0h:0m:3s)
+Total CPU time used: 10.074 sec (0h:0m:10s)
+Total wall-clock time used: 3.403 sec (0h:0m:3s)
 UFBoot trees printed to 9_alignment_files/sampleD_part2_alignment.afa.ufboot
 
 Computing bootstrap consensus tree...
@@ -432,4 +424,4 @@ Ultrafast bootstrap approximation results written to:
   UFBoot trees:                  9_alignment_files/sampleD_part2_alignment.afa.ufboot
   Screen log file:               9_alignment_files/sampleD_part2_alignment.afa.log
 
-Date and Time: Tue Nov 18 22:57:25 2025
+Date and Time: Wed Nov 19 10:25:56 2025

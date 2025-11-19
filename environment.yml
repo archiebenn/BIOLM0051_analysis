@@ -16,4 +16,5 @@ dependencies:
   - entrez-direct
   - seqkit
   - matplotlib
+  - trimal
   - pip

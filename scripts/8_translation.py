@@ -10,8 +10,10 @@ os.makedirs("../results/8_protein_FASTA", exist_ok=True)
 # set directory where fasta files are kept
 fasta_directory = "../results/7_complete_FASTA/"
 
+##########
+# function to generate all 3 translation frames, select frame with least stops
+##########
 
-# generate all 3 translation frames, select frame with least stops
 def translate_all_frames(sequence):
     frames = []
 
@@ -30,8 +32,10 @@ def translate_all_frames(sequence):
     # return protein out of function env
     return best_protein
 
+##########
+# access filenames in fasta directory and apply translation function
+########## 
 
-# access filenames in fasta directory
 for filename in os.listdir(fasta_directory):
     # wipe each results file before appending
     with open(f"../results/8_protein_FASTA/{filename}_prot.fasta", "w") as f:

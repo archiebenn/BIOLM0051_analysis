@@ -9,7 +9,7 @@ cd results || \
 mkdir -p 6_efetch_FASTA
 
 ##########
-# 1. Running efetch to retrieve fasta files, and trimming to match region blast hit
+# run efetch to retrieve fasta files, and trim to match region blast hit
 ##########
 
 for tsv in 5_blast_selected/*.tsv; do

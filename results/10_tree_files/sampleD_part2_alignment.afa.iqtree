@@ -2,7 +2,7 @@ IQ-TREE 2.0.7 built Apr  1 2024
 
 Input file name: 9_alignment_files/sampleD_part2_alignment.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 494918
+Random seed number: 630291
 
 REFERENCES
 ----------
@@ -208,26 +208,26 @@ Sum of internal branch lengths: 0.0415 (70.2619% of tree length)
 WARNING: 2 near-zero internal branches (<0.0057) should be treated with caution
          Such branches are denoted by '**' in the figure below
 
-NOTE: Tree is UNROOTED although outgroup taxon 'OR253895.1_5908-6431' is drawn at root
+NOTE: Tree is UNROOTED although outgroup taxon 'OR253895.1_Sternotherus_carinatus' is drawn at root
 Numbers in parentheses are  ultrafast bootstrap support (%)
 
-+**OR253895.1_5908-6431
++**OR253895.1_Sternotherus_carinatus
 |
-+------NC_014577.1_5899-6422
++------NC_014577.1_Kinosternon_leucostomum
 |
 |                                                      +------sampleD_part2
-|                                                   +**| (39)
-|                                                   |  |  +**JX454979.1_5918-6442
-|                                                   |  +**| (61)
-|                                                   |     +**NC_018550.1_5939-6463
-|                                            +------| (72)
-|                                            |      +------JX454980.1_5918-6442
+|                                                   +**| (42)
+|                                                   |  |  +**JX454979.1_Lepidochelys_olivacea
+|                                                   |  +**| (68)
+|                                                   |     +**NC_018550.1_Natator_depressa
+|                                            +------| (75)
+|                                            |      +------JX454980.1_Eretmochelys_imbricata
 +--------------------------------------------| (100)
-                                             +**NC_009260.1_5917-6441
+                                             +**NC_009260.1_Macrochelys_temminckii
 
 Tree in newick format:
 
-(OR253895.1_5908-6431:0.0000010000,NC_014577.1_5899-6422:0.0058719478,(((sampleD_part2:0.0059389070,(JX454979.1_5918-6442:0.0000010000,NC_018550.1_5939-6463:0.0000010000)61:0.0000010000)39:0.0000010000,JX454980.1_5918-6442:0.0057339265)72:0.0057301053,NC_009260.1_5917-6441:0.0000010000)100:0.0357336389);
+(OR253895.1_Sternotherus_carinatus:0.0000010000,NC_014577.1_Kinosternon_leucostomum:0.0058719478,(((sampleD_part2:0.0059389070,(JX454979.1_Lepidochelys_olivacea:0.0000010000,NC_018550.1_Natator_depressa:0.0000010000)68:0.0000010000)42:0.0000010000,JX454980.1_Eretmochelys_imbricata:0.0057339265)75:0.0057301053,NC_009260.1_Macrochelys_temminckii:0.0000010000)100:0.0357336389);
 
 CONSENSUS TREE
 --------------
@@ -240,39 +240,39 @@ Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
 Numbers in parentheses are bootstrap supports (%)
 
-+--OR253895.1_5908-6431
++--OR253895.1_Sternotherus_carinatus
 |
-+------NC_014577.1_5899-6422
++------NC_014577.1_Kinosternon_leucostomum
 |
 |                                                      +------sampleD_part2
-|                                                   +--| (39)
-|                                                   |  |                 +**JX454979.1_5918-6442
+|                                                   +--| (42)
+|                                                   |  |                 +**JX454979.1_Lepidochelys_olivacea
 |                                                   |  |              +**|
-|                                                   |  |              |  +**FR694649.1_5923-6447
+|                                                   |  |              |  +**JX454976.1_Chelonia_mydas
 |                                                   |  |           +**|
-|                                                   |  |           |  +**JX454976.1_5925-6449
+|                                                   |  |           |  +**DQ256378.1_Chelydra_serpentina
 |                                                   |  |        +**|
-|                                                   |  |        |  +**DQ256378.1_5850-6374
+|                                                   |  |        |  +**JX454982.1_Lepidochelys_kempii
 |                                                   |  |     +**|
-|                                                   |  |     |  +**JX454982.1_5922-6446
+|                                                   |  |     |  +**JX454969.1_Dermochelys_coriacea
 |                                                   |  |  +--|
-|                                                   |  |  |  +**JX454969.1_5929-6453
-|                                                   |  +--| (61)
-|                                                   |     +--NC_018550.1_5939-6463
-|                                            +------| (72)
-|                                            |      +------JX454980.1_5918-6442
+|                                                   |  |  |  +**FR694649.1_Caretta_caretta
+|                                                   |  +--| (68)
+|                                                   |     +--NC_018550.1_Natator_depressa
+|                                            +------| (75)
+|                                            |      +------JX454980.1_Eretmochelys_imbricata
 +--------------------------------------------| (100)
-                                             +--NC_009260.1_5917-6441
+                                             +--NC_009260.1_Macrochelys_temminckii
 
 
 Consensus tree in newick format: 
 
-(OR253895.1_5908-6431:0.0000023992,NC_014577.1_5899-6422:0.0058719421,(((sampleD_part2:0.0059388996,((((((JX454979.1_5918-6442:0.0000000000,FR694649.1_5923-6447:0.0000000000):0.0000000000,JX454976.1_5925-6449:0.0000000000):0.0000000000,DQ256378.1_5850-6374:0.0000000000):0.0000000000,JX454982.1_5922-6446:0.0000000000):0.0000000000,JX454969.1_5929-6453:0.0000000000):0.0000023992,NC_018550.1_5939-6463:0.0000023992)61:0.0000023992)39:0.0000023992,JX454980.1_5918-6442:0.0057339377)72:0.0057300493,NC_009260.1_5917-6441:0.0000023992)100:0.0357336813);
+(OR253895.1_Sternotherus_carinatus:0.0000023992,NC_014577.1_Kinosternon_leucostomum:0.0058719421,(((sampleD_part2:0.0059388996,((((((JX454979.1_Lepidochelys_olivacea:0.0000000000,JX454976.1_Chelonia_mydas:0.0000000000):0.0000000000,DQ256378.1_Chelydra_serpentina:0.0000000000):0.0000000000,JX454982.1_Lepidochelys_kempii:0.0000000000):0.0000000000,JX454969.1_Dermochelys_coriacea:0.0000000000):0.0000000000,FR694649.1_Caretta_caretta:0.0000000000):0.0000023992,NC_018550.1_Natator_depressa:0.0000023992)68:0.0000023992)42:0.0000023992,JX454980.1_Eretmochelys_imbricata:0.0057339377)75:0.0057300493,NC_009260.1_Macrochelys_temminckii:0.0000023992)100:0.0357336813);
 
 TIME STAMP
 ----------
 
-Date and time: Tue Nov 18 22:57:25 2025
-Total CPU time used: 4.75461 seconds (0h:0m:4s)
-Total wall-clock time used: 2.431787534 seconds (0h:0m:2s)
+Date and time: Wed Nov 19 10:25:56 2025
+Total CPU time used: 10.074009 seconds (0h:0m:10s)
+Total wall-clock time used: 3.456578826 seconds (0h:0m:3s)
 

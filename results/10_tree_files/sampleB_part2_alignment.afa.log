@@ -4,32 +4,28 @@ Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
 Command: iqtree2 -s 9_alignment_files/sampleB_part2_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    703767 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Tue Nov 18 22:55:00 2025
+Seed:    428272 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Nov 19 10:23:20 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleB_part2_alignment.afa ... Fasta format detected
 Alignment most likely contains protein sequences
 Alignment has 3 sequences with 176 columns, 28 distinct patterns
 0 parsimony-informative, 2 singleton sites, 174 constant sites
-WARNING: Some sequence names are changed as follows:
-MT251280.1:5889-6416 -> MT251280.1_5889-6416
-KY888944.1:5890-6417 -> KY888944.1_5890-6417
-
-                      Gap/Ambiguity  Composition  p-value
-   1  sampleB_part2           3.98%    passed    100.00%
-   2  MT251280.1_5889-6416    0.00%    passed    100.00%
-   3  KY888944.1_5890-6417    0.00%    passed    100.00%
-****  TOTAL                   1.33%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+                                  Gap/Ambiguity  Composition  p-value
+   1  sampleB_part2                       3.98%    passed    100.00%
+   2  MT251280.1_Monodon_monoceros        0.00%    passed    100.00%
+   3  KY888944.1_Delphinapterus_leucas    0.00%    passed    100.00%
+****  TOTAL                               1.33%  0 sequences failed composition chi2 test (p-value<5%; df=19)
 
 
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-95401 trees examined
+72004 trees examined
 Threads: 1 / Time: 8.000 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -534
-Threads: 2 / Time: 7.108 sec / Speedup: 1.126 / Efficiency: 56% / LogL: -534
-Threads: 3 / Time: 6.920 sec / Speedup: 1.156 / Efficiency: 39% / LogL: -534
+Threads: 2 / Time: 7.261 sec / Speedup: 1.102 / Efficiency: 55% / LogL: -534
+Threads: 3 / Time: 6.929 sec / Speedup: 1.155 / Efficiency: 38% / LogL: -534
 BEST NUMBER OF THREADS: 2
 
 Perform fast likelihood tree search using LG+I+G model...
@@ -310,8 +306,8 @@ Bayesian Information Criterion:         mtZOA
 Best-fit model: mtZOA chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleB_part2_alignment.afa.model.gz
-CPU time for ModelFinder: 42.663 seconds (0h:0m:42s)
-Wall-clock time for ModelFinder: 22.140 seconds (0h:0m:22s)
+CPU time for ModelFinder: 42.984 seconds (0h:0m:42s)
+Wall-clock time for ModelFinder: 22.325 seconds (0h:0m:22s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 703767)...
+Generating 1000 samples for ultrafast bootstrap (seed: 428272)...
 ERROR: It makes no sense to perform bootstrap with less than 4 sequences.
