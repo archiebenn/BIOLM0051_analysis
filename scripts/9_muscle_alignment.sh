@@ -16,7 +16,7 @@ for fasta in 8_protein_FASTA/*.fasta; do
     echo "Aligning sequences in "$name" with MUSCLE"
 
     # run alignment with muscle
-    muscle -in "$fasta" -out "$name"_alignment.afa 
+    muscle -align "$fasta" -output "$name"_alignment.afa 
 
      # can view alignment using aliview - un-hash to view on each loop
      # aliview "$name"_alignment.afa
