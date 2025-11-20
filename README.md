@@ -36,9 +36,9 @@ Ensure all the scripts in this repository are executable locally with the follow
 ```bash
 chmod +x scripts/*
 ```
-#### 2.1 `run_all.sh`
+#### 2.1 `run_pipeline.sh`
 Run the following from the project root to execute all script in the correct order for this pipeline: 
 ```bash
-scripts/run_all.sh
+scripts/run_pipeline.sh
 ```
 This will produce results folders during the execution which can all be viewed once the analysis has finished.
