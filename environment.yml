@@ -9,13 +9,13 @@ dependencies:
   - seqtk
   - fastqc
   - blast
-  - muscle5
+  - muscle
   - taxonkit
-  - aliview
   - iqtree
-  - figtree
   - entrez-direct
   - seqkit
   - matplotlib
   - trimal
   - pip
+  - figtree
+  - aliview
