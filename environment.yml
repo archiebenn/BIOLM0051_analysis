@@ -9,7 +9,7 @@ dependencies:
   - seqtk
   - fastqc
   - blast
-  - muscle
+  - muscle5
   - taxonkit
   - aliview
   - iqtree
