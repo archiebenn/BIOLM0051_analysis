@@ -12,7 +12,7 @@ If you wish to reproduce this analysis, the following are required:
 ```bash
 mkdir -p ~/.taxonkit
 
-# download
+# download latest NCBI taxonomy dump
 wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
 
 # extract
