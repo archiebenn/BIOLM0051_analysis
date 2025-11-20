@@ -1,33 +1,39 @@
-IQ-TREE multicore version 2.0.7 for Linux 64-bit built Apr  1 2024
-Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
-Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+IQ-TREE version 3.0.1 for Linux x86 64-bit built Jul  9 2025
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
 
 Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
-Command: iqtree2 -s 9_alignment_files/sampleD_part1_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
-Seed:    253839 (Using SPRNG - Scalable Parallel Random Number Generator)
-Time:    Wed Nov 19 11:38:29 2025
+Command: iqtree3 -s 9_alignment_files/sampleD_part1_alignment.afa -m MFP -B 1000 -bnni -nt AUTO -redo
+Seed:    219431 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Nov 20 10:19:42 2025
 Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
 
 Reading alignment file 9_alignment_files/sampleD_part1_alignment.afa ... Fasta format detected
+Reading fasta file: done in 8.723e-05 secs using 33.25% CPU
 Alignment most likely contains protein sequences
+Constructing alignment: done in 0.00024203 secs using 88.83% CPU
 WARNING: 4 sites contain only gaps or ambiguous characters.
 Alignment has 11 sequences with 177 columns, 45 distinct patterns
 3 parsimony-informative, 12 singleton sites, 162 constant sites
                                     Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.0089996 secs using 637% CPU
    1  OZ223967.1_Natator_depressus          4.52%    passed    100.00%
    2  sampleD_part1                         6.78%    passed     99.95%
    3  NC_009260.1_Macrochelys_temminckii    3.95%    passed    100.00%
    4  DQ256378.1_Chelydra_serpentina        3.95%    passed    100.00%
    5  GQ152876.1_Dermochelys_coriacea       5.65%    passed    100.00%
-   6  JX454970.1_Eretmochelys_imbricata     5.08%    passed    100.00%
-   7  JX454977.1_Caretta_caretta            5.08%    passed    100.00%
-   8  JQ026233.1_Chelonia_mydas             5.08%    passed    100.00%
-   9  JX454979.1_Lepidochelys_olivacea      5.08%    passed    100.00%
-  10  JX454981.1_Lepidochelys_kempii        5.08%    passed    100.00%
-  11  KU254594.1_Eretmochelys_imbricata     7.34%    passed    100.00%
+   6  KU254594.1_Eretmochelys_imbricata     7.34%    passed    100.00%
+   7  JX454970.1_Eretmochelys_imbricata     5.08%    passed    100.00%
+   8  JX454977.1_Caretta_caretta            5.08%    passed    100.00%
+   9  JQ026233.1_Chelonia_mydas             5.08%    passed    100.00%
+  10  JX454979.1_Lepidochelys_olivacea      5.08%    passed    100.00%
+  11  JX454981.1_Lepidochelys_kempii        5.08%    passed    100.00%
 ****  TOTAL                                 5.24%  0 sequences failed composition chi2 test (p-value<5%; df=19)
 NOTE: JX454977.1_Caretta_caretta is identical to JX454970.1_Eretmochelys_imbricata but kept for subsequent analysis
 NOTE: JX454981.1_Lepidochelys_kempii is identical to JX454979.1_Lepidochelys_olivacea but kept for subsequent analysis
+Checking for duplicate sequences: done in 0.00637342 secs using 712.3% CPU
+Identifying sites to remove: done in 0.000113663 secs using 95.9% CPU
 NOTE: 1 identical sequences (see below) will be ignored for subsequent analysis
 NOTE: JQ026233.1_Chelonia_mydas (identical to JX454970.1_Eretmochelys_imbricata) is ignored but added at the end
 Alignment was printed to 9_alignment_files/sampleD_part1_alignment.afa.uniqueseq.phy
@@ -38,307 +44,1785 @@ For your convenience alignment with unique sequences printed to 9_alignment_file
 Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
 Measuring multi-threading efficiency up to 8 CPU cores
 Increase to 10 rounds for branch lengths
-1897 trees examined
-Threads: 1 / Time: 8.003 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -619
-Threads: 2 / Time: 6.173 sec / Speedup: 1.296 / Efficiency: 65% / LogL: -619
-Threads: 3 / Time: 5.454 sec / Speedup: 1.467 / Efficiency: 49% / LogL: -619
-BEST NUMBER OF THREADS: 2
+2054 trees examined
+Threads: 1 / Time: 8.002 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -629
+Threads: 2 / Time: 5.884 sec / Speedup: 1.360 / Efficiency: 68% / LogL: -629
+Threads: 3 / Time: 4.912 sec / Speedup: 1.629 / Efficiency: 54% / LogL: -629
+Threads: 4 / Time: 4.416 sec / Speedup: 1.812 / Efficiency: 45% / LogL: -629
+Determining AUTO threadcount: done in 23.214 secs using 223.1% CPU
+BEST NUMBER OF THREADS: 3
 
 Perform fast likelihood tree search using LG+I+G model...
 Estimate model parameters (epsilon = 5.000)
 Perform nearest neighbor interchange...
+Optimizing NNI: done in 0.00790922 secs using 302.1% CPU
 Estimate model parameters (epsilon = 1.000)
 1. Initial log-likelihood: -608.394
 Optimal log-likelihood: -608.393
 Proportion of invariable sites: 0.456
 Gamma shape alpha: 2.452
-Parameters optimization took 1 rounds (0.007 sec)
-Time for fast ML tree search: 0.025 seconds
+Parameters optimization took 1 rounds (0.005 sec)
+Time for fast ML tree search: 0.019 seconds
 
 NOTE: ModelFinder requires 1 MB RAM!
-ModelFinder will test up to 546 protein models (sample size: 177) ...
+ModelFinder will test up to 1232 protein models (sample size: 177 epsilon: 0.100) ...
  No. Model         -LnL         df  AIC          AICc         BIC
-  1  LG            608.707      17  1251.413     1255.262     1305.408
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  1  LG            608.706      17  1251.413     1255.262     1305.407
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
   2  LG+I          608.411      18  1252.821     1257.150     1309.992
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
   3  LG+G4         608.390      18  1252.779     1257.108     1309.950
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
   4  LG+I+G4       608.393      19  1254.785     1259.626     1315.132
-  5  LG+R2         608.498      19  1254.996     1259.837     1315.343
-  6  LG+R3         608.445      21  1258.890     1264.851     1325.589
- 14  LG+F          573.001      36  1218.001     1237.030     1332.343
- 15  LG+F+I        573.001      37  1220.001     1240.232     1337.519
- 16  LG+F+G4       572.590      37  1219.181     1239.411     1336.699
- 17  LG+F+I+G4     573.610      38  1223.221     1244.699     1343.915
- 18  LG+F+R2       572.758      38  1221.516     1242.994     1342.210
- 27  WAG           607.853      17  1249.706     1253.555     1303.700
- 28  WAG+I         607.555      18  1251.111     1255.440     1308.281
- 29  WAG+G4        607.539      18  1251.079     1255.408     1308.250
- 30  WAG+I+G4      607.542      19  1253.084     1257.924     1313.431
- 31  WAG+R2        607.646      19  1253.291     1258.132     1313.638
- 40  WAG+F         573.281      36  1218.562     1237.591     1332.904
- 41  WAG+F+I       573.281      37  1220.562     1240.793     1338.080
- 42  WAG+F+G4      572.944      37  1219.888     1240.118     1337.406
- 43  WAG+F+I+G4    573.971      38  1223.942     1245.420     1344.635
- 44  WAG+F+R2      573.064      38  1222.128     1243.607     1342.822
- 53  JTT           607.675      17  1249.350     1253.199     1303.344
- 54  JTT+I         607.252      18  1250.504     1254.833     1307.675
- 55  JTT+G4        607.240      18  1250.481     1254.810     1307.652
- 56  JTT+I+G4      607.237      19  1252.474     1257.315     1312.821
- 57  JTT+R2        607.428      19  1252.856     1257.697     1313.203
- 66  JTT+F         575.027      36  1222.054     1241.083     1336.395
- 67  JTT+F+I       575.027      37  1224.054     1244.284     1341.572
- 68  JTT+F+G4      574.565      37  1223.129     1243.359     1340.647
- 69  JTT+F+I+G4    575.585      38  1227.170     1248.648     1347.863
- 70  JTT+F+R2      574.769      38  1225.539     1247.017     1346.232
- 79  JTTDCMut      607.733      17  1249.465     1253.314     1303.460
- 80  JTTDCMut+I    607.326      18  1250.653     1254.982     1307.824
- 81  JTTDCMut+G4   607.315      18  1250.629     1254.958     1307.800
- 82  JTTDCMut+I+G4 607.312      19  1252.624     1257.464     1312.970
- 83  JTTDCMut+R2   607.491      19  1252.982     1257.822     1313.329
- 92  JTTDCMut+F    574.727      36  1221.453     1240.482     1335.794
- 93  JTTDCMut+F+I  574.727      37  1223.453     1243.683     1340.971
- 94  JTTDCMut+F+G4 574.283      37  1222.567     1242.797     1340.084
- 95  JTTDCMut+F+I+G4 575.304      38  1226.608     1248.087     1347.302
- 96  JTTDCMut+F+R2 574.475      38  1224.949     1246.428     1345.643
-105  DCMut         617.411      17  1268.821     1272.670     1322.816
-106  DCMut+I       616.932      18  1269.865     1274.194     1327.036
-107  DCMut+G4      616.922      18  1269.845     1274.174     1327.016
-108  DCMut+I+G4    616.919      19  1271.838     1276.679     1332.185
-109  DCMut+R2      617.148      19  1272.296     1277.137     1332.643
-118  DCMut+F       575.531      36  1223.061     1242.090     1337.402
-119  DCMut+F+I     575.530      37  1225.059     1245.289     1342.577
-120  DCMut+F+G4    575.130      37  1224.261     1244.491     1341.778
-121  DCMut+F+I+G4  576.153      38  1228.306     1249.784     1348.999
-122  DCMut+F+R2    575.294      38  1226.587     1248.065     1347.281
-131  VT            606.548      17  1247.095     1250.944     1301.090
-132  VT+I          606.310      18  1248.621     1252.950     1305.791
-133  VT+G4         606.294      18  1248.588     1252.917     1305.759
-134  VT+I+G4       606.301      19  1250.602     1255.443     1310.949
-135  VT+R2         606.365      19  1250.731     1255.571     1311.078
-144  VT+F          573.939      36  1219.878     1238.906     1334.219
-145  VT+F+I        573.939      37  1221.878     1242.108     1339.395
-146  VT+F+G4       573.669      37  1221.339     1241.569     1338.856
-147  VT+F+I+G4     574.702      38  1225.403     1246.882     1346.097
-148  VT+F+R2       573.749      38  1223.498     1244.977     1344.192
-157  PMB           605.548      17  1245.097     1248.946     1299.091
-158  PMB+I         605.362      18  1246.723     1251.052     1303.894
-159  PMB+G4        605.343      18  1246.685     1251.015     1303.856
-160  PMB+I+G4      605.356      19  1248.713     1253.553     1309.060
-161  PMB+R2        605.389      19  1248.778     1253.619     1309.125
-170  PMB+F         573.960      36  1219.920     1238.948     1334.261
-171  PMB+F+I       573.960      37  1221.920     1242.150     1339.437
-172  PMB+F+G4      573.716      37  1221.432     1241.663     1338.950
-173  PMB+F+I+G4    574.753      38  1225.505     1246.984     1346.199
-174  PMB+F+R2      573.782      38  1223.564     1245.042     1344.257
-183  Blosum62      605.828      17  1245.656     1249.506     1299.651
-184  Blosum62+I    605.613      18  1247.225     1251.554     1304.396
-185  Blosum62+G4   605.593      18  1247.186     1251.515     1304.357
-186  Blosum62+I+G4 605.604      19  1249.207     1254.048     1309.554
-187  Blosum62+R2   605.654      19  1249.308     1254.149     1309.655
-196  Blosum62+F    573.371      36  1218.742     1237.770     1333.083
-197  Blosum62+F+I  573.371      37  1220.742     1240.972     1338.259
-198  Blosum62+F+G4 573.104      37  1220.209     1240.439     1337.726
-199  Blosum62+F+I+G4 574.138      38  1224.276     1245.754     1344.970
-200  Blosum62+F+R2 573.182      38  1222.365     1243.843     1343.059
-209  Dayhoff       617.401      17  1268.802     1272.651     1322.796
-210  Dayhoff+I     616.921      18  1269.842     1274.171     1327.013
-211  Dayhoff+G4    616.911      18  1269.822     1274.151     1326.993
-212  Dayhoff+I+G4  616.906      19  1271.812     1276.653     1332.159
-213  Dayhoff+R2    617.139      19  1272.278     1277.118     1332.625
-222  Dayhoff+F     575.521      36  1223.043     1242.071     1337.384
-223  Dayhoff+F+I   575.521      37  1225.043     1245.273     1342.560
-224  Dayhoff+F+G4  575.120      37  1224.240     1244.470     1341.758
-225  Dayhoff+F+I+G4 576.142      38  1228.284     1249.762     1348.978
-226  Dayhoff+F+R2  575.285      38  1226.570     1248.048     1347.263
-235  mtREV         586.532      17  1207.063     1210.912     1261.058
-236  mtREV+I       585.620      18  1207.239     1211.568     1264.410
-237  mtREV+G4      585.596      18  1207.191     1211.520     1264.362
-238  mtREV+I+G4    585.561      19  1209.121     1213.962     1269.468
-239  mtREV+R2      586.111      19  1210.221     1215.062     1270.568
-248  mtREV+F       575.696      36  1223.391     1242.420     1337.733
-249  mtREV+F+I     575.696      37  1225.391     1245.621     1342.909
-250  mtREV+F+G4    574.775      37  1223.551     1243.781     1341.068
-251  mtREV+F+I+G4  575.751      38  1227.502     1248.980     1348.195
-252  mtREV+F+R2    575.285      38  1226.571     1248.049     1347.265
-261  mtART         591.820      17  1217.640     1221.489     1271.634
-262  mtART+I       589.973      18  1215.947     1220.276     1273.118
-263  mtART+G4      589.980      18  1215.961     1220.290     1273.132
-264  mtART+I+G4    589.815      19  1217.630     1222.471     1277.977
-265  mtART+R2      591.126      19  1220.252     1225.093     1280.599
-274  mtART+F       577.805      36  1227.610     1246.638     1341.951
-275  mtART+F+I     577.711      37  1229.423     1249.653     1346.940
-276  mtART+F+G4    575.865      37  1225.730     1245.961     1343.248
-277  mtART+F+I+G4  576.686      38  1229.373     1250.851     1350.067
-278  mtART+F+R2    577.123      38  1230.246     1251.724     1350.939
-287  mtZOA         587.295      17  1208.590     1212.439     1262.584
-288  mtZOA+I       586.496      18  1208.993     1213.322     1266.164
-289  mtZOA+G4      586.469      18  1208.938     1213.267     1266.109
-290  mtZOA+I+G4    586.418      19  1210.835     1215.676     1271.182
-291  mtZOA+R2      586.934      19  1211.868     1216.709     1272.215
-300  mtZOA+F       576.333      36  1224.667     1243.696     1339.008
-301  mtZOA+F+I     576.333      37  1226.666     1246.896     1344.183
-302  mtZOA+F+G4    575.440      37  1224.880     1245.111     1342.398
-303  mtZOA+F+I+G4  576.396      38  1228.791     1250.269     1349.485
-304  mtZOA+F+R2    575.961      38  1227.922     1249.400     1348.616
-313  mtMet         600.383      17  1234.766     1238.615     1288.760
-314  mtMet+I       599.735      18  1235.470     1239.799     1292.640
-315  mtMet+G4      599.711      18  1235.421     1239.751     1292.592
-316  mtMet+I+G4    599.688      19  1237.376     1242.217     1297.723
-317  mtMet+R2      600.066      19  1238.132     1242.973     1298.479
-326  mtMet+F       578.160      36  1228.319     1247.348     1342.660
-327  mtMet+F+I     578.160      37  1230.319     1250.549     1347.837
-328  mtMet+F+G4    577.472      37  1228.944     1249.174     1346.462
-329  mtMet+F+I+G4  578.461      38  1232.922     1254.400     1353.616
-330  mtMet+F+R2    577.838      38  1231.676     1253.155     1352.370
-339  mtVer         594.164      17  1222.328     1226.177     1276.323
-340  mtVer+I       593.248      18  1222.497     1226.826     1279.667
-341  mtVer+G4      593.231      18  1222.463     1226.792     1279.633
-342  mtVer+I+G4    593.177      19  1224.354     1229.195     1284.701
-343  mtVer+R2      593.793      19  1225.585     1230.426     1285.932
-352  mtVer+F       579.391      36  1230.781     1249.810     1345.123
-353  mtVer+F+I     579.391      37  1232.781     1253.012     1350.299
-354  mtVer+F+G4    578.445      37  1230.890     1251.121     1348.408
-355  mtVer+F+I+G4  579.403      38  1234.807     1256.285     1355.501
-356  mtVer+F+R2    579.016      38  1234.033     1255.511     1354.726
-365  mtInv         609.846      17  1253.692     1257.541     1307.686
-366  mtInv+I       609.384      18  1254.768     1259.097     1311.939
-367  mtInv+G4      609.358      18  1254.716     1259.045     1311.886
-368  mtInv+I+G4    609.348      19  1256.697     1261.537     1317.043
-369  mtInv+R2      609.579      19  1257.158     1261.999     1317.505
-378  mtInv+F       575.772      36  1223.545     1242.573     1337.886
-379  mtInv+F+I     575.772      37  1225.544     1245.774     1343.061
-380  mtInv+F+G4    575.233      37  1224.466     1244.696     1341.984
-381  mtInv+F+I+G4  576.246      38  1228.491     1249.970     1349.185
-382  mtInv+F+R2    575.491      38  1226.982     1248.460     1347.676
-391  mtMAM         595.420      17  1224.840     1228.689     1278.835
-392  mtMAM+I       590.972      18  1217.944     1222.273     1275.114
-393  mtMAM+G4      591.325      18  1218.651     1222.980     1275.821
-394  mtMAM+I+G4    590.804      19  1219.607     1224.448     1279.954
-395  mtMAM+R2      594.049      19  1226.098     1230.939     1286.445
-404  mtMAM+F       584.194      36  1240.388     1259.416     1354.729
-405  mtMAM+F+I     581.674      37  1237.347     1257.577     1354.865
-406  mtMAM+F+G4    579.976      37  1233.951     1254.181     1351.469
-407  mtMAM+F+I+G4  580.440      38  1236.879     1258.357     1357.573
-408  mtMAM+F+R2    582.798      38  1241.595     1263.074     1362.289
-417  HIVb          623.160      17  1280.320     1284.169     1334.315
-418  HIVb+I        621.054      18  1278.108     1282.437     1335.278
-419  HIVb+G4       621.146      18  1278.293     1282.622     1335.464
-420  HIVb+I+G4     621.052      19  1280.104     1284.944     1340.450
-421  HIVb+R2       622.526      19  1283.052     1287.893     1343.399
-430  HIVb+F        583.904      36  1239.807     1258.836     1354.149
-431  HIVb+F+I      584.000      37  1241.999     1262.229     1359.517
-432  HIVb+F+G4     582.162      37  1238.323     1258.554     1355.841
-433  HIVb+F+I+G4   583.140      38  1242.280     1263.758     1362.973
-434  HIVb+F+R2     583.305      38  1242.611     1264.089     1363.305
-443  HIVw          635.976      17  1305.953     1309.802     1359.947
-444  HIVw+I        631.661      18  1299.322     1303.651     1356.493
-445  HIVw+G4       632.246      18  1300.493     1304.822     1357.664
-446  HIVw+I+G4     631.629      19  1301.258     1306.099     1361.605
-447  HIVw+R2       634.781      19  1307.561     1312.402     1367.908
-456  HIVw+F        585.493      36  1242.985     1262.014     1357.327
-457  HIVw+F+I      584.104      37  1242.208     1262.438     1359.725
-458  HIVw+F+G4     582.345      37  1238.691     1258.921     1356.208
-459  HIVw+F+I+G4   582.899      38  1241.799     1263.277     1362.492
-460  HIVw+F+R2     584.464      38  1244.929     1266.407     1365.622
-469  FLU           616.558      17  1267.116     1270.965     1321.110
-470  FLU+I         615.752      18  1267.504     1271.833     1324.675
-471  FLU+G4        615.735      18  1267.469     1271.799     1324.640
-472  FLU+I+G4      615.712      19  1269.423     1274.264     1329.770
-473  FLU+R2        616.181      19  1270.362     1275.203     1330.709
-482  FLU+F         575.860      36  1223.720     1242.749     1338.061
-483  FLU+F+I       575.860      37  1225.720     1245.950     1343.238
-484  FLU+F+G4      574.838      37  1223.677     1243.907     1341.194
-485  FLU+F+I+G4    575.817      38  1227.634     1249.112     1348.327
-486  FLU+F+R2      575.413      38  1226.825     1248.304     1347.519
-495  rtREV         613.701      17  1261.403     1265.252     1315.397
-496  rtREV+I       613.189      18  1262.377     1266.706     1319.548
-497  rtREV+G4      613.172      18  1262.344     1266.674     1319.515
-498  rtREV+I+G4    613.162      19  1264.323     1269.164     1324.670
-499  rtREV+R2      613.427      19  1264.853     1269.694     1325.200
-508  rtREV+F       574.785      36  1221.570     1240.599     1335.912
-509  rtREV+F+I     574.784      37  1223.567     1243.797     1341.085
-510  rtREV+F+G4    574.131      37  1222.262     1242.493     1339.780
-511  rtREV+F+I+G4  575.121      38  1226.243     1247.721     1346.937
-512  rtREV+F+R2    574.478      38  1224.955     1246.433     1345.649
-521  cpREV         599.042      17  1232.084     1235.933     1286.079
-522  cpREV+I       598.630      18  1233.260     1237.589     1290.431
-523  cpREV+G4      598.611      18  1233.222     1237.551     1290.393
-524  cpREV+I+G4    598.607      19  1235.215     1240.055     1295.561
-525  cpREV+R2      598.794      19  1235.588     1240.428     1295.934
-534  cpREV+F       572.844      36  1217.688     1236.717     1332.029
-535  cpREV+F+I     572.844      37  1219.688     1239.918     1337.206
-536  cpREV+F+G4    572.430      37  1218.861     1239.091     1336.378
-537  cpREV+F+I+G4  573.452      38  1222.904     1244.382     1343.597
-538  cpREV+F+R2    572.600      38  1221.199     1242.678     1341.893
-Akaike Information Criterion:           mtREV
-Corrected Akaike Information Criterion: mtREV
-Bayesian Information Criterion:         mtREV
-Best-fit model: mtREV chosen according to BIC
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  5  LG+R2         608.444      19  1254.888     1259.729     1315.235
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+  6  LG+R3         608.485      21  1258.969     1264.930     1325.668
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 14  LG+I+R2       608.470      20  1256.940     1262.325     1320.463
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 15  LG+I+R3       608.410      22  1260.820     1267.391     1330.695
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 23  LG+F          573.001      36  1218.001     1237.030     1332.343
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 24  LG+F+I        573.001      37  1220.001     1240.231     1337.519
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 25  LG+F+G4       572.590      37  1219.180     1239.410     1336.697
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 26  LG+F+I+G4     573.610      38  1223.221     1244.699     1343.915
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 27  LG+F+R2       572.686      38  1221.372     1242.851     1342.066
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 45  WAG           607.853      17  1249.706     1253.555     1303.700
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 46  WAG+I         607.555      18  1251.110     1255.439     1308.281
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 47  WAG+G4        607.539      18  1251.078     1255.408     1308.249
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 48  WAG+I+G4      607.542      19  1253.083     1257.924     1313.430
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 49  WAG+R2        607.590      19  1253.179     1258.020     1313.526
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 67  WAG+F         573.281      36  1218.562     1237.591     1332.904
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 68  WAG+F+I       573.281      37  1220.562     1240.792     1338.080
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 69  WAG+F+G4      572.944      37  1219.887     1240.118     1337.405
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 70  WAG+F+I+G4    573.960      38  1223.921     1245.399     1344.614
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 71  WAG+F+R2      573.004      38  1222.008     1243.486     1342.701
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 89  JTT           607.675      17  1249.350     1253.199     1303.344
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 90  JTT+I         607.251      18  1250.503     1254.832     1307.673
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 91  JTT+G4        607.241      18  1250.481     1254.810     1307.652
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 92  JTT+I+G4      607.237      19  1252.474     1257.315     1312.821
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+ 93  JTT+R2        607.347      19  1252.693     1257.534     1313.040
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+111  JTT+F         575.027      36  1222.054     1241.082     1336.395
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+112  JTT+F+I       575.027      37  1224.054     1244.284     1341.571
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+113  JTT+F+G4      574.565      37  1223.129     1243.360     1340.647
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+114  JTT+F+I+G4    575.564      38  1227.129     1248.607     1347.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+115  JTT+F+R2      574.681      38  1225.362     1246.841     1346.056
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+133  Q.PFAM        607.149      17  1248.297     1252.146     1302.292
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+134  Q.PFAM+I      606.854      18  1249.707     1254.036     1306.878
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+135  Q.PFAM+G4     606.832      18  1249.664     1253.993     1306.835
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+136  Q.PFAM+I+G4   606.835      19  1251.669     1256.510     1312.016
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+137  Q.PFAM+R2     606.881      19  1251.763     1256.604     1312.110
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+155  Q.PFAM+F      573.666      36  1219.333     1238.361     1333.674
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+156  Q.PFAM+F+I    573.666      37  1221.333     1241.563     1338.850
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+157  Q.PFAM+F+G4   573.240      37  1220.479     1240.709     1337.997
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+158  Q.PFAM+F+I+G4 574.229      38  1224.457     1245.936     1345.151
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+159  Q.PFAM+F+R2   573.336      38  1222.673     1244.151     1343.366
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+177  Q.BIRD        621.227      17  1276.454     1280.303     1330.449
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+178  Q.BIRD+I      619.798      18  1275.596     1279.925     1332.766
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+179  Q.BIRD+G4     619.854      18  1275.708     1280.037     1332.878
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+180  Q.BIRD+I+G4   619.781      19  1277.562     1282.403     1337.909
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+181  Q.BIRD+R2     620.577      19  1279.153     1283.994     1339.500
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+199  Q.BIRD+F      582.831      36  1237.661     1256.690     1352.003
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+200  Q.BIRD+F+I    583.195      37  1240.389     1260.619     1357.907
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+201  Q.BIRD+F+G4   581.443      37  1236.886     1257.116     1354.403
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+202  Q.BIRD+F+I+G4 582.386      38  1240.771     1262.249     1361.465
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+203  Q.BIRD+F+R2   582.103      38  1240.206     1261.684     1360.899
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+221  Q.MAMMAL      620.045      17  1274.091     1277.940     1328.085
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+222  Q.MAMMAL+I    619.291      18  1274.582     1278.911     1331.753
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+223  Q.MAMMAL+G4   619.285      18  1274.569     1278.898     1331.740
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+224  Q.MAMMAL+I+G4 619.266      19  1276.533     1281.373     1336.879
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+225  Q.MAMMAL+R2   619.557      19  1277.115     1281.956     1337.462
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+243  Q.MAMMAL+F    580.746      36  1233.493     1252.521     1347.834
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+244  Q.MAMMAL+F+I  580.746      37  1235.493     1255.723     1353.010
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+245  Q.MAMMAL+F+G4 579.878      37  1233.755     1253.986     1351.273
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+246  Q.MAMMAL+F+I+G4 580.824      38  1237.648     1259.126     1358.341
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+247  Q.MAMMAL+F+R2 580.181      38  1236.362     1257.840     1357.055
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+265  Q.INSECT      618.186      17  1270.373     1274.222     1324.367
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+266  Q.INSECT+I    617.839      18  1271.677     1276.006     1328.848
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+267  Q.INSECT+G4   617.819      18  1271.639     1275.968     1328.809
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+268  Q.INSECT+I+G4 617.817      19  1273.634     1278.475     1333.981
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+269  Q.INSECT+R2   617.869      19  1273.738     1278.579     1334.085
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+287  Q.INSECT+F    574.398      36  1220.796     1239.824     1335.137
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+288  Q.INSECT+F+I  574.398      37  1222.796     1243.026     1340.313
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+289  Q.INSECT+F+G4 573.940      37  1221.881     1242.111     1339.398
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+290  Q.INSECT+F+I+G4 574.897      38  1225.795     1247.273     1346.488
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+291  Q.INSECT+F+R2 574.025      38  1224.049     1245.527     1344.743
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+309  Q.PLANT       611.574      17  1257.148     1260.997     1311.142
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+310  Q.PLANT+I     610.824      18  1257.647     1261.976     1314.818
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+311  Q.PLANT+G4    610.817      18  1257.634     1261.963     1314.805
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+312  Q.PLANT+I+G4  610.805      19  1259.610     1264.451     1319.957
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+313  Q.PLANT+R2    611.041      19  1260.083     1264.924     1320.430
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+331  Q.PLANT+F     576.637      36  1225.275     1244.304     1339.616
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+332  Q.PLANT+F+I   576.637      37  1227.275     1247.505     1344.793
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+333  Q.PLANT+F+G4  575.774      37  1225.548     1245.778     1343.065
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+334  Q.PLANT+F+I+G4 576.715      38  1229.430     1250.908     1350.123
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+335  Q.PLANT+F+R2  576.031      38  1228.061     1249.540     1348.755
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+353  Q.YEAST       615.577      17  1265.155     1269.004     1319.149
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+354  Q.YEAST+I     615.252      18  1266.504     1270.833     1323.675
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+355  Q.YEAST+G4    615.232      18  1266.464     1270.793     1323.635
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+356  Q.YEAST+I+G4  615.232      19  1268.464     1273.305     1328.811
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+357  Q.YEAST+R2    615.269      19  1268.538     1273.379     1328.885
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+375  Q.YEAST+F     573.335      36  1218.671     1237.699     1333.012
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+376  Q.YEAST+F+I   573.335      37  1220.671     1240.901     1338.188
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+377  Q.YEAST+F+G4  572.904      37  1219.807     1240.037     1337.325
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+378  Q.YEAST+F+I+G4 573.843      38  1223.686     1245.164     1344.380
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+379  Q.YEAST+F+R2  572.969      38  1221.939     1243.417     1342.633
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+397  JTTDCMUT      607.733      17  1249.467     1253.316     1303.461
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+398  JTTDCMUT+I    607.326      18  1250.652     1254.981     1307.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+399  JTTDCMUT+G4   607.315      18  1250.629     1254.958     1307.800
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+400  JTTDCMUT+I+G4 607.311      19  1252.622     1257.463     1312.969
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+401  JTTDCMUT+R2   607.373      19  1252.746     1257.587     1313.093
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+419  JTTDCMUT+F    574.727      36  1221.453     1240.482     1335.795
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+420  JTTDCMUT+F+I  574.727      37  1223.453     1243.683     1340.971
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+421  JTTDCMUT+F+G4 574.284      37  1222.567     1242.797     1340.085
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+422  JTTDCMUT+F+I+G4 575.216      38  1226.432     1247.910     1347.126
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+423  JTTDCMUT+F+R2 574.349      38  1224.698     1246.176     1345.391
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+441  DCMUT         617.411      17  1268.821     1272.670     1322.816
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+442  DCMUT+I       616.933      18  1269.865     1274.194     1327.036
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+443  DCMUT+G4      616.922      18  1269.845     1274.174     1327.015
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+444  DCMUT+I+G4    616.917      19  1271.833     1276.674     1332.180
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+445  DCMUT+R2      617.008      19  1272.016     1276.857     1332.363
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+463  DCMUT+F       575.530      36  1223.059     1242.088     1337.400
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+464  DCMUT+F+I     575.530      37  1225.059     1245.289     1342.577
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+465  DCMUT+F+G4    575.130      37  1224.261     1244.491     1341.778
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+466  DCMUT+F+I+G4  576.054      38  1228.109     1249.587     1348.803
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+467  DCMUT+F+R2    575.180      38  1226.359     1247.838     1347.053
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+485  VT            606.548      17  1247.096     1250.945     1301.091
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+486  VT+I          606.311      18  1248.621     1252.950     1305.792
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+487  VT+G4         606.294      18  1248.589     1252.918     1305.759
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+488  VT+I+G4       606.298      19  1250.597     1255.438     1310.944
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+489  VT+R2         606.307      19  1250.613     1255.454     1310.960
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+507  VT+F          573.939      36  1219.878     1238.906     1334.219
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+508  VT+F+I        573.939      37  1221.878     1242.108     1339.395
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+509  VT+F+G4       573.669      37  1221.339     1241.569     1338.856
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+510  VT+F+I+G4     574.593      38  1225.186     1246.665     1345.880
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+511  VT+F+R2       573.685      38  1223.370     1244.849     1344.064
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+529  PMB           605.549      17  1245.097     1248.946     1299.092
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+530  PMB+I         605.362      18  1246.724     1251.053     1303.894
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+531  PMB+G4        605.343      18  1246.686     1251.015     1303.857
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+532  PMB+I+G4      605.352      19  1248.703     1253.544     1309.050
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+533  PMB+R2        605.356      19  1248.711     1253.552     1309.058
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+551  PMB+F         573.960      36  1219.920     1238.949     1334.261
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+552  PMB+F+I       573.960      37  1221.920     1242.150     1339.438
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+553  PMB+F+G4      573.716      37  1221.433     1241.663     1338.950
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+554  PMB+F+I+G4    574.634      38  1225.267     1246.746     1345.961
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+555  PMB+F+R2      573.731      38  1223.463     1244.941     1344.156
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+573  BLOSUM62      605.828      17  1245.657     1249.506     1299.651
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+574  BLOSUM62+I    605.613      18  1247.226     1251.555     1304.396
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+575  BLOSUM62+G4   605.593      18  1247.187     1251.516     1304.357
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+576  BLOSUM62+I+G4 605.599      19  1249.199     1254.039     1309.545
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+577  BLOSUM62+R2   605.606      19  1249.212     1254.053     1309.559
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+595  BLOSUM62+F    573.371      36  1218.742     1237.771     1333.083
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+596  BLOSUM62+F+I  573.371      37  1220.742     1240.972     1338.260
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+597  BLOSUM62+F+G4 573.104      37  1220.209     1240.439     1337.726
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+598  BLOSUM62+F+I+G4 574.010      38  1224.020     1245.499     1344.714
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+599  BLOSUM62+F+R2 573.121      38  1222.242     1243.721     1342.936
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+617  DAYHOFF       617.401      17  1268.802     1272.651     1322.797
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+618  DAYHOFF+I     616.921      18  1269.843     1274.172     1327.013
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+619  DAYHOFF+G4    616.912      18  1269.824     1274.153     1326.995
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+620  DAYHOFF+I+G4  616.906      19  1271.813     1276.653     1332.159
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+621  DAYHOFF+R2    616.995      19  1271.990     1276.831     1332.337
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+639  DAYHOFF+F     575.521      36  1223.043     1242.072     1337.384
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+640  DAYHOFF+F+I   575.521      37  1225.043     1245.273     1342.560
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+641  DAYHOFF+F+G4  575.120      37  1224.241     1244.471     1341.758
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+642  DAYHOFF+F+I+G4 576.007      38  1228.015     1249.493     1348.708
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+643  DAYHOFF+F+R2  575.168      38  1226.336     1247.815     1347.030
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+661  MTREV         586.532      17  1207.063     1210.913     1261.058
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+662  MTREV+I       585.620      18  1207.240     1211.569     1264.410
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+663  MTREV+G4      585.596      18  1207.193     1211.522     1264.364
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+664  MTREV+I+G4    585.564      19  1209.128     1213.969     1269.475
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+665  MTREV+R2      585.840      19  1209.679     1214.520     1270.026
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+683  MTREV+F       575.696      36  1223.392     1242.420     1337.733
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+684  MTREV+F+I     575.696      37  1225.392     1245.622     1342.909
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+685  MTREV+F+G4    574.776      37  1223.551     1243.782     1341.069
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+686  MTREV+F+I+G4  575.622      38  1227.245     1248.723     1347.938
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+687  MTREV+F+R2    575.013      38  1226.026     1247.505     1346.720
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+705  MTART         591.820      17  1217.640     1221.489     1271.635
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+706  MTART+I       589.974      18  1215.948     1220.277     1273.119
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+707  MTART+G4      589.981      18  1215.961     1220.291     1273.132
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+708  MTART+I+G4    589.835      19  1217.670     1222.511     1278.017
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+709  MTART+R2      590.625      19  1219.250     1224.090     1279.596
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+727  MTART+F       577.805      36  1227.610     1246.638     1341.951
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+728  MTART+F+I     577.710      37  1229.420     1249.650     1346.937
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+729  MTART+F+G4    575.866      37  1225.732     1245.962     1343.249
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+730  MTART+F+I+G4  576.579      38  1229.157     1250.635     1349.851
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+731  MTART+F+R2    576.522      38  1229.043     1250.522     1349.737
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+749  MTZOA         587.295      17  1208.589     1212.438     1262.584
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+750  MTZOA+I       586.496      18  1208.992     1213.321     1266.163
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+751  MTZOA+G4      586.470      18  1208.940     1213.269     1266.110
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+752  MTZOA+I+G4    586.425      19  1210.850     1215.691     1271.197
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+753  MTZOA+R2      586.645      19  1211.289     1216.130     1271.636
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+771  MTZOA+F       576.333      36  1224.666     1243.695     1339.008
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+772  MTZOA+F+I     576.333      37  1226.666     1246.896     1344.184
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+773  MTZOA+F+G4    575.440      37  1224.879     1245.109     1342.397
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+774  MTZOA+F+I+G4  576.256      38  1228.511     1249.990     1349.205
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+775  MTZOA+F+R2    575.640      38  1227.280     1248.758     1347.973
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+793  MTMET         600.383      17  1234.766     1238.615     1288.761
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+794  MTMET+I       599.735      18  1235.471     1239.800     1292.641
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+795  MTMET+G4      599.711      18  1235.422     1239.751     1292.593
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+796  MTMET+I+G4    599.687      19  1237.374     1242.215     1297.721
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+797  MTMET+R2      599.807      19  1237.613     1242.454     1297.960
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+815  MTMET+F       578.160      36  1228.319     1247.348     1342.661
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+816  MTMET+F+I     578.160      37  1230.319     1250.550     1347.837
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+817  MTMET+F+G4    577.472      37  1228.944     1249.174     1346.462
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+818  MTMET+F+I+G4  578.308      38  1232.617     1254.095     1353.311
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+819  MTMET+F+R2    577.569      38  1231.138     1252.616     1351.831
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+837  MTVER         594.164      17  1222.329     1226.178     1276.323
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+838  MTVER+I       593.248      18  1222.496     1226.825     1279.667
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+839  MTVER+G4      593.232      18  1222.464     1226.793     1279.634
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+840  MTVER+I+G4    593.184      19  1224.368     1229.209     1284.715
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+841  MTVER+R2      593.434      19  1224.868     1229.709     1285.215
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+859  MTVER+F       579.391      36  1230.782     1249.810     1345.123
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+860  MTVER+F+I     579.391      37  1232.782     1253.012     1350.299
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+861  MTVER+F+G4    578.445      37  1230.890     1251.120     1348.408
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+862  MTVER+F+I+G4  579.247      38  1234.494     1255.972     1355.187
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+863  MTVER+F+R2    578.639      38  1233.279     1254.757     1353.972
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+881  MTINV         609.845      17  1253.691     1257.540     1307.685
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+882  MTINV+I       609.384      18  1254.769     1259.098     1311.939
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+883  MTINV+G4      609.359      18  1254.718     1259.047     1311.889
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+884  MTINV+I+G4    609.346      19  1256.691     1261.532     1317.038
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+885  MTINV+R2      609.386      19  1256.773     1261.613     1317.120
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+903  MTINV+F       575.772      36  1223.544     1242.573     1337.886
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+904  MTINV+F+I     575.772      37  1225.544     1245.774     1343.062
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+905  MTINV+F+G4    575.233      37  1224.467     1244.697     1341.984
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+906  MTINV+F+I+G4  576.063      38  1228.126     1249.604     1348.819
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+907  MTINV+F+R2    575.271      38  1226.542     1248.020     1347.235
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+925  MTMAM         595.420      17  1224.841     1228.690     1278.835
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+926  MTMAM+I       590.973      18  1217.946     1222.275     1275.117
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+927  MTMAM+G4      591.326      18  1218.652     1222.981     1275.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+928  MTMAM+I+G4    590.857      19  1219.714     1224.555     1280.061
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+929  MTMAM+R2      590.958      19  1219.917     1224.757     1280.263
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+947  MTMAM+F       584.194      36  1240.389     1259.417     1354.730
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+948  MTMAM+F+I     581.675      37  1237.350     1257.581     1354.868
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+949  MTMAM+F+G4    579.977      37  1233.954     1254.184     1351.471
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+950  MTMAM+F+I+G4  580.317      38  1236.633     1258.112     1357.327
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+951  MTMAM+F+R2    579.537      38  1235.073     1256.551     1355.767
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+969  FLAVI         608.859      17  1251.717     1255.566     1305.712
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+970  FLAVI+I       607.321      18  1250.641     1254.970     1307.812
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+971  FLAVI+G4      607.351      18  1250.702     1255.031     1307.873
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+972  FLAVI+I+G4    607.253      19  1252.506     1257.347     1312.853
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+973  FLAVI+R2      607.238      19  1252.476     1257.317     1312.823
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+991  FLAVI+F       583.330      36  1238.661     1257.689     1353.002
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+992  FLAVI+F+I     583.551      37  1241.101     1261.332     1358.619
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+993  FLAVI+F+G4    581.727      37  1237.455     1257.685     1354.972
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+994  FLAVI+F+I+G4  582.454      38  1240.909     1262.387     1361.602
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+995  FLAVI+F+R2    581.597      38  1239.194     1260.672     1359.888
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1013  HIVB          623.160      17  1280.321     1284.170     1334.315
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1014  HIVB+I        621.054      18  1278.108     1282.438     1335.279
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1015  HIVB+G4       621.147      18  1278.294     1282.623     1335.464
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1016  HIVB+I+G4     621.053      19  1280.106     1284.947     1340.453
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1017  HIVB+R2       621.056      19  1280.111     1284.952     1340.458
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1035  HIVB+F        583.904      36  1239.808     1258.836     1354.149
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1036  HIVB+F+I      583.990      37  1241.980     1262.210     1359.497
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1037  HIVB+F+G4     582.162      37  1238.324     1258.554     1355.842
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1038  HIVB+F+I+G4   582.956      38  1241.911     1263.390     1362.605
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1039  HIVB+F+R2     582.137      38  1240.274     1261.752     1360.968
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1057  HIVW          635.977      17  1305.953     1309.802     1359.948
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1058  HIVW+I        631.662      18  1299.324     1303.653     1356.495
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1059  HIVW+G4       632.247      18  1300.494     1304.823     1357.665
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1060  HIVW+I+G4     631.659      19  1301.318     1306.159     1361.665
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1061  HIVW+R2       631.728      19  1301.456     1306.297     1361.803
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1079  HIVW+F        585.493      36  1242.986     1262.015     1357.327
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1080  HIVW+F+I      584.105      37  1242.210     1262.440     1359.727
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1081  HIVW+F+G4     582.346      37  1238.692     1258.922     1356.209
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1082  HIVW+F+I+G4   582.756      38  1241.513     1262.991     1362.206
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1083  HIVW+F+R2     581.864      38  1239.729     1261.207     1360.423
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1101  FLU           616.558      17  1267.116     1270.965     1321.111
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1102  FLU+I         615.753      18  1267.505     1271.834     1324.676
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1103  FLU+G4        615.736      18  1267.472     1271.801     1324.642
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1104  FLU+I+G4      615.714      19  1269.429     1274.270     1329.776
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1105  FLU+R2        615.707      19  1269.415     1274.256     1329.762
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1123  FLU+F         575.860      36  1223.721     1242.749     1338.062
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1124  FLU+F+I       575.860      37  1225.721     1245.951     1343.238
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1125  FLU+F+G4      574.839      37  1223.678     1243.908     1341.195
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1126  FLU+F+I+G4    575.612      38  1227.225     1248.703     1347.918
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1127  FLU+F+R2      574.766      38  1225.532     1247.010     1346.226
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1145  RTREV         613.702      17  1261.403     1265.252     1315.398
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1146  RTREV+I       613.189      18  1262.378     1266.707     1319.549
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1147  RTREV+G4      613.173      18  1262.345     1266.674     1319.516
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1148  RTREV+I+G4    613.162      19  1264.325     1269.165     1324.671
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1149  RTREV+R2      613.161      19  1264.322     1269.162     1324.668
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1167  RTREV+F       574.784      36  1221.568     1240.596     1335.909
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1168  RTREV+F+I     574.784      37  1223.568     1243.798     1341.085
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1169  RTREV+F+G4    574.131      37  1222.263     1242.493     1339.781
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1170  RTREV+F+I+G4  574.908      38  1225.816     1247.294     1346.510
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1171  RTREV+F+R2    574.075      38  1224.150     1245.628     1344.843
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1189  CPREV         599.042      17  1232.085     1235.934     1286.079
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1190  CPREV+I       598.630      18  1233.259     1237.589     1290.430
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1191  CPREV+G4      598.612      18  1233.224     1237.553     1290.394
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1192  CPREV+I+G4    598.606      19  1235.212     1240.053     1295.559
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1193  CPREV+R2      598.601      19  1235.202     1240.043     1295.549
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1211  CPREV+F       572.844      36  1217.689     1236.717     1332.030
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1212  CPREV+F+I     572.844      37  1219.689     1239.919     1337.206
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1213  CPREV+F+G4    572.430      37  1218.860     1239.090     1336.377
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1214  CPREV+F+I+G4  573.215      38  1222.430     1243.908     1343.123
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+1215  CPREV+F+R2    572.413      38  1220.826     1242.304     1341.520
+Akaike Information Criterion:           MTREV
+Corrected Akaike Information Criterion: MTREV
+Bayesian Information Criterion:         MTREV
+Best-fit model: MTREV chosen according to BIC
 
 All model information printed to 9_alignment_files/sampleD_part1_alignment.afa.model.gz
-CPU time for ModelFinder: 39.620 seconds (0h:0m:39s)
-Wall-clock time for ModelFinder: 21.263 seconds (0h:0m:21s)
+CPU time for ModelFinder: 56.348 seconds (0h:0m:56s)
+Wall-clock time for ModelFinder: 24.751 seconds (0h:0m:24s)
 WARNING: States(s) C rarely appear in alignment and may cause numerical problems
-Generating 1000 samples for ultrafast bootstrap (seed: 253839)...
+Generating 1000 samples for ultrafast bootstrap (seed: 219431)...
 
 NOTE: 0 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
 Estimate model parameters (epsilon = 0.100)
-1. Initial log-likelihood: -586.532
+1. Initial log-likelihood: -586.561
 Optimal log-likelihood: -586.532
 Parameters optimization took 1 rounds (0.001 sec)
-Computing ML distances based on estimated model parameters... 0.003 sec
-Computing BIONJ tree...
-0.000 seconds
-Log-likelihood of BIONJ tree: -590.635
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 0.00207096 secs using 320% CPU
+Computing ML distances took 0.002114 sec (of wall-clock time) 0.006675 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 0.000148533 secs using 244.4% CPU
+Constructing RapidNJ tree: done in 0.0033251 secs using 200.1% CPU
+Computing RapidNJ tree took 0.003628 sec (of wall-clock time) 0.008234 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -586.535
 --------------------------------------------------------------------
 |             INITIALIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
 Generating 98 parsimony trees... 0.022 second
-Computing log-likelihood of 97 initial trees ... 0.037 seconds
+Computing log-likelihood of 96 initial trees ... 0.039 seconds
 Current best score: -586.532
 
 Do NNI search on 20 best initial trees
+Optimizing NNI: done in 0.00215716 secs using 238.9% CPU
 Estimate model parameters (epsilon = 0.100)
-BETTER TREE FOUND at iteration 1: -586.531
-BETTER TREE FOUND at iteration 2: -586.531
-Iteration 10 / LogL: -586.531 / Time: 0h:0m:0s
-BETTER TREE FOUND at iteration 19: -586.531
-Iteration 20 / LogL: -586.531 / Time: 0h:0m:0s
-Finish initializing candidate tree set (12)
-Current best tree score: -586.531 / CPU time: 0.143
+BETTER TREE FOUND at iteration 1: -586.532
+Optimizing NNI: done in 0.00382959 secs using 282.9% CPU
+Optimizing NNI: done in 0.00372249 secs using 260.9% CPU
+UPDATE BEST LOG-LIKELIHOOD: -586.531
+Optimizing NNI: done in 0.00447039 secs using 278.8% CPU
+Optimizing NNI: done in 0.00451762 secs using 323.6% CPU
+Optimizing NNI: done in 0.00399334 secs using 238.1% CPU
+BETTER TREE FOUND at iteration 6: -586.531
+Optimizing NNI: done in 0.00351992 secs using 270.3% CPU
+Optimizing NNI: done in 0.00419217 secs using 266.9% CPU
+Optimizing NNI: done in 0.00415915 secs using 282.9% CPU
+Optimizing NNI: done in 0.00363368 secs using 320% CPU
+Iteration 10 / LogL: -586.531 / Time: 0h:0m:24s
+Optimizing NNI: done in 0.00391961 secs using 278.7% CPU
+Optimizing NNI: done in 0.00426064 secs using 287.7% CPU
+Optimizing NNI: done in 0.00423698 secs using 288.1% CPU
+Optimizing NNI: done in 0.00391323 secs using 302.6% CPU
+Optimizing NNI: done in 0.00400025 secs using 275% CPU
+Optimizing NNI: done in 0.00427436 secs using 281.3% CPU
+Optimizing NNI: done in 0.00430243 secs using 284.6% CPU
+BETTER TREE FOUND at iteration 17: -586.531
+Optimizing NNI: done in 0.00463366 secs using 273.5% CPU
+Optimizing NNI: done in 0.00416571 secs using 289% CPU
+Optimizing NNI: done in 0.00406871 secs using 272.1% CPU
+Iteration 20 / LogL: -586.531 / Time: 0h:0m:24s
+Finish initializing candidate tree set (11)
+Current best tree score: -586.531 / CPU time: 0.150
 Number of iterations: 20
 --------------------------------------------------------------------
 |               OPTIMIZING CANDIDATE TREE SET                      |
 --------------------------------------------------------------------
-BETTER TREE FOUND at iteration 24: -586.531
+Optimizing NNI: done in 0.00660235 secs using 280.7% CPU
+Optimizing NNI: done in 0.00600464 secs using 299.7% CPU
+Optimizing NNI: done in 0.00575055 secs using 287.3% CPU
+Optimizing NNI: done in 0.0090206 secs using 266.2% CPU
+Optimizing NNI: done in 0.00353049 secs using 293.7% CPU
 UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 30 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Optimizing NNI: done in 0.00631351 secs using 302.1% CPU
+Optimizing NNI: done in 0.00630098 secs using 271.4% CPU
+Optimizing NNI: done in 0.00363694 secs using 319.9% CPU
 UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 40 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Optimizing NNI: done in 0.00460541 secs using 317.1% CPU
+Optimizing NNI: done in 0.00404444 secs using 294.7% CPU
+Iteration 30 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00303153 secs using 296.5% CPU
+Optimizing NNI: done in 0.0067699 secs using 297.7% CPU
+Optimizing NNI: done in 0.00742788 secs using 287.8% CPU
+Optimizing NNI: done in 0.00213127 secs using 240.5% CPU
+Optimizing NNI: done in 0.00489568 secs using 304.2% CPU
+Optimizing NNI: done in 0.00210999 secs using 289.5% CPU
+Optimizing NNI: done in 0.00534427 secs using 286.1% CPU
+Optimizing NNI: done in 0.00329177 secs using 343% CPU
+Optimizing NNI: done in 0.00353073 secs using 307% CPU
+Optimizing NNI: done in 0.00508884 secs using 277% CPU
+Iteration 40 / LogL: -586.531 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00240111 secs using 261.8% CPU
+Optimizing NNI: done in 0.00208548 secs using 287.5% CPU
+Optimizing NNI: done in 0.00182028 secs using 209.6% CPU
+Optimizing NNI: done in 0.00455852 secs using 315.6% CPU
+Optimizing NNI: done in 0.00512471 secs using 314.5% CPU
+Optimizing NNI: done in 0.0033557 secs using 246% CPU
+Optimizing NNI: done in 0.00572096 secs using 257.3% CPU
+Optimizing NNI: done in 0.00301667 secs using 298.7% CPU
+Optimizing NNI: done in 0.00577461 secs using 288.1% CPU
+Optimizing NNI: done in 0.00981878 secs using 301.2% CPU
+Iteration 50 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00583939 secs using 302.8% CPU
+Optimizing NNI: done in 0.00972833 secs using 303.9% CPU
+Optimizing NNI: done in 0.00335003 secs using 279% CPU
+Optimizing NNI: done in 0.00437138 secs using 283% CPU
+Optimizing NNI: done in 0.00225508 secs using 273.6% CPU
+Optimizing NNI: done in 0.0036671 secs using 318% CPU
+Optimizing NNI: done in 0.00369688 secs using 287.7% CPU
+Optimizing NNI: done in 0.00603569 secs using 281.4% CPU
+Optimizing NNI: done in 0.00198426 secs using 301.5% CPU
+Optimizing NNI: done in 0.00351654 secs using 270.3% CPU
+Iteration 60 / LogL: -586.531 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00538712 secs using 265.8% CPU
+Optimizing NNI: done in 0.0021356 secs using 287.3% CPU
+Optimizing NNI: done in 0.00504576 secs using 277.3% CPU
+Optimizing NNI: done in 0.00182437 secs using 209.4% CPU
+Optimizing NNI: done in 0.00364626 secs using 264.1% CPU
 UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 50 / LogL: -590.012 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 60 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Optimizing NNI: done in 0.00577505 secs using 307.4% CPU
+Optimizing NNI: done in 0.00608015 secs using 295.3% CPU
+Optimizing NNI: done in 0.00356358 secs using 323.8% CPU
+Optimizing NNI: done in 0.00531503 secs using 295.2% CPU
+Optimizing NNI: done in 0.0092859 secs using 288.6% CPU
+Iteration 70 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00365326 secs using 310.2% CPU
+Optimizing NNI: done in 0.00538731 secs using 263.2% CPU
+Optimizing NNI: done in 0.00386193 secs using 274.7% CPU
+Optimizing NNI: done in 0.00219031 secs using 280.1% CPU
+Optimizing NNI: done in 0.00318173 secs using 286.2% CPU
+Optimizing NNI: done in 0.00454927 secs using 231.8% CPU
+Optimizing NNI: done in 0.00569532 secs using 293.1% CPU
+Optimizing NNI: done in 0.00222813 secs using 279.4% CPU
+Optimizing NNI: done in 0.00216554 secs using 299.7% CPU
+Optimizing NNI: done in 0.00381924 secs using 283.3% CPU
+Iteration 80 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.0022838 secs using 362.6% CPU
+Optimizing NNI: done in 0.00336089 secs using 246.6% CPU
+Optimizing NNI: done in 0.00562085 secs using 274.4% CPU
+Optimizing NNI: done in 0.00718078 secs using 294.8% CPU
+Optimizing NNI: done in 0.0017397 secs using 329.8% CPU
+Optimizing NNI: done in 0.00593643 secs using 285.2% CPU
+Optimizing NNI: done in 0.00415518 secs using 290.1% CPU
+Optimizing NNI: done in 0.00190809 secs using 309.4% CPU
+Optimizing NNI: done in 0.00175616 secs using 327.8% CPU
+Optimizing NNI: done in 0.00554556 secs using 316.2% CPU
+Iteration 90 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00432352 secs using 284.7% CPU
 UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 70 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 80 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 90 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-UPDATE BEST LOG-LIKELIHOOD: -586.531
-Iteration 100 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 110 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
-Iteration 120 / LogL: -586.531 / Time: 0h:0m:0s (0h:0m:0s left)
+Optimizing NNI: done in 0.00598071 secs using 298.8% CPU
+Optimizing NNI: done in 0.00426206 secs using 270.9% CPU
+Optimizing NNI: done in 0.00529412 secs using 288.8% CPU
+Optimizing NNI: done in 0.00943375 secs using 279.2% CPU
+Optimizing NNI: done in 0.00536854 secs using 286.2% CPU
+Optimizing NNI: done in 0.00378141 secs using 309.6% CPU
+Optimizing NNI: done in 0.00385904 secs using 306.6% CPU
+Optimizing NNI: done in 0.00235029 secs using 270% CPU
+Optimizing NNI: done in 0.00371273 secs using 313% CPU
+Iteration 100 / LogL: -586.531 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.00578396 secs using 296.8% CPU
+Optimizing NNI: done in 0.00662652 secs using 308.5% CPU
+Optimizing NNI: done in 0.00179389 secs using 322.8% CPU
+Optimizing NNI: done in 0.00670916 secs using 293.8% CPU
+Optimizing NNI: done in 0.00433117 secs using 284.7% CPU
+Optimizing NNI: done in 0.00206983 secs using 307.7% CPU
+Optimizing NNI: done in 0.00347235 secs using 272.7% CPU
+Optimizing NNI: done in 0.00711219 secs using 294.3% CPU
+Optimizing NNI: done in 0.00894687 secs using 290.1% CPU
+Optimizing NNI: done in 0.00810061 secs using 258.1% CPU
+Iteration 110 / LogL: -586.532 / Time: 0h:0m:25s (0h:0m:0s left)
+Optimizing NNI: done in 0.0059908 secs using 275.4% CPU
+Optimizing NNI: done in 0.0059834 secs using 299.5% CPU
+Optimizing NNI: done in 0.0054944 secs using 300.2% CPU
+Optimizing NNI: done in 0.00593659 secs using 302.1% CPU
+Optimizing NNI: done in 0.00556322 secs using 295.2% CPU
+Optimizing NNI: done in 0.00399606 secs using 298.6% CPU
+Optimizing NNI: done in 0.002109 secs using 286.7% CPU
+Optimizing NNI: done in 0.00711793 secs using 282.8% CPU
 Refining ufboot trees with NNI 1 branch...
+Optimizing NNI: done in 0.000656597 secs using 99.3% CPU
+Optimizing NNI: done in 0.000717294 secs using 99.82% CPU
+Optimizing NNI: done in 0.000729736 secs using 373.8% CPU
+Optimizing NNI: done in 0.000612855 secs using 426.2% CPU
+Optimizing NNI: done in 0.000718857 secs using 377.5% CPU
+Optimizing NNI: done in 0.000679045 secs using 394.1% CPU
+Optimizing NNI: done in 0.000754227 secs using 408.6% CPU
+Optimizing NNI: done in 0.000602933 secs using 99.85% CPU
+Optimizing NNI: done in 0.000910194 secs using 319.5% CPU
+Optimizing NNI: done in 0.00128209 secs using 255.9% CPU
+Optimizing NNI: done in 0.000646093 secs using 409.7% CPU
+Optimizing NNI: done in 0.000581327 secs using 443.8% CPU
+Optimizing NNI: done in 0.000645754 secs using 255.8% CPU
+Optimizing NNI: done in 0.000570327 secs using 450.1% CPU
+Optimizing NNI: done in 0.000615951 secs using 99.85% CPU
+Optimizing NNI: done in 0.000696961 secs using 377.1% CPU
+Optimizing NNI: done in 0.000731851 secs using 373% CPU
+Optimizing NNI: done in 0.000741082 secs using 369.7% CPU
+Optimizing NNI: done in 0.000623453 secs using 420.9% CPU
+Optimizing NNI: done in 0.000554854 secs using 99.85% CPU
+Optimizing NNI: done in 0.000635813 secs using 352.1% CPU
+Optimizing NNI: done in 0.00081848 secs using 194.1% CPU
+Optimizing NNI: done in 0.000736663 secs using 371.4% CPU
+Optimizing NNI: done in 0.00119411 secs using 434.8% CPU
+Optimizing NNI: done in 0.000614747 secs using 99.72% CPU
+Optimizing NNI: done in 0.00140174 secs using 385.2% CPU
+Optimizing NNI: done in 0.00145145 secs using 237.7% CPU
+Optimizing NNI: done in 0.000589585 secs using 99.73% CPU
+Optimizing NNI: done in 0.000637066 secs using 413.3% CPU
+Optimizing NNI: done in 0.000705293 secs using 383.2% CPU
+Optimizing NNI: done in 0.000737588 secs using 370.9% CPU
+Optimizing NNI: done in 0.00064939 secs using 407.2% CPU
+Optimizing NNI: done in 0.000866 secs using 330.7% CPU
+Optimizing NNI: done in 0.000689169 secs using 391.1% CPU
+Optimizing NNI: done in 0.00139616 secs using 383.2% CPU
+Optimizing NNI: done in 0.000687794 secs using 182.3% CPU
+Optimizing NNI: done in 0.000558434 secs using 458.6% CPU
+Optimizing NNI: done in 0.000804639 secs using 171.4% CPU
+Optimizing NNI: done in 0.000719985 secs using 377.8% CPU
+Optimizing NNI: done in 0.000668601 secs using 399% CPU
+Optimizing NNI: done in 0.000668334 secs using 418.5% CPU
+Optimizing NNI: done in 0.00163677 secs using 284.8% CPU
+Optimizing NNI: done in 0.000607063 secs using 429.1% CPU
+Optimizing NNI: done in 0.00079827 secs using 350.4% CPU
+Optimizing NNI: done in 0.000698876 secs using 99.3% CPU
+Optimizing NNI: done in 0.000531223 secs using 98.64% CPU
+Optimizing NNI: done in 0.000854825 secs using 128.1% CPU
+Optimizing NNI: done in 0.000661807 secs using 401.6% CPU
+Optimizing NNI: done in 0.00056185 secs using 98.78% CPU
+Optimizing NNI: done in 0.000529929 secs using 98.88% CPU
+Optimizing NNI: done in 0.00072444 secs using 375.3% CPU
+Optimizing NNI: done in 0.00127566 secs using 256.5% CPU
+Optimizing NNI: done in 0.000565979 secs using 453.2% CPU
+Optimizing NNI: done in 0.000612407 secs using 426.7% CPU
+Optimizing NNI: done in 0.000793619 secs using 310.2% CPU
+Optimizing NNI: done in 0.000741452 secs using 369.5% CPU
+Optimizing NNI: done in 0.000618474 secs using 99.76% CPU
+Optimizing NNI: done in 0.000572679 secs using 99.88% CPU
+Optimizing NNI: done in 0.00139702 secs using 242.8% CPU
+Optimizing NNI: done in 0.000707286 secs using 382.4% CPU
+Optimizing NNI: done in 0.000656396 secs using 404.2% CPU
+Optimizing NNI: done in 0.000496174 secs using 302.9% CPU
+Optimizing NNI: done in 0.00074786 secs using 368% CPU
+Optimizing NNI: done in 0.000692756 secs using 394.2% CPU
+Optimizing NNI: done in 0.00126077 secs using 388.5% CPU
+Optimizing NNI: done in 0.000738882 secs using 393% CPU
+Optimizing NNI: done in 0.000726442 secs using 363.4% CPU
+Optimizing NNI: done in 0.000657175 secs using 404.3% CPU
+Optimizing NNI: done in 0.000604459 secs using 430.6% CPU
+Optimizing NNI: done in 0.000839487 secs using 329.6% CPU
+Optimizing NNI: done in 0.00114211 secs using 305.9% CPU
+Optimizing NNI: done in 0.000763601 secs using 361.8% CPU
+Optimizing NNI: done in 0.000826829 secs using 341.8% CPU
+Optimizing NNI: done in 0.000691217 secs using 99.53% CPU
+Optimizing NNI: done in 0.000574428 secs using 448.3% CPU
+Optimizing NNI: done in 0.000731778 secs using 363.8% CPU
+Optimizing NNI: done in 0.000588585 secs using 203.5% CPU
+Optimizing NNI: done in 0.00124939 secs using 259.6% CPU
+Optimizing NNI: done in 0.000976298 secs using 304.8% CPU
+Optimizing NNI: done in 0.000628725 secs using 99.73% CPU
+Optimizing NNI: done in 0.00133552 secs using 249.6% CPU
+Optimizing NNI: done in 0.000615326 secs using 99.46% CPU
+Optimizing NNI: done in 0.000836952 secs using 335.9% CPU
+Optimizing NNI: done in 0.000702321 secs using 99.81% CPU
+Optimizing NNI: done in 0.000701464 secs using 385.6% CPU
+Optimizing NNI: done in 0.000623676 secs using 99.73% CPU
+Optimizing NNI: done in 0.000454449 secs using 99.68% CPU
+Optimizing NNI: done in 0.00116412 secs using 271.4% CPU
+Optimizing NNI: done in 0.000624802 secs using 419.7% CPU
+Optimizing NNI: done in 0.000609758 secs using 405.4% CPU
+Optimizing NNI: done in 0.0005919 secs using 437.1% CPU
+Optimizing NNI: done in 0.0006108 secs using 99.87% CPU
+Optimizing NNI: done in 0.000724479 secs using 194.6% CPU
+Optimizing NNI: done in 0.000655978 secs using 99.24% CPU
+Optimizing NNI: done in 0.000620526 secs using 152.9% CPU
+Optimizing NNI: done in 0.000678265 secs using 395.1% CPU
+Optimizing NNI: done in 0.000753677 secs using 182.6% CPU
+Optimizing NNI: done in 0.000685367 secs using 392.2% CPU
+Optimizing NNI: done in 0.000593043 secs using 99.82% CPU
+Optimizing NNI: done in 0.000651233 secs using 99.81% CPU
 100 samples done
+Optimizing NNI: done in 0.000780945 secs using 185.9% CPU
+Optimizing NNI: done in 0.00064909 secs using 408.1% CPU
+Optimizing NNI: done in 0.000661539 secs using 395.4% CPU
+Optimizing NNI: done in 0.000669023 secs using 399.1% CPU
+Optimizing NNI: done in 0.00122723 secs using 262% CPU
+Optimizing NNI: done in 0.000620246 secs using 422.4% CPU
+Optimizing NNI: done in 0.000651038 secs using 407.5% CPU
+Optimizing NNI: done in 0.00038637 secs using 617% CPU
+Optimizing NNI: done in 0.000674426 secs using 99.49% CPU
+Optimizing NNI: done in 0.000636594 secs using 413.8% CPU
+Optimizing NNI: done in 0.000739363 secs using 366.8% CPU
+Optimizing NNI: done in 0.000549933 secs using 99.83% CPU
+Optimizing NNI: done in 0.000674811 secs using 98.55% CPU
+Optimizing NNI: done in 0.000609602 secs using 307.7% CPU
+Optimizing NNI: done in 0.000631795 secs using 99.87% CPU
+Optimizing NNI: done in 0.000696029 secs using 99.85% CPU
+Optimizing NNI: done in 0.000671736 secs using 399.1% CPU
+Optimizing NNI: done in 0.000731374 secs using 223% CPU
+Optimizing NNI: done in 0.000598944 secs using 98.84% CPU
+Optimizing NNI: done in 0.00126787 secs using 257.3% CPU
+Optimizing NNI: done in 0.00207376 secs using 292.9% CPU
+Optimizing NNI: done in 0.00058612 secs using 442.1% CPU
+Optimizing NNI: done in 0.000711615 secs using 381% CPU
+Optimizing NNI: done in 0.000536844 secs using 399.7% CPU
+Optimizing NNI: done in 0.000650826 secs using 407% CPU
+Optimizing NNI: done in 0.000761152 secs using 99.85% CPU
+Optimizing NNI: done in 0.00194437 secs using 305.7% CPU
+Optimizing NNI: done in 0.000871309 secs using 330% CPU
+Optimizing NNI: done in 0.000777 secs using 357% CPU
+Optimizing NNI: done in 0.000746084 secs using 336.2% CPU
+Optimizing NNI: done in 0.00066984 secs using 99.87% CPU
+Optimizing NNI: done in 0.000595426 secs using 99.76% CPU
+Optimizing NNI: done in 0.000713758 secs using 99.61% CPU
+Optimizing NNI: done in 0.00132413 secs using 251% CPU
+Optimizing NNI: done in 0.000618573 secs using 423.2% CPU
+Optimizing NNI: done in 0.000645241 secs using 410.4% CPU
+Optimizing NNI: done in 0.000704652 secs using 430.7% CPU
+Optimizing NNI: done in 0.000637879 secs using 97.82% CPU
+Optimizing NNI: done in 0.000765688 secs using 99.91% CPU
+Optimizing NNI: done in 0.000596747 secs using 99.87% CPU
+Optimizing NNI: done in 0.000717886 secs using 378.1% CPU
+Optimizing NNI: done in 0.000758729 secs using 99.77% CPU
+Optimizing NNI: done in 0.000671078 secs using 397.7% CPU
+Optimizing NNI: done in 0.000449032 secs using 544.7% CPU
+Optimizing NNI: done in 0.000766162 secs using 360.8% CPU
+Optimizing NNI: done in 0.000577936 secs using 99.67% CPU
+Optimizing NNI: done in 0.000712138 secs using 380.7% CPU
+Optimizing NNI: done in 0.000521543 secs using 482.8% CPU
+Optimizing NNI: done in 0.000755778 secs using 364.3% CPU
+Optimizing NNI: done in 0.000609128 secs using 428.3% CPU
+Optimizing NNI: done in 0.00065715 secs using 341.8% CPU
+Optimizing NNI: done in 0.000779953 secs using 356.2% CPU
+Optimizing NNI: done in 0.000644857 secs using 410.2% CPU
+Optimizing NNI: done in 0.00124761 secs using 260.3% CPU
+Optimizing NNI: done in 0.000612758 secs using 426.4% CPU
+Optimizing NNI: done in 0.000617279 secs using 424% CPU
+Optimizing NNI: done in 0.000830862 secs using 340.6% CPU
+Optimizing NNI: done in 0.00107084 secs using 193.1% CPU
+Optimizing NNI: done in 0.000670623 secs using 98.86% CPU
+Optimizing NNI: done in 0.000688503 secs using 98.77% CPU
+Optimizing NNI: done in 0.000678306 secs using 302.1% CPU
+Optimizing NNI: done in 0.000763109 secs using 254.4% CPU
+Optimizing NNI: done in 0.00170799 secs using 331.6% CPU
+Optimizing NNI: done in 0.000604345 secs using 99.78% CPU
+Optimizing NNI: done in 0.000790728 secs using 143% CPU
+Optimizing NNI: done in 0.000664624 secs using 400.8% CPU
+Optimizing NNI: done in 0.000661944 secs using 402.9% CPU
+Optimizing NNI: done in 0.00127986 secs using 256.1% CPU
+Optimizing NNI: done in 0.00135348 secs using 383.5% CPU
+Optimizing NNI: done in 0.000489824 secs using 207% CPU
+Optimizing NNI: done in 0.000717728 secs using 99.76% CPU
+Optimizing NNI: done in 0.000749149 secs using 362.8% CPU
+Optimizing NNI: done in 0.000553329 secs using 461% CPU
+Optimizing NNI: done in 0.000607496 secs using 99.75% CPU
+Optimizing NNI: done in 0.000611762 secs using 427% CPU
+Optimizing NNI: done in 0.000877032 secs using 328% CPU
+Optimizing NNI: done in 0.000561601 secs using 454.8% CPU
+Optimizing NNI: done in 0.000735151 secs using 99.71% CPU
+Optimizing NNI: done in 0.000650805 secs using 408% CPU
+Optimizing NNI: done in 0.000790305 secs using 353% CPU
+Optimizing NNI: done in 0.000709706 secs using 381.7% CPU
+Optimizing NNI: done in 0.000606776 secs using 354.2% CPU
+Optimizing NNI: done in 0.000586291 secs using 98.76% CPU
+Optimizing NNI: done in 0.00147813 secs using 379.7% CPU
+Optimizing NNI: done in 0.000711317 secs using 359.2% CPU
+Optimizing NNI: done in 0.000744049 secs using 320% CPU
+Optimizing NNI: done in 0.00116299 secs using 271.7% CPU
+Optimizing NNI: done in 0.000607796 secs using 98.55% CPU
+Optimizing NNI: done in 0.00137253 secs using 391.1% CPU
+Optimizing NNI: done in 0.000702564 secs using 327.5% CPU
+Optimizing NNI: done in 0.000534948 secs using 473.7% CPU
+Optimizing NNI: done in 0.00112305 secs using 278.4% CPU
+Optimizing NNI: done in 0.00161286 secs using 347.8% CPU
+Optimizing NNI: done in 0.000825936 secs using 342% CPU
+Optimizing NNI: done in 0.000721976 secs using 376.7% CPU
+Optimizing NNI: done in 0.000797773 secs using 350.5% CPU
+Optimizing NNI: done in 0.000716696 secs using 379% CPU
+Optimizing NNI: done in 0.000592391 secs using 99.77% CPU
+Optimizing NNI: done in 0.00068157 secs using 99.48% CPU
+Optimizing NNI: done in 0.000547531 secs using 523.1% CPU
 200 samples done
+Optimizing NNI: done in 0.000819421 secs using 343.8% CPU
+Optimizing NNI: done in 0.000523327 secs using 98.6% CPU
+Optimizing NNI: done in 0.000620927 secs using 99.21% CPU
+Optimizing NNI: done in 0.000994397 secs using 301% CPU
+Optimizing NNI: done in 0.000699445 secs using 385.7% CPU
+Optimizing NNI: done in 0.000647528 secs using 99.76% CPU
+Optimizing NNI: done in 0.00139927 secs using 242.6% CPU
+Optimizing NNI: done in 0.00112402 secs using 277.7% CPU
+Optimizing NNI: done in 0.00155514 secs using 228.5% CPU
+Optimizing NNI: done in 0.000605078 secs using 99.82% CPU
+Optimizing NNI: done in 0.00124817 secs using 372.5% CPU
+Optimizing NNI: done in 0.000494701 secs using 99.86% CPU
+Optimizing NNI: done in 0.00122807 secs using 262.6% CPU
+Optimizing NNI: done in 0.000610808 secs using 99.7% CPU
+Optimizing NNI: done in 0.000617061 secs using 396.9% CPU
+Optimizing NNI: done in 0.00134462 secs using 248.8% CPU
+Optimizing NNI: done in 0.000673619 secs using 396.8% CPU
+Optimizing NNI: done in 0.000599519 secs using 433% CPU
+Optimizing NNI: done in 0.000589677 secs using 391.9% CPU
+Optimizing NNI: done in 0.00078185 secs using 355.7% CPU
+Optimizing NNI: done in 0.00206436 secs using 293.7% CPU
+Optimizing NNI: done in 0.000666836 secs using 251.9% CPU
+Optimizing NNI: done in 0.000591125 secs using 98.79% CPU
+Optimizing NNI: done in 0.000716517 secs using 378.8% CPU
+Optimizing NNI: done in 0.000738962 secs using 368.2% CPU
+Optimizing NNI: done in 0.000638959 secs using 98.6% CPU
+Optimizing NNI: done in 0.000800536 secs using 373.2% CPU
+Optimizing NNI: done in 0.000634591 secs using 99.75% CPU
+Optimizing NNI: done in 0.000711864 secs using 377.6% CPU
+Optimizing NNI: done in 0.000421338 secs using 99.21% CPU
+Optimizing NNI: done in 0.00118445 secs using 437.4% CPU
+Optimizing NNI: done in 0.000530398 secs using 99.74% CPU
+Optimizing NNI: done in 0.000757943 secs using 98.56% CPU
+Optimizing NNI: done in 0.000639306 secs using 257.9% CPU
+Optimizing NNI: done in 0.000725806 secs using 375.3% CPU
+Optimizing NNI: done in 0.000700947 secs using 385.1% CPU
+Optimizing NNI: done in 0.000618016 secs using 423.1% CPU
+Optimizing NNI: done in 0.000669932 secs using 398.1% CPU
+Optimizing NNI: done in 0.000649556 secs using 407.8% CPU
+Optimizing NNI: done in 0.00073232 secs using 99.82% CPU
+Optimizing NNI: done in 0.000623728 secs using 420.4% CPU
+Optimizing NNI: done in 0.000671581 secs using 397.6% CPU
+Optimizing NNI: done in 0.000554156 secs using 98.71% CPU
+Optimizing NNI: done in 0.00109156 secs using 283.1% CPU
+Optimizing NNI: done in 0.00055226 secs using 99.59% CPU
+Optimizing NNI: done in 0.000561046 secs using 456.1% CPU
+Optimizing NNI: done in 0.000677837 secs using 395.1% CPU
+Optimizing NNI: done in 0.000778504 secs using 99.68% CPU
+Optimizing NNI: done in 0.000729776 secs using 344.8% CPU
+Optimizing NNI: done in 0.00061024 secs using 99.96% CPU
+Optimizing NNI: done in 0.00066975 secs using 99.74% CPU
+Optimizing NNI: done in 0.00075578 secs using 364.5% CPU
+Optimizing NNI: done in 0.000773562 secs using 436.4% CPU
+Optimizing NNI: done in 0.000633378 secs using 99.78% CPU
+Optimizing NNI: done in 0.000655412 secs using 405.2% CPU
+Optimizing NNI: done in 0.000723618 secs using 376.4% CPU
+Optimizing NNI: done in 0.000660325 secs using 99.8% CPU
+Optimizing NNI: done in 0.000628424 secs using 418% CPU
+Optimizing NNI: done in 0.00145908 secs using 236.9% CPU
+Optimizing NNI: done in 0.000733098 secs using 372.4% CPU
+Optimizing NNI: done in 0.000718065 secs using 378% CPU
+Optimizing NNI: done in 0.000755033 secs using 364.6% CPU
+Optimizing NNI: done in 0.000626967 secs using 99.69% CPU
+Optimizing NNI: done in 0.000681596 secs using 247.1% CPU
+Optimizing NNI: done in 0.000658758 secs using 403% CPU
+Optimizing NNI: done in 0.000689273 secs using 389.8% CPU
+Optimizing NNI: done in 0.000535435 secs using 99.55% CPU
+Optimizing NNI: done in 0.000705019 secs using 383.3% CPU
+Optimizing NNI: done in 0.000808144 secs using 224% CPU
+Optimizing NNI: done in 0.000548995 secs using 99.27% CPU
+Optimizing NNI: done in 0.000889697 secs using 314.7% CPU
+Optimizing NNI: done in 0.00058287 secs using 442.5% CPU
+Optimizing NNI: done in 0.000597484 secs using 434.5% CPU
+Optimizing NNI: done in 0.00067225 secs using 397.5% CPU
+Optimizing NNI: done in 0.00183258 secs using 318.1% CPU
+Optimizing NNI: done in 0.000757034 secs using 99.73% CPU
+Optimizing NNI: done in 0.000840722 secs using 335% CPU
+Optimizing NNI: done in 0.000771426 secs using 358.9% CPU
+Optimizing NNI: done in 0.000739207 secs using 370% CPU
+Optimizing NNI: done in 0.00111431 secs using 279.3% CPU
+Optimizing NNI: done in 0.000774134 secs using 357.9% CPU
+Optimizing NNI: done in 0.000728376 secs using 99.81% CPU
+Optimizing NNI: done in 0.000721399 secs using 377% CPU
+Optimizing NNI: done in 0.000738734 secs using 370.5% CPU
+Optimizing NNI: done in 0.000627792 secs using 418.6% CPU
+Optimizing NNI: done in 0.00130533 secs using 406.3% CPU
+Optimizing NNI: done in 0.000723887 secs using 238.3% CPU
+Optimizing NNI: done in 0.00118676 secs using 268.4% CPU
+Optimizing NNI: done in 0.000803599 secs using 224.6% CPU
+Optimizing NNI: done in 0.000573247 secs using 99.96% CPU
+Optimizing NNI: done in 0.000742889 secs using 369.1% CPU
+Optimizing NNI: done in 0.000722339 secs using 376.6% CPU
+Optimizing NNI: done in 0.000671196 secs using 99.67% CPU
+Optimizing NNI: done in 0.000664627 secs using 98.7% CPU
+Optimizing NNI: done in 0.000610453 secs using 99.6% CPU
+Optimizing NNI: done in 0.00117896 secs using 216.4% CPU
+Optimizing NNI: done in 0.000718224 secs using 377.5% CPU
+Optimizing NNI: done in 0.00114983 secs using 272.3% CPU
+Optimizing NNI: done in 0.000816141 secs using 344.5% CPU
+Optimizing NNI: done in 0.000714655 secs using 379.6% CPU
 300 samples done
+Optimizing NNI: done in 0.000637492 secs using 99.77% CPU
+Optimizing NNI: done in 0.000553633 secs using 99.89% CPU
+Optimizing NNI: done in 0.000598511 secs using 99.58% CPU
+Optimizing NNI: done in 0.000712302 secs using 380.5% CPU
+Optimizing NNI: done in 0.00065617 secs using 404.5% CPU
+Optimizing NNI: done in 0.000693748 secs using 331.7% CPU
+Optimizing NNI: done in 0.000762535 secs using 361.8% CPU
+Optimizing NNI: done in 0.00217961 secs using 289% CPU
+Optimizing NNI: done in 0.000673071 secs using 397% CPU
+Optimizing NNI: done in 0.00092847 secs using 315.4% CPU
+Optimizing NNI: done in 0.00057798 secs using 445.9% CPU
+Optimizing NNI: done in 0.000659944 secs using 99.1% CPU
+Optimizing NNI: done in 0.00153438 secs using 360.5% CPU
+Optimizing NNI: done in 0.000711149 secs using 380.8% CPU
+Optimizing NNI: done in 0.000618034 secs using 389.9% CPU
+Optimizing NNI: done in 0.000686174 secs using 415.3% CPU
+Optimizing NNI: done in 0.000638162 secs using 413.2% CPU
+Optimizing NNI: done in 0.00105506 secs using 273.8% CPU
+Optimizing NNI: done in 0.00063355 secs using 98.65% CPU
+Optimizing NNI: done in 0.000609602 secs using 99.74% CPU
+Optimizing NNI: done in 0.00172842 secs using 215.3% CPU
+Optimizing NNI: done in 0.00064828 secs using 99.65% CPU
+Optimizing NNI: done in 0.000815698 secs using 344.9% CPU
+Optimizing NNI: done in 0.000618074 secs using 423.6% CPU
+Optimizing NNI: done in 0.000635407 secs using 414.4% CPU
+Optimizing NNI: done in 0.000717857 secs using 99.32% CPU
+Optimizing NNI: done in 0.00109919 secs using 281.8% CPU
+Optimizing NNI: done in 0.000924112 secs using 316.3% CPU
+Optimizing NNI: done in 0.00104919 secs using 290.6% CPU
+Optimizing NNI: done in 0.000671146 secs using 397.7% CPU
+Optimizing NNI: done in 0.000633953 secs using 415.3% CPU
+Optimizing NNI: done in 0.000654938 secs using 340.9% CPU
+Optimizing NNI: done in 0.000335326 secs using 99.6% CPU
+Optimizing NNI: done in 0.000740397 secs using 99.68% CPU
+Optimizing NNI: done in 0.000621414 secs using 421.9% CPU
+Optimizing NNI: done in 0.000653109 secs using 99.83% CPU
+Optimizing NNI: done in 0.000958575 secs using 308.6% CPU
+Optimizing NNI: done in 0.000703084 secs using 352.6% CPU
+Optimizing NNI: done in 0.000635558 secs using 414.4% CPU
+Optimizing NNI: done in 0.000590387 secs using 99.77% CPU
+Optimizing NNI: done in 0.000524306 secs using 293% CPU
+Optimizing NNI: done in 0.000583786 secs using 99.69% CPU
+Optimizing NNI: done in 0.000723339 secs using 99.4% CPU
+Optimizing NNI: done in 0.000572872 secs using 449.1% CPU
+Optimizing NNI: done in 0.000679986 secs using 247.8% CPU
+Optimizing NNI: done in 0.000737386 secs using 294.3% CPU
+Optimizing NNI: done in 0.00073543 secs using 369.9% CPU
+Optimizing NNI: done in 0.000598191 secs using 373% CPU
+Optimizing NNI: done in 0.000498874 secs using 99.62% CPU
+Optimizing NNI: done in 0.000700754 secs using 332.6% CPU
+Optimizing NNI: done in 0.000924492 secs using 316.2% CPU
+Optimizing NNI: done in 0.000511204 secs using 491.2% CPU
+Optimizing NNI: done in 0.000992454 secs using 289.3% CPU
+Optimizing NNI: done in 0.000682976 secs using 395.8% CPU
+Optimizing NNI: done in 0.000701861 secs using 312.9% CPU
+Optimizing NNI: done in 0.000698705 secs using 133.5% CPU
+Optimizing NNI: done in 0.000604533 secs using 430.1% CPU
+Optimizing NNI: done in 0.000701283 secs using 302.3% CPU
+Optimizing NNI: done in 0.000573883 secs using 99.85% CPU
+Optimizing NNI: done in 0.000619108 secs using 423% CPU
+Optimizing NNI: done in 0.000605341 secs using 99.78% CPU
+Optimizing NNI: done in 0.00100246 secs using 299.4% CPU
+Optimizing NNI: done in 0.000682221 secs using 393.4% CPU
+Optimizing NNI: done in 0.000584712 secs using 99.71% CPU
+Optimizing NNI: done in 0.00253187 secs using 257.7% CPU
+Optimizing NNI: done in 0.00132799 secs using 244.7% CPU
+Optimizing NNI: done in 0.000676321 secs using 412.8% CPU
+Optimizing NNI: done in 0.000657838 secs using 469.6% CPU
+Optimizing NNI: done in 0.000845479 secs using 336.4% CPU
+Optimizing NNI: done in 0.000587508 secs using 440.5% CPU
+Optimizing NNI: done in 0.000663127 secs using 401.3% CPU
+Optimizing NNI: done in 0.000700997 secs using 403.1% CPU
+Optimizing NNI: done in 0.000612003 secs using 403.6% CPU
+Optimizing NNI: done in 0.000652286 secs using 454.1% CPU
+Optimizing NNI: done in 0.000679371 secs using 99.8% CPU
+Optimizing NNI: done in 0.000621019 secs using 99.67% CPU
+Optimizing NNI: done in 0.00114449 secs using 186.9% CPU
+Optimizing NNI: done in 0.000585827 secs using 441.4% CPU
+Optimizing NNI: done in 0.000750377 secs using 99.68% CPU
+Optimizing NNI: done in 0.000580521 secs using 444.1% CPU
+Optimizing NNI: done in 0.000756608 secs using 233% CPU
+Optimizing NNI: done in 0.000717687 secs using 378.6% CPU
+Optimizing NNI: done in 0.000727273 secs using 282.4% CPU
+Optimizing NNI: done in 0.000686164 secs using 99.83% CPU
+Optimizing NNI: done in 0.000813226 secs using 343.4% CPU
+Optimizing NNI: done in 0.000670028 secs using 449.7% CPU
+Optimizing NNI: done in 0.00067571 secs using 313.7% CPU
+Optimizing NNI: done in 0.000725111 secs using 142.3% CPU
+Optimizing NNI: done in 0.000650406 secs using 407.6% CPU
+Optimizing NNI: done in 0.00132456 secs using 401.8% CPU
+Optimizing NNI: done in 0.000393981 secs using 99.75% CPU
+Optimizing NNI: done in 0.000574621 secs using 99.72% CPU
+Optimizing NNI: done in 0.000674753 secs using 99.89% CPU
+Optimizing NNI: done in 0.000725366 secs using 99.54% CPU
+Optimizing NNI: done in 0.000733256 secs using 237.3% CPU
+Optimizing NNI: done in 0.000772524 secs using 358.6% CPU
+Optimizing NNI: done in 0.000661538 secs using 400.7% CPU
+Optimizing NNI: done in 0.000590971 secs using 435% CPU
+Optimizing NNI: done in 0.000845352 secs using 319.2% CPU
+Optimizing NNI: done in 0.000705978 secs using 243.2% CPU
 400 samples done
+Optimizing NNI: done in 0.002215 secs using 366.7% CPU
+Optimizing NNI: done in 0.000593125 secs using 99.81% CPU
+Optimizing NNI: done in 0.000554304 secs using 99.58% CPU
+Optimizing NNI: done in 0.000633344 secs using 99.63% CPU
+Optimizing NNI: done in 0.000674038 secs using 242.4% CPU
+Optimizing NNI: done in 0.000785013 secs using 354.6% CPU
+Optimizing NNI: done in 0.000786473 secs using 354.1% CPU
+Optimizing NNI: done in 0.000703022 secs using 384.6% CPU
+Optimizing NNI: done in 0.000603629 secs using 431.4% CPU
+Optimizing NNI: done in 0.000711412 secs using 381.2% CPU
+Optimizing NNI: done in 0.000698161 secs using 386% CPU
+Optimizing NNI: done in 0.000628732 secs using 418.1% CPU
+Optimizing NNI: done in 0.000618819 secs using 99.87% CPU
+Optimizing NNI: done in 0.000659389 secs using 403.7% CPU
+Optimizing NNI: done in 0.00063376 secs using 415.5% CPU
+Optimizing NNI: done in 0.000483814 secs using 513.2% CPU
+Optimizing NNI: done in 0.00124031 secs using 296.5% CPU
+Optimizing NNI: done in 0.000778119 secs using 356.8% CPU
+Optimizing NNI: done in 0.00130704 secs using 405.8% CPU
+Optimizing NNI: done in 0.00105119 secs using 290% CPU
+Optimizing NNI: done in 0.000643616 secs using 409.9% CPU
+Optimizing NNI: done in 0.000978873 secs using 337.7% CPU
+Optimizing NNI: done in 0.000760917 secs using 362.5% CPU
+Optimizing NNI: done in 0.000625549 secs using 419.5% CPU
+Optimizing NNI: done in 0.000613836 secs using 99.86% CPU
+Optimizing NNI: done in 0.000680515 secs using 99.48% CPU
+Optimizing NNI: done in 0.000635477 secs using 414.5% CPU
+Optimizing NNI: done in 0.000638671 secs using 413.2% CPU
+Optimizing NNI: done in 0.00057028 secs using 99.6% CPU
+Optimizing NNI: done in 0.000498343 secs using 495.4% CPU
+Optimizing NNI: done in 0.000628592 secs using 203.9% CPU
+Optimizing NNI: done in 0.000653105 secs using 99.83% CPU
+Optimizing NNI: done in 0.000612892 secs using 98.55% CPU
+Optimizing NNI: done in 0.000964499 secs using 307.2% CPU
+Optimizing NNI: done in 0.000622901 secs using 99.53% CPU
+Optimizing NNI: done in 0.000643445 secs using 411.1% CPU
+Optimizing NNI: done in 0.000662321 secs using 401.8% CPU
+Optimizing NNI: done in 0.00068841 secs using 390.3% CPU
+Optimizing NNI: done in 0.000597425 secs using 268.3% CPU
+Optimizing NNI: done in 0.00068604 secs using 391.4% CPU
+Optimizing NNI: done in 0.000690199 secs using 390.5% CPU
+Optimizing NNI: done in 0.000681902 secs using 392.6% CPU
+Optimizing NNI: done in 0.00138418 secs using 388.7% CPU
+Optimizing NNI: done in 0.00123925 secs using 261.1% CPU
+Optimizing NNI: done in 0.00067442 secs using 99.94% CPU
+Optimizing NNI: done in 0.000501869 secs using 99.43% CPU
+Optimizing NNI: done in 0.000620357 secs using 173.4% CPU
+Optimizing NNI: done in 0.000693763 secs using 389.2% CPU
+Optimizing NNI: done in 0.000640254 secs using 350.5% CPU
+Optimizing NNI: done in 0.000716921 secs using 378.7% CPU
+Optimizing NNI: done in 0.00139048 secs using 387.5% CPU
+Optimizing NNI: done in 0.000666315 secs using 251.4% CPU
+Optimizing NNI: done in 0.000653341 secs using 405.8% CPU
+Optimizing NNI: done in 0.000755663 secs using 98.59% CPU
+Optimizing NNI: done in 0.000675912 secs using 393.5% CPU
+Optimizing NNI: done in 0.000646019 secs using 409.7% CPU
+Optimizing NNI: done in 0.000558568 secs using 99.9% CPU
+Optimizing NNI: done in 0.00103089 secs using 292.9% CPU
+Optimizing NNI: done in 0.00130037 secs using 224.6% CPU
+Optimizing NNI: done in 0.000680463 secs using 439.4% CPU
+Optimizing NNI: done in 0.000631674 secs using 416.5% CPU
+Optimizing NNI: done in 0.00077996 secs using 356.3% CPU
+Optimizing NNI: done in 0.000572653 secs using 99.54% CPU
+Optimizing NNI: done in 0.000607594 secs using 429.1% CPU
+Optimizing NNI: done in 0.000669643 secs using 398.1% CPU
+Optimizing NNI: done in 0.000656173 secs using 404.2% CPU
+Optimizing NNI: done in 0.000798786 secs using 226.5% CPU
+Optimizing NNI: done in 0.000720154 secs using 99.15% CPU
+Optimizing NNI: done in 0.000751565 secs using 365.8% CPU
+Optimizing NNI: done in 0.000605075 secs using 206.1% CPU
+Optimizing NNI: done in 0.000780912 secs using 355.6% CPU
+Optimizing NNI: done in 0.000799925 secs using 349.7% CPU
+Optimizing NNI: done in 0.00103643 secs using 292.8% CPU
+Optimizing NNI: done in 0.000852678 secs using 270.6% CPU
+Optimizing NNI: done in 0.000839871 secs using 337.7% CPU
+Optimizing NNI: done in 0.00090162 secs using 193% CPU
+Optimizing NNI: done in 0.00392898 secs using 191.5% CPU
+Optimizing NNI: done in 0.00173636 secs using 221.3% CPU
+Optimizing NNI: done in 0.000879804 secs using 327% CPU
+Optimizing NNI: done in 0.000953823 secs using 320% CPU
+Optimizing NNI: done in 0.000600989 secs using 365.9% CPU
+Optimizing NNI: done in 0.00058718 secs using 99.63% CPU
+Optimizing NNI: done in 0.000913846 secs using 318.7% CPU
+Optimizing NNI: done in 0.000713479 secs using 467% CPU
+Optimizing NNI: done in 0.00205752 secs using 294.8% CPU
+Optimizing NNI: done in 0.000759802 secs using 363% CPU
+Optimizing NNI: done in 0.00144359 secs using 238.2% CPU
+Optimizing NNI: done in 0.00094259 secs using 327.2% CPU
+Optimizing NNI: done in 0.00153824 secs using 228.2% CPU
+Optimizing NNI: done in 0.000808861 secs using 347.2% CPU
+Optimizing NNI: done in 0.000619633 secs using 99.74% CPU
+Optimizing NNI: done in 0.000776805 secs using 149.3% CPU
+Optimizing NNI: done in 0.000642397 secs using 99.94% CPU
+Optimizing NNI: done in 0.000766365 secs using 99.69% CPU
+Optimizing NNI: done in 0.000780851 secs using 423% CPU
+Optimizing NNI: done in 0.00172709 secs using 326% CPU
+Optimizing NNI: done in 0.00075743 secs using 363.9% CPU
+Optimizing NNI: done in 0.000795142 secs using 296.7% CPU
+Optimizing NNI: done in 0.000837303 secs using 346.5% CPU
+Optimizing NNI: done in 0.0020541 secs using 294.6% CPU
 500 samples done
+Optimizing NNI: done in 0.00156575 secs using 199.3% CPU
+Optimizing NNI: done in 0.0016711 secs using 336.1% CPU
+Optimizing NNI: done in 0.000608828 secs using 98.88% CPU
+Optimizing NNI: done in 0.00129422 secs using 254.4% CPU
+Optimizing NNI: done in 0.000868981 secs using 344.7% CPU
+Optimizing NNI: done in 0.000857757 secs using 332.8% CPU
+Optimizing NNI: done in 0.000732584 secs using 366.4% CPU
+Optimizing NNI: done in 0.000688829 secs using 390.1% CPU
+Optimizing NNI: done in 0.000716909 secs using 398.9% CPU
+Optimizing NNI: done in 0.00075537 secs using 99.82% CPU
+Optimizing NNI: done in 0.00066313 secs using 99.83% CPU
+Optimizing NNI: done in 0.000414673 secs using 99.84% CPU
+Optimizing NNI: done in 0.000889252 secs using 334.9% CPU
+Optimizing NNI: done in 0.00139936 secs using 242.8% CPU
+Optimizing NNI: done in 0.000624237 secs using 99.8% CPU
+Optimizing NNI: done in 0.00129233 secs using 397.5% CPU
+Optimizing NNI: done in 0.00245967 secs using 315.2% CPU
+Optimizing NNI: done in 0.00150603 secs using 365.4% CPU
+Optimizing NNI: done in 0.000917731 secs using 317.7% CPU
+Optimizing NNI: done in 0.00150865 secs using 340.9% CPU
+Optimizing NNI: done in 0.000659811 secs using 402.8% CPU
+Optimizing NNI: done in 0.000800996 secs using 349.6% CPU
+Optimizing NNI: done in 0.000787426 secs using 413% CPU
+Optimizing NNI: done in 0.000799342 secs using 382.2% CPU
+Optimizing NNI: done in 0.000656742 secs using 98.67% CPU
+Optimizing NNI: done in 0.000715874 secs using 379.1% CPU
+Optimizing NNI: done in 0.000822323 secs using 341.5% CPU
+Optimizing NNI: done in 0.000764462 secs using 214.3% CPU
+Optimizing NNI: done in 0.000681204 secs using 99.82% CPU
+Optimizing NNI: done in 0.000679087 secs using 99.84% CPU
+Optimizing NNI: done in 0.000904762 secs using 320.7% CPU
+Optimizing NNI: done in 0.000833563 secs using 329.9% CPU
+Optimizing NNI: done in 0.000518444 secs using 485.5% CPU
+Optimizing NNI: done in 0.000740965 secs using 385.8% CPU
+Optimizing NNI: done in 0.00130206 secs using 251.8% CPU
+Optimizing NNI: done in 0.000623375 secs using 362.1% CPU
+Optimizing NNI: done in 0.00134872 secs using 396.4% CPU
+Optimizing NNI: done in 0.00067694 secs using 147.6% CPU
+Optimizing NNI: done in 0.000857886 secs using 326.7% CPU
+Optimizing NNI: done in 0.000658828 secs using 403.3% CPU
+Optimizing NNI: done in 0.000535427 secs using 99.73% CPU
+Optimizing NNI: done in 0.000752586 secs using 364.1% CPU
+Optimizing NNI: done in 0.000626758 secs using 99.72% CPU
+Optimizing NNI: done in 0.000688514 secs using 436% CPU
+Optimizing NNI: done in 0.00124394 secs using 418% CPU
+Optimizing NNI: done in 0.00069463 secs using 99.62% CPU
+Optimizing NNI: done in 0.00152356 secs using 165.8% CPU
+Optimizing NNI: done in 0.000614079 secs using 263.2% CPU
+Optimizing NNI: done in 0.000626704 secs using 372.9% CPU
+Optimizing NNI: done in 0.00072287 secs using 99.74% CPU
+Optimizing NNI: done in 0.000708507 secs using 314.2% CPU
+Optimizing NNI: done in 0.00066558 secs using 99.91% CPU
+Optimizing NNI: done in 0.000801244 secs using 180.8% CPU
+Optimizing NNI: done in 0.000781162 secs using 351.7% CPU
+Optimizing NNI: done in 0.000688193 secs using 390.3% CPU
+Optimizing NNI: done in 0.000674313 secs using 99.51% CPU
+Optimizing NNI: done in 0.000721405 secs using 188.4% CPU
+Optimizing NNI: done in 0.000648774 secs using 335.1% CPU
+Optimizing NNI: done in 0.00065698 secs using 146.7% CPU
+Optimizing NNI: done in 0.00136351 secs using 246.6% CPU
+Optimizing NNI: done in 0.000726052 secs using 375% CPU
+Optimizing NNI: done in 0.000654599 secs using 200.6% CPU
+Optimizing NNI: done in 0.000675479 secs using 147.9% CPU
+Optimizing NNI: done in 0.000735589 secs using 365.3% CPU
+Optimizing NNI: done in 0.000913202 secs using 318.8% CPU
+Optimizing NNI: done in 0.000761703 secs using 332.9% CPU
+Optimizing NNI: done in 0.00135573 secs using 247.3% CPU
+Optimizing NNI: done in 0.000446405 secs using 99.91% CPU
+Optimizing NNI: done in 0.000726901 secs using 99.88% CPU
+Optimizing NNI: done in 0.000637606 secs using 451.2% CPU
+Optimizing NNI: done in 0.000745664 secs using 320.5% CPU
+Optimizing NNI: done in 0.00106074 secs using 288.5% CPU
+Optimizing NNI: done in 0.00190697 secs using 332.4% CPU
+Optimizing NNI: done in 0.000684362 secs using 99.8% CPU
+Optimizing NNI: done in 0.000829606 secs using 340.2% CPU
+Optimizing NNI: done in 0.000759347 secs using 262.1% CPU
+Optimizing NNI: done in 0.000911653 secs using 319.1% CPU
+Optimizing NNI: done in 0.000977877 secs using 305.2% CPU
+Optimizing NNI: done in 0.000801747 secs using 302% CPU
+Optimizing NNI: done in 0.00080286 secs using 340.5% CPU
+Optimizing NNI: done in 0.00087248 secs using 327.7% CPU
+Optimizing NNI: done in 0.00107912 secs using 466.6% CPU
+Optimizing NNI: done in 0.000878314 secs using 321.3% CPU
+Optimizing NNI: done in 0.000860053 secs using 233.7% CPU
+Optimizing NNI: done in 0.000879443 secs using 327% CPU
+Optimizing NNI: done in 0.000884207 secs using 316.6% CPU
+Optimizing NNI: done in 0.000765532 secs using 360.9% CPU
+Optimizing NNI: done in 0.000651591 secs using 99.6% CPU
+Optimizing NNI: done in 0.00071272 secs using 380.1% CPU
+Optimizing NNI: done in 0.00132547 secs using 253.7% CPU
+Optimizing NNI: done in 0.000596097 secs using 98.64% CPU
+Optimizing NNI: done in 0.000681247 secs using 393.5% CPU
+Optimizing NNI: done in 0.00119906 secs using 266.4% CPU
+Optimizing NNI: done in 0.00127204 secs using 257.2% CPU
+Optimizing NNI: done in 0.00067885 secs using 385.1% CPU
+Optimizing NNI: done in 0.000774678 secs using 99.78% CPU
+Optimizing NNI: done in 0.00150292 secs using 365.9% CPU
+Optimizing NNI: done in 0.000704294 secs using 99.82% CPU
+Optimizing NNI: done in 0.00102323 secs using 295.2% CPU
+Optimizing NNI: done in 0.00135558 secs using 395% CPU
 600 samples done
+Optimizing NNI: done in 0.00123973 secs using 261.2% CPU
+Optimizing NNI: done in 0.000690981 secs using 389.3% CPU
+Optimizing NNI: done in 0.00156233 secs using 228% CPU
+Optimizing NNI: done in 0.00132323 secs using 398% CPU
+Optimizing NNI: done in 0.00154109 secs using 207.2% CPU
+Optimizing NNI: done in 0.000869238 secs using 329.8% CPU
+Optimizing NNI: done in 0.000545084 secs using 99.8% CPU
+Optimizing NNI: done in 0.000496532 secs using 502.3% CPU
+Optimizing NNI: done in 0.000611928 secs using 426.5% CPU
+Optimizing NNI: done in 0.000739793 secs using 370% CPU
+Optimizing NNI: done in 0.00075334 secs using 365% CPU
+Optimizing NNI: done in 0.00113964 secs using 450.8% CPU
+Optimizing NNI: done in 0.00125719 secs using 258.8% CPU
+Optimizing NNI: done in 0.00067693 secs using 99.57% CPU
+Optimizing NNI: done in 0.000588874 secs using 99.85% CPU
+Optimizing NNI: done in 0.000673473 secs using 99.78% CPU
+Optimizing NNI: done in 0.000576338 secs using 446.8% CPU
+Optimizing NNI: done in 0.000486146 secs using 307.9% CPU
+Optimizing NNI: done in 0.000710688 secs using 98.78% CPU
+Optimizing NNI: done in 0.000648211 secs using 408.5% CPU
+Optimizing NNI: done in 0.00054182 secs using 285.5% CPU
+Optimizing NNI: done in 0.000585096 secs using 98.79% CPU
+Optimizing NNI: done in 0.00135412 secs using 395.2% CPU
+Optimizing NNI: done in 0.00079849 secs using 350.2% CPU
+Optimizing NNI: done in 0.000653376 secs using 405.7% CPU
+Optimizing NNI: done in 0.00100363 secs using 199.9% CPU
+Optimizing NNI: done in 0.000615911 secs using 424.6% CPU
+Optimizing NNI: done in 0.000595274 secs using 435.9% CPU
+Optimizing NNI: done in 0.000582505 secs using 99.23% CPU
+Optimizing NNI: done in 0.000689164 secs using 389.6% CPU
+Optimizing NNI: done in 0.000590419 secs using 99.76% CPU
+Optimizing NNI: done in 0.00180855 secs using 321.1% CPU
+Optimizing NNI: done in 0.00063916 secs using 409.6% CPU
+Optimizing NNI: done in 0.000629214 secs using 98.85% CPU
+Optimizing NNI: done in 0.0012608 secs using 416.9% CPU
+Optimizing NNI: done in 0.000708006 secs using 382.1% CPU
+Optimizing NNI: done in 0.000651273 secs using 254.3% CPU
+Optimizing NNI: done in 0.000635669 secs using 98.64% CPU
+Optimizing NNI: done in 0.00136379 secs using 246.7% CPU
+Optimizing NNI: done in 0.000706799 secs using 383% CPU
+Optimizing NNI: done in 0.000846787 secs using 329.4% CPU
+Optimizing NNI: done in 0.000576518 secs using 170% CPU
+Optimizing NNI: done in 0.00101245 secs using 297.5% CPU
+Optimizing NNI: done in 0.000630429 secs using 417% CPU
+Optimizing NNI: done in 0.000816191 secs using 99.73% CPU
+Optimizing NNI: done in 0.00094918 secs using 301.7% CPU
+Optimizing NNI: done in 0.000669985 secs using 398.5% CPU
+Optimizing NNI: done in 0.000602379 secs using 432.1% CPU
+Optimizing NNI: done in 0.00138497 secs using 353.6% CPU
+Optimizing NNI: done in 0.000588822 secs using 453.4% CPU
+Optimizing NNI: done in 0.00110999 secs using 279.9% CPU
+Optimizing NNI: done in 0.000666434 secs using 209.9% CPU
+Optimizing NNI: done in 0.000556308 secs using 98.69% CPU
+Optimizing NNI: done in 0.000558209 secs using 99.43% CPU
+Optimizing NNI: done in 0.000663294 secs using 401.3% CPU
+Optimizing NNI: done in 0.000730983 secs using 373.3% CPU
+Optimizing NNI: done in 0.00115775 secs using 186% CPU
+Optimizing NNI: done in 0.000644654 secs using 99.43% CPU
+Optimizing NNI: done in 0.000555539 secs using 459.7% CPU
+Optimizing NNI: done in 0.00199866 secs using 300% CPU
+Optimizing NNI: done in 0.000696539 secs using 386.9% CPU
+Optimizing NNI: done in 0.000569969 secs using 174.7% CPU
+Optimizing NNI: done in 0.0013654 secs using 173.7% CPU
+Optimizing NNI: done in 0.00084215 secs using 337.1% CPU
+Optimizing NNI: done in 0.000706377 secs using 382.9% CPU
+Optimizing NNI: done in 0.000778779 secs using 356.6% CPU
+Optimizing NNI: done in 0.00134598 secs using 248.3% CPU
+Optimizing NNI: done in 0.000727872 secs using 99.61% CPU
+Optimizing NNI: done in 0.000729754 secs using 374% CPU
+Optimizing NNI: done in 0.000848906 secs using 335.5% CPU
+Optimizing NNI: done in 0.000564074 secs using 99.28% CPU
+Optimizing NNI: done in 0.000812825 secs using 318.3% CPU
+Optimizing NNI: done in 0.000662038 secs using 400.1% CPU
+Optimizing NNI: done in 0.000670478 secs using 187.9% CPU
+Optimizing NNI: done in 0.0006348 secs using 99.72% CPU
+Optimizing NNI: done in 0.000732973 secs using 372.7% CPU
+Optimizing NNI: done in 0.000782597 secs using 355.5% CPU
+Optimizing NNI: done in 0.000682491 secs using 393% CPU
+Optimizing NNI: done in 0.000651674 secs using 99.59% CPU
+Optimizing NNI: done in 0.0019776 secs using 302% CPU
+Optimizing NNI: done in 0.000713716 secs using 380.1% CPU
+Optimizing NNI: done in 0.000685509 secs using 413.4% CPU
+Optimizing NNI: done in 0.000654289 secs using 99.8% CPU
+Optimizing NNI: done in 0.000577648 secs using 98.68% CPU
+Optimizing NNI: done in 0.000604268 secs using 431.1% CPU
+Optimizing NNI: done in 0.00198021 secs using 281.3% CPU
+Optimizing NNI: done in 0.000658101 secs using 99.68% CPU
+Optimizing NNI: done in 0.000838322 secs using 338.4% CPU
+Optimizing NNI: done in 0.00118372 secs using 268.6% CPU
+Optimizing NNI: done in 0.000894497 secs using 323.6% CPU
+Optimizing NNI: done in 0.00075811 secs using 406.9% CPU
+Optimizing NNI: done in 0.000679129 secs using 394.9% CPU
+Optimizing NNI: done in 0.000660366 secs using 402.8% CPU
+Optimizing NNI: done in 0.000780083 secs using 313.9% CPU
+Optimizing NNI: done in 0.000611404 secs using 99.61% CPU
+Optimizing NNI: done in 0.00074004 secs using 370.3% CPU
+Optimizing NNI: done in 0.0006614 secs using 402.2% CPU
+Optimizing NNI: done in 0.000776239 secs using 357.5% CPU
+Optimizing NNI: done in 0.000620696 secs using 422.1% CPU
+Optimizing NNI: done in 0.000781092 secs using 355.8% CPU
 700 samples done
+Optimizing NNI: done in 0.00151939 secs using 238.5% CPU
+Optimizing NNI: done in 0.000626097 secs using 99.67% CPU
+Optimizing NNI: done in 0.00139696 secs using 386.1% CPU
+Optimizing NNI: done in 0.000680885 secs using 99.72% CPU
+Optimizing NNI: done in 0.000570002 secs using 449.8% CPU
+Optimizing NNI: done in 0.000740899 secs using 369.4% CPU
+Optimizing NNI: done in 0.000607409 secs using 99.77% CPU
+Optimizing NNI: done in 0.000526033 secs using 99.8% CPU
+Optimizing NNI: done in 0.000534723 secs using 99.49% CPU
+Optimizing NNI: done in 0.000780757 secs using 356.1% CPU
+Optimizing NNI: done in 0.000747232 secs using 319.8% CPU
+Optimizing NNI: done in 0.000901019 secs using 352.6% CPU
+Optimizing NNI: done in 0.000796489 secs using 352.5% CPU
+Optimizing NNI: done in 0.000667899 secs using 99.72% CPU
+Optimizing NNI: done in 0.000725134 secs using 335.2% CPU
+Optimizing NNI: done in 0.0007432 secs using 99.7% CPU
+Optimizing NNI: done in 0.000674375 secs using 99.65% CPU
+Optimizing NNI: done in 0.000734039 secs using 372.3% CPU
+Optimizing NNI: done in 0.000681234 secs using 99.23% CPU
+Optimizing NNI: done in 0.000756942 secs using 293% CPU
+Optimizing NNI: done in 0.000701565 secs using 99.63% CPU
+Optimizing NNI: done in 0.000704061 secs using 99.85% CPU
+Optimizing NNI: done in 0.00120973 secs using 265.1% CPU
+Optimizing NNI: done in 0.000559417 secs using 458.2% CPU
+Optimizing NNI: done in 0.00124898 secs using 260% CPU
+Optimizing NNI: done in 0.000391596 secs using 99.59% CPU
+Optimizing NNI: done in 0.000686028 secs using 246.6% CPU
+Optimizing NNI: done in 0.000551782 secs using 270.2% CPU
+Optimizing NNI: done in 0.000644818 secs using 274.2% CPU
+Optimizing NNI: done in 0.000622496 secs using 421.4% CPU
+Optimizing NNI: done in 0.000666225 secs using 400% CPU
+Optimizing NNI: done in 0.000767945 secs using 360.1% CPU
+Optimizing NNI: done in 0.000652909 secs using 294.7% CPU
+Optimizing NNI: done in 0.0012771 secs using 412.5% CPU
+Optimizing NNI: done in 0.000482044 secs using 99.78% CPU
+Optimizing NNI: done in 0.00068614 secs using 390.6% CPU
+Optimizing NNI: done in 0.000593163 secs using 437% CPU
+Optimizing NNI: done in 0.00121266 secs using 304.7% CPU
+Optimizing NNI: done in 0.000558061 secs using 99.63% CPU
+Optimizing NNI: done in 0.000875051 secs using 328.4% CPU
+Optimizing NNI: done in 0.000662671 secs using 393.6% CPU
+Optimizing NNI: done in 0.001792 secs using 323.1% CPU
+Optimizing NNI: done in 0.000538547 secs using 99.71% CPU
+Optimizing NNI: done in 0.000680067 secs using 393.9% CPU
+Optimizing NNI: done in 0.000675018 secs using 288.6% CPU
+Optimizing NNI: done in 0.00070227 secs using 378.3% CPU
+Optimizing NNI: done in 0.00125814 secs using 270.4% CPU
+Optimizing NNI: done in 0.000752523 secs using 365.7% CPU
+Optimizing NNI: done in 0.000676891 secs using 395.3% CPU
+Optimizing NNI: done in 0.000635148 secs using 99.82% CPU
+Optimizing NNI: done in 0.000568958 secs using 99.48% CPU
+Optimizing NNI: done in 0.000741838 secs using 369.2% CPU
+Optimizing NNI: done in 0.000611513 secs using 99.75% CPU
+Optimizing NNI: done in 0.000788418 secs using 353.2% CPU
+Optimizing NNI: done in 0.000480141 secs using 516.3% CPU
+Optimizing NNI: done in 0.000658372 secs using 403.4% CPU
+Optimizing NNI: done in 0.000686371 secs using 391% CPU
+Optimizing NNI: done in 0.000583026 secs using 442.7% CPU
+Optimizing NNI: done in 0.00106911 secs using 283.5% CPU
+Optimizing NNI: done in 0.000756369 secs using 364.8% CPU
+Optimizing NNI: done in 0.000813519 secs using 325.4% CPU
+Optimizing NNI: done in 0.000766251 secs using 364.2% CPU
+Optimizing NNI: done in 0.000712702 secs using 380.2% CPU
+Optimizing NNI: done in 0.000633555 secs using 99.75% CPU
+Optimizing NNI: done in 0.000636699 secs using 413.9% CPU
+Optimizing NNI: done in 0.000650068 secs using 240.7% CPU
+Optimizing NNI: done in 0.000681253 secs using 99.52% CPU
+Optimizing NNI: done in 0.000588119 secs using 99.81% CPU
+Optimizing NNI: done in 0.000638888 secs using 99.7% CPU
+Optimizing NNI: done in 0.000643268 secs using 379.5% CPU
+Optimizing NNI: done in 0.000694065 secs using 388% CPU
+Optimizing NNI: done in 0.00064872 secs using 99.89% CPU
+Optimizing NNI: done in 0.000458341 secs using 252% CPU
+Optimizing NNI: done in 0.00189737 secs using 214.2% CPU
+Optimizing NNI: done in 0.00110626 secs using 280.7% CPU
+Optimizing NNI: done in 0.00138127 secs using 244.6% CPU
+Optimizing NNI: done in 0.000696925 secs using 314.5% CPU
+Optimizing NNI: done in 0.00065389 secs using 99.71% CPU
+Optimizing NNI: done in 0.000643495 secs using 410.6% CPU
+Optimizing NNI: done in 0.00071697 secs using 180.6% CPU
+Optimizing NNI: done in 0.000911964 secs using 310.9% CPU
+Optimizing NNI: done in 0.00111015 secs using 460% CPU
+Optimizing NNI: done in 0.00126434 secs using 258% CPU
+Optimizing NNI: done in 0.000630475 secs using 99.92% CPU
+Optimizing NNI: done in 0.000755993 secs using 364.3% CPU
+Optimizing NNI: done in 0.000637638 secs using 413.6% CPU
+Optimizing NNI: done in 0.000578439 secs using 156.3% CPU
+Optimizing NNI: done in 0.000665911 secs using 399.8% CPU
+Optimizing NNI: done in 0.000638924 secs using 412.9% CPU
+Optimizing NNI: done in 0.000486883 secs using 510.8% CPU
+Optimizing NNI: done in 0.0014916 secs using 368% CPU
+Optimizing NNI: done in 0.000729361 secs using 338.1% CPU
+Optimizing NNI: done in 0.000630291 secs using 99.8% CPU
+Optimizing NNI: done in 0.000710589 secs using 381.2% CPU
+Optimizing NNI: done in 0.000730569 secs using 373.5% CPU
+Optimizing NNI: done in 0.000728154 secs using 99.7% CPU
+Optimizing NNI: done in 0.00133847 secs using 249.4% CPU
+Optimizing NNI: done in 0.00152523 secs using 230.9% CPU
+Optimizing NNI: done in 0.000672538 secs using 99.62% CPU
+Optimizing NNI: done in 0.000468891 secs using 526.6% CPU
 800 samples done
+Optimizing NNI: done in 0.000693981 secs using 245.4% CPU
+Optimizing NNI: done in 0.000611264 secs using 99.47% CPU
+Optimizing NNI: done in 0.00064697 secs using 255.5% CPU
+Optimizing NNI: done in 0.00124386 secs using 260.7% CPU
+Optimizing NNI: done in 0.000560191 secs using 457.7% CPU
+Optimizing NNI: done in 0.000827555 secs using 220.8% CPU
+Optimizing NNI: done in 0.000817934 secs using 344.4% CPU
+Optimizing NNI: done in 0.00101108 secs using 162.5% CPU
+Optimizing NNI: done in 0.00135138 secs using 247.7% CPU
+Optimizing NNI: done in 0.000761136 secs using 99.85% CPU
+Optimizing NNI: done in 0.000725611 secs using 375.3% CPU
+Optimizing NNI: done in 0.00074194 secs using 99.74% CPU
+Optimizing NNI: done in 0.000624649 secs using 420.6% CPU
+Optimizing NNI: done in 0.000540981 secs using 99.82% CPU
+Optimizing NNI: done in 0.000554002 secs using 98.92% CPU
+Optimizing NNI: done in 0.00063721 secs using 376.3% CPU
+Optimizing NNI: done in 0.000632202 secs using 415.2% CPU
+Optimizing NNI: done in 0.000879125 secs using 324.8% CPU
+Optimizing NNI: done in 0.000828 secs using 335.6% CPU
+Optimizing NNI: done in 0.000558421 secs using 457.5% CPU
+Optimizing NNI: done in 0.000687073 secs using 99.12% CPU
+Optimizing NNI: done in 0.00068832 secs using 390.1% CPU
+Optimizing NNI: done in 0.000708404 secs using 382.1% CPU
+Optimizing NNI: done in 0.000589887 secs using 99.85% CPU
+Optimizing NNI: done in 0.000711584 secs using 326.7% CPU
+Optimizing NNI: done in 0.00152884 secs using 159.4% CPU
+Optimizing NNI: done in 0.000556485 secs using 459% CPU
+Optimizing NNI: done in 0.000617042 secs using 99.83% CPU
+Optimizing NNI: done in 0.000850933 secs using 325.5% CPU
+Optimizing NNI: done in 0.000719227 secs using 99.69% CPU
+Optimizing NNI: done in 0.000627916 secs using 418.2% CPU
+Optimizing NNI: done in 0.000588339 secs using 439.2% CPU
+Optimizing NNI: done in 0.000724298 secs using 275.6% CPU
+Optimizing NNI: done in 0.000662687 secs using 401.4% CPU
+Optimizing NNI: done in 0.000556903 secs using 458.6% CPU
+Optimizing NNI: done in 0.000487515 secs using 98.66% CPU
+Optimizing NNI: done in 0.000860614 secs using 369.7% CPU
+Optimizing NNI: done in 0.000589381 secs using 99.77% CPU
+Optimizing NNI: done in 0.000775563 secs using 357.2% CPU
+Optimizing NNI: done in 0.00076693 secs using 360.5% CPU
+Optimizing NNI: done in 0.000591088 secs using 437.8% CPU
+Optimizing NNI: done in 0.000824081 secs using 342.8% CPU
+Optimizing NNI: done in 0.000726157 secs using 239.2% CPU
+Optimizing NNI: done in 0.00147161 secs using 235.4% CPU
+Optimizing NNI: done in 0.000653809 secs using 98.65% CPU
+Optimizing NNI: done in 0.000728649 secs using 99.77% CPU
+Optimizing NNI: done in 0.000676241 secs using 395.6% CPU
+Optimizing NNI: done in 0.00139885 secs using 242.4% CPU
+Optimizing NNI: done in 0.000704609 secs using 383.8% CPU
+Optimizing NNI: done in 0.000775271 secs using 397% CPU
+Optimizing NNI: done in 0.000681901 secs using 393.3% CPU
+Optimizing NNI: done in 0.00127417 secs using 256.9% CPU
+Optimizing NNI: done in 0.000683134 secs using 392.7% CPU
+Optimizing NNI: done in 0.000629685 secs using 418% CPU
+Optimizing NNI: done in 0.00065391 secs using 99.4% CPU
+Optimizing NNI: done in 0.000781189 secs using 355.6% CPU
+Optimizing NNI: done in 0.00128306 secs using 177.9% CPU
+Optimizing NNI: done in 0.000418355 secs using 98.72% CPU
+Optimizing NNI: done in 0.00174653 secs using 328.8% CPU
+Optimizing NNI: done in 0.000717692 secs using 99.62% CPU
+Optimizing NNI: done in 0.00114028 secs using 275.4% CPU
+Optimizing NNI: done in 0.000737154 secs using 371.3% CPU
+Optimizing NNI: done in 0.000771425 secs using 359.1% CPU
+Optimizing NNI: done in 0.000677745 secs using 395% CPU
+Optimizing NNI: done in 0.000535462 secs using 473.6% CPU
+Optimizing NNI: done in 0.000657479 secs using 404.1% CPU
+Optimizing NNI: done in 0.000420038 secs using 99.51% CPU
+Optimizing NNI: done in 0.000695478 secs using 174.8% CPU
+Optimizing NNI: done in 0.000400314 secs using 99.67% CPU
+Optimizing NNI: done in 0.000696673 secs using 386.7% CPU
+Optimizing NNI: done in 0.000632631 secs using 416.5% CPU
+Optimizing NNI: done in 0.000645609 secs using 99.75% CPU
+Optimizing NNI: done in 0.000666485 secs using 399.9% CPU
+Optimizing NNI: done in 0.00107497 secs using 286% CPU
+Optimizing NNI: done in 0.000772638 secs using 358.4% CPU
+Optimizing NNI: done in 0.00126717 secs using 307.2% CPU
+Optimizing NNI: done in 0.000893104 secs using 211.8% CPU
+Optimizing NNI: done in 0.000722705 secs using 98.8% CPU
+Optimizing NNI: done in 0.000573527 secs using 448.1% CPU
+Optimizing NNI: done in 0.000713474 secs using 99.79% CPU
+Optimizing NNI: done in 0.00151982 secs using 286.8% CPU
+Optimizing NNI: done in 0.000719311 secs using 287.9% CPU
+Optimizing NNI: done in 0.000578349 secs using 445.4% CPU
+Optimizing NNI: done in 0.00218356 secs using 283.2% CPU
+Optimizing NNI: done in 0.000777432 secs using 355.7% CPU
+Optimizing NNI: done in 0.000797317 secs using 350.6% CPU
+Optimizing NNI: done in 0.000667629 secs using 149% CPU
+Optimizing NNI: done in 0.00069259 secs using 99.77% CPU
+Optimizing NNI: done in 0.00109747 secs using 282.1% CPU
+Optimizing NNI: done in 0.000684432 secs using 392.1% CPU
+Optimizing NNI: done in 0.000629549 secs using 355.2% CPU
+Optimizing NNI: done in 0.000696373 secs using 387.1% CPU
+Optimizing NNI: done in 0.000552203 secs using 365.4% CPU
+Optimizing NNI: done in 0.000662826 secs using 401.5% CPU
+Optimizing NNI: done in 0.000617192 secs using 264.3% CPU
+Optimizing NNI: done in 0.000707252 secs using 382% CPU
+Optimizing NNI: done in 0.000555051 secs using 99.63% CPU
+Optimizing NNI: done in 0.000665003 secs using 400.1% CPU
+Optimizing NNI: done in 0.000682586 secs using 247.1% CPU
+Optimizing NNI: done in 0.00144888 secs using 375.7% CPU
 900 samples done
+Optimizing NNI: done in 0.000615002 secs using 99.67% CPU
+Optimizing NNI: done in 0.000661063 secs using 99.84% CPU
+Optimizing NNI: done in 0.000735541 secs using 99.79% CPU
+Optimizing NNI: done in 0.000454286 secs using 99.72% CPU
+Optimizing NNI: done in 0.000654071 secs using 99.68% CPU
+Optimizing NNI: done in 0.000748923 secs using 368.1% CPU
+Optimizing NNI: done in 0.000802808 secs using 348.9% CPU
+Optimizing NNI: done in 0.000795757 secs using 351.4% CPU
+Optimizing NNI: done in 0.000718713 secs using 377.6% CPU
+Optimizing NNI: done in 0.000584064 secs using 98.79% CPU
+Optimizing NNI: done in 0.000631615 secs using 99.74% CPU
+Optimizing NNI: done in 0.000613726 secs using 99.72% CPU
+Optimizing NNI: done in 0.000728471 secs using 99.66% CPU
+Optimizing NNI: done in 0.000732128 secs using 373.8% CPU
+Optimizing NNI: done in 0.000821762 secs using 343.8% CPU
+Optimizing NNI: done in 0.00079562 secs using 351% CPU
+Optimizing NNI: done in 0.00063776 secs using 413.5% CPU
+Optimizing NNI: done in 0.000590512 secs using 99.74% CPU
+Optimizing NNI: done in 0.00132167 secs using 399.9% CPU
+Optimizing NNI: done in 0.000656567 secs using 255.4% CPU
+Optimizing NNI: done in 0.000638974 secs using 413% CPU
+Optimizing NNI: done in 0.00121227 secs using 429.7% CPU
+Optimizing NNI: done in 0.000686829 secs using 390.8% CPU
+Optimizing NNI: done in 0.000908707 secs using 353.8% CPU
+Optimizing NNI: done in 0.000703246 secs using 285.8% CPU
+Optimizing NNI: done in 0.000637785 secs using 99.56% CPU
+Optimizing NNI: done in 0.000870952 secs using 366.5% CPU
+Optimizing NNI: done in 0.000741438 secs using 234.8% CPU
+Optimizing NNI: done in 0.0012263 secs using 263.6% CPU
+Optimizing NNI: done in 0.000639113 secs using 412.6% CPU
+Optimizing NNI: done in 0.000884613 secs using 326.1% CPU
+Optimizing NNI: done in 0.00133715 secs using 249.4% CPU
+Optimizing NNI: done in 0.00175947 secs using 327.1% CPU
+Optimizing NNI: done in 0.000587133 secs using 99.81% CPU
+Optimizing NNI: done in 0.000696469 secs using 386.5% CPU
+Optimizing NNI: done in 0.000670754 secs using 398.1% CPU
+Optimizing NNI: done in 0.000705046 secs using 383.5% CPU
+Optimizing NNI: done in 0.000696105 secs using 245.1% CPU
+Optimizing NNI: done in 0.000658715 secs using 403.2% CPU
+Optimizing NNI: done in 0.000611848 secs using 99.86% CPU
+Optimizing NNI: done in 0.00156174 secs using 355.9% CPU
+Optimizing NNI: done in 0.00124132 secs using 260.9% CPU
+Optimizing NNI: done in 0.00113428 secs using 276% CPU
+Optimizing NNI: done in 0.000651509 secs using 125.1% CPU
+Optimizing NNI: done in 0.000684313 secs using 392.2% CPU
+Optimizing NNI: done in 0.000605632 secs using 98.74% CPU
+Optimizing NNI: done in 0.000704849 secs using 378.4% CPU
+Optimizing NNI: done in 0.00075545 secs using 364.6% CPU
+Optimizing NNI: done in 0.00123536 secs using 261.9% CPU
+Optimizing NNI: done in 0.000762767 secs using 361.8% CPU
+Optimizing NNI: done in 0.000797254 secs using 98.59% CPU
+Optimizing NNI: done in 0.000669653 secs using 98.71% CPU
+Optimizing NNI: done in 0.000758197 secs using 99.71% CPU
+Optimizing NNI: done in 0.000934551 secs using 297.3% CPU
+Optimizing NNI: done in 0.000726183 secs using 181.4% CPU
+Optimizing NNI: done in 0.00071506 secs using 99.85% CPU
+Optimizing NNI: done in 0.000693986 secs using 388.2% CPU
+Optimizing NNI: done in 0.000830734 secs using 111.8% CPU
+Optimizing NNI: done in 0.00108415 secs using 267.7% CPU
+Optimizing NNI: done in 0.000629555 secs using 374.9% CPU
+Optimizing NNI: done in 0.0006448 secs using 298.7% CPU
+Optimizing NNI: done in 0.00070238 secs using 99.66% CPU
+Optimizing NNI: done in 0.000757698 secs using 363.7% CPU
+Optimizing NNI: done in 0.000596496 secs using 434.5% CPU
+Optimizing NNI: done in 0.00136426 secs using 246.6% CPU
+Optimizing NNI: done in 0.00198493 secs using 300.8% CPU
+Optimizing NNI: done in 0.00161081 secs using 224% CPU
+Optimizing NNI: done in 0.000645673 secs using 409.3% CPU
+Optimizing NNI: done in 0.000946705 secs using 307.1% CPU
+Optimizing NNI: done in 0.000678952 secs using 99.71% CPU
+Optimizing NNI: done in 0.000777744 secs using 99.78% CPU
+Optimizing NNI: done in 0.000591627 secs using 99.72% CPU
+Optimizing NNI: done in 0.000635704 secs using 413.9% CPU
+Optimizing NNI: done in 0.000750287 secs using 366.4% CPU
+Optimizing NNI: done in 0.00132034 secs using 251.2% CPU
+Optimizing NNI: done in 0.00079307 secs using 392.4% CPU
+Optimizing NNI: done in 0.000791093 secs using 352.4% CPU
+Optimizing NNI: done in 0.000815861 secs using 98.91% CPU
+Optimizing NNI: done in 0.0008293 secs using 98.52% CPU
+Optimizing NNI: done in 0.0015827 secs using 348.8% CPU
+Optimizing NNI: done in 0.000789927 secs using 352.6% CPU
+Optimizing NNI: done in 0.000674498 secs using 395.7% CPU
+Optimizing NNI: done in 0.00057273 secs using 448.7% CPU
+Optimizing NNI: done in 0.000551074 secs using 458.4% CPU
+Optimizing NNI: done in 0.000775987 secs using 357.6% CPU
+Optimizing NNI: done in 0.00056003 secs using 99.64% CPU
+Optimizing NNI: done in 0.00174093 secs using 214.9% CPU
+Optimizing NNI: done in 0.000756004 secs using 364.4% CPU
+Optimizing NNI: done in 0.0015147 secs using 352.8% CPU
+Optimizing NNI: done in 0.000675771 secs using 144.4% CPU
+Optimizing NNI: done in 0.000717293 secs using 351.9% CPU
+Optimizing NNI: done in 0.000601167 secs using 99.81% CPU
+Optimizing NNI: done in 0.000781568 secs using 183.3% CPU
+Optimizing NNI: done in 0.00135369 secs using 390.6% CPU
+Optimizing NNI: done in 0.000521502 secs using 99.71% CPU
+Optimizing NNI: done in 0.000602729 secs using 431.9% CPU
+Optimizing NNI: done in 0.00078945 secs using 353% CPU
+Optimizing NNI: done in 0.000767477 secs using 360% CPU
+Optimizing NNI: done in 0.000682892 secs using 248.5% CPU
+Optimizing NNI: done in 0.000933697 secs using 207.3% CPU
 1000 samples done
-Total 953 ufboot trees refined
-TREE SEARCH COMPLETED AFTER 125 ITERATIONS / Time: 0h:0m:3s
+Total 958 ufboot trees refined
+TREE SEARCH COMPLETED AFTER 118 ITERATIONS / Time: 0h:0m:30s
 
 --------------------------------------------------------------------
 |                    FINALIZING TREE SEARCH                        |
@@ -353,19 +1837,19 @@ Creating bootstrap support values...
 Split supports printed to NEXUS file 9_alignment_files/sampleD_part1_alignment.afa.splits.nex
 Total tree length: 0.104
 
-Total number of iterations: 125
-CPU time used for tree search: 7.448 sec (0h:0m:7s)
-Wall-clock time used for tree search: 3.778 sec (0h:0m:3s)
-Total CPU time used: 7.515 sec (0h:0m:7s)
-Total wall-clock time used: 3.814 sec (0h:0m:3s)
+Total number of iterations: 118
+CPU time used for tree search: 15.771 sec (0h:0m:15s)
+Wall-clock time used for tree search: 5.373 sec (0h:0m:5s)
+Total CPU time used: 72.261 sec (0h:1m:12s)
+Total wall-clock time used: 30.176 sec (0h:0m:30s)
 UFBoot trees printed to 9_alignment_files/sampleD_part1_alignment.afa.ufboot
 
 Computing bootstrap consensus tree...
 Reading input file 9_alignment_files/sampleD_part1_alignment.afa.splits.nex...
-10 taxa and 124 splits.
+10 taxa and 131 splits.
 Consensus tree written to 9_alignment_files/sampleD_part1_alignment.afa.contree
 Reading input trees file 9_alignment_files/sampleD_part1_alignment.afa.contree
-Log-likelihood of consensus tree: -586.535
+Log-likelihood of consensus tree: -586.533
 
 Analysis results written to: 
   IQ-TREE report:                9_alignment_files/sampleD_part1_alignment.afa.iqtree
@@ -378,4 +1862,4 @@ Ultrafast bootstrap approximation results written to:
   UFBoot trees:                  9_alignment_files/sampleD_part1_alignment.afa.ufboot
   Screen log file:               9_alignment_files/sampleD_part1_alignment.afa.log
 
-Date and Time: Wed Nov 19 11:38:54 2025
+Date and Time: Thu Nov 20 10:20:12 2025

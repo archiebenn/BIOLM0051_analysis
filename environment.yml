@@ -1,6 +1,7 @@
 channels:
   - conda-forge
   - bioconda
+  - nodefaults
 dependencies:
   - python
   - numpy
@@ -16,6 +17,6 @@ dependencies:
   - seqkit
   - matplotlib
   - trimal
-  - pip
   - figtree
   - aliview
+  - pip
