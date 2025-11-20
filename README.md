@@ -22,7 +22,7 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
 ### Step 1: Setting up and activating the virtual Environment
-- Recommended to ensure reproducibility by ensuring the same packages and package versions are installed.
+- Recommended to ensure reproducibility by ensuring the same packages are installed when running this pipeline.
 - Clone this repo onto your local machine and navigate into this project directory.  
 - Set up the project environment using the provided `environment.yml` file:
 ```bash
