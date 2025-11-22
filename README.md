@@ -22,7 +22,7 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
 ### Step 1: Setting up the pipeline environment
-- Recommended to ensure reproducibility by ensuring the same packages are installed when running this pipeline.
+- Recommended to ensure reproducibility.
 - Clone this repo onto your local machine and navigate into this project directory.  
 - Set up the project environment using the provided `environment.yml` file:
 ```bash
@@ -42,7 +42,7 @@ Execute all scripts in the correct order for this pipeline:
 ```bash
 ./scripts/run_pipeline.sh
 ```
-Example of how `run_pipeline.sh` looks when running:  
+Example run:
 ```
 ./scripts/run_pipeline.sh 
 
