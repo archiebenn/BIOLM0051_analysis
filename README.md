@@ -37,12 +37,12 @@ Ensure the scripts in this repository are executable locally with the following:
 ```bash
 chmod +x scripts/*
 ```
-#### `run_pipeline.sh`
-Run the following to execute all script in the correct order for this pipeline: 
+#### Option A - `run_pipeline.sh`
+Execute all scripts in the correct order for this pipeline: 
 ```bash
 ./scripts/run_pipeline.sh
 ```
-Below is an example of how `run_pipeline.sh` looks when running:  
+Example of how `run_pipeline.sh` looks when running:  
 ```
 ./scripts/run_pipeline.sh 
 
