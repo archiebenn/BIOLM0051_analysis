@@ -1,13 +1,12 @@
 # Heathrow "Mystery Meat" analysis pipeline
 ### Requirements  
-If you wish to reproduce this analysis, the following are required:
-- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
+`micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
 
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
-- NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
+NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
 
 ```bash
 mkdir -p ~/.taxonkit
@@ -23,14 +22,18 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 
 ### Step 1: Setting up the pipeline environment
 - Recommended to ensure reproducibility.
-- Clone this repo onto your local machine and navigate into this project directory.  
-- Set up the project environment using the provided `environment.yml` file:
 ```bash
+# clone this repo and navigate into project root
+git clone git@github.com:archiebenn/BIOLM0051_analysis.git
+cd BIOLM0051_analysis
+
+# create project environment 
 micromamba create -n mystery-meat-env -f environment.yml
+
+# activate project environment
 micromamba activate mystery-meat-env
-``` 
-- Ensure the scripts in this repository are executable locally with the following:
-```bash
+
+# ensure all scripts are executable 
 chmod +x scripts/*
 ```
 
