@@ -40,7 +40,7 @@ chmod +x scripts/*
 #### `run_pipeline.sh`
 Run the following to execute all script in the correct order for this pipeline: 
 ```bash
-scripts/run_pipeline.sh
+./scripts/run_pipeline.sh
 ```
 Below is an example of how `run_pipeline.sh` looks when running:  
 ```
@@ -58,11 +58,9 @@ Below is an example of how `run_pipeline.sh` looks when running:
 [2] FASTQ concatenation beginning...
 Concatenating sampleA files...
 Concatenating sampleB files...
-Concatenating sampleC files...
-Concatenating sampleD files...
-[2] FASTQ concatenation complete,
-
-[3] FastQC and FASTQ->FASTA beginning...
+.
+.
+.
 
 ```
 This will produce results folders during the execution which can all be viewed once the analysis has finished.
