@@ -1,4 +1,6 @@
-# Heathrow "Mystery Meat" analysis pipeline
+# Heathrow "Mystery Meat" analysis pipeline  
+This analysis pipeline takes raw FASTQ files and ... [FINISH]
+
 ### Requirements  
 `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
 
