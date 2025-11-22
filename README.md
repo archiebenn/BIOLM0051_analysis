@@ -21,7 +21,8 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
 ### Step 1: Setting up the pipeline environment
-- Recommended to ensure reproducibility.
+(Recommended to ensure reproducibility)
+
 ```bash
 # clone this repo and navigate into project root
 git clone git@github.com:archiebenn/BIOLM0051_analysis.git
@@ -42,10 +43,13 @@ Please run all scripts from the project root.
 
 #### Option A - `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
+
 ```bash
 ./scripts/run_pipeline.sh
 ```
+
 Example run:
+
 ```
 ./scripts/run_pipeline.sh 
 
