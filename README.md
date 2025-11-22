@@ -37,9 +37,32 @@ Ensure the scripts in this repository are executable locally with the following:
 ```bash
 chmod +x scripts/*
 ```
-#### 2.1 `run_pipeline.sh`
+#### `run_pipeline.sh`
 Run the following to execute all script in the correct order for this pipeline: 
 ```bash
 scripts/run_pipeline.sh
+```
+Below is an example of how `run_pipeline.sh` looks when running:  
+```bash
+./scripts/run_pipeline.sh 
+
+   __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
+  /  |/  /\ \/ / __/_  __/ __/ _ \ \/ /   /  |/  / __/ _ /_  __/   / _ | / |/ / _ | / /\ \/ / __/  _/ __/
+ / /|_/ /  \  /\ \  / / / _// , _/\  /   / /|_/ / _// __ |/ /     / __ |/    / __ |/ /__\  /\ \_/ /_\ \  
+/_/  /_/   /_/___/ /_/ /___/_/|_| /_/   /_/  /_/___/_/ |_/_/     /_/ |_/_/|_/_/ |_/____//_/___/___/___/  
+                                                                                                                                                                                                         
+
+[1] FASTQ check beginning...
+[1] FASTQ check complete
+
+[2] FASTQ concatenation beginning...
+Concatenating sampleA files...
+Concatenating sampleB files...
+Concatenating sampleC files...
+Concatenating sampleD files...
+[2] FASTQ concatenation complete,
+
+[3] FastQC and FASTQ->FASTA beginning...
+
 ```
 This will produce results folders during the execution which can all be viewed once the analysis has finished.
