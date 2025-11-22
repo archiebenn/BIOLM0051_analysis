@@ -43,7 +43,7 @@ Run the following to execute all script in the correct order for this pipeline:
 scripts/run_pipeline.sh
 ```
 Below is an example of how `run_pipeline.sh` looks when running:  
-```bash
+```
 ./scripts/run_pipeline.sh 
 
    __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
