@@ -26,8 +26,8 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 - Clone this repo onto your local machine and navigate into this project directory.  
 - Set up the project environment using the provided `environment.yml` file:
 ```bash
-micromamba create -n mystery_meat-env -f environment.yml
-micromamba activate mystery_meat-env
+micromamba create -n mystery-meat-env -f environment.yml
+micromamba activate mystery-meat-env
 ```
 
 ### Step 2: Running the scripts  
