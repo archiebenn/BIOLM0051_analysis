@@ -21,22 +21,22 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
-### Step 1: Setting up and activating the virtual Environment
+### Step 1: Setting up the pipeline environment
 - Recommended to ensure reproducibility by ensuring the same packages are installed when running this pipeline.
 - Clone this repo onto your local machine and navigate into this project directory.  
 - Set up the project environment using the provided `environment.yml` file:
 ```bash
 micromamba create -n mystery-meat-env -f environment.yml
 micromamba activate mystery-meat-env
+``` 
+- Ensure the scripts in this repository are executable locally with the following:
+```bash
+chmod +x scripts/*
 ```
 
 ### Step 2: Running the scripts  
 Please run all scripts from the project root.
-#### Make executable 
-Ensure the scripts in this repository are executable locally with the following:
-```bash
-chmod +x scripts/*
-```
+
 #### Option A - `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
 ```bash
