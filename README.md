@@ -61,6 +61,6 @@ Concatenating sampleB files...
 .
 .
 .
-[10]Phylogenetic tree builds complete. Find tree files in results/10_tree_files
+[10] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
 Full analysis runtime: 00h:24m:31s 
 ```
