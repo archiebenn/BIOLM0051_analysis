@@ -133,5 +133,5 @@ results
     ├── 8_complete_FASTA
     ├── 9_protein_FASTA
     ├── 10_alignment_files
-    └──  11_tree_files
+    └── 11_tree_files
 ```
