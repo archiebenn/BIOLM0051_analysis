@@ -2,7 +2,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 
 Input file name: 10_alignment_files/sampleA_part1_alignment.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 9567
+Random seed number: 407473
 
 REFERENCES
 ----------
@@ -163,7 +163,7 @@ BLOSUM62+F         -504.921    1077.841 - 7.81e-06    1094.841 - 7.84e-09    118
 Q.YEAST+I          -551.453    1134.907 - 3.17e-18    1138.350 -  2.8e-18    1185.543 - 9.84e-19
 Q.YEAST+G4         -551.453    1134.907 - 3.17e-18    1138.350 -  2.8e-18    1185.544 - 9.84e-19
 MTVER+F+I          -502.409    1074.819 - 3.54e-05    1092.948 - 2.02e-08    1185.586 - 9.64e-19
-MTVER+F+G4         -502.409    1074.819 - 3.54e-05    1092.948 - 2.02e-08    1185.587 - 9.63e-19
+MTVER+F+G4         -502.410    1074.819 - 3.54e-05    1092.948 - 2.02e-08    1185.587 - 9.63e-19
 PMB+F              -505.088    1078.175 - 6.61e-06    1095.175 - 6.64e-09    1185.778 - 8.75e-19
 MTREV+F+I          -502.621    1075.243 - 2.86e-05    1093.372 - 1.63e-08    1186.010 - 7.79e-19
 MTREV+F+G4         -502.622    1075.243 - 2.86e-05    1093.373 - 1.63e-08    1186.011 - 7.79e-19
@@ -179,7 +179,7 @@ HIVB+F+I           -503.062    1076.124 - 1.84e-05    1094.254 - 1.05e-08    118
 HIVB+F+G4          -503.062    1076.125 - 1.84e-05    1094.254 - 1.05e-08    1186.892 - 5.02e-19
 Q.INSECT+I         -552.189    1136.378 - 1.52e-18    1139.821 - 1.34e-18    1187.015 - 4.72e-19
 Q.INSECT+G4        -552.189    1136.378 - 1.52e-18    1139.821 - 1.34e-18    1187.015 - 4.72e-19
-Q.PLANT+F+I        -503.195    1076.391 - 1.61e-05    1094.520 - 9.21e-09    1187.158 - 4.39e-19
+Q.PLANT+F+I        -503.195    1076.391 - 1.61e-05    1094.520 - 9.21e-09    1187.159 - 4.39e-19
 Q.PLANT+F+G4       -503.196    1076.391 - 1.61e-05    1094.521 - 9.21e-09    1187.159 - 4.39e-19
 HIVW               -554.928    1139.856 - 2.67e-19    1142.875 - 2.91e-19    1187.327 - 4.03e-19
 CPREV+F+I          -503.347    1076.694 - 1.39e-05    1094.823 - 7.91e-09    1187.461 - 3.77e-19
@@ -249,7 +249,7 @@ Corrected Akaike information criterion (AICc) score: 1059.6801
 Bayesian information criterion (BIC) score: 1104.1330
 
 Total tree length (sum of branch lengths): 0.0230
-Sum of internal branch lengths: 0.0000 (0.0174% of tree length)
+Sum of internal branch lengths: 0.0000 (0.0217% of tree length)
 
 WARNING: 5 near-zero internal branches (<0.0057) should be treated with caution
          Such branches are denoted by '**' in the figure below
@@ -261,23 +261,23 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 |
 +**AP006468.1_Balaenoptera_acutorostrata
 |
-|        +**EU496283.1_Balaenoptera_ricei
-|     +**| (64)
-|     |  |  +----------------------------------------------------------AP006471.1_Eschrichtius_robustus
-|     |  +**| (57)
-|     |     |                            +**KC572709.1_Balaenoptera_physalus
-|     |     +----------------------------| (78)
-|     |                                  +**MF409242.1_Balaenoptera_musculus
-|  +**| (23)
-|  |  |  +**DQ095155.1_Eubalaena_australis
-|  |  +**| (13)
-|  |     +**AB201259.1_Balaenoptera_brydei
-+**| (75)
+|           +**EU496283.1_Balaenoptera_ricei
+|        +**| (59)
+|        |  |  +----------------------------------------------------------AP006471.1_Eschrichtius_robustus
+|        |  +**| (65)
+|        |     |                            +**KC572709.1_Balaenoptera_physalus
+|        |     +----------------------------| (82)
+|        |                                  +**MF409242.1_Balaenoptera_musculus
+|     +**| (22)
+|     |  +**DQ095155.1_Eubalaena_australis
+|  +**| (20)
+|  |  +**AB201259.1_Balaenoptera_brydei
++**| (69)
    +**sampleA_part1
 
 Tree in newick format:
 
-(AB201257.1_Balaenoptera_omurai:0.0057830658,AP006468.1_Balaenoptera_acutorostrata:0.0000010000,(((EU496283.1_Balaenoptera_ricei:0.0000010000,(AP006471.1_Eschrichtius_robustus:0.0114835994,(KC572709.1_Balaenoptera_physalus:0.0000010000,MF409242.1_Balaenoptera_musculus:0.0000010000)78:0.0057224065)57:0.0000010000)64:0.0000010000,(DQ095155.1_Eubalaena_australis:0.0000010000,AB201259.1_Balaenoptera_brydei:0.0000010000)13:0.0000010000)23:0.0000010000,sampleA_part1:0.0000010000)75:0.0000010000);
+(AB201257.1_Balaenoptera_omurai:0.0057830658,AP006468.1_Balaenoptera_acutorostrata:0.0000010000,((((EU496283.1_Balaenoptera_ricei:0.0000010000,(AP006471.1_Eschrichtius_robustus:0.0114835994,(KC572709.1_Balaenoptera_physalus:0.0000010000,MF409242.1_Balaenoptera_musculus:0.0000010000)82:0.0057224065)65:0.0000010000)59:0.0000010000,DQ095155.1_Eubalaena_australis:0.0000010000)22:0.0000010000,AB201259.1_Balaenoptera_brydei:0.0000010000)20:0.0000010000,sampleA_part1:0.0000010000)69:0.0000010000);
 
 CONSENSUS TREE
 --------------
@@ -294,38 +294,38 @@ Numbers in parentheses are bootstrap supports (%)
 |
 +--AP006468.1_Balaenoptera_acutorostrata
 |
-|           +--EU496283.1_Balaenoptera_ricei
-|        +--| (64)
-|        |  |  +----------------------------------------------------------AP006471.1_Eschrichtius_robustus
-|        |  +--| (57)
-|        |     |                            +--KC572709.1_Balaenoptera_physalus
-|        |     +----------------------------| (78)
-|        |                                  +--MF409242.1_Balaenoptera_musculus
-|     +--| (34)
-|     |  +--sampleA_part1
-|  +--| (37)
-|  |  |                    +**DQ095155.1_Eubalaena_australis
-|  |  |                 +**|
-|  |  |                 |  +**MF409248.1_Balaenoptera_borealis
-|  |  |              +**|
-|  |  |              |  +**NC_006926.1_Balaenoptera_bonaerensis
-|  |  |           +**|
-|  |  |           |  +**DQ095154.1_Eubalaena_glacialis
-|  |  |        +**|
-|  |  |        |  +**AP006472.1_Balaena_mysticetus
-|  |  |     +**|
-|  |  |     |  +**AP006475.1_Caperea_marginata
-|  |  |  +**|
-|  |  |  |  +**MW984423.1_Balaenoptera_edeni
-|  |  +--|
-|  |     +**NC_006931.1_Eubalaena_japonica
-+--| (75)
-   +--AB201259.1_Balaenoptera_brydei
+|        +--EU496283.1_Balaenoptera_ricei
+|     +--| (59)
+|     |  |  +----------------------------------------------------------AP006471.1_Eschrichtius_robustus
+|     |  +--| (65)
+|     |     |                            +--KC572709.1_Balaenoptera_physalus
+|     |     +----------------------------| (82)
+|     |                                  +--MF409242.1_Balaenoptera_musculus
+|  +--| (26)
+|  |  +--sampleA_part1
++--| (69)
+   |                       +**DQ095155.1_Eubalaena_australis
+   |                    +**|
+   |                    |  +**NC_006931.1_Eubalaena_japonica
+   |                 +**|
+   |                 |  +**MF409248.1_Balaenoptera_borealis
+   |              +**|
+   |              |  +**DQ095154.1_Eubalaena_glacialis
+   |           +**|
+   |           |  +**NC_006926.1_Balaenoptera_bonaerensis
+   |        +**|
+   |        |  +**MW984423.1_Balaenoptera_edeni
+   |     +**|
+   |     |  +**AP006475.1_Caperea_marginata
+   |  +--|
+   |  |  +**AP006472.1_Balaena_mysticetus
+   +--| (33)
+      +--AB201259.1_Balaenoptera_brydei
 
 
 Consensus tree in newick format: 
 
-(AB201257.1_Balaenoptera_omurai:0.0057830644,AP006468.1_Balaenoptera_acutorostrata:0.0000023992,((((EU496283.1_Balaenoptera_ricei:0.0000023992,(AP006471.1_Eschrichtius_robustus:0.0114834731,(KC572709.1_Balaenoptera_physalus:0.0000023992,MF409242.1_Balaenoptera_musculus:0.0000023992)78:0.0057220967)57:0.0000023992)64:0.0000023992,sampleA_part1:0.0000023992)34:0.0000023992,(((((((DQ095155.1_Eubalaena_australis:0.0000000000,MF409248.1_Balaenoptera_borealis:0.0000000000):0.0000000000,NC_006926.1_Balaenoptera_bonaerensis:0.0000000000):0.0000000000,DQ095154.1_Eubalaena_glacialis:0.0000000000):0.0000000000,AP006472.1_Balaena_mysticetus:0.0000000000):0.0000000000,AP006475.1_Caperea_marginata:0.0000000000):0.0000000000,MW984423.1_Balaenoptera_edeni:0.0000000000):0.0000000000,NC_006931.1_Eubalaena_japonica:0.0000000000):0.0000023992)37:0.0000023992,AB201259.1_Balaenoptera_brydei:0.0000023992)75:0.0000023992);
+(AB201257.1_Balaenoptera_omurai:0.0057830644,AP006468.1_Balaenoptera_acutorostrata:0.0000023992,(((EU496283.1_Balaenoptera_ricei:0.0000023992,(AP006471.1_Eschrichtius_robustus:0.0114834731,(KC572709.1_Balaenoptera_physalus:0.0000023992,MF409242.1_Balaenoptera_musculus:0.0000023992)82:0.0057220967)65:0.0000023992)59:0.0000023992,sampleA_part1:0.0000023992)26:0.0000023992,((((((((DQ095155.1_Eubalaena_australis:0.0000000000,NC_006931.1_Eubalaena_japonica:0.0000000000):0.0000000000,MF409248.1_Balaenoptera_borealis:0.0000000000):0.0000000000,DQ095154.1_Eubalaena_glacialis:0.0000000000):0.0000000000,NC_006926.1_Balaenoptera_bonaerensis:0.0000000000):0.0000000000,MW984423.1_Balaenoptera_edeni:0.0000000000):0.0000000000,AP006475.1_Caperea_marginata:0.0000000000):0.0000000000,AP006472.1_Balaena_mysticetus:0.0000000000):0.0000023992,AB201259.1_Balaenoptera_brydei:0.0000023992)33:0.0000023992)69:0.0000023992);
 
 ALISIM COMMAND
 --------------
@@ -346,7 +346,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Sun Nov 23 19:46:01 2025
-Total CPU time used: 60.017239 seconds (0h:1m:0s)
-Total wall-clock time used: 27.47590575 seconds (0h:0m:27s)
+Date and time: Sun Nov 23 19:47:11 2025
+Total CPU time used: 58.821615 seconds (0h:0m:58s)
+Total wall-clock time used: 27.22699829 seconds (0h:0m:27s)
 
