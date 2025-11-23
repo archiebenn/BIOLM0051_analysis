@@ -1,7 +1,7 @@
 # Heathrow "Mystery Meat" analysis pipeline  
 This analysis pipeline takes raw FASTQ files and ... [FINISH]
 
-### Requirements  
+## Requirements  
 - `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
 
 ```bash
@@ -22,7 +22,7 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
-### Step 1: Setting up the pipeline environment
+## Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
 
 ```bash
@@ -42,11 +42,11 @@ micromamba activate mystery-meat-env
 chmod +x scripts/*
 ```
 
-### Step 2: Running the scripts  
+## Step 2: Running the scripts  
 > [!IMPORTANT]
 > Please run all scripts from the project root.
 
-#### Option A - `run_pipeline.sh`
+### Option A - `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
 
 ```bash
