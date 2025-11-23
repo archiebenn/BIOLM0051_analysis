@@ -26,13 +26,11 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
 
 ```bash
-# clone this repo 
+# clone this repo and navigate into project root
 git clone git@github.com:archiebenn/BIOLM0051_analysis.git
-
-# navigate into project root
 cd BIOLM0051_analysis
 
-# create project environment from environment.yml
+# create project environment
 micromamba create -n mystery-meat-env -f environment.yml
 
 # activate project environment
