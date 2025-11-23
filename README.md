@@ -43,8 +43,8 @@ chmod +x scripts/*
 ```
 
 ### Step 2: Running the scripts  
-[!IMPORTANT]
-Please run all scripts from the project root.
+> [!IMPORTANT]
+> Please run all scripts from the project root.
 
 #### Option A - `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
