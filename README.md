@@ -2,13 +2,13 @@
 This analysis takes unknown raw FASTQ files and produces species identifications and a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline.
 
 ## Requirements  
-- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
+- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
 
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
-- NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
+- NCBI taxonomy dump is required for `taxonkit` in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
 
 ```bash
 mkdir -p ~/.taxonkit
@@ -19,6 +19,7 @@ wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
 # extract
 tar -xzf taxdump.tar.gz
 
+# move files
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
@@ -37,7 +38,7 @@ micromamba create -n mystery-meat-env -f environment.yml
 micromamba activate mystery-meat-env
 ```
 
-Ensure all scripts are executable with the following:
+Ensure all scripts are executable:
 ```
 chmod +x scripts/*
 ```
@@ -61,7 +62,7 @@ Overview of script numbers and steps involved
 | 9             | Python translation  | Biopython script to translate to protein seqs   |
 | 10            | Alignment           | Uses `muscle5` to align protein sequences       |
 | 11            | Tree Build          | Uses `iqtree3` to build phylogenetic trees      |
-| 12            | Tree View           | Uses treefiles to visualise trees in Python     |
+| 12            | Tree View           | Visualise trees using Python                    |
 
 ## Option A - Run Full Pipeline with `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
@@ -95,9 +96,9 @@ Full analysis runtime: 00h:24m:31s
 ```
 
 ## Option B - Run pipeline from a specific script -> end with `run_pipeline.sh <script-number>`
-This was introduced to allow users to skip lengthy steps of the pipeline which can lead to significantly shorter run times. This is only possible as a complete `results/` folder is included here on GitHub. If running without `results/` the full pipeline will have to be run, as above. 
+Allows skipping slow steps of the pipeline which can lead to significantly shorter run times. This is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline will have to be run. 
 
-For example, to run the analysis in full, but starting after the BLAST script (script 4 - which can take > 30 minutes): 
+For example starting from script 5 (after BLAST search): 
 ```
 ./scripts/run_pipeline.sh 5
    __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
@@ -116,7 +117,7 @@ Full analysis runtime: 00h:05m:15s
 ```
 
 # Step 3: Viewing Results
-To view results at all points along the pipeline, view the `results/` folder which has sub-directories number-linked to the respective scripts where their results were formed.  
+All pipeline results are stored in the `results/` folder. This contains sub-directories number-linked to the respective scripts where the results were generated..  
 
 `results/` general structure: 
 ```
