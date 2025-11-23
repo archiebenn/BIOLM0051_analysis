@@ -7,6 +7,9 @@ start=$(date +%s)
 # strict mode - exit on errors and pipeline failures (also in every .sh script)
 set -eo pipefail
 
+# create hidden make folder
+mkdir -p .make
+
 cat << "EOF"
    __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
   /  |/  /\ \/ / __/_  __/ __/ _ \ \/ /   /  |/  / __/ _ /_  __/   / _ | / |/ / _ | / /\ \/ / __/  _/ __/
