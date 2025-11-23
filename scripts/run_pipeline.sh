@@ -91,37 +91,8 @@ echo
 # 11. tree build
 echo "[11] Building phylogenetic trees with IQ-TREE..."
 sleep 3
-<<<<<<< HEAD
-./scripts/7_concatenate_fasta.sh
-echo "[7] FASTA concatenation complete. Find complete FASTA files in results/7_complete_FASTA"
-echo
-
-# 8. biopython to translate full fasta files and select appropriate frame for protein sequence
-echo "[8] Using Biopython to translate nt FASTA sequences and select correct frame..."
-sleep 3
-cd scripts/
-python3 8_translation.py
-cd ..
-echo "[8] Biopython translation and frame selection complete. Find protein sequences in results/8_protein_FASTA"
-echo
-
-
-# 9. alignment use muscle5
-echo "[9] Aligning protein sequences with MUSCLE..."
-sleep 3
-./scripts/9_muscle_alignment.sh
-echo "[9] MUSCLE protein alignment complete. Find alignment files in results/9_alignment_files"
-echo
-
-# 10. tree build
-echo "[10] Building phylogenetic trees with IQ-TREE..."
-sleep 3
-./scripts/10_build_tree.sh
-echo "[10] Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
-=======
 ./scripts/11_build_tree.sh
 echo "[11]Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
->>>>>>> 85738b2 (re-numbering scripts >= 6)
 echo
 
 end=$(date +%s)
