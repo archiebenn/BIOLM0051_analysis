@@ -98,7 +98,7 @@ Full analysis runtime: 00h:24m:31s
 ## Option B - Run pipeline from a specific script -> end with `run_pipeline.sh <script-number>`
 Allows skipping slow steps of the pipeline which can lead to significantly shorter run times. This is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run. 
 
-For example starting from script 5 (after BLAST search): 
+For example starting from script 5 (after BLAST search which can take > 30 minutes): 
 ```
 ./scripts/run_pipeline.sh 5
    __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
