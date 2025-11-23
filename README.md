@@ -37,12 +37,14 @@ micromamba create -n mystery-meat-env -f environment.yml
 micromamba activate mystery-meat-env
 ```
 
-## Step 2: Running the scripts  
-> [!IMPORTANT]
-> Please run all scripts from the project root and ensure all scripts are executable with:
-> ```bash
+Ensure all scripts are executable with the following:
+```
 chmod +x scripts/*
 ```
+
+## Step 2: Running the scripts  
+> [!IMPORTANT]
+> Please run all scripts from the project root.
 
 ### Option A - `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
