@@ -26,3 +26,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# ignore my notes
+notes.md

@@ -1,9 +1,0 @@
-samples:
-- sampleA
-- sampleB
-- samplec
-- sampleD
-
-input_dir: "data/samples"
-output_dir: "data/processed_samples"
-
