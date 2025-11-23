@@ -8,7 +8,7 @@ from Bio import SeqIO
 os.makedirs("../results/9_protein_FASTA", exist_ok=True)
 
 # set directory where fasta files are kept
-fasta_directory = "../results/8_complete_FASTA/"
+fasta_directory = "results/8_complete_FASTA/"
 
 
 
