@@ -2,7 +2,10 @@
 # fastq_to_fasta.sh - using seqtk for quality control with phred algorithm and to convert multi-line fastq to fasta sequence
 # run from project root
 
-# move into results/ 
+# strict mode - exit on errors and pipeline failures
+set -eo pipefail
+
+# move into results/ and exit if not in root
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
@@ -10,6 +13,14 @@ cd results || \
 mkdir -p 3_FASTQC_reports
 mkdir -p 3_FASTA_Q20
 mkdir -p 3_FASTA_raw
+
+input_directory=2_FASTQ_processed
+
+# check that the input folder from previous script contains files for the loop
+# also silences internal errors
+ls "$input_directory"/*.FASTQ >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_directory. Previous script may have failed."; exit 1; }
+
 
 for fastq in 2_FASTQ_processed/*.FASTQ; do
 

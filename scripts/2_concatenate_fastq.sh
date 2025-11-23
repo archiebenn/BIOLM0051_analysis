@@ -2,7 +2,10 @@
 # concatenate_fastq.sh - clean and concatenate FASTQ parts into one file
 # run from the project root
 
-# move into samples/ 
+# strict mode - exit on errors and pipeline failures
+set -eo pipefail
+
+# move into samples/ and exit if not in root
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
@@ -18,7 +21,7 @@ for letter in {A..D}; do
     ##########
 
     # create array of all FASTQ files for sample                                            
-    files=(sample${letter}*.FASTQ)                                               
+    files=(sample"${letter}"*.FASTQ)                                               
     
     echo "Concatenating sample${letter} files..." 
 
@@ -72,7 +75,7 @@ for letter in {A..D}; do
     mv "$temp" "sample${letter}_processed.FASTQ"
 
     # move the concatenated file to processed fastq directory in other part of repo                           
-    mv sample${letter}_processed.FASTQ ../../"$fastq_folder"     
+    mv "sample${letter}_processed.FASTQ" ../../"$fastq_folder"     
       
 done
 

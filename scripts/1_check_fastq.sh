@@ -2,7 +2,10 @@
 # check_fastq.sh - a checking script to see if each sample fastq follows fastq format
 # run from project root
 
-# move into samples/ 
+# strict mode - exit on errors and pipeline failures
+set -eo pipefail
+
+# move into samples/ and exit if not in root
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 

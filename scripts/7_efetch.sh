@@ -1,0 +1,82 @@
+#!/bin/bash
+# efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample, with trimming to fit sstart and send from blast query
+# run from project root
+
+# strict mode - exit on errors and pipeline failures
+set -eo pipefail
+
+# move into results/ and exit if not in root
+cd results || \
+{ echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
+
+mkdir -p 7_efetch_FASTA
+
+##########
+# run efetch to retrieve fasta files, and trim to match region blast hit
+##########
+
+for tsv in 6_blast_selected/*.tsv; do
+
+    # extract base name
+    part_name=$(basename "$tsv" _selected.tsv)
+
+    echo "Retrieving and trimming FASTA files for "$part_name" with efetch"
+
+    # extract accession values, sstart, and send from each tsv. choosing top 15
+    cut -f2,10,11 6_blast_selected/"$part_name"_selected.tsv | head -n 15 > 7_efetch_FASTA/"$part_name"_blast.tsv
+
+    # reset fasta file
+    > 7_efetch_FASTA/"$part_name".fasta
+
+    # read accession, sstart, and send from 'part' tsv
+    while IFS=$'\t' read accession sstart send; do
+
+        # normalising strand direction for seqtk to use: 
+        # forward strand: sstart < send
+        if [ "$sstart" -lt "$send" ]; then 
+
+            # seqtk uses 0-indexed start and 1-indexed end:
+            seqstart=$((sstart - 1))
+            seqend=$send
+
+        # reverse strand: sstart > send, swap sstart and send 
+        else 
+            seqstart=$((send - 1))
+            seqend=$sstart
+        fi
+
+        # retrieve full accession fasta sequence using efetch and store in temp file 
+        efetch -db nuccore -format fasta -id "$accession" > temp_full.fasta
+
+        # extract fasta header for seqtk (without '>')
+        seqname=$(head -1 temp_full.fasta | sed 's/^>//' | cut -d' ' -f1)
+
+        # send values into a .bed file for genomic region coordinates
+        echo -e "${seqname}\t$((seqstart))\t${seqend}" > accession_start_end.bed
+
+        # trim full fasta using bed coordinates. reverse complement if needed as well to match query strand
+        seqtk subseq temp_full.fasta accession_start_end.bed > temp_trimmed.fasta
+
+        # check if output orientation requires reverse complement for downstream translation (if from reverse strand)
+        if [ "$sstart" -gt "$send" ]; then 
+
+            # seqtk reverse complement function
+            seqtk seq -r temp_trimmed.fasta >> 7_efetch_FASTA/"$part_name".fasta
+        
+        # case for forward strand = keep same
+        else 
+            cat temp_trimmed.fasta >> 7_efetch_FASTA/"$part_name".fasta
+        fi
+
+        rm temp_trimmed.fasta
+        rm temp_full.fasta
+        rm accession_start_end.bed
+
+    # read from 'part' blast tsv file
+    done < 7_efetch_FASTA/"$part_name"_blast.tsv
+
+    rm 7_efetch_FASTA/"$part_name"_blast.tsv
+
+done
+
+cd ..
