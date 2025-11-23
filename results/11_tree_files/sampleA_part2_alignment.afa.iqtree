@@ -2,7 +2,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 
 Input file name: 10_alignment_files/sampleA_part2_alignment.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 177975
+Random seed number: 565800
 
 REFERENCES
 ----------
@@ -54,7 +54,7 @@ MTZOA+G4           -511.936    1047.872 +      0.2    1049.798 +    0.191    108
 MTART              -517.268    1056.536 -  0.00262    1058.156 -  0.00293    1091.349 -  0.00416
 MTMAM              -517.527    1057.055 -  0.00202    1058.675 -  0.00226    1091.868 -  0.00321
 MTREV              -518.452    1058.905 - 0.000802    1060.525 - 0.000897    1093.718 -  0.00127
-MTART+I            -517.149    1058.299 -  0.00109    1060.225 -  0.00104    1096.276 - 0.000354
+MTART+I            -517.150    1058.299 -  0.00109    1060.225 -  0.00104    1096.276 - 0.000354
 MTART+G4           -517.178    1058.356 -  0.00106    1060.282 -  0.00101    1096.333 - 0.000344
 MTMAM+I            -517.527    1059.055 - 0.000744    1060.981 - 0.000714    1097.032 - 0.000242
 MTMAM+G4           -517.528    1059.055 - 0.000744    1060.981 - 0.000714    1097.032 - 0.000242
@@ -260,27 +260,27 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 +**AB201259.1_Balaenoptera_brydei
 |
 |  +**PQ997938.1_Balaenoptera_ricei
-+**| (8)
++**| (42)
 |  |  +----------------------------------------------------------NC_006926.1_Balaenoptera_bonaerensis
-|  +**| (83)
+|  +**| (76)
 |     +----------------------------AP006471.1_Eschrichtius_robustus
 |
 |  +----------------------------sampleA_part2
-+**| (61)
++**| (65)
    |  +**DQ095155.1_Eubalaena_australis
-   +**| (53)
+   +**| (69)
       +**AB201257.1_Balaenoptera_omurai
 
 Tree in newick format:
 
-(AB201259.1_Balaenoptera_brydei:0.0000010000,(PQ997938.1_Balaenoptera_ricei:0.0000010000,(NC_006926.1_Balaenoptera_bonaerensis:0.0123840266,AP006471.1_Eschrichtius_robustus:0.0060674537)83:0.0000010000)8:0.0000010000,(sampleA_part2:0.0060535166,(DQ095155.1_Eubalaena_australis:0.0000010000,AB201257.1_Balaenoptera_omurai:0.0000010000)53:0.0000010000)61:0.0000010000);
+(AB201259.1_Balaenoptera_brydei:0.0000010000,(PQ997938.1_Balaenoptera_ricei:0.0000010000,(NC_006926.1_Balaenoptera_bonaerensis:0.0123840266,AP006471.1_Eschrichtius_robustus:0.0060674537)76:0.0000010000)42:0.0000010000,(sampleA_part2:0.0060535166,(DQ095155.1_Eubalaena_australis:0.0000010000,AB201257.1_Balaenoptera_omurai:0.0000010000)69:0.0000010000)65:0.0000010000);
 
 CONSENSUS TREE
 --------------
 
 Consensus tree is constructed from 1000 bootstrap trees
 Log-likelihood of consensus tree: -511.937814
-Robinson-Foulds distance between ML tree and consensus tree: 2
+Robinson-Foulds distance between ML tree and consensus tree: 0
 
 Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
@@ -289,35 +289,35 @@ Numbers in parentheses are bootstrap supports (%)
 +**AB201259.1_Balaenoptera_brydei
 |
 |        +--PQ997938.1_Balaenoptera_ricei
-|     +--| (48)
-|     |  |  +----------------------------sampleA_part2
-|     |  +--| (61)
-|     |     |                 +**DQ095155.1_Eubalaena_australis
-|     |     |              +**|
-|     |     |              |  +**AP006475.1_Caperea_marginata
-|     |     |           +**|
-|     |     |           |  +**NC_006931.1_Eubalaena_japonica
-|     |     |        +**|
-|     |     |        |  +**NC_007938.1_Balaenoptera_edeni
-|     |     |     +**|
-|     |     |     |  +**AP006472.1_Balaena_mysticetus
-|     |     |  +--|
-|     |     |  |  +**DQ095154.1_Eubalaena_glacialis
-|     |     +--| (53)
-|     |        +--AB201257.1_Balaenoptera_omurai
+|     +--| (42)
+|     |  |  +----------------------------------------------------------NC_006926.1_Balaenoptera_bonaerensis
+|     |  +--| (76)
+|     |     +----------------------------AP006471.1_Eschrichtius_robustus
 |  +--|
-|  |  |  +----------------------------------------------------------NC_006926.1_Balaenoptera_bonaerensis
-|  |  +--| (83)
-|  |     +----------------------------AP006471.1_Eschrichtius_robustus
+|  |  |  +----------------------------sampleA_part2
+|  |  +--| (65)
+|  |     |                 +**DQ095155.1_Eubalaena_australis
+|  |     |              +**|
+|  |     |              |  +**AP006472.1_Balaena_mysticetus
+|  |     |           +**|
+|  |     |           |  +**DQ095154.1_Eubalaena_glacialis
+|  |     |        +**|
+|  |     |        |  +**NC_006931.1_Eubalaena_japonica
+|  |     |     +**|
+|  |     |     |  +**NC_007938.1_Balaenoptera_edeni
+|  |     |  +--|
+|  |     |  |  +**AP006475.1_Caperea_marginata
+|  |     +--| (69)
+|  |        +--AB201257.1_Balaenoptera_omurai
 +**|
-|  +**MF409248.1_Balaenoptera_borealis
+|  +**AP006468.1_Balaenoptera_acutorostrata
 |
-+**AP006468.1_Balaenoptera_acutorostrata
++**MF409248.1_Balaenoptera_borealis
 
 
 Consensus tree in newick format: 
 
-(AB201259.1_Balaenoptera_brydei:0.0000000000,(((PQ997938.1_Balaenoptera_ricei:0.0000023992,(sampleA_part2:0.0060535140,((((((DQ095155.1_Eubalaena_australis:0.0000000000,AP006475.1_Caperea_marginata:0.0000000000):0.0000000000,NC_006931.1_Eubalaena_japonica:0.0000000000):0.0000000000,NC_007938.1_Balaenoptera_edeni:0.0000000000):0.0000000000,AP006472.1_Balaena_mysticetus:0.0000000000):0.0000000000,DQ095154.1_Eubalaena_glacialis:0.0000000000):0.0000023992,AB201257.1_Balaenoptera_omurai:0.0000023992)53:0.0000023992)61:0.0000023992)48:0.0000023992,(NC_006926.1_Balaenoptera_bonaerensis:0.0123840432,AP006471.1_Eschrichtius_robustus:0.0060674385)83:0.0000023992):0.0000023992,MF409248.1_Balaenoptera_borealis:0.0000000000):0.0000000000,AP006468.1_Balaenoptera_acutorostrata:0.0000000000);
+(AB201259.1_Balaenoptera_brydei:0.0000000000,(((PQ997938.1_Balaenoptera_ricei:0.0000023992,(NC_006926.1_Balaenoptera_bonaerensis:0.0123840432,AP006471.1_Eschrichtius_robustus:0.0060674385)76:0.0000023992)42:0.0000023992,(sampleA_part2:0.0060535140,((((((DQ095155.1_Eubalaena_australis:0.0000000000,AP006472.1_Balaena_mysticetus:0.0000000000):0.0000000000,DQ095154.1_Eubalaena_glacialis:0.0000000000):0.0000000000,NC_006931.1_Eubalaena_japonica:0.0000000000):0.0000000000,NC_007938.1_Balaenoptera_edeni:0.0000000000):0.0000000000,AP006475.1_Caperea_marginata:0.0000000000):0.0000023992,AB201257.1_Balaenoptera_omurai:0.0000023992)69:0.0000023992)65:0.0000023992):0.0000023992,AP006468.1_Balaenoptera_acutorostrata:0.0000000000):0.0000000000,MF409248.1_Balaenoptera_borealis:0.0000000000);
 
 ALISIM COMMAND
 --------------
@@ -338,7 +338,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Sun Nov 23 17:05:32 2025
-Total CPU time used: 44.108571 seconds (0h:0m:44s)
-Total wall-clock time used: 23.64576265 seconds (0h:0m:23s)
+Date and time: Sun Nov 23 19:46:28 2025
+Total CPU time used: 59.017486 seconds (0h:0m:59s)
+Total wall-clock time used: 27.21103104 seconds (0h:0m:27s)
 

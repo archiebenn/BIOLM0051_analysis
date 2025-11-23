@@ -18,7 +18,7 @@
                     textfont={color=black!70}} % sans serif figure and table captions
 \usepackage{texshade}
 \usepackage{tikz}
-\usetikzlibrary{shapes, arrows, positioning} 
+\usetikzlibrary{shapes.geometric, arrows} 
 \usepackage{smartdiagram}
 \usesmartdiagramlibrary{additions}
 \usepackage{fancyhdr}
@@ -26,6 +26,10 @@
 \usepackage{titlesec}
 \usepackage{lipsum}
 
+% defining tikz shapes
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 
 \pagestyle{fancy}
@@ -127,28 +131,9 @@ The FASTQ files in this report are small and the use of HPC resources in this ca
 %%%%%%%%%%%%%%%
 \begin{figure}[htbp]
 \begin{center}
-\sffamily
-\vspace{4em}
-\smartdiagramset{
-    set color list={red!20, red!30,red!40,red!50},
-    sequence item border size=1.2\pgflinewidth,
-    sequence item border color=black,sequence item font size=\footnotesize,
-    sequence item text color=black, 
-    additions={
-            additional item shape=rectangle,
-            additional item fill color=black!10,
-            additional item border color=black,
-            additional item font=\footnotesize,
-            additional arrow line width=2pt,
-            additional arrow tip=to,
-            additional arrow color=black,
-        }
-}
-\smartdiagramadd[sequence diagram]{Concatenate FASTQ,ORF finder,BLAST, Alignment}
-{above of sequence-item1/FASTQ files, below of sequence-item4/Aligned Sequences}
-\smartdiagramconnect{to-}{sequence-item1/additional-module1}
-\smartdiagramconnect{-to}{sequence-item4/additional-module2}
-\vspace{4em}
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\end{tikzpicture}
 \caption{Workflow of Snakemake analysis pipeline.}
     \label{fig:workflow}
 \end{center}
@@ -241,11 +226,6 @@ Alignment results using Clustal Omega on some test data:
 
 
 
-
-
-
-
-
 \section*{Discussion}
 \lipsum[5-6]
 Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe even from this guy \cite{baker1997signaling,wolin1997microbe}
@@ -268,13 +248,6 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 
 
 
-
-
-
-
-
-
-
 %Acknowledging the use of HPC Facilities
 %When you write articles about your research for publication, 
 %conference proceedings or for other reasons, please acknowledge use of the ACRC facilities by including the following:
@@ -285,16 +258,8 @@ This work was carried out using the computational facilities of the Advanced Com
 
 
 
-
-
-
-
-
-
-
-
 \section*{Supplementary Data}
-Supplementary data can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
+Supplementary data and scripts can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
 
 
 \end{document}
