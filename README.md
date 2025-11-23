@@ -115,4 +115,23 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 Full analysis runtime: 00h:05m:15s 
 ```
 
+# Step 3: Viewing Results
+To view results at all points along the pipeline, view the `results/` folder which has sub-directories number-linked to the respective scripts where their results were formed.  
 
+`results/` general structure: 
+```
+results
+    ├── 1_FASTQ_check
+    ├── 2_FASTQ_processed
+    ├── 3_FASTA_Q20
+    ├── 3_FASTA_raw
+    ├── 3_FASTQC_reports
+    ├── 4_blast_outputs
+    ├── 5_blast_filtering
+    ├── 6_blast_selected
+    ├── 7_efetch_FASTA
+    ├── 8_complete_FASTA
+    ├── 9_protein_FASTA
+    ├── 10_alignment_files
+    └──  11_tree_files
+```
