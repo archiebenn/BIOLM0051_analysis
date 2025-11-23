@@ -1,5 +1,5 @@
 # Heathrow "Mystery Meat" analysis pipeline  
-This analysis pipeline takes raw FASTQ files and ... [FINISH]
+This analysis takes unknown raw FASTQ files and produces species identifications and a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline.
 
 ## Requirements  
 - `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
@@ -45,6 +45,23 @@ chmod +x scripts/*
 # Step 2: Running the scripts  
 > [!IMPORTANT]
 > Please run all scripts from the project root.
+
+## Script Table
+Overview of script numbers and steps involved  
+| Script number | Step                | Script Description                              |
+|---------------|---------------------|-------------------------------------------------|
+| 1             | FASTQ check         | Checks input FASTQ file formats                 |
+| 2             | Concatenate FASTQ   | Combine split FASTQ parts                       |
+| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA     |
+| 4             | BLAST search        | Carries out remote `blastn` searches            |
+| 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`  |
+| 6             | Manual Selection    | Selects BLAST hits based on manual filters      |
+| 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences  |
+| 8             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs  |
+| 9             | Python translation  | Biopython script to translate to protein seqs   |
+| 10            | Alignment           | Uses `muscle5` to align protein sequences       |
+| 11            | Tree Build          | Uses `iqtree3` to build phylogenetic trees      |
+| 12            | Tree View           | Uses treefiles to visualise trees in Python     |
 
 ## Option A - Run Full Pipeline with `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
@@ -97,4 +114,5 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 [11] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
 Full analysis runtime: 00h:05m:15s 
 ```
+
 
