@@ -46,7 +46,7 @@ chmod +x scripts/*
 > [!IMPORTANT]
 > Please run all scripts from the project root.
 
-### Option A - `run_pipeline.sh`
+### Option A - Run Full Pipeline with `run_pipeline.sh`
 Execute all scripts in the correct order for this pipeline: 
 
 ```bash
@@ -73,6 +73,27 @@ Concatenating sampleB files...
 .
 .
 .
-[10] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
+[11] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
 Full analysis runtime: 00h:24m:31s 
 ```
+
+### Option B - Run pipeline from a specific script -> end `run_pipeline.sh <script-number>`
+This was introduced to allow users to skip lengthy steps of the pipeline as the full results folder is already provided here on GitHub.  
+For example, to run the analysis in full, but starting after the BLAST script (script 4 - which can take > 30 minutes): 
+```bash
+./scripts/run_pipeline.sh 5
+   __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
+  /  |/  /\ \/ / __/_  __/ __/ _ \ \/ /   /  |/  / __/ _ /_  __/   / _ | / |/ / _ | / /\ \/ / __/  _/ __/
+ / /|_/ /  \  /\ \  / / / _// , _/\  /   / /|_/ / _// __ |/ /     / __ |/    / __ |/ /__\  /\ \_/ /_\ \  
+/_/  /_/   /_/___/ /_/ /___/_/|_| /_/   /_/  /_/___/_/ |_/_/     /_/ |_/_/|_/_/ |_/____//_/___/___/___/  
+
+[5] Filtering BLAST hits...
+Splitting sampleA back into parts, sorting by staxid, adding taxonomic lineages, and manually selecting BLAST hits.
+Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages, and manually selecting BLAST hits.
+.
+.
+.
+[11] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
+Full analysis runtime: 00h:24m:31s 
+```
+
