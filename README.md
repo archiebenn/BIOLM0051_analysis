@@ -96,7 +96,7 @@ Full analysis runtime: 00h:24m:31s
 ```
 
 ## Option B - Run pipeline from a specific script -> end with `run_pipeline.sh <script-number>`
-Allows skipping slow steps of the pipeline which can lead to significantly shorter run times. This is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline will have to be run. 
+Allows skipping slow steps of the pipeline which can lead to significantly shorter run times. This is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run. 
 
 For example starting from script 5 (after BLAST search): 
 ```
@@ -117,7 +117,7 @@ Full analysis runtime: 00h:05m:15s
 ```
 
 # Step 3: Viewing Results
-All pipeline results are stored in the `results/` folder. This contains sub-directories number-linked to the respective scripts where the results were generated..  
+All pipeline results are stored in the `results/` folder. This contains sub-directories number-linked to the respective scripts where the results were generated.
 
 `results/` general structure: 
 ```
