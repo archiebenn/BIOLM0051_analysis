@@ -26,8 +26,10 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 (Recommended to ensure reproducibility)
 
 ```bash
-# clone this repo and navigate into project root
+# clone this repo 
 git clone git@github.com:archiebenn/BIOLM0051_analysis.git
+
+# navigate into project root
 cd BIOLM0051_analysis
 
 # create project environment 
