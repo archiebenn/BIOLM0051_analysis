@@ -2,6 +2,10 @@
 # 10_build_tree.sh - use iqtree to build phylogenetic tree based on alignment files
 # run from project root
 
+##########
+# 1. setup and error handling
+##########
+
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
@@ -11,7 +15,20 @@ cd results || \
 
 mkdir -p 11_tree_files 
 
-for file in 10_alignment_files/*.afa; do
+# set input folder to read from
+input_dir=10_alignment_files
+
+# check that the input folder from previous script contains files for the loop (and silences internal errors)
+ls "$input_dir"/*.afa >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_dir. Previous script may have failed. Exiting script."; exit 1; }
+
+
+
+##########
+# 2. main script loop for building phylogenetic trees using iqtree:
+##########
+
+for file in "$input_dir"/*.afa; do
 
     # extract basename
     name=$(basename "$file" _alignment.afa)

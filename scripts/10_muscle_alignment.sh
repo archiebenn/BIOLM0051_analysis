@@ -2,6 +2,10 @@
 # 9_muscle_alignment.sh - uses muscle to align fasta files and produce alignment files
 # run from project root
 
+##########
+# 1. setup and error handling
+##########
+
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
@@ -11,7 +15,20 @@ cd results || \
 
 mkdir -p 10_alignment_files
 
-for fasta in 9_protein_FASTA/*.fasta; do
+# set input folder to read from
+input_dir=9_protein_FASTA
+
+# check that the input folder from previous script contains files for the loop (and silences internal errors)
+ls "$input_dir"/*.fasta >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_dir. Previous script may have failed. Exiting script."; exit 1; }
+
+
+
+##########
+# 2. main script loop to align protein fasta sequences:
+##########
+
+for fasta in "$input_dir"/*.fasta; do
 
     # extract basename
     name=$(basename "$fasta" _complete.fasta_prot.fasta)

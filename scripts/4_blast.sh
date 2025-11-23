@@ -1,6 +1,10 @@
 #!/bin/bash
 # blast.sh - uses processed fasta file and carries out a blast nucletotide search. outputs in tsv format in results folder
 
+##########
+# 1. setup and error handling
+##########
+
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
@@ -11,7 +15,21 @@ cd results || \
 # make blast results folder
 mkdir -p 4_blast_outputs
 
-for fasta in 3_FASTA_Q20/*.fasta; do
+# set input folder to read from
+input_dir=3_FASTA_Q20
+
+# check that the input folder from previous script contains files for the loop (and silences internal errors)
+ls "$input_dir"/*.fasta >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_dir. Previous script may have failed. Exiting script."; exit 1; }
+
+
+
+##########
+# 2. main script loop to carry out blast search:
+##########
+
+# loops through each processed FASTA file
+for fasta in "$input_dir"/*.fasta; do
 
     # extract file base name
     name=$(basename "$fasta" _Q20.fasta)

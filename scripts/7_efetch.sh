@@ -2,6 +2,10 @@
 # efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample, with trimming to fit sstart and send from blast query
 # run from project root
 
+##########
+# 1. setup and error handling
+##########
+
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
@@ -9,13 +13,23 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# create output folder
 mkdir -p 7_efetch_FASTA
 
+# set input folder to read from
+input_dir=6_blast_selected
+
+# check that the input folder from previous script contains files for the loop (and silences internal errors)
+ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_dir. Previous script may have failed. Exiting script."; exit 1; }
+
+
+
 ##########
-# run efetch to retrieve fasta files, and trim to match region blast hit
+# 2. run efetch to retrieve fasta files, and trim to match region blast hit:
 ##########
 
-for tsv in 6_blast_selected/*.tsv; do
+for tsv in "$input_dir"/*.tsv; do
 
     # extract base name
     part_name=$(basename "$tsv" _selected.tsv)
@@ -23,7 +37,7 @@ for tsv in 6_blast_selected/*.tsv; do
     echo "Retrieving and trimming FASTA files for "$part_name" with efetch"
 
     # extract accession values, sstart, and send from each tsv. choosing top 15
-    cut -f2,10,11 6_blast_selected/"$part_name"_selected.tsv | head -n 15 > 7_efetch_FASTA/"$part_name"_blast.tsv
+    cut -f2,10,11 "$input_dir"/"$part_name"_selected.tsv | head -n 15 > 7_efetch_FASTA/"$part_name"_blast.tsv
 
     # reset fasta file
     > 7_efetch_FASTA/"$part_name".fasta

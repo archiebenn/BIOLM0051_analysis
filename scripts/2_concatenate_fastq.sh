@@ -2,6 +2,10 @@
 # concatenate_fastq.sh - clean and concatenate FASTQ parts into one file
 # run from the project root
 
+##########
+# setup  and error handling
+##########
+
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
@@ -13,12 +17,14 @@ fastq_folder=results/2_FASTQ_processed
 
 mkdir -p ../../"$fastq_folder"   
 
-# loops through samples A-D 
-for letter in {A..D}; do     
 
-    ##########
-    # concatenate fastq parts together:
-    ##########
+
+##########
+# main script loop to concatenate FASTQ:
+##########
+
+# loop through samples according to letter
+for letter in {A..D}; do     
 
     # create array of all FASTQ files for sample                                            
     files=(sample"${letter}"*.FASTQ)                                               

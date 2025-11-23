@@ -1,14 +1,16 @@
 # 8_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
 
+import sys
 import os
 from Bio import SeqIO
 
 # make results directory
 os.makedirs("../results/9_protein_FASTA", exist_ok=True)
 
-
 # set directory where fasta files are kept
 fasta_directory = "../results/8_complete_FASTA/"
+
+
 
 ##########
 # function to generate all 3 translation frames, select frame with least stops

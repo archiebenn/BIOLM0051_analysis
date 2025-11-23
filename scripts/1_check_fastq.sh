@@ -1,5 +1,5 @@
 #!/bin/bash
-# check_fastq.sh - a checking script to see if each sample fastq follows fastq format
+# check_fastq.sh - a checking script to see each fastq's main structure
 # run from project root
 
 # strict mode - exit on errors and pipeline failures
@@ -11,6 +11,12 @@ cd data/samples || \
 
 mkdir -p ../../results
 mkdir -p ../../results/1_FASTQ_check
+
+
+
+##########
+# main script loop to run FASTQ header check:
+##########
 
 # loop through FASTQs
 for fastq in *.FASTQ; do  
