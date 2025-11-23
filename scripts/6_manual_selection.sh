@@ -30,7 +30,7 @@ ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
 ##########
 
 # remove all of sampleD_part3 based on blast results (human contamination)
-rm "$input_dir"/sampleD_part3*
+rm -f "$input_dir"/sampleD_part3*
 
 # sampleA_part1 - removing OZ205431 and OZ071514. 
 # regions significantly different to others and belong to Odontoceti (87/88% pident), where rest of hits are Mysticeti (up to 97% pident)

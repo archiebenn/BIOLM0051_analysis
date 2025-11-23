@@ -5,7 +5,7 @@ import os
 from Bio import SeqIO
 
 # make results directory
-os.makedirs("../results/9_protein_FASTA", exist_ok=True)
+os.makedirs("results/9_protein_FASTA", exist_ok=True)
 
 # set directory where fasta files are kept
 fasta_directory = "results/8_complete_FASTA/"
@@ -40,7 +40,7 @@ def translate_all_frames(sequence):
 
 for filename in os.listdir(fasta_directory):
     # wipe each results file before appending
-    with open(f"../results/9_protein_FASTA/{filename}_prot.fasta", "w") as f:
+    with open(f"results/9_protein_FASTA/{filename}_prot.fasta", "w") as f:
         pass
 
     # use file name and SeqIO to open and then parse the fasta contents
@@ -51,5 +51,5 @@ for filename in os.listdir(fasta_directory):
         protein = translate_all_frames(sequence)
 
         # write out > + sequence id + protein sequence to results folder
-        with open(f"../results/9_protein_FASTA/{filename}_prot.fasta", "a") as f:
+        with open(f"results/9_protein_FASTA/{filename}_prot.fasta", "a") as f:
             f.write(f">{sequence.id}\n{protein}\n")
