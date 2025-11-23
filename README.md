@@ -77,8 +77,7 @@ Concatenating sampleB files...
 Full analysis runtime: 00h:24m:31s 
 ```
 
-## Option B - Run pipeline from a specific script -> end with  
-`run_pipeline.sh <script-number>`
+## Option B - Run pipeline from a specific script -> end with `run_pipeline.sh <script-number>`
 This was introduced to allow users to skip lengthy steps of the pipeline as the full results folder is already provided here on GitHub.  
 For example, to run the analysis in full, but starting after the BLAST script (script 4 - which can take > 30 minutes): 
 ```bash
