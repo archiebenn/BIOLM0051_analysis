@@ -2,13 +2,13 @@
 This analysis pipeline takes raw FASTQ files and ... [FINISH]
 
 ### Requirements  
-`micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
+- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, execute the following and restart your shell:
 
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
-NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
+- NCBI taxonomy dump is required to run this pipeline as `taxonkit` is used in script 5 (see: https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/). Please download and extract with the following before running:
 
 ```bash
 mkdir -p ~/.taxonkit
