@@ -23,7 +23,7 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 
 ### Step 1: Setting up the pipeline environment
-(Recommended to ensure reproducibility)
+Creating and activating the `micromamba` environment is recommended to ensure reproducibility
 
 ```bash
 # clone this repo 
@@ -32,7 +32,7 @@ git clone git@github.com:archiebenn/BIOLM0051_analysis.git
 # navigate into project root
 cd BIOLM0051_analysis
 
-# create project environment 
+# create project environment from environment.yml
 micromamba create -n mystery-meat-env -f environment.yml
 
 # activate project environment
