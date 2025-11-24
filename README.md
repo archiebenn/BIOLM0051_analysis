@@ -64,7 +64,7 @@ Overview of script numbers and steps involved
 | 11            | Tree Build          | Uses `iqtree3` to build phylogenetic trees      |
 | 12            | Tree View           | Visualise trees using Python                    |
 
-## Option A - Run Full Pipeline with `run_pipeline.sh`
+## Option A - Run Full Pipeline
 Execute all scripts in the correct order for this pipeline: 
 
 ```bash
@@ -95,7 +95,7 @@ Concatenating sampleB files...
 Full analysis runtime: 00h:24m:31s 
 ```
 
-## Option B - Run pipeline from a specific script -> End
+## Option B - Run pipeline from a specific script -> end
 Allows skipping slow steps of the pipeline which can lead to significantly shorter run times:  
 
 ```
