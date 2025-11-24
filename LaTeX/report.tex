@@ -135,6 +135,7 @@ The FASTQ files in this report are small and the use of HPC resources in this ca
 %%%%%%%%%%%%%%%
 \begin{figure}[htbp]
 \begin{center}
+\resizebox{0.75\linewidth}{!}{%
 \begin{tikzpicture}[node distance=2.5cm]
 \node (start) [startstop] {\textbf{Raw FASTQ files}};
 \node (pro2) [process, below of=start, align=center] {\textbf{QC and pre-processing}\\Concatenation, masking, and \\FASTQ to FASTA};
@@ -173,12 +174,14 @@ The FASTQ files in this report are small and the use of HPC resources in this ca
 \draw [arrow] (scr5) -- (scr6);
 \draw [arrow] (scr6) -- (scr7);
 
-
 \end{tikzpicture}
+}
 \end{center}
 \caption{Workflow of analysis pipeline.}
     \label{fig:workflow}
 \end{figure}
+
+
 
 Some python code: 
 %%%%%%%%%%%%%%%
