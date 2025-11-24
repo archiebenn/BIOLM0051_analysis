@@ -135,8 +135,8 @@ The FASTQ files in this report are small and the use of HPC resources in this ca
 %%%%%%%%%%%%%%%
 \begin{figure}[htbp]
 \begin{center}
-\resizebox{0.75\linewidth}{!}{%
-\begin{tikzpicture}[node distance=2.5cm]
+\resizebox{0.8\linewidth}{!}{%
+\begin{tikzpicture}[node distance=2.4cm]
 \node (start) [startstop] {\textbf{Raw FASTQ files}};
 \node (pro2) [process, below of=start, align=center] {\textbf{QC and pre-processing}\\Concatenation, masking, and \\FASTQ to FASTA};
 \node (pro3) [process, below of=pro2, align=center] {\textbf{BLAST search}\\Remote \texttt{blastn} against query FASTAs};
