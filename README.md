@@ -122,7 +122,7 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 Full analysis runtime: 00h:05m:15s 
 ```
 
-This is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run
+Please note this is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run (option A).
 
 
 
