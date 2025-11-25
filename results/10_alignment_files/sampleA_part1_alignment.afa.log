@@ -1,0 +1,56 @@
+IQ-TREE version 3.0.1 for Linux x86 64-bit built Jul  9 2025
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    thecomputer2 (AVX512, FMA3, 31 GB RAM)
+Command: iqtree3 -s 10_alignment_files/sampleA_part1_alignment.afa -m MFP -B 1000 -bnni -T AUTO -redo
+Seed:    577079 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Nov 24 23:24:20 2025
+Kernel:  AVX+FMA - auto-detect threads (8 CPU cores detected)
+
+Reading alignment file 10_alignment_files/sampleA_part1_alignment.afa ... Fasta format detected
+Reading fasta file: done in 0.000313091 secs using 27.47% CPU
+Alignment most likely contains protein sequences
+Constructing alignment: done in 0.000189188 secs using 98.84% CPU
+Alignment has 16 sequences with 175 columns, 31 distinct patterns
+1 parsimony-informative, 3 singleton sites, 171 constant sites
+                                       Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.00779694 secs using 608.3% CPU
+   1  AB201257.1_Balaenoptera_omurai           0.57%    passed    100.00%
+   2  AP006468.1_Balaenoptera_acutorostrata    0.57%    passed    100.00%
+   3  EU496283.1_Balaenoptera_ricei            2.29%    passed    100.00%
+   4  sampleA_part1                            2.86%    passed    100.00%
+   5  DQ095155.1_Eubalaena_australis           0.00%    passed    100.00%
+   6  AB201259.1_Balaenoptera_brydei           0.00%    passed    100.00%
+   7  AP006472.1_Balaena_mysticetus            0.00%    passed    100.00%
+   8  AP006475.1_Caperea_marginata             0.00%    passed    100.00%
+   9  DQ095154.1_Eubalaena_glacialis           0.00%    passed    100.00%
+  10  NC_006931.1_Eubalaena_japonica           0.00%    passed    100.00%
+  11  NC_006926.1_Balaenoptera_bonaerensis     0.00%    passed    100.00%
+  12  MF409248.1_Balaenoptera_borealis         0.00%    passed    100.00%
+  13  MW984423.1_Balaenoptera_edeni            0.00%    passed    100.00%
+  14  AP006471.1_Eschrichtius_robustus         0.00%    passed    100.00%
+  15  KC572709.1_Balaenoptera_physalus         0.00%    passed    100.00%
+  16  MF409242.1_Balaenoptera_musculus         0.00%    passed    100.00%
+****  TOTAL                                    0.39%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: AB201259.1_Balaenoptera_brydei is identical to DQ095155.1_Eubalaena_australis but kept for subsequent analysis
+NOTE: MF409242.1_Balaenoptera_musculus is identical to KC572709.1_Balaenoptera_physalus but kept for subsequent analysis
+Checking for duplicate sequences: done in 0.000829748 secs using 699.5% CPU
+Identifying sites to remove: done in 4.2729e-05 secs using 98.29% CPU
+NOTE: 7 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: AP006472.1_Balaena_mysticetus (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: AP006475.1_Caperea_marginata (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: DQ095154.1_Eubalaena_glacialis (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: NC_006931.1_Eubalaena_japonica (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: NC_006926.1_Balaenoptera_bonaerensis (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: MF409248.1_Balaenoptera_borealis (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+NOTE: MW984423.1_Balaenoptera_edeni (identical to DQ095155.1_Eubalaena_australis) is ignored but added at the end
+Alignment was printed to 10_alignment_files/sampleA_part1_alignment.afa.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to 10_alignment_files/sampleA_part1_alignment.afa.uniqueseq.phy
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.001 seconds
+Measuring multi-threading efficiency up to 8 CPU cores
+Increase to 10 rounds for branch lengths

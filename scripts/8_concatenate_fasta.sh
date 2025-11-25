@@ -33,7 +33,7 @@ ls "$input_dir3"/*.fasta >/dev/null 2>&1 || \
 
 
 ###########
-# 2. main script to loop over SampleA-D and extract header names from previous blast on unknown sequence:
+# 2. first main script to loop over SampleA-D and extract header names from previous blast on unknown sequence:
 ###########
 
 # sequences from same blast run
@@ -85,6 +85,21 @@ for sample in "$input_dir1"/*.fasta; do
     rm og_temp.fasta
 
 done
+
+###########
+# 3. second main script to loop over parts 1-3 and  and merge all part files together to end with part1_complete.fasta etc.
+###########
+
+# sequences just generate
+for part in 8_complete_FASTA/*.fasta; do
+
+    # extract basename
+    part = $(basename sample*_ "$part" _complete.fasta)
+
+    echo "$part"
+
+done
+
 
 
 cd ..
