@@ -33,7 +33,7 @@ for fasta in "$input_dir"/*.fasta; do
     # extract basename
     name=$(basename "$fasta" _complete.fasta_prot.fasta)
 
-    echo "Aligning sequences in "$name" with MUSCLE"
+    echo "Aligning "$name" sequences with MUSCLE"
 
     # run alignment with muscle
     muscle -align "$fasta" -output "$name"_alignment.afa 

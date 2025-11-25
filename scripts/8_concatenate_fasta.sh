@@ -86,20 +86,24 @@ for sample in "$input_dir1"/*.fasta; do
 
 done
 
+echo "DONE"
+
+
 ###########
-# 3. second main script to loop over parts 1-3 and  and merge all part files together to end with part1_complete.fasta etc.
+# 3. concatenate file parts back together 
 ###########
 
-# sequences just generate
-for part in 8_complete_FASTA/*.fasta; do
-
-    # extract basename
-    part = $(basename sample*_ "$part" _complete.fasta)
-
-    echo "$part"
-
+for number in {1..3}; do
+    cat 8_complete_FASTA/*part"$number"_complete.fasta >> part"$number"_complete.fasta
 done
 
+# empty directory
+rm 8_complete_FASTA/*
+
+# move part files back into results folder
+mv part1_complete.fasta 8_complete_FASTA/
+mv part2_complete.fasta 8_complete_FASTA/
+mv part3_complete.fasta 8_complete_FASTA/
 
 
 cd ..
