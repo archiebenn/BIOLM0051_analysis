@@ -19,4 +19,5 @@ dependencies:
   - trimal
   - figtree
   - aliview
+  - catfasta2phyml
   - pip
