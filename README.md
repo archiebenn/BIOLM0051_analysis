@@ -98,8 +98,8 @@ Full analysis runtime: 00h:24m:31s
 ## Option B - Run pipeline from a specific script -> end
 Allows skipping slow steps of the pipeline which can lead to significantly shorter run times:  
 
-```
-run_pipeline.sh <script-number>
+```bash
+./scripts/run_pipeline.sh <script-number>
 ```
 
 For example starting from script 5 (after BLAST search which can take > 30 minutes): 
