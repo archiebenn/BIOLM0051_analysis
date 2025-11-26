@@ -105,9 +105,18 @@ done
 ########## 
 # 5. create supermatrix using catfasta2phyml 
 ########## 
-catfasta2phyml part1_alignment_filtered.afa part2_alignment_filtered.afa part3_alignment_filtered.afa > supermatrix.afa 
+catfasta2phyml -f --concatenate part1_alignment_filtered.afa part2_alignment_filtered.afa part3_alignment_filtered.afa > supermatrix.afa 
 
 
+
+##########
+# 6. create partition text file for supermatrix
+##########
+
+# this defines where each part resides on the supermatrix 
+echo "AA, part1 = 1-183
+AA, part2 = 184-359
+AA, part3 = 360-526" > partition.txt
 
 
 cd ..

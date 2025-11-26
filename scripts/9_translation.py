@@ -13,7 +13,7 @@ fasta_directory = "results/8_complete_FASTA/"
 
 
 ##########
-# function to generate all 3 translation frames, select frame with least stops
+# 1. function to generate all 3 translation frames, select frame with least stops
 ##########
 
 def translate_all_frames(sequence):
@@ -35,7 +35,7 @@ def translate_all_frames(sequence):
     return best_protein
 
 ##########
-# access filenames in fasta directory and apply translation function
+# 2. access filenames in fasta directory and apply translation function
 ########## 
 
 for filename in os.listdir(fasta_directory):

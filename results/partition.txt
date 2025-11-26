@@ -1,0 +1,3 @@
+AA, part1_alignment_filtered.afa = 1-183
+AA, part2_alignment_filtered.afa = 184-359
+AA, part3_alignment_filtered.afa = 360-526

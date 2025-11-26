@@ -22,7 +22,7 @@ ls "$input_dir"/*.afa >/dev/null 2>&1 || \
 
 
 ##########
-# 2. main script loop for building phylogenetic trees using iqtree:
+# 2. main script loop for building phylogenetic part trees using iqtree:
 ##########
 
 for file in "$input_dir"/*.afa; do
@@ -42,5 +42,13 @@ for file in "$input_dir"/*.afa; do
     mv "$file".* 11_tree_files
 
 done
+
+
+
+##########
+# 3. build supermatrix tree with all samples  
+##########
+
+iqtree3 -s
 
 cd ..
