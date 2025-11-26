@@ -14,13 +14,7 @@ DQ095154.1_Eubalaena_glacialis
 AB201259.1_Balaenoptera_brydei
 MF409248.1_Balaenoptera_borealis
 DQ095155.1_Eubalaena_australis
-sampleA_part1
-sampleB_part1
-sampleC_part1
-sampleD_part1
-sampleA_part2
-sampleB_part2
-sampleD_part2
-sampleA_part3
-sampleC_part3
-sampleB_part3
+sampleA
+sampleB
+sampleC
+sampleD

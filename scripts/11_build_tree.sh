@@ -48,7 +48,7 @@ done
 ##########
 # 3. build supermatrix tree with all samples  
 ##########
-
-iqtree3 -s
+# reads supermatrix and off partition file to separate the parts (for potentially different mutation rates per part etc.)
+iqtree3 -s 10_supermatrix_files/supermatrix.afa -p 10_supermatrix_files/partition.txt -m MFP+MERGE -B 1000 --alrt 1000 -T AUTO -redo
 
 cd ..

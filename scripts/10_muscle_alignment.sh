@@ -14,6 +14,7 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 mkdir -p 10_alignment_files
+mkdir -p 10_supermatrix_files
 
 # set input folder to read from
 input_dir=9_protein_FASTA
@@ -71,16 +72,10 @@ DQ095154.1_Eubalaena_glacialis
 AB201259.1_Balaenoptera_brydei           
 MF409248.1_Balaenoptera_borealis       
 DQ095155.1_Eubalaena_australis
-sampleA_part1
-sampleB_part1
-sampleC_part1
-sampleD_part1
-sampleA_part2
-sampleB_part2
-sampleD_part2
-sampleA_part3
-sampleC_part3
-sampleB_part3" > keep.txt 
+sampleA
+sampleB
+sampleC
+sampleD" > keep.txt 
 
 # clean up spaces after name in keep.txt 
 sed -i 's/ //g' keep.txt 
@@ -93,10 +88,15 @@ sed -i 's/ //g' keep.txt
 for alignment in 10_alignment_files/*.afa; do 
 
     # extract basename 
-    name=$(basename "$alignment" .afa) 
+    name=$(basename "$alignment" _alignment.afa) 
+
+    # rename sampleA_part1 -> sampleA etc. for supermatrix  
+    sed -i 's/_part[0-9]*//g' "$alignment"
 
     # apply keep using seqkit
     seqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa 
+
+    #
 
 done 
 
@@ -105,7 +105,7 @@ done
 ########## 
 # 5. create supermatrix using catfasta2phyml 
 ########## 
-catfasta2phyml -f --concatenate part1_alignment_filtered.afa part2_alignment_filtered.afa part3_alignment_filtered.afa > supermatrix.afa 
+catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filtered.afa > supermatrix.afa 
 
 
 
@@ -118,5 +118,8 @@ echo "AA, part1 = 1-183
 AA, part2 = 184-359
 AA, part3 = 360-526" > partition.txt
 
+
+mv keep.txt supermatrix.afa partition.txt 10_supermatrix_files/
+rm part*_filtered.afa 
 
 cd ..
