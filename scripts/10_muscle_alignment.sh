@@ -51,6 +51,7 @@ done
 ########## 
 # 3. create a keep file to select species for the supermatrix 
 ########## 
+
 # these were selected when first creating a supermatrix with catfasta2phylm and an error message appeared 
 # this keepfile.txt keeps sequences with 2 or more occurrences across the 3 alignment files, along with the query sequences 
 
@@ -85,16 +86,19 @@ sampleB_part3" > keep.txt
 sed -i 's/ //g' keep.txt 
 
 
+
 ########## 
 # 4. apply keep.txt to filter the alignment sequences 
 ########## 
 for alignment in 10_alignment_files/*.afa; do 
 
-# extract basename 
-name=$(basename "$alignment" .afa) 
+    # extract basename 
+    name=$(basename "$alignment" .afa) 
 
-# apply keep using seqkit s
-eqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa done 
+    # apply keep using seqkit
+    seqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa 
+
+done 
 
 
 
@@ -102,6 +106,8 @@ eqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa done
 # 5. create supermatrix using catfasta2phyml 
 ########## 
 catfasta2phyml part1_alignment_filtered.afa part2_alignment_filtered.afa part3_alignment_filtered.afa > supermatrix.afa 
+
+
 
 
 cd ..
