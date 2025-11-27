@@ -56,8 +56,6 @@ for filename in os.listdir(fasta_directory):
         # translate each sequence in fasta file and select frame with least stops
         protein = translate_all_frames(sequence)
 
-        print(protein)
-
         # write out > + sequence id + protein sequence to results folder
         with open(f"results/9_protein_FASTA/{filename}_prot.fasta", "a") as f:
             f.write(f">{sequence.id}\n{protein}\n")

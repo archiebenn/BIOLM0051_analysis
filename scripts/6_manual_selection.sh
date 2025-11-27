@@ -29,6 +29,14 @@ ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
 # 2. manual selection of blast hits to keep while minimising bias:
 ##########
 
+# remove any multi-species hits which would be in the top 10 (below) tsv as they do not correspond to a clean reference genome
+grep -v 'Scomberomorus munroi x Scomberomorus semifasciatus' 5_blast_filtering/sampleC_part3_filtered_hits.tsv > temp
+mv temp 5_blast_filtering/sampleC_part3_filtered_hits.tsv
+
+grep -v 'Eretmochelys imbricata x Chelonia mydas' 5_blast_filtering/sampleD_part1_filtered_hits.tsv > temp
+mv temp 5_blast_filtering/sampleD_part1_filtered_hits.tsv
+
+
 # reduce filtered tsv size to a maximum length of 10 hits
 # these are already sorted by e value -> bitscore -> length so these are the 10 most biologically relevant BLAST hits
 for tsv in "$input_dir"/*.tsv; do
@@ -40,7 +48,8 @@ for tsv in "$input_dir"/*.tsv; do
 
 done
 
-# remove sampleD_part3. this is only hitting homo sapiens from blast, so likely contamination
+# remove sampleD_part3. this is only hitting homo sapiens from blast, so likely contamination.
+# emptying instead of deleting as deleting the file causes downstream loop issues
 rm 6_blast_selected/sampleD_part3_selected.tsv
 
 cd ..

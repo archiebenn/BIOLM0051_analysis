@@ -7,7 +7,7 @@
 ##########
 
 # strict mode - exit on errors and pipeline failures
-set -eo pipefail
+#set -eo pipefail
 
 # move into results/ and exit if not in root
 cd results || \
@@ -43,10 +43,14 @@ for sample in "$input_dir1"/*.fasta; do
     name=$(basename "$sample" _Q20.fasta)
 
     # extract header names of original Q20 fasta file (for each part)
-    for part in "$input_dir2"/"$name"*_blast.tsv; do
+    for tsv in "$input_dir2"/"$name"*_hits.tsv; do
 
         # extract part base name
-        part_name=$(basename "$part" _blast.tsv)
+        part_name=$(basename "$tsv" _filtered_hits.tsv)
+
+        # if part file does not exist in 7_efetch_FASTA, continue 
+        # added as sampleD_part3 has been deleted
+        [[ ! -f "$input_dir3"/"$part_name".fasta ]] && continue
 
         ##########
         # change efetch fasta header names to keep genus and species attached downstream
