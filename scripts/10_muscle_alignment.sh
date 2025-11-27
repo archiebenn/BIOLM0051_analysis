@@ -114,10 +114,9 @@ catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filt
 ##########
 
 # this defines where each part resides on the supermatrix 
-echo "AA, part1 = 1-183
-AA, part2 = 184-359
-AA, part3 = 360-526" > partition.txt
-
+echo "AA, part1 = 1-175
+AA, part2 = 176-351
+AA, part3 = 352-517" > partition.txt
 
 mv keep.txt supermatrix.afa partition.txt 10_supermatrix_files/
 rm part*_filtered.afa 
