@@ -78,7 +78,10 @@ for tsv in "$input_dir"/*.tsv; do
         grep -v "environmental" filtered1.tsv | grep -v " sp\." > filtered2.tsv
 
         # collapse tsv further by species (in case of one species with > 1 staxid attached) and save to results
-        awk -F'\t' '!seen[$15]++' filtered2.tsv >  5_blast_filtering/"$part_name"_species_best_hit.tsv
+        awk -F'\t' '!seen[$15]++' filtered2.tsv >  5_blast_filtering/"$part_name"_filtered_hits.tsv
+
+        # remove full per part blast to tidy results folder
+        rm 5_blast_filtering/"$part_name"_blast.tsv
 
     done
 

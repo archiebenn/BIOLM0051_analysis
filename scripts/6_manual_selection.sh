@@ -33,10 +33,10 @@ ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
 
 # all parts of sampleB - keeping the same 
 # only two unique staxids - both Monodontidae (only consists of 2 species - both hits, but all at 88-92%)
-for sample in "$input_dir"/sampleB*_best_hit.tsv; do
+for sample in "$input_dir"/sampleB*_filtered_hits.tsv; do
 
     # extract basename
-    name=$(basename "$sample" _species_best_hit.tsv)
+    name=$(basename "$sample" _filtered_hits.tsv)
 
     cp "$sample" 6_blast_selected/"$name"_selected.tsv
     
