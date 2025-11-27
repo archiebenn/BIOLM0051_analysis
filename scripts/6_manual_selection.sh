@@ -26,23 +26,21 @@ ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
 
 
 ##########
-# 2. manual selection of blast hits to keep:  
+# 2. manual selection of blast hits to keep while minimising bias:
 ##########
 
+# reduce filtered tsv size to a maximum length of 10 hits
+# these are already sorted by e value -> bitscore -> length so these are the 10 most biologically relevant BLAST hits
+for tsv in "$input_dir"/*.tsv; do
 
+    # extract basename 
+    part=$(basename "$tsv" _filtered_hits.tsv)
 
-# all parts of sampleB - keeping the same 
-# only two unique staxids - both Monodontidae (only consists of 2 species - both hits, but all at 88-92%)
-for sample in "$input_dir"/sampleB*_filtered_hits.tsv; do
+    head -n 10 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
 
-    # extract basename
-    name=$(basename "$sample" _filtered_hits.tsv)
-
-    cp "$sample" 6_blast_selected/"$name"_selected.tsv
-    
 done
 
-
-
+# remove sampleD_part3. this is only hitting homo sapiens from blast, so likely contamination
+rm 6_blast_selected/sampleD_part3_selected.tsv
 
 cd ..

@@ -34,6 +34,7 @@ for tsv in "$input_dir"/*.tsv; do
 
     ##########
     # split main blast output into each samples' parts:
+    # this is done as the parts appear to be homologous across samples, and downstream i will align on a per-part basis across samples.
     ##########
 
     # extract base name
