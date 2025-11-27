@@ -39,7 +39,7 @@ for tsv in "$input_dir"/*.tsv; do
     # extract base name
     name=$(basename "$tsv" _blast.tsv)
 
-    echo "Splitting "$name" back into parts, sorting by staxid, adding taxonomic lineages, and manually selecting BLAST hits."
+    echo "Splitting "$name" back into parts, sorting BLAST hits, adding taxonomic names and ranks, and selecting best hit per species."
 
     # take unique part/query names from blast, remove duplicates, and read each one
     cut -f1 "$input_dir"/"$name"_blast.tsv | sort -u | while read -r part_name; do
@@ -58,14 +58,27 @@ for tsv in "$input_dir"/*.tsv; do
         # extract part base name
         part_name=$(basename "$part" _blast.tsv)
 
-        # sort by staxid, then e value, then print line if unique staxid. this retrieves top blast hit for each staxid
-        sort -k3,3 -k12,12g 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > top_hits.tsv
+        # sort by e value ($12, numeric) 
+        # within same e value -> by bitscore ($13, reverse numeric) 
+        # within same e value and bitscore -> by length ($5)
+        # awk command = only print line if unique $3/staxid value (skips duplicate staxids). 
+        # this retrieves top blast hit for each staxid based on the above sorting -> results in ordered tsv of unique staxid hits 
+        sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > top_hits.tsv
 
-        # add taxonkit lineage for overview of blast
-        cut -f3 top_hits.tsv | taxonkit lineage > lineages.tsv 
+        # add taxonkit lineage for overview of blast species. -r -n -L taxonkit flags keep just name and rank of blast hit instead of whole lineage
+        cut -f3 top_hits.tsv | taxonkit lineage -r -n -L > lineages.tsv 
 
         # paste together (as order/line count kept for both temp files)
-        paste top_hits.tsv lineages.tsv >  5_blast_filtering/"$part_name"_top_hit_per_staxid.tsv
+        paste top_hits.tsv lineages.tsv > merged.tsv
+
+        # ensure hits are kept to only species level (no higher ranks or subspecies etc.)
+        awk -F'\t' '$16 == "species"' merged.tsv > filtered1.tsv
+
+        # remove any occurences containing unknown 'environmental samples' or unidentified 'sp.' hits
+        grep -v "environmental" filtered1.tsv | grep -v " sp\." > filtered2.tsv
+
+        # collapse tsv further by species (in case of one species with > 1 staxid attached) and save to results
+        awk -F'\t' '!seen[$15]++' filtered2.tsv >  5_blast_filtering/"$part_name"_species_best_hit.tsv
 
     done
 
@@ -73,5 +86,8 @@ done
 
 rm lineages.tsv 
 rm top_hits.tsv
+rm filtered1.tsv
+rm filtered2.tsv
+rm merged.tsv
 
 cd ..

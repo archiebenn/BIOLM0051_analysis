@@ -94,9 +94,8 @@ for alignment in 10_alignment_files/*.afa; do
     sed -i 's/_part[0-9]*//g' "$alignment"
 
     # apply keep using seqkit
-    seqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa 
-
-    #
+    #seqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa
+    cat "$alignment" > "$name"_filtered.afa 
 
 done 
 

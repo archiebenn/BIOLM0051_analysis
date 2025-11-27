@@ -1,6 +1,6 @@
 #nexus
 begin sets;
-  charset part1_part2_part3 = 1-183  184-359  360-526;
+  charset part1_part2_part3 = 1-175  176-351  352-517;
   charpartition mymodels =
-    MTZOA+G4: part1_part2_part3;
+    MTZOA+I+R2: part1_part2_part3;
 end;
