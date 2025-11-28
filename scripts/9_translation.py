@@ -14,17 +14,16 @@ os.makedirs("results/9_protein_FASTA", exist_ok=True)
 fasta_directory = "results/8_complete_FASTA/"
 
 
-
 ##########
 # 1. function to translate the nt sequence, and return the longest orf between stops of each sequence
 ##########
+
 
 def translate_all_frames(sequence):
     frames = []
 
     # repeat for each frame (in one direction)
     for i in range(3):
-
         # translate each sequence with a shift of 0,1,2 bases from the start
         aa = sequence.seq[i:].translate(table=2)
         frames.append(str(aa))
@@ -45,7 +44,7 @@ def translate_all_frames(sequence):
 
 ##########
 # 2. access filenames in fasta directory and apply translation function
-########## 
+##########
 
 for filename in os.listdir(fasta_directory):
     # wipe each results file before appending
