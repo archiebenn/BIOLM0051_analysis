@@ -13,7 +13,7 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
-# remove output folders if they exists (if re-running with existing results/))
+# remove output folders if they exist (if re-running with existing results/))
 rm -rf 11_alignment_files 11_supermatrix_files
 
 # make output folders
@@ -52,6 +52,14 @@ for fasta in "$input_dir"/*.fasta; do
 done
 
 
+
+##################
+# DO A TRIMAL THING HERE
+
+
+
+
+
 ########## 
 # 3. apply keep.txt to filter the alignment sequences 
 ########## 
@@ -60,12 +68,8 @@ for alignment in 11_alignment_files/*.afa; do
     # extract basename 
     name=$(basename "$alignment" _alignment.afa) 
 
-    # rename sampleA_part1 -> sampleA etc. for supermatrix  
-    sed -i 's/_part[0-9]*//g' "$alignment"
-
-    # apply keep using seqkit
-    #seqkit grep -n -f keep.txt "$alignment" > "$name"_filtered.afa
-    cat "$alignment" > "$name"_filtered.afa 
+    # sed to rename sampleA_part1 -> sampleA etc. for supermatrix (treats same headers as one sequence in supermatrix)
+    sed -i 's/_part[0-9]*//g' "$alignment"  > "$name"_filtered.afa 
 
 done 
 

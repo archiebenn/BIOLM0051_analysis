@@ -1,5 +1,6 @@
 #!/bin/bash
-# manual_selection.sh - selecting samples to manually remove based off lineage/blast filtering
+# manual_selection.sh - selecting samples to 'manually' remove based off lineage/blast filtering
+# ending up with tsv including top 5 selected blast hits for each part
 # run from project root 
 
 ##########
@@ -41,19 +42,19 @@ grep -v 'Eretmochelys imbricata x Chelonia mydas' 5_blast_filtering/sampleD_part
 mv temp 5_blast_filtering/sampleD_part1_filtered_hits.tsv
 
 
-# reduce filtered tsv size to a maximum length of 10 hits
+# reduce filtered tsv size to a maximum length of 5 hits
 # these are already sorted by e value -> bitscore -> length so these are the 10 most biologically relevant BLAST hits
 for tsv in "$input_dir"/*.tsv; do
 
     # extract basename 
     part=$(basename "$tsv" _filtered_hits.tsv)
 
-    # take top 5 of each blast - selected based on 15-20 phylogenetically diverse sequences in final tree
+    # take top 5 of each blast - selected based on 15-20 phylogenetically diverse references in final tree
     head -n 5 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
 
 done
 
-# remove sampleD_part3. this is only hitting homo sapiens from blast, so likely contamination.
+# remove sampleD_part3. this is only hitting homo sapiens from blast, so is likely contamination.
 # emptying instead of deleting as deleting the file causes downstream loop issues
 rm 6_blast_selected/sampleD_part3_selected.tsv
 

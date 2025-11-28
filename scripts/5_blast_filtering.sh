@@ -29,10 +29,10 @@ ls "$input_dir"/*.tsv >/dev/null 2>&1 || \
 
 
 ##########
-# 2. main script loop to separate blast output back into parts, attach taxonomies, and select top hits per staxid:
+# 2. main script loop to separate blast output back into parts, attach taxonkit names/ranks, and select top hits per species to a new tsv:
 ##########
 
-# loops through each blast output tsv
+# loops through each original blast output tsv
 for tsv in "$input_dir"/*.tsv; do
 
     ##########
@@ -54,7 +54,7 @@ for tsv in "$input_dir"/*.tsv; do
     done
 
     ##########
-    # take each part blast, retrieve top hit for each unique staxid sorted by e value:
+    # take each part blast and create a tsv of top blast hits by species from it:
     ##########
 
     for part in 5_blast_filtering/"$name"*_blast.tsv; do
@@ -62,10 +62,11 @@ for tsv in "$input_dir"/*.tsv; do
         # extract part base name
         part_name=$(basename "$part" _blast.tsv)
 
+        # main BLAST sorting order:
         # sort by e value ($12, numeric) 
         # within same e value -> by bitscore ($13, reverse numeric) 
-        # within same e value and bitscore -> by length ($5)
-        # awk command = only print line if unique $3/staxid value (skips duplicate staxids). 
+        # within same e value and bitscore -> by length ($5, reverse numeric)
+        # awk !seen on $3 = only print line if unique $3/staxid value (skips duplicate staxids). 
         # this retrieves top blast hit for each staxid based on the above sorting -> results in ordered tsv of unique staxid hits 
         sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv | awk -F'\t' '!seen[$3]++' > top_hits.tsv
 
@@ -78,7 +79,7 @@ for tsv in "$input_dir"/*.tsv; do
         # ensure hits are kept to only species level (no higher ranks or subspecies etc.)
         awk -F'\t' '$16 == "species"' merged.tsv > filtered1.tsv
 
-        # remove any occurences containing unknown 'environmental samples' or unidentified 'sp.' hits
+        # remove any occurences containing unknown 'environmental samples' or unidentified literal 'sp.' hits
         grep -v "environmental" filtered1.tsv | grep -v " sp\." > filtered2.tsv
 
         # collapse tsv further by species (in case of one species with > 1 staxid attached) and save to results

@@ -1,4 +1,4 @@
-# 10_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
+# 10_translation.py - a python script to translate the complete FASTA sequences from part 9
 
 import shutil
 import os
@@ -42,6 +42,14 @@ def find_orf(sequence):
     return best_orf
 
 
+
+
+#### TODO
+# def find_least_stops(COMPLETE!!)
+                     
+
+
+
 ##########
 # 2. access filenames in fasta directory and apply translation function
 ##########
@@ -54,6 +62,16 @@ for filename in os.listdir(fasta_directory):
     # use file name and SeqIO to open and then parse the fasta contents
     for sequence in SeqIO.parse(f"{fasta_directory}/{filename}", "fasta"):
         print(sequence.id, len(sequence.seq))
+
+
+
+        ### ######## TODO
+        # if sequence.id == outgroup names, apply just minimum stop function 
+        # else apply find_orf (can't use get orf on a full genome as would be unlikely to match same gene/orf as in refs and samples)
+
+
+
+
 
         # translate each sequence in fasta file and select frame with least stops
         protein = find_orf(sequence)

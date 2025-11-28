@@ -1,5 +1,5 @@
 #!/bin/bash
-# concatenate_fasta.sh - joins each original sample's parts to the trimmed fastas from efetch
+# concatenate_fasta.sh - joins each original sample's parts to the respective trimmed fastas from efetch and attaches the full outgroup mitochondrial genome
 # run from project root
 
 ##########
@@ -61,20 +61,17 @@ for sample in "$input_dir1"/*.fasta; do
         [[ ! -f "$input_dir3"/"$part_name".fasta ]] && continue
 
         ##########
-        # change efetch fasta header names to keep genus and species attached downstream
+        # change efetch fasta header names to just keep the genus and species 
         ##########
 
         # copy efetch fastas for header editing and to keep original efetch fastas intact
         cp "$input_dir3"/"$part_name".fasta  9_complete_FASTA/"$part_name"_complete.fasta
 
-        # select 2nd and 3rd space separated fields (genus and species in header), put undersocre in-between and save to temp
+        # select 2nd and 3rd space separated fields (genus and species in header), put undersocre in between genus and species, then save to temp
         awk '/^>/ {print ">" $2 "_" $3; next} {print}' 9_complete_FASTA/"$part_name"_complete.fasta > awk_temp.fasta  
 
         # overwrite with awk file to allow in-place edit
         mv awk_temp.fasta 9_complete_FASTA/"$part_name"_complete.fasta
-
-        # substitute all spaces to underscrores in header 
-        #sed -i '/^>/s/ /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
 
         ##########
         # concatenate edited efetch fastas and original part fastas
@@ -98,8 +95,9 @@ done
 echo "DONE"
 
 
+
 ###########
-# 3. concatenate file parts back together 
+# 3. concatenate file parts back together and attach outgroup mitochondrial genome fastas
 ###########
 
 for number in {1..3}; do
@@ -109,7 +107,6 @@ for number in {1..3}; do
 
     # header edit as in loop above, applied to outgroup full mitochondria genome and concatenated to the main fasta part file
     awk '/^>/ {print ">" $2 "_" $3; next} {print}' "$input_dir4"/*.fasta >>  part"$number"_complete.fasta
-
 
 done
 

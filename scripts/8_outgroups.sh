@@ -1,6 +1,5 @@
 #!/bin/bash
 # 8_outgroups.sh fetches outgroup fasta files for downstream trees
-# also includes blast and concatenation for the seelected outgroup species - Chilean Lamprey (Mordacia lapicida - NCBI taxid: 682881)
 # run from project root
 
 ##########
@@ -25,7 +24,7 @@ mkdir -p 8_outgroup_FASTA
 #########
 # 2. selecting outgroups and fetching fasta files
 #########
-# using cartilaginous fishes/chondrichthyes as the outgroup clade, some full mt genome accessions of rays below
+# using cartilaginous fishes/chondrichthyes as the outgroup clade, some full mt genome accessions of rays below:
 
 # Round Ribbontail Ray (Taeniura meyeni) full mt genome accession: NC_019641
 # Longtail butterfly ray (Gymnura poecilura) full mt genome accession: NC_024102 

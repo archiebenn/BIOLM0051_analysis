@@ -1,6 +1,6 @@
 #!/bin/bash
-# 7_efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample, with trimming to fit sstart and send from blast query
-# also includes blast and concatenation for the seelected outgroup species - Chilean Lamprey (Mordacia lapicida - NCBI taxid: 682881)
+# 7_efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample
+# includes fasta trimming to fit sstart and send from blast query
 # run from project root
 
 ##########
@@ -42,8 +42,8 @@ for tsv in "$input_dir"/*.tsv; do
 
     echo "Retrieving and trimming FASTA files for "$part_name" with efetch"
 
-    # extract accession values, sstart, and send from each tsv. choosing top 15
-    cut -f2,10,11 "$input_dir"/"$part_name"_selected.tsv | head -n 15 > 7_efetch_FASTA/"$part_name"_blast.tsv
+    # extract accession values, sstart, and send from each selected tsv  
+    cut -f2,10,11 "$input_dir"/"$part_name"_selected.tsv > 7_efetch_FASTA/"$part_name"_blast.tsv
 
     # reset fasta file
     > 7_efetch_FASTA/"$part_name".fasta
