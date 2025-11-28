@@ -15,6 +15,10 @@ cd data/samples || \
 
 fastq_folder=results/2_FASTQ_processed                                  
 
+# remove output folder if it exists (if re-running with existing results/)
+rm -rf ../../"$fastq_folder"
+
+# create ouput folder
 mkdir -p ../../"$fastq_folder"   
 
 

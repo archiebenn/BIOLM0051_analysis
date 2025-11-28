@@ -9,6 +9,10 @@ set -eo pipefail
 cd data/samples || \
 { echo "Samples directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folder if it exists (if re-running with existing results/)
+rm -rf ../../results/1_FASTQ_check
+
+# make output folders
 mkdir -p ../../results
 mkdir -p ../../results/1_FASTQ_check
 

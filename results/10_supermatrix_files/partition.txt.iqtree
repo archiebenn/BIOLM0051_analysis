@@ -3,7 +3,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 Partition file name: 10_supermatrix_files/partition.txt
 Input file name: 10_supermatrix_files/supermatrix.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 210590
+Random seed number: 421109
 
 REFERENCES
 ----------
@@ -42,10 +42,10 @@ https://doi.org/10.1093/sysbio/syw037
 SEQUENCE ALIGNMENT
 ------------------
 
-Input data: 48 taxa with 1 partitions and 517 total sites (0% missing data)
+Input data: 31 taxa with 1 partitions and 517 total sites (0% missing data)
 
   ID	Type	Seq	Site	Unique	Infor	Invar	Const	Name
-   1	AA	43	517	253	63	433	433	part1+part2+part3
+   1	AA	27	517	251	62	434	434	part1+part2+part3
 
 Column meanings:
   Unique: Number of unique site patterns
@@ -61,7 +61,7 @@ Best-fit model according to BIC: MTZOA+R2:part1+part2+part3
 List of best-fit models per partition:
 
   ID  Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
-   1  MTZOA+R2          -2180.344    4366.687 + 6.95e-310    4366.734 + 6.95e-310    4379.431 + 6.95e-310
+   1  MTZOA+R2          -2119.921    4245.843 + 6.95e-310    4245.890 + 6.95e-310    4258.587 + 6.95e-310
 
 AIC, w-AIC   : Akaike information criterion scores and weights.
 AICc, w-AICc : Corrected AIC scores and weights.
@@ -76,25 +76,25 @@ SUBSTITUTION PROCESS
 Edge-linked-proportional partition model with separate substitution models and separate rates across sites
 
   ID  Model           Speed  Parameters
-   1  MTZOA+R2       1.0000  MTZOA+R2{0.896533,0.357573,0.103467,6.56656}
+   1  MTZOA+R2       1.0000  MTZOA+R2{0.949253,0.487664,0.0507467,10.5836}
 
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Log-likelihood of the tree: -2166.7630 (s.e. 72.3657)
-Unconstrained log-likelihood (without tree): -2658.4852
-Number of free parameters (#branches + #model parameters): 85
-Akaike information criterion (AIC) score: 4503.5261
-Corrected Akaike information criterion (AICc) score: 4537.4472
-Bayesian information criterion (BIC) score: 4864.6097
+Log-likelihood of the tree: -2113.7725 (s.e. 67.1464)
+Unconstrained log-likelihood (without tree): -2654.2281
+Number of free parameters (#branches + #model parameters): 53
+Akaike information criterion (AIC) score: 4333.5450
+Corrected Akaike information criterion (AICc) score: 4345.9078
+Bayesian information criterion (BIC) score: 4558.6912
 
-Mixture-based log-likelihood of the tree: -2166.7630
-Marginal Akaike information criterion (mAIC) score: 4503.5261
+Mixture-based log-likelihood of the tree: -2113.7725
+Marginal Akaike information criterion (mAIC) score: 4333.5450
 
-Total tree length (sum of branch lengths): 0.4219
-Sum of internal branch lengths: 0.2723 (64.5325% of tree length)
+Total tree length (sum of branch lengths): 0.3941
+Sum of internal branch lengths: 0.2858 (72.5147% of tree length)
 
-WARNING: 25 near-zero internal branches (<0.0019) should be treated with caution
+WARNING: 13 near-zero internal branches (<0.0019) should be treated with caution
          Such branches are denoted by '**' in the figure below
 
 NOTE: Tree is UNROOTED although outgroup taxon 'Balaena_mysticetus' is drawn at root
@@ -102,100 +102,68 @@ Numbers in parentheses are SH-aLRT support (%) / ultrafast bootstrap support (%)
 
 +--Balaena_mysticetus
 |
-|        +**Balaenoptera_brydei
-|     +**| (0/30)
-|     |  |  +**Balaenoptera_edeni
-|     |  +--| (92.9/60)
-|     |     |     +**Eschrichtius_robustus
-|     |     |  +**| (0/35)
-|     |     |  |  +**Balaenoptera_borealis
-|     |     +--| (100/67)
-|     |        +**Balaenoptera_ricei
-|  +--| (93.8/38)
-|  |  +--Balaenoptera_bonaerensis
-+--| (73.6/25)
-|  |        +**Caperea_marginata
-|  |     +**| (0/33)
-|  |     |  |     +**Eubalaena_australis
-|  |     |  |  +**| (0/66)
-|  |     |  |  |  +**Eubalaena_glacialis
-|  |     |  +**| (0/78)
-|  |     |     +--sampleA
-|  |  +**| (0/37)
-|  |  |  +**Megaptera_novaeangliae
-|  +**| (0/25)
-|     +**Balaenoptera_acutorostrata
+|                                               +**Caretta_caretta
+|                                            +**| (0/53)
+|                                            |  +--Natator_depressus
+|                                         +--| (74/82)
+|                                         |  |     +**Dermochelys_coriacea
+|                                         |  |  +--| (88.7/89)
+|                                         |  |  |  |        +-----------sampleD
+|                                         |  |  |  |     +**| (0/55)
+|                                         |  |  |  |     |  |  +**Geoemyda_japonica
+|                                         |  |  |  |     |  +--| (75.2/81)
+|                                         |  |  |  |     |     +**Stigmochelys_pardalis
+|                                         |  |  |  |  +**| (0/33)
+|                                         |  |  |  |  |  +**Natator_depressa
+|                                         |  |  |  +**| (0/53)
+|                                         |  |  |     +**Chelonia_mydas
+|                                         |  +**| (0/48)
+|                                         |     +**Eretmochelys_imbricata
+|                            +------------| (88.1/91)
+|                            |            |  +**Lepidochelys_kempii
+|                            |            +**| (0/54)
+|                            |               +**Lepidochelys_olivacea
+|     +----------------------| (94/94)
+|     |                      |                                     +**Thunnus_albacares
+|     |                      |                                  +**| (0/36)
+|     |                      |                                  |  +**Thunnus_maccoyii
+|     |                      |                               +**| (0/26)
+|     |                      |                               |  +**Thunnus_atlanticus
+|     |                      |                            +**| (0/52)
+|     |                      |                            |  +---sampleC
+|     |                      +----------------------------| (90.7/98)
+|     |                                                   +**Thunnus_orientalis
+|  +--| (57.4/51)
+|  |  |  +--Eschrichtius_robustus
+|  |  +--| (75.4/67)
+|  |     +**Balaenoptera_brydei
++--| (64.3/64)
+|  |         +--Delphinapterus_leucas
+|  |      +--| (67.6/72)
+|  |      |  +--sampleB
+|  +------| (98.2/96)
+|         +--Monodon_monoceros
 |
-|     +**Balaenoptera_musculus
-|  +**| (0/48)
-|  |  |          +--Delphinapterus_leucas
-|  |  |       +--| (85.9/78)
-|  |  |       |  +--sampleB
-|  |  +-------| (92.6/91)
-|  |          +--Monodon_monoceros
-+--| (73.3/28)
-   |                                           +**Caretta_caretta
-   |                                        +--| (0/18)
-   |                                        |  |     +**Chelonia_mydas
-   |                                        |  |  +**| (0/59)
-   |                                        |  |  |  |        +**Dermochelys_coriacea
-   |                                        |  |  |  |     +**| (0/47)
-   |                                        |  |  |  |     |  |  +---Macrochelys_temminckii
-   |                                        |  |  |  |     |  +**| (0/42)
-   |                                        |  |  |  |     |     +----------sampleD
-   |                                        |  |  |  |  +--| (0/25)
-   |                                        |  |  |  |  |  +**Natator_depressa
-   |                                        |  |  |  +**| (0/67)
-   |                                        |  |  |     |     +**Chelonoidis_duncanensis
-   |                                        |  |  |     |  +**| (0/72)
-   |                                        |  |  |     |  |  |  +**Chelonoidis_niger
-   |                                        |  |  |     |  |  +**| (0/81)
-   |                                        |  |  |     |  |     +**Chelonoidis_phantasticus
-   |                                        |  |  |     +--| (76.9/85)
-   |                                        |  |  |        |  +**Cylindraspis_triserrata
-   |                                        |  |  |        +**| (0/46)
-   |                                        |  |  |           +**Geoemyda_japonica
-   |                                        |  +**| (0/42)
-   |                                        |     +---Geoemyda_spengleri
-   |                                     +**| (0/20)
-   |                                     |  |  +**Lepidochelys_kempii
-   |                                     |  +--| (77.5/77)
-   |                                     |     +**Lepidochelys_olivacea
-   |                                  +**| (0/37)
-   |                                  |  +--Natator_depressus
-   |                               +--| (72.5/58)
-   |                               |  +**Eretmochelys_imbricata
-   |                       +-------| (85.4/89)
-   |                       |       +**Geochelone_elegans
-   +-----------------------| (89.2/95)
-                           |                            +**Salmo_salar
-                           +----------------------------| (91.5/95)
-                                                        |        +**Thunnus_albacares
-                                                        |     +**| (0/49)
-                                                        |     |  |           +---sampleC
-                                                        |     |  |        +**| (0/30)
-                                                        |     |  |        |  +**Sarda_sarda
-                                                        |     |  |     +**| (0/7)
-                                                        |     |  |     |  +**Thunnus_alalunga
-                                                        |     |  |  +**| (0/24)
-                                                        |     |  |  |  +**Thunnus_atlanticus
-                                                        |     |  +**| (0/65)
-                                                        |     |     +**Auxis_rochei
-                                                        |  +**| (0/46)
-                                                        |  |  +**Thunnus_maccoyii
-                                                        +**| (0/56)
-                                                           +**Thunnus_orientalis
+|        +**Eubalaena_australis
+|     +**| (0/62)
+|     |  +**Eubalaena_glacialis
+|  +**| (0/56)
+|  |  |  +**Megaptera_novaeangliae
+|  |  +**| (0/46)
+|  |     +--sampleA
++**| (17.9/49)
+   +**Balaenoptera_acutorostrata
 
 Tree in newick format:
 
-(Balaena_mysticetus:0.0024670067,(((Balaenoptera_brydei:0.0000010185,(Balaenoptera_edeni:0.0000010185,((Eschrichtius_robustus:0.0000026745,Balaenoptera_borealis:0.0000010185)0/35:0.0000023805,Balaenoptera_ricei:0.0000010185)100/67:0.0066230833)92.9/60:0.0021971780)0/30:0.0000014662,Balaenoptera_bonaerensis:0.0117840864)93.8/38:0.0070083064,(((Caperea_marginata:0.0000010185,((Eubalaena_australis:0.0000010185,Eubalaena_glacialis:0.0000010185)0/66:0.0000010185,sampleA:0.0021932976)0/78:0.0000028222)0/33:0.0000022354,Megaptera_novaeangliae:0.0000010185)0/37:0.0018197569,Balaenoptera_acutorostrata:0.0000010185)0/25:0.0000016917)73.6/25:0.0023544139,((Balaenoptera_musculus:0.0000023024,((Delphinapterus_leucas:0.0127203697,sampleB:0.0096858070)85.9/78:0.0113149496,Monodon_monoceros:0.0030456117)92.6/91:0.0266668271)0/48:0.0000028334,((((((Caretta_caretta:0.0000010185,((Chelonia_mydas:0.0000010185,(((Dermochelys_coriacea:0.0000010185,(Macrochelys_temminckii:0.0142259982,sampleD:0.0357935566)0/42:0.0000020210)0/47:0.0000021055,Natator_depressa:0.0000010185)0/25:0.0034531987,((Chelonoidis_duncanensis:0.0000010185,(Chelonoidis_niger:0.0000010185,Chelonoidis_phantasticus:0.0000010185)0/81:0.0000010185)0/72:0.0000010185,(Cylindraspis_triserrata:0.0000010185,Geoemyda_japonica:0.0000025121)0/46:0.0000025248)76.9/85:0.0072349747)0/67:0.0000013838)0/59:0.0000021075,Geoemyda_spengleri:0.0143174873)0/42:0.0000021065)0/18:0.0034712706,(Lepidochelys_kempii:0.0000010185,Lepidochelys_olivacea:0.0000010185)77.5/77:0.0075027314)0/20:0.0000025327,Natator_depressus:0.0070891853)0/37:0.0000024822,Eretmochelys_imbricata:0.0000010185)72.5/58:0.0059296079,Geochelone_elegans:0.0000023919)85.4/89:0.0278068264,(Salmo_salar:0.0000010185,(((Thunnus_albacares:0.0000027881,((((sampleC:0.0149000957,Sarda_sarda:0.0000010185)0/30:0.0000028701,Thunnus_alalunga:0.0000010185)0/7:0.0000010185,Thunnus_atlanticus:0.0000010185)0/24:0.0000010185,Auxis_rochei:0.0000010185)0/65:0.0000010185)0/49:0.0000010185,Thunnus_maccoyii:0.0000010185)0/46:0.0000010185,Thunnus_orientalis:0.0000010185)0/56:0.0000023911)91.5/95:0.0951235038)89.2/95:0.0784373620)73.3/28:0.0066323045);
+(Balaena_mysticetus:0.0053562964,((((((Caretta_caretta:0.0000010000,Natator_depressus:0.0041350206)0/53:0.0000024800,((Dermochelys_coriacea:0.0000010000,(((sampleD:0.0431317500,(Geoemyda_japonica:0.0000010000,Stigmochelys_pardalis:0.0000010000)75.2/81:0.0084735275)0/55:0.0000027431,Natator_depressa:0.0000010000)0/33:0.0000021001,Chelonia_mydas:0.0000010000)0/53:0.0000010000)88.7/89:0.0100661913,Eretmochelys_imbricata:0.0000010000)0/48:0.0000010000)74/82:0.0068263653,(Lepidochelys_kempii:0.0000010000,Lepidochelys_olivacea:0.0000010000)0/54:0.0000010000)88.1/91:0.0439638168,((((Thunnus_albacares:0.0000010000,Thunnus_maccoyii:0.0000010000)0/36:0.0000010000,Thunnus_atlanticus:0.0000010000)0/26:0.0000029049,sampleC:0.0137647394)0/52:0.0000010000,Thunnus_orientalis:0.0000010000)90.7/98:0.0966714360)94/94:0.0773171074,(Eschrichtius_robustus:0.0024188214,Balaenoptera_brydei:0.0000010000)75.4/67:0.0029824530)57.4/51:0.0026927460,((Delphinapterus_leucas:0.0127561859,sampleB:0.0103541776)67.6/72:0.0093094625,Monodon_monoceros:0.0057032432)98.2/96:0.0255029005)64.3/64:0.0088944344,(((Eubalaena_australis:0.0000010000,Eubalaena_glacialis:0.0000010000)0/62:0.0000010000,(Megaptera_novaeangliae:0.0000010000,sampleA:0.0022069706)0/46:0.0000025566)0/56:0.0000010000,Balaenoptera_acutorostrata:0.0000010000)17.9/49:0.0015531665);
 
 CONSENSUS TREE
 --------------
 
 Consensus tree is constructed from 1000 bootstrap trees
-Log-likelihood of consensus tree: -2166.781715
-Robinson-Foulds distance between ML tree and consensus tree: 10
+Log-likelihood of consensus tree: -2113.782190
+Robinson-Foulds distance between ML tree and consensus tree: 4
 
 Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
@@ -203,104 +171,70 @@ Numbers in parentheses are bootstrap supports (%)
 
 +--Balaena_mysticetus
 |
-|        +--Balaenoptera_brydei
-|     +--| (30)
-|     |  +--Balaenoptera_bonaerensis
-|  +--| (38)
-|  |  |  +--Balaenoptera_edeni
-|  |  +--| (60)
-|  |     |     +--Eschrichtius_robustus
-|  |     |  +--| (38)
-|  |     |  |  +--Balaenoptera_ricei
-|  |     +--| (67)
-|  |        +--Balaenoptera_borealis
-+--| (25)
-|  |        +--Caperea_marginata
-|  |     +--| (33)
-|  |     |  |        +**Eubalaena_australis
-|  |     |  |     +--|
-|  |     |  |     |  +**Eubalaena_japonica
-|  |     |  |  +--| (66)
-|  |     |  |  |  +--Eubalaena_glacialis
-|  |     |  +--| (78)
-|  |     |     +--sampleA
-|  |  +--| (37)
-|  |  |  +--Megaptera_novaeangliae
-|  +--| (25)
-|     +--Balaenoptera_acutorostrata
+|                                               +--Caretta_caretta
+|                                            +--| (53)
+|                                            |  +--Natator_depressus
+|                                         +--| (82)
+|                                         |  |     +--Dermochelys_coriacea
+|                                         |  |  +--| (89)
+|                                         |  |  |  |        +-----------sampleD
+|                                         |  |  |  |     +--| (55)
+|                                         |  |  |  |     |  |  +--Geoemyda_japonica
+|                                         |  |  |  |     |  +--| (81)
+|                                         |  |  |  |     |     +--Stigmochelys_pardalis
+|                                         |  |  |  |  +--| (37)
+|                                         |  |  |  |  |  +--Chelonia_mydas
+|                                         |  |  |  +--| (53)
+|                                         |  |  |     +--Natator_depressa
+|                                         |  +--| (48)
+|                                         |     +--Eretmochelys_imbricata
+|                            +------------| (91)
+|                            |            |  +--Lepidochelys_kempii
+|                            |            +--| (54)
+|                            |               +--Lepidochelys_olivacea
+|     +----------------------| (94)
+|     |                      |                                           +**Thunnus_albacares
+|     |                      |                                        +**|
+|     |                      |                                        |  +**Thunnus_tonggol
+|     |                      |                                     +**|
+|     |                      |                                     |  +**Thunnus_obesus
+|     |                      |                                  +--|
+|     |                      |                                  |  +**Thunnus_thynnus
+|     |                      |                               +--| (36)
+|     |                      |                               |  +--Thunnus_maccoyii
+|     |                      |                            +--| (52)
+|     |                      |                            |  |  +---sampleC
+|     |                      |                            |  +--| (37)
+|     |                      |                            |     +--Thunnus_atlanticus
+|     |                      +----------------------------| (98)
+|     |                                                   +--Thunnus_orientalis
+|  +--| (51)
+|  |  |  +--Eschrichtius_robustus
+|  |  +--| (67)
+|  |     +--Balaenoptera_brydei
++--| (64)
+|  |         +--Delphinapterus_leucas
+|  |      +--| (72)
+|  |      |  +--sampleB
+|  +------| (96)
+|         +--Monodon_monoceros
 |
-|     +--Balaenoptera_musculus
-|  +--| (48)
-|  |  |          +--Delphinapterus_leucas
-|  |  |       +--| (78)
-|  |  |       |  +--sampleB
-|  |  +-------| (91)
-|  |          +--Monodon_monoceros
-+--| (28)
-   |                                        +--Caretta_caretta
-   |                                     +--| (20)
-   |                                     |  |        +--Chelonia_mydas
-   |                                     |  |     +--| (59)
-   |                                     |  |     |  |        +--Dermochelys_coriacea
-   |                                     |  |     |  |     +--| (47)
-   |                                     |  |     |  |     |  |  +---Macrochelys_temminckii
-   |                                     |  |     |  |     |  +--| (42)
-   |                                     |  |     |  |     |     +----------sampleD
-   |                                     |  |     |  |  +--| (56)
-   |                                     |  |     |  |  |  |     +--Chelonoidis_duncanensis
-   |                                     |  |     |  |  |  |  +--| (72)
-   |                                     |  |     |  |  |  |  |  |  +--Chelonoidis_niger
-   |                                     |  |     |  |  |  |  |  +--| (81)
-   |                                     |  |     |  |  |  |  |     +--Chelonoidis_phantasticus
-   |                                     |  |     |  |  |  +--| (85)
-   |                                     |  |     |  |  |     |     +**Cylindraspis_triserrata
-   |                                     |  |     |  |  |     |  +--|
-   |                                     |  |     |  |  |     |  |  +**Stigmochelys_pardalis
-   |                                     |  |     |  |  |     +--| (46)
-   |                                     |  |     |  |  |        +--Geoemyda_japonica
-   |                                     |  |     |  +--| (67)
-   |                                     |  |     |     +--Natator_depressa
-   |                                     |  |  +--| (42)
-   |                                     |  |  |  +---Geoemyda_spengleri
-   |                                     |  +--| (24)
-   |                                     |     |  +--Lepidochelys_kempii
-   |                                     |     +--| (77)
-   |                                     |        +--Lepidochelys_olivacea
-   |                                  +--| (37)
-   |                                  |  +--Natator_depressus
-   |                               +--| (58)
-   |                               |  +--Eretmochelys_imbricata
-   |                       +-------| (89)
-   |                       |       +--Geochelone_elegans
-   +-----------------------| (95)
-                           |                            +--Salmo_salar
-                           +----------------------------| (95)
-                                                        |                 +**Thunnus_albacares
-                                                        |              +**|
-                                                        |              |  +**Thunnus_thynnus
-                                                        |           +**|
-                                                        |           |  +**Thunnus_obesus
-                                                        |        +--|
-                                                        |        |  +**Thunnus_tonggol
-                                                        |     +--| (49)
-                                                        |     |  |           +---sampleC
-                                                        |     |  |        +--| (30)
-                                                        |     |  |        |  +--Sarda_sarda
-                                                        |     |  |     +--| (19)
-                                                        |     |  |     |  +--Thunnus_atlanticus
-                                                        |     |  |  +--| (24)
-                                                        |     |  |  |  +--Thunnus_alalunga
-                                                        |     |  +--| (65)
-                                                        |     |     +--Auxis_rochei
-                                                        |  +--| (46)
-                                                        |  |  +--Thunnus_maccoyii
-                                                        +--| (56)
-                                                           +--Thunnus_orientalis
+|           +**Eubalaena_australis
+|        +--|
+|        |  +**Eubalaena_japonica
+|     +--| (62)
+|     |  +--Eubalaena_glacialis
+|  +--| (56)
+|  |  |  +--Megaptera_novaeangliae
+|  |  +--| (46)
+|  |     +--sampleA
++--| (49)
+   +--Balaenoptera_acutorostrata
 
 
 Consensus tree in newick format: 
 
-(Balaena_mysticetus:0.0024661622,(((Balaenoptera_brydei:0.0000028919,Balaenoptera_bonaerensis:0.0117849372)30:0.0000028919,(Balaenoptera_edeni:0.0000028919,((Eschrichtius_robustus:0.0059818789,Balaenoptera_ricei:0.0000028919)38:0.0006409180,Balaenoptera_borealis:0.0000028919)67:0.0000024254)60:0.0021966757)38:0.0070087517,(((Caperea_marginata:0.0000028919,(((Eubalaena_australis:0.0000000000,Eubalaena_japonica:0.0000000000):0.0000028919,Eubalaena_glacialis:0.0000028919)66:0.0000028919,sampleA:0.0021928454)78:0.0018170088)33:0.0000028963,Megaptera_novaeangliae:0.0000028919)37:0.0000028963,Balaenoptera_acutorostrata:0.0000028919)25:0.0000028963)25:0.0023538468,((Balaenoptera_musculus:0.0000028963,((Delphinapterus_leucas:0.0127216078,sampleB:0.0096861036)78:0.0113155922,Monodon_monoceros:0.0030451230)91:0.0266663687)48:0.0000029541,(((((Caretta_caretta:0.0000028919,(((Chelonia_mydas:0.0000028919,(((Dermochelys_coriacea:0.0000028919,(Macrochelys_temminckii:0.0142203177,sampleD:0.0357867960)42:0.0000024254)47:0.0000040150,((Chelonoidis_duncanensis:0.0000028919,(Chelonoidis_niger:0.0000028919,Chelonoidis_phantasticus:0.0000028919)81:0.0000028919)72:0.0000028919,((Cylindraspis_triserrata:0.0000000000,Stigmochelys_pardalis:0.0000000000):0.0000028919,Geoemyda_japonica:0.0000028919)46:0.0000028919)85:0.0072342665)56:0.0015134873,Natator_depressa:0.0000028919)67:0.0019347351)59:0.0000028919,Geoemyda_spengleri:0.0143126932)42:0.0000393399,(Lepidochelys_kempii:0.0000028919,Lepidochelys_olivacea:0.0000028919)77:0.0075000561)24:0.0000188338)20:0.0019645327,Natator_depressus:0.0070991660)37:0.0014358114,Eretmochelys_imbricata:0.0000028919)58:0.0059141368,Geochelone_elegans:0.0000028919)89:0.0277708165,(Salmo_salar:0.0000028919,((((((Thunnus_albacares:0.0000000000,Thunnus_thynnus:0.0000000000):0.0000000000,Thunnus_obesus:0.0000000000):0.0000000000,Thunnus_tonggol:0.0000000000):0.0000028919,((((sampleC:0.0149009647,Sarda_sarda:0.0000028919)30:0.0000023291,Thunnus_atlanticus:0.0000028919)19:0.0000023291,Thunnus_alalunga:0.0000028919)24:0.0000023291,Auxis_rochei:0.0000028919)65:0.0000023291)49:0.0000022057,Thunnus_maccoyii:0.0000028919)46:0.0000022057,Thunnus_orientalis:0.0000028919)56:0.0000028221)95:0.0950538982)95:0.0784853031)28:0.0066332115);
+(Balaena_mysticetus:0.0053551376,((((((Caretta_caretta:0.0000028919,Natator_depressus:0.0019009665)53:0.0022050757,((Dermochelys_coriacea:0.0000028919,(((sampleD:0.0431475210,(Geoemyda_japonica:0.0000028919,Stigmochelys_pardalis:0.0000028919)81:0.0084807391)55:0.0000029209,Chelonia_mydas:0.0000028919)37:0.0000029187,Natator_depressa:0.0000028919)53:0.0000024453)89:0.0100876151,Eretmochelys_imbricata:0.0000028919)48:0.0000022057)82:0.0068224002,(Lepidochelys_kempii:0.0000028919,Lepidochelys_olivacea:0.0000028919)54:0.0000028919)91:0.0438284145,((((((Thunnus_albacares:0.0000000000,Thunnus_tonggol:0.0000000000):0.0000000000,Thunnus_obesus:0.0000000000):0.0000000000,Thunnus_thynnus:0.0000000000):0.0000028919,Thunnus_maccoyii:0.0000028919)36:0.0000028919,(sampleC:0.0137713988,Thunnus_atlanticus:0.0000028919)37:0.0000022057)52:0.0000023121,Thunnus_orientalis:0.0000028919)98:0.0963839585)94:0.0774881974,(Eschrichtius_robustus:0.0024190455,Balaenoptera_brydei:0.0000028919)67:0.0029812157)51:0.0026933183,((Delphinapterus_leucas:0.0127554817,sampleB:0.0103539733)72:0.0093090891,Monodon_monoceros:0.0057031946)96:0.0255042109)64:0.0088959403,((((Eubalaena_australis:0.0000000000,Eubalaena_japonica:0.0000000000):0.0000028919,Eubalaena_glacialis:0.0000028919)62:0.0000028919,(Megaptera_novaeangliae:0.0000028919,sampleA:0.0020010801)46:0.0002084188)56:0.0015307885,Balaenoptera_acutorostrata:0.0000028919)49:0.0000204786);
 
 ALISIM COMMAND
 --------------
@@ -321,7 +255,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Fri Nov 28 00:05:39 2025
-Total CPU time used: 1191.482824 seconds (0h:19m:51s)
-Total wall-clock time used: 589.7624475 seconds (0h:9m:49s)
+Date and time: Fri Nov 28 12:18:55 2025
+Total CPU time used: 356.364075 seconds (0h:5m:56s)
+Total wall-clock time used: 184.4362585 seconds (0h:3m:4s)
 

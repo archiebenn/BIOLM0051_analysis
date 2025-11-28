@@ -12,8 +12,13 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+
+# remove output folder if it exists (if re-running with existing results/)
+rm -rf 4_blast_outputs
+
 # make blast results folder
 mkdir -p 4_blast_outputs
+
 
 # set input folder to read from
 input_dir=3_FASTA_Q20

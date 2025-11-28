@@ -13,6 +13,9 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folder if it exists (if re-running with existing results/))
+rm -rf 7_efetch_FASTA
+
 # create output folder
 mkdir -p 7_efetch_FASTA
 

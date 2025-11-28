@@ -13,6 +13,10 @@
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folder if it exists (if re-running with existing results/))
+rm -rf 8_complete_FASTA
+
+# make output folder
 mkdir -p 8_complete_FASTA
 
 # set input folders to read from
@@ -33,7 +37,7 @@ ls "$input_dir3"/*.fasta >/dev/null 2>&1 || \
 
 
 ###########
-# 2. first main script to loop over SampleA-D and extract header names from previous blast on unknown sequence:
+# 2. main script to loop over SampleA-D and extract header names from previous blast on unknown sequence:
 ###########
 
 # sequences from same blast run

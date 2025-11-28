@@ -13,8 +13,12 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folder if it exists (if re-running with existing results/))
+rm -rf 6_blast_selected
+
 # create output folder
 mkdir -p 6_blast_selected
+
 
 # set input folder to read from
 input_dir=5_blast_filtering
@@ -44,7 +48,8 @@ for tsv in "$input_dir"/*.tsv; do
     # extract basename 
     part=$(basename "$tsv" _filtered_hits.tsv)
 
-    head -n 10 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
+    # take top 6 of each blast - selected based on 15-20 phylogenetically diverse sequences in final tree
+    head -n 6 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
 
 done
 

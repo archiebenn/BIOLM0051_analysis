@@ -13,6 +13,10 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folders if they exists (if re-running with existing results/))
+rm -rf 10_alignment_files 10_supermatrix_files
+
+# make output folders
 mkdir -p 10_alignment_files
 mkdir -p 10_supermatrix_files
 
@@ -48,42 +52,8 @@ for fasta in "$input_dir"/*.fasta; do
 done
 
 
-
 ########## 
-# 3. create a keep file to select species for the supermatrix 
-########## 
-
-# these were selected when first creating a supermatrix with catfasta2phylm and an error message appeared 
-# this keepfile.txt keeps sequences with 2 or more occurrences across the 3 alignment files, along with the query sequences 
-
-echo "AB201257.1_Balaenoptera_omurai            
-DQ256378.1_Chelydra_serpentina            
-AP006472.1_Balaena_mysticetus             
-AP006471.1_Eschrichtius_robustus          
-AP006468.1_Balaenoptera_acutorostrata     
-JX454979.1_Lepidochelys_olivacea          
-PQ997938.1_Balaenoptera_ricei             
-NC_009260.1_Macrochelys_temminckii        
-NC_007938.1_Balaenoptera_edeni            
-NC_006926.1_Balaenoptera_bonaerensis      
-NC_006931.1_Eubalaena_japonica            
-AP006475.1_Caperea_marginata            
-DQ095154.1_Eubalaena_glacialis            
-AB201259.1_Balaenoptera_brydei           
-MF409248.1_Balaenoptera_borealis       
-DQ095155.1_Eubalaena_australis
-sampleA
-sampleB
-sampleC
-sampleD" > keep.txt 
-
-# clean up spaces after name in keep.txt 
-sed -i 's/ //g' keep.txt 
-
-
-
-########## 
-# 4. apply keep.txt to filter the alignment sequences 
+# 3. apply keep.txt to filter the alignment sequences 
 ########## 
 for alignment in 10_alignment_files/*.afa; do 
 
@@ -102,7 +72,7 @@ done
 
 
 ########## 
-# 5. create supermatrix using catfasta2phyml 
+# 4. create supermatrix using catfasta2phyml 
 ########## 
 catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filtered.afa > supermatrix.afa 
 
@@ -117,7 +87,7 @@ echo "AA, part1 = 1-175
 AA, part2 = 176-351
 AA, part3 = 352-517" > partition.txt
 
-mv keep.txt supermatrix.afa partition.txt 10_supermatrix_files/
+mv supermatrix.afa partition.txt 10_supermatrix_files/
 rm part*_filtered.afa 
 
 cd ..

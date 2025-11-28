@@ -13,6 +13,9 @@ set -eo pipefail
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folders if they exist (if re-running with existing results/)
+rm -rf 3_FASTQC_reports 3_FASTA_Q20 3_FASTA_raw
+
 # make directories for raw FASTA and trimmed FASTA sequences
 mkdir -p 3_FASTQC_reports
 mkdir -p 3_FASTA_Q20

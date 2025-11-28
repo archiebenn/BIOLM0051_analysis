@@ -4,6 +4,8 @@ import os
 import matplotlib.pyplot as plt
 from Bio import Phylo
 
+# remove output folder if it exists (if re-running with existing results/))
+shutil.rmtree("../results/12_phylo_trees", ignore_errors=True)
 os.makedirs("../results/12_phylo_trees", exist_ok=True)
 
 treefile_directory  = "../results/11_tree_files"

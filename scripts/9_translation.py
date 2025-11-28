@@ -1,8 +1,11 @@
 # 8_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
 
-import sys
+import shutil
 import os
 from Bio import SeqIO
+
+# remove output folder if it exists (if re-running with existing results/))
+shutil.rmtree("results/9_protein_FASTA", ignore_errors=True)
 
 # make results directory
 os.makedirs("results/9_protein_FASTA", exist_ok=True)

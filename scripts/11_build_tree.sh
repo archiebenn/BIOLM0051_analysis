@@ -10,6 +10,10 @@
 cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
+# remove output folders if they exists (if re-running with existing results/))
+rm -rf 11_tree_files
+
+# make output folder
 mkdir -p 11_tree_files 
 
 # set input folder to read from
