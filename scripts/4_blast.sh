@@ -14,7 +14,7 @@ cd results || \
 
 
 # remove output folder if it exists (if re-running with existing results/)
-rm -rf 4_blast_outputs
+rm -rf 4_blast_outputs 
 
 # make blast results folder
 mkdir -p 4_blast_outputs
@@ -30,7 +30,7 @@ ls "$input_dir"/*.fasta >/dev/null 2>&1 || \
 
 
 ##########
-# 2. main script loop to carry out blast search:
+# 2. main script loop to carry out blast search on samples:
 ##########
 
 # loops through each processed FASTA file
@@ -51,7 +51,7 @@ for fasta in "$input_dir"/*.fasta; do
         blastn -version
 
         echo "Command used:"
-        echo "blastn -query $fasta -db nt -out "$name"_blast.tsv -outfmt \"6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore\" -remote"
+        echo "blastn -query $fasta -db nt -out "$name"_blast.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote"
         
     } > "$name"_blast.log
 

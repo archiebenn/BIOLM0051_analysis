@@ -51,6 +51,7 @@ plt.close()
 view_tree(f"{treefile_directory}/sampleC_part3_alignment.afa.treefile", "sampleC_part3")
 
 
+
 # supermatrix tree (.treefile is newick)
 tree = Phylo.read(f"{treefile_directory}/partition.txt.treefile", "newick")
 
