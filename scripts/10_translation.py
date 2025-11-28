@@ -19,7 +19,7 @@ fasta_directory = "results/9_complete_FASTA/"
 ##########
 
 
-def translate_all_frames(sequence):
+def find_orf(sequence):
     frames = []
 
     # repeat for each frame (in one direction)
@@ -56,7 +56,7 @@ for filename in os.listdir(fasta_directory):
         print(sequence.id, len(sequence.seq))
 
         # translate each sequence in fasta file and select frame with least stops
-        protein = translate_all_frames(sequence)
+        protein = find_orf(sequence)
 
         # write out > + sequence id + protein sequence to results folder
         with open(f"results/10_protein_FASTA/{filename}_prot.fasta", "a") as f:

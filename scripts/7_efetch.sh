@@ -98,22 +98,3 @@ for tsv in "$input_dir"/*.tsv; do
     rm 7_efetch_FASTA/"$part_name"_blast.tsv
 
 done
-
-
-
-##########
-# 3. fetch the selected outgroup species blast and fasta files, and concatenate per part
-##########
-
-for sample in "$input_dir2"/*.fasta; do
-
-    # extract basename
-    name=$(basename "$sample" _Q20.fasta)
-
-    echo "Retrieving outgroup BLAST hits for "$name""
-
-    # search blast over all query sequences with the taxid specified to [outgroup] (NCBI: )
-    blastn -query "$sample" -db nt -out 7_outgroup_blasts/"$name"_outgroup.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote -entrez_query "txid7777[organism]"
-
-done
-cd ..

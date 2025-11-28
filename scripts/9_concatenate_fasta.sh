@@ -23,6 +23,7 @@ mkdir -p 9_complete_FASTA
 input_dir1=3_FASTA_Q20
 input_dir2=5_blast_filtering
 input_dir3=7_efetch_FASTA
+input_dir4=8_outgroup_FASTA
 
 # check that the input folders from previous scripts contain files for the loops (and silences internal errors)
 ls "$input_dir1"/*.fasta >/dev/null 2>&1 || \
@@ -33,6 +34,9 @@ ls "$input_dir2"/*.tsv >/dev/null 2>&1 || \
 
 ls "$input_dir3"/*.fasta >/dev/null 2>&1 || \
 { echo "[ISSUE] No files found in $input_dir3. A previous script may have failed. Exiting script."; exit 1; }
+
+ls "$input_dir4"/*.fasta >/dev/null 2>&1 || \
+{ echo "[ISSUE] No files found in $input_dir4. A previous script may have failed. Exiting script."; exit 1; }
 
 
 
@@ -63,17 +67,14 @@ for sample in "$input_dir1"/*.fasta; do
         # copy efetch fastas for header editing and to keep original efetch fastas intact
         cp "$input_dir3"/"$part_name".fasta  9_complete_FASTA/"$part_name"_complete.fasta
 
-        # select 2nd and 3rd space separated fields (genus and species in header) and save to temp
-        awk '/^>/ {print ">" $2, $3; next} {print}' 9_complete_FASTA/"$part_name"_complete.fasta > awk_temp.fasta  
+        # select 2nd and 3rd space separated fields (genus and species in header), put undersocre in-between and save to temp
+        awk '/^>/ {print ">" $2 "_" $3; next} {print}' 9_complete_FASTA/"$part_name"_complete.fasta > awk_temp.fasta  
 
         # overwrite with awk file to allow in-place edit
         mv awk_temp.fasta 9_complete_FASTA/"$part_name"_complete.fasta
 
-        # remove all between : and first space (remove ':region')
-        #sed -i 's/:[^ ]* /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
-
         # substitute all spaces to underscrores in header 
-        sed -i '/^>/s/ /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
+        #sed -i '/^>/s/ /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
 
         ##########
         # concatenate edited efetch fastas and original part fastas
@@ -102,7 +103,14 @@ echo "DONE"
 ###########
 
 for number in {1..3}; do
-    cat 9_complete_FASTA/*part"$number"_complete.fasta >> part"$number"_complete.fasta
+
+    # concatenate every fasta file per part into one main fasta part file
+    cat 9_complete_FASTA/*part"$number"_complete.fasta > part"$number"_complete.fasta
+
+    # header edit as in loop above, applied to outgroup full mitochondria genome and concatenated to the main fasta part file
+    awk '/^>/ {print ">" $2 "_" $3; next} {print}' "$input_dir4"/*.fasta >>  part"$number"_complete.fasta
+
+
 done
 
 # empty directory
