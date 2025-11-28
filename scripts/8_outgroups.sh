@@ -18,8 +18,7 @@ cd results || \
 rm -rf 8_outgroup_files
 
 # create output folder
-mkdir -p 8_outgroup_files 
-
+mkdir -p 8_outgroup_fasta
 
 
 
@@ -28,12 +27,11 @@ mkdir -p 8_outgroup_files
 #########
 # using cartilaginous fishes/chondrichthyes as the outgroup clade, some full mt genome accessions of rays below
 
-# Round Ribbontail Ray (Taeniura meyeni) full mt genome accession:
-NC_019641
-# Longtail butterfly ray (Gymnura poecilura) full mt genome accession:
-NC_024102 
-# Bluespotted stingray (Neotrygon kuhlii) full voucher mt genome accession:
-KR019777
+# Round Ribbontail Ray (Taeniura meyeni) full mt genome accession: NC_019641
+# Longtail butterfly ray (Gymnura poecilura) full mt genome accession: NC_024102 
+# Bluespotted stingray (Neotrygon kuhlii) full voucher mt genome accession: KR019777
 
 # fetching the accession fasta files of the above
-efetch -db nuccore -id "NC_019641"  
+efetch -db nuccore -id "NC_019641" -format fasta > 8_outgroup_fasta/t_meyeni.fasta
+efetch -db nuccore -id "NC_024102" -format fasta > 8_outgroup_fasta/g_poecilura.fasta
+efetch -db nuccore -id "KR019777" -format fasta > 8_outgroup_fasta/n_kuhlii.fasta
