@@ -80,6 +80,7 @@ if (( start_pipeline_from <= 6 )); then
    sleep 3
    ./scripts/6_manual_selection.sh
    echo "[6] BLAST hits selected and saved."
+   echo
 fi
 
 
