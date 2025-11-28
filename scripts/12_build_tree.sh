@@ -11,15 +11,15 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # remove output folders if they exists (if re-running with existing results/))
-rm -rf 11_tree_files 
+rm -rf 12_tree_files 
 
 # make output folder
-mkdir -p 11_tree_files 
-mkdir -p 11_tree_outputs
+mkdir -p 12_tree_files 
+mkdir -p 12_tree_outputs
 mkdir -p 12_tree_pdfs
 
 # set input folder to read from
-input_dir=10_alignment_files
+input_dir=11_alignment_files
 
 # check that the input folder from previous script contains files for the loop (and silences internal errors)
 ls "$input_dir"/*.afa >/dev/null 2>&1 || \
@@ -45,7 +45,7 @@ for file in "$input_dir"/*.afa; do
     iqtree3 -s "$file" -m MFP -B 1000 -bnni -T AUTO -redo
 
     # move all iqtree files to results folder
-    mv "$file".* 11_tree_outputs
+    mv "$file".* 12_tree_outputs
 
 done
 
@@ -58,9 +58,9 @@ done
 iqtree3 -s 10_supermatrix_files/supermatrix.afa -p 10_supermatrix_files/partition.txt -m MFP+MERGE -B 1000 --alrt 1000 -T AUTO -redo
 
 # move supermatrix files to tree file folder
-mv 10_supermatrix_files/partition.txt.* 11_tree_outputs/
+mv 10_supermatrix_files/partition.txt.* 12_tree_outputs/
 
 # move all .treefile nexus outputs into the tree_files folder
-cp 11_tree_outputs/*.treefile 11_tree_files/
+cp 12_tree_outputs/*.treefile 12_tree_files/
 
 cd ..

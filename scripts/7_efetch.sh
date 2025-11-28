@@ -1,5 +1,5 @@
 #!/bin/bash
-# efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample, with trimming to fit sstart and send from blast query
+# 7_efetch.sh - script to use accession numbers to retrieve fasta files from blast output for each part and sample, with trimming to fit sstart and send from blast query
 # also includes blast and concatenation for the seelected outgroup species - Chilean Lamprey (Mordacia lapicida - NCBI taxid: 682881)
 # run from project root
 
@@ -113,7 +113,7 @@ for sample in "$input_dir2"/*.fasta; do
     echo "Retrieving outgroup BLAST hits for "$name""
 
     # search blast over all query sequences with the taxid specified to [outgroup] (NCBI: )
-    blastn -query "$sample" -db nt -out 7_outgroup_blasts/"$name"_outgroup.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote -entrez_query "txid7776[organism]"
+    blastn -query "$sample" -db nt -out 7_outgroup_blasts/"$name"_outgroup.tsv -outfmt "6 qseqid sacc staxids pident length mismatch gapopen qstart qend sstart send evalue bitscore" -remote -entrez_query "txid7777[organism]"
 
 done
 cd ..

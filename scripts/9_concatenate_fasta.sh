@@ -14,10 +14,10 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # remove output folder if it exists (if re-running with existing results/))
-rm -rf 8_complete_FASTA
+rm -rf 9_complete_FASTA
 
 # make output folder
-mkdir -p 8_complete_FASTA
+mkdir -p 9_complete_FASTA
 
 # set input folders to read from
 input_dir1=3_FASTA_Q20
@@ -61,19 +61,19 @@ for sample in "$input_dir1"/*.fasta; do
         ##########
 
         # copy efetch fastas for header editing and to keep original efetch fastas intact
-        cp "$input_dir3"/"$part_name".fasta  8_complete_FASTA/"$part_name"_complete.fasta
+        cp "$input_dir3"/"$part_name".fasta  9_complete_FASTA/"$part_name"_complete.fasta
 
         # select 2nd and 3rd space separated fields (genus and species in header) and save to temp
-        awk '/^>/ {print ">" $2, $3; next} {print}' 8_complete_FASTA/"$part_name"_complete.fasta > awk_temp.fasta  
+        awk '/^>/ {print ">" $2, $3; next} {print}' 9_complete_FASTA/"$part_name"_complete.fasta > awk_temp.fasta  
 
         # overwrite with awk file to allow in-place edit
-        mv awk_temp.fasta 8_complete_FASTA/"$part_name"_complete.fasta
+        mv awk_temp.fasta 9_complete_FASTA/"$part_name"_complete.fasta
 
         # remove all between : and first space (remove ':region')
-        #sed -i 's/:[^ ]* /_/g' 8_complete_FASTA/"$part_name"_complete.fasta
+        #sed -i 's/:[^ ]* /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
 
         # substitute all spaces to underscrores in header 
-        sed -i '/^>/s/ /_/g' 8_complete_FASTA/"$part_name"_complete.fasta
+        sed -i '/^>/s/ /_/g' 9_complete_FASTA/"$part_name"_complete.fasta
 
         ##########
         # concatenate edited efetch fastas and original part fastas
@@ -85,8 +85,8 @@ for sample in "$input_dir1"/*.fasta; do
         echo "Concatenating original file part with efetch FASTAs for "$part_name""
 
         # concatenate header-edited efetch fastas and original fasta file parts (which were used as BLAST queries)
-        cat og_temp.fasta 8_complete_FASTA/"$part_name"_complete.fasta > 8_complete_FASTA/"$part_name"_complete.temp
-        mv 8_complete_FASTA/"$part_name"_complete.temp 8_complete_FASTA/"$part_name"_complete.fasta
+        cat og_temp.fasta 9_complete_FASTA/"$part_name"_complete.fasta > 9_complete_FASTA/"$part_name"_complete.temp
+        mv 9_complete_FASTA/"$part_name"_complete.temp 9_complete_FASTA/"$part_name"_complete.fasta
 
     done
 
@@ -102,16 +102,16 @@ echo "DONE"
 ###########
 
 for number in {1..3}; do
-    cat 8_complete_FASTA/*part"$number"_complete.fasta >> part"$number"_complete.fasta
+    cat 9_complete_FASTA/*part"$number"_complete.fasta >> part"$number"_complete.fasta
 done
 
 # empty directory
-rm 8_complete_FASTA/*
+rm 9_complete_FASTA/*
 
 # move part files back into results folder
-mv part1_complete.fasta 8_complete_FASTA/
-mv part2_complete.fasta 8_complete_FASTA/
-mv part3_complete.fasta 8_complete_FASTA/
+mv part1_complete.fasta 9_complete_FASTA/
+mv part2_complete.fasta 9_complete_FASTA/
+mv part3_complete.fasta 9_complete_FASTA/
 
 
 cd ..

@@ -1,5 +1,5 @@
 #!/bin/bash
-# 9_muscle_alignment.sh - uses muscle to align fasta files and produce alignment files
+# 11_muscle_alignment.sh - uses muscle to align fasta files and produce alignment files
 # run from project root
 
 ##########
@@ -14,14 +14,14 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # remove output folders if they exists (if re-running with existing results/))
-rm -rf 10_alignment_files 10_supermatrix_files
+rm -rf 11_alignment_files 11_supermatrix_files
 
 # make output folders
-mkdir -p 10_alignment_files
-mkdir -p 10_supermatrix_files
+mkdir -p 11_alignment_files
+mkdir -p 11_supermatrix_files
 
 # set input folder to read from
-input_dir=9_protein_FASTA
+input_dir=10_protein_FASTA
 
 # check that the input folder from previous script contains files for the loop (and silences internal errors)
 ls "$input_dir"/*.fasta >/dev/null 2>&1 || \
@@ -47,7 +47,7 @@ for fasta in "$input_dir"/*.fasta; do
      # aliview "$name"_alignment.afa
 
     # move alignment 
-    mv "$name"_alignment.afa 10_alignment_files
+    mv "$name"_alignment.afa 11_alignment_files
 
 done
 
@@ -55,7 +55,7 @@ done
 ########## 
 # 3. apply keep.txt to filter the alignment sequences 
 ########## 
-for alignment in 10_alignment_files/*.afa; do 
+for alignment in 11_alignment_files/*.afa; do 
 
     # extract basename 
     name=$(basename "$alignment" _alignment.afa) 
@@ -87,7 +87,7 @@ echo "AA, part1 = 1-175
 AA, part2 = 176-351
 AA, part3 = 352-517" > partition.txt
 
-mv supermatrix.afa partition.txt 10_supermatrix_files/
+mv supermatrix.afa partition.txt 11_supermatrix_files/
 rm part*_filtered.afa 
 
 cd ..

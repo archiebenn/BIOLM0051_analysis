@@ -1,18 +1,18 @@
-# 11_phylo_tree.py - to automate generating the phylogenetic tree pdfs from the .treefiles
+# 13_view_tree.py - to automate generating the phylogenetic tree pdfs from the .treefiles
 import shutil
 import os
 import matplotlib.pyplot as plt
 from Bio import Phylo
 
 # remove output folder if it exists (if re-running with existing results/))
-shutil.rmtree("results/12_tree_pdfs", ignore_errors=True)
+shutil.rmtree("results/13_tree_pdfs", ignore_errors=True)
 
-# make outputs folder
-os.makedirs("results/12_tree_pdfs", exist_ok=True)
+# make output folder
+os.makedirs("results/13_tree_pdfs", exist_ok=True)
 
-# set input directories
-treefile_directory = "results/11_tree_files"
-results_directory = "results/12_phylo_trees"
+# set input and output directories
+treefile_directory = "results/12_tree_files"
+results_directory = "results/13_phylo_trees"
 
 
 # part 1 tree (.treefile is newick)

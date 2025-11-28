@@ -1,17 +1,17 @@
-# 8_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
+# 10_translation.py - a python script to translate the complete FASTA sequences from part 7 of analysis
 
 import shutil
 import os
 from Bio import SeqIO
 
 # remove output folder if it exists (if re-running with existing results/))
-shutil.rmtree("results/9_protein_FASTA", ignore_errors=True)
+shutil.rmtree("results/10_protein_FASTA", ignore_errors=True)
 
 # make results directory
-os.makedirs("results/9_protein_FASTA", exist_ok=True)
+os.makedirs("results/10_protein_FASTA", exist_ok=True)
 
 # set directory where fasta files are kept
-fasta_directory = "results/8_complete_FASTA/"
+fasta_directory = "results/9_complete_FASTA/"
 
 
 ##########
@@ -48,7 +48,7 @@ def translate_all_frames(sequence):
 
 for filename in os.listdir(fasta_directory):
     # wipe each results file before appending
-    with open(f"results/9_protein_FASTA/{filename}_prot.fasta", "w") as f:
+    with open(f"results/10_protein_FASTA/{filename}_prot.fasta", "w") as f:
         pass
 
     # use file name and SeqIO to open and then parse the fasta contents
@@ -59,5 +59,5 @@ for filename in os.listdir(fasta_directory):
         protein = translate_all_frames(sequence)
 
         # write out > + sequence id + protein sequence to results folder
-        with open(f"results/9_protein_FASTA/{filename}_prot.fasta", "a") as f:
+        with open(f"results/10_protein_FASTA/{filename}_prot.fasta", "a") as f:
             f.write(f">{sequence.id}\n{protein}\n")
