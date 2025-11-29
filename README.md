@@ -148,7 +148,7 @@ results
 ├── 7_efetch_FASTA
 ├── 7_outgroup_blasts
 ├── 8_outgroup_FASTA
-├──9_complete_FASTA
+├── 9_complete_FASTA
 ├── 10_protein_FASTA
 ├── 11_alignment_files
 ├── 11_supermatrix_files
