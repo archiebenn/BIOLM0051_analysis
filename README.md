@@ -22,7 +22,19 @@ tar -xzf taxdump.tar.gz
 # move files
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
+## Project directory overview 
 
+```
+BIOLM0051_analysis
+├── data
+├── environment.yml
+├── LaTeX
+├── notes.md
+├── README.md
+├── report
+├── results
+└── scripts
+```
 # Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
 
