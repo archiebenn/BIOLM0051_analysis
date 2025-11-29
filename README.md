@@ -91,8 +91,10 @@ Concatenating sampleB files...
 .
 .
 .
-[11] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
-Full analysis runtime: 00h:24m:31s 
+[13] Rooted tree PDF created. Please find the phylogenetic tree pdf in results/13_tree_pdfs
+
+Pipeline finished succesfully
+Analysis runtime: 00h:23m:05s 
 ```
 
 ## Option B - Run pipeline from a specific script -> end
@@ -118,8 +120,10 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 .
 .
 .
-[11] Phylogenetic tree builds complete. Find tree files in results/10_tree_files
-Full analysis runtime: 00h:05m:15s 
+[13] Rooted tree PDF created. Please find the phylogenetic tree pdf in results/13_tree_pdfs
+
+Pipeline finished succesfully
+Analysis runtime: 00h:06m:22s 
 ```
 
 Please note this is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run (option A).
@@ -132,17 +136,22 @@ All pipeline results are stored in the `results/` folder. This contains sub-dire
 `results/` general structure: 
 ```
 results
-    ├── 1_FASTQ_check
-    ├── 2_FASTQ_processed
-    ├── 3_FASTA_Q20
-    ├── 3_FASTA_raw
-    ├── 3_FASTQC_reports
-    ├── 4_blast_outputs
-    ├── 5_blast_filtering
-    ├── 6_blast_selected
-    ├── 7_efetch_FASTA
-    ├── 8_complete_FASTA
-    ├── 9_protein_FASTA
-    ├── 10_alignment_files
-    └── 11_tree_files
+├── 1_FASTQ_check
+├── 2_FASTQ_processed
+├── 3_FASTA_Q20
+├── 3_FASTA_raw
+├── 3_FASTQC_reports
+├── 4_blast_outputs
+├── 5_blast_filtering
+├── 6_blast_selected
+├── 7_efetch_FASTA
+├── 7_outgroup_blasts
+├── 8_outgroup_FASTA
+├──9_complete_FASTA
+├── 10_protein_FASTA
+├── 11_alignment_files
+├── 11_supermatrix_files
+├── 12_tree_files
+├── 12_tree_outputs
+└── 13_tree_pdfs
 ```
