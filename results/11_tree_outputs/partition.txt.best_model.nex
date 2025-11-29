@@ -1,6 +1,0 @@
-#nexus
-begin sets;
-  charset part1_part2_part3 = AA,, 1-175  176-351  352-517;
-  charpartition mymodels =
-    MTZOA+R2{0.95062,0.472257,0.0493803,11.1596}: part1_part2_part3{0.407033};
-end;
