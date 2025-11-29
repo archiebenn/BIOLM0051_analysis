@@ -98,9 +98,9 @@ catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filt
 
 # this defines where each part resides on the supermatrix which allows for different mutation rates to be used per part in the tree build
 # these numbers are generated in STDOUT when catfasta2phyml is run (above)
-echo "AA, part1 = 1-170
-AA, part2 = 171-337
-AA, part3 = 338-422" > partition.txt
+echo "AA, part1 = 1-169
+AA, part2 = 170-336
+AA, part3 = 337-421" > partition.txt
 
 mv supermatrix.afa partition.txt 11_supermatrix_files/
 rm part*_filtered.afa 

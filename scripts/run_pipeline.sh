@@ -94,45 +94,67 @@ if (( start_pipeline_from <= 7 )); then
 fi
 
 
-# 8. combine the original sample part to its respctive trimmed fasta file
+# 8. retrieve outgroup fasta files 
 if (( start_pipeline_from <= 8 )); then
-   echo "[8] Concatenating query FASTAs with BLAST FASTAs..."
+   echo "[8] Retrieving outgroup FASTA files for phylogenetic tree..."
    sleep 3
-   ./scripts/8_concatenate_fasta.sh
-   echo "[8] FASTA concatenation complete. Find complete FASTA files in results/7_complete_FASTA"
+   ./scripts/8_outgroups.sh
+   echo "[8] Outgroup FASTA files sourced. Find concatenated outgroup FASTA file in results/8_outgroup_FASTA"
    echo
 fi
 
 
-# 9. biopython to translate full fasta files and select appropriate frame for protein sequence
+# 9. combine the original sample part to its respctive trimmed fasta file
 if (( start_pipeline_from <= 9 )); then
-   echo "[9] Using Biopython to translate nt FASTA sequences and select correct frame..."
+   echo "[9] Concatenating query FASTAs with BLAST FASTAs..."
    sleep 3
-   python3 scripts/9_translation.py
-   echo "[9] Biopython translation and frame selection complete. Find protein sequences in results/8_protein_FASTA"
+   ./scripts/9_concatenate_fasta.sh
+   echo "[9] FASTA concatenation complete. Find complete FASTA files in results/7_complete_FASTA"
    echo
 fi
 
 
-# 10. alignment use muscle5
+# 10. biopython to translate full fasta files and select appropriate frame for protein sequence
 if (( start_pipeline_from <= 10 )); then
-   echo "[10] Aligning protein sequences with MUSCLE..."
+   echo "[10] Using Biopython to translate nt FASTA sequences and select correct frame..."
    sleep 3
-   ./scripts/10_muscle_alignment.sh
-   echo "[10] MUSCLE protein alignment complete. Find alignment files in results/9_alignment_files"
+   python3 scripts/10_translation.py
+   echo "[10] Biopython translation and frame selection complete. Find protein sequences in results/10_protein_FASTA"
    echo
 fi
 
 
-# 11. tree build
+# 11. alignment use muscle5
 if (( start_pipeline_from <= 11 )); then
-   echo "[11] Building phylogenetic trees with IQ-TREE..."
+   echo "[11] Aligning protein sequences with MUSCLE and building supermatrix..."
    sleep 3
-   ./scripts/11_build_tree.sh
-   echo "[11]Phylogenetic tree builds complete. Find tree files in results/10_tree_files"
+   ./scripts/11_muscle_alignment.sh
+   echo "[11] MUSCLE protein alignment complete. Find alignment files in results/11_alignment_files and results/11_supermatrix_files"
    echo
 fi
+
+
+# 12. tree build
+if (( start_pipeline_from <= 12 )); then
+   echo "[12] Building phylogenetic trees with IQ-TREE..."
+   sleep 3
+   ./scripts/12_build_tree.sh
+   echo "[12]Phylogenetic tree builds complete. Find tree files in results/12_tree_files"
+   echo
+fi
+
+
+# 13. tree pdf view
+if (( start_pipeline_from <= 13 )); then
+   echo "[13] Rooted tree PDF being created..."
+   sleep 3
+   python3 scripts/13_phylo_tree.py
+   echo "[13] Rooted tree PDF created. Please find the phylogenetic tree pdf in results/13_tree_pdfs"
+   echo
+fi
+
 
 end=$(date +%s)
 runtime=$((end - start))
-echo "Full analysis runtime: $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))"
+echo "Pipeline finished succesfully"
+echo "Analysis runtime: $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))"

@@ -49,8 +49,8 @@ for tsv in "$input_dir"/*.tsv; do
     # extract basename 
     part=$(basename "$tsv" _filtered_hits.tsv)
 
-    # take top 5 of each blast - selected based on 15-20 phylogenetically diverse references in final tree
-    head -n 5 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
+    # take top 4 of each part blast - selected based on 15-20 phylogenetically diverse references in final tree
+    head -n 4 "$input_dir"/"$part"_filtered_hits.tsv > 6_blast_selected/"$part"_selected.tsv
 
 done
 

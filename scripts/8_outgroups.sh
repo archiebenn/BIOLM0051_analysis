@@ -30,7 +30,23 @@ mkdir -p 8_outgroup_FASTA
 # Longtail butterfly ray (Gymnura poecilura) COX1 NCBI accession: OK393637.1 
 # Bluespotted stingray (Neotrygon kuhlii) COX1 NCBI accession: PQ998246.1
 
-# fetching the accession fasta files of the above
-efetch -db nuccore -id OR227126.1 -format fasta > 8_outgroup_FASTA/outgroups.fasta
-efetch -db nuccore -id OK393637.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
-efetch -db nuccore -id PQ998246.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+# velvet belly lanternshark
+efetch -db nuccore -id PX501484.1 -format fasta > 8_outgroup_FASTA/outgroups.fasta
+# sharpnose sevengill shark
+efetch -db nuccore -id PX466323.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+# smooth lanternshark
+efetch -db nuccore -id PV368592.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+
+
+
+# arctic lamprey
+#efetch -db nuccore -id LC815913.1 -format fasta > 8_outgroup_FASTA/outgroups.fasta
+# asiatic brook lamprey
+#efetch -db nuccore -id LC815909.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+# southern japanese brook lamprey
+#efetch -db nuccore -id LC815853.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+
+
+#efetch -db nuccore -id OR227126.1 -format fasta > 8_outgroup_FASTA/outgroups.fasta
+#efetch -db nuccore -id OK393637.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta
+#efetch -db nuccore -id PQ998246.1 -format fasta >> 8_outgroup_FASTA/outgroups.fasta

@@ -11,12 +11,11 @@ cd results || \
 { echo "Results directory not found, please ensure you are running this script from project root"; exit 1; }
 
 # remove output folders if they exists (if re-running with existing results/))
-rm -rf 12_tree_files 
+rm -rf 12_tree_files 12_tree_outputs
 
 # make output folder
 mkdir -p 12_tree_files 
 mkdir -p 12_tree_outputs
-mkdir -p 12_tree_pdfs
 
 # set input folder to read from
 input_dir=11_alignment_files
@@ -32,13 +31,13 @@ ls "$input_dir2"/*.afa >/dev/null 2>&1 || \
 
 
 ##########
-# 2. main script loop for building phylogenetic part trees using iqtree:
+# 2. main script loop for building phylogenetic part trees with the trimmed alignments using iqtree:
 ##########
 
-for file in "$input_dir"/*.afa; do
+for file in "$input_dir"/*_trimmed.afa; do
 
     # extract basename
-    name=$(basename "$file" _alignment.afa)
+    name=$(basename "$file" _trimmed.afa)
 
     echo "Running IQ-TREE on "$name""
 

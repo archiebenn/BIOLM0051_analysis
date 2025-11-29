@@ -1,8 +1,14 @@
-# 13_view_tree.py - to automate generating the phylogenetic tree pdfs from the .treefiles
+# 13_view_tree.py -  generate and export phylogenetic trees from the .treefiles
+
 import shutil
 import os
 import matplotlib.pyplot as plt
 from Bio import Phylo
+
+
+##########
+# 1. setup and error handling
+##########
 
 # remove output folder if it exists (if re-running with existing results/))
 shutil.rmtree("results/13_tree_pdfs", ignore_errors=True)
@@ -15,52 +21,31 @@ treefile_directory = "results/12_tree_files"
 results_directory = "results/13_phylo_trees"
 
 
-# part 1 tree (.treefile is newick)
-part1_tree = Phylo.read(f"{treefile_directory}/part1_alignment.afa.treefile", "newick")
 
-part1_tree.root_with_outgroup(outgroup_as_str)
+##########
+# 2. create tree and root it
+##########
 
-Phylo.draw(part1_tree)
-plt.savefig(f"{results_directory}/part1_tree.pdf")
+# define tree to be read (.treefile is newick)
+full_tree = Phylo.read(f"{treefile_directory}/partition.txt.treefile", "newick")
+
+# define outgroup organisms in a list as they appear in .afa headers
+outgroup_names = [
+    "Etmopterus_spinax",
+    "Heptranchias_perlo",
+    "Etmopterus_pusillus"
+]
+
+# find common ancestor node of the unrooted tree given the outgroup list (rays) 
+outgroup_clade = full_tree.common_ancestor(outgroup_names)
+
+# root tree at outgroup clade common ancestor
+full_tree.root_with_outgroup(outgroup_clade)
+
+# draw the tree and save out to results directory
+Phylo.draw(full_tree)
+#plt.savefig(f"{results_directory}/full_tree.pdf")
 plt.close()
 
-view_tree(f"{treefile_directory}/sampleC_part3_alignment.afa.treefile", "sampleC_part3")
 
 
-# part 2 tree (.treefile is newick)
-part2_tree = Phylo.read(f"{treefile_directory}/part2_alignment.afa.treefile", "newick")
-
-part2_tree.root_with_outgroup(outgroup_as_str)
-
-Phylo.draw(part1_tree)
-plt.savefig(f"{results_directory}/part3_tree.pdf")
-plt.close()
-
-view_tree(f"{treefile_directory}/sampleC_part3_alignment.afa.treefile", "sampleC_part3")
-
-
-# part 3 tree (.treefile is newick)
-part3_tree = Phylo.read(f"{treefile_directory}/part3_alignment.afa.treefile", "newick")
-
-part3_tree.root_with_outgroup(outgroup_as_str)
-
-Phylo.draw(part3_tree)
-plt.savefig(f"{results_directory}/part3_tree.pdf")
-plt.close()
-
-view_tree(f"{treefile_directory}/sampleC_part3_alignment.afa.treefile", "sampleC_part3")
-
-
-
-# supermatrix tree (.treefile is newick)
-tree = Phylo.read(f"{treefile_directory}/partition.txt.treefile", "newick")
-
-tree.root_with_outgroup(outgroup_as_str)
-
-Phylo.draw(tree)
-
-plt.savefig(f"{results_directory}/{filename}_tree.pdf")
-
-plt.close()
-
-view_tree(f"{treefile_directory}/sampleC_part3_alignment.afa.treefile", "sampleC_part3")
