@@ -47,8 +47,11 @@ for clade in full_tree.get_nonterminals():
     clade.name = None
 
 # resize the plot
-fig = plt.figure(figsize=(12, 10))
+fig = plt.figure(figsize=(15, 12))
 ax = fig.add_subplot(1, 1, 1)
+
+# flip branches in y axis
+full_tree.ladderize() 
 
 # draw the tree and save out to results directory
 Phylo.draw(full_tree, axes=ax, do_show=False)
