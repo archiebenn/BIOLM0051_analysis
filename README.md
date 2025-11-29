@@ -105,7 +105,7 @@ Allows skipping slow steps of the pipeline which can lead to significantly short
 ./scripts/run_pipeline.sh <script-number>
 ```
 
-For example starting from script 5 (after BLAST search which can take > 30 minutes): 
+For example starting from script 5 (after BLAST search which can take > 20 minutes): 
 ```
 ./scripts/run_pipeline.sh 5
 
