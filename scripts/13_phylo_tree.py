@@ -42,8 +42,22 @@ outgroup_clade = full_tree.common_ancestor(outgroup_names)
 # root tree at outgroup clade common ancestor
 full_tree.root_with_outgroup(outgroup_clade)
 
+
+
+# aesthetics
+
+for clade in full_tree.find_clades():
+    clade.width = 1.25
+
+for clade in full_tree.find_clades():
+    if clade.name and clade.name.startswith("sample"):
+        clade.color = "red"
+
+
+
+
 # draw the tree and save out to results directory
-Phylo.draw(full_tree)
+#Phylo.draw(full_tree)
 #plt.savefig(f"{results_directory}/full_tree.pdf")
 plt.close()
 
