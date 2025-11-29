@@ -49,20 +49,21 @@ chmod +x scripts/*
 
 ## Script Table
 Overview of script numbers and steps involved  
-| Script number | Step                | Script Description                              |
-|---------------|---------------------|-------------------------------------------------|
-| 1             | FASTQ check         | Checks input FASTQ file formats                 |
-| 2             | Concatenate FASTQ   | Combine split FASTQ parts                       |
-| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA     |
-| 4             | BLAST search        | Carries out remote `blastn` searches            |
-| 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`  |
-| 6             | Manual Selection    | Selects BLAST hits based on manual filters      |
-| 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences  |
-| 8             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs  |
-| 9             | Python translation  | Biopython script to translate to protein seqs   |
-| 10            | Alignment           | Uses `muscle5` to align protein sequences       |
-| 11            | Tree Build          | Uses `iqtree3` to build phylogenetic trees      |
-| 12            | Tree View           | Visualise trees using Python                    |
+| Script number | Step                | Script Description                               |
+|---------------|---------------------|--------------------------------------------------|
+| 1             | FASTQ check         | Checks input FASTQ file formats                  |
+| 2             | Concatenate FASTQ   | Combine split FASTQ parts                        |
+| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA      |
+| 4             | BLAST search        | Carries out remote `blastn` searches             |
+| 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`   |
+| 6             | Manual Selection    | Selects BLAST hits based on manual filters       |
+| 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences   |
+| 8             | Retrieve Outgroup   | Uses `efetch` to retrieve chosen outgroup FASTAs |
+| 9             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs   |
+| 10            | Python translation  | Biopython script to translate to protein seqs    |
+| 11            | Alignment           | Uses `muscle5` to align protein sequences        |
+| 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
+| 13            | Tree View           | Visualise and root tree using Python             |
 
 ## Option A - Run Full Pipeline
 Execute all scripts in the correct order for this pipeline: 
