@@ -105,8 +105,13 @@ for number in {1..3}; do
     # concatenate every fasta file per part into one main fasta part file
     cat 9_complete_FASTA/*part"$number"_complete.fasta > part"$number"_complete.fasta
 
-    # header edit as in loop above, applied to outgroup full mitochondria genome and concatenated to the main fasta part file
-    awk '/^>/ {print ">" $2 "_" $3; next} {print}' "$input_dir4"/*.fasta >>  part"$number"_complete.fasta
+    # only attach outgroup fasta files to part1 and part2. 
+    # this is following alignments where part3 did not align at all with the outgroups which broke the global alignment using muscle5, so leaving part3 outgroups out
+    if [[ "$number" -lt 3 ]]; then 
+
+        # header edit as in loop above, applied to outgroup full mitochondria genome and concatenated to the main fasta part file
+        awk '/^>/ {print ">" $2 "_" $3; next} {print}' "$input_dir4"/*.fasta >>  part"$number"_complete.fasta
+    fi
 
 done
 

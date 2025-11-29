@@ -53,30 +53,40 @@ done
 
 
 
-##################
-# DO A TRIMAL THING HERE
+##########
+# 3. alignment trimming using trimal
+##########
 
-
-
-
-
-########## 
-# 3. apply keep.txt to filter the alignment sequences 
-########## 
 for alignment in 11_alignment_files/*.afa; do 
 
     # extract basename 
-    name=$(basename "$alignment" _alignment.afa) 
+    name=$(basename "$alignment" _alignment.afa)
+
+    # run trimal with automated1 to remove trailing ends (mostly from outgroups in alignment)
+    trimal -in "$alignment" -out "$name"_trimmed.afa -automated1
+
+    mv "$name"_trimmed.afa 11_alignment_files
+
+done
+
+
+########## 
+# 4.  
+########## 
+for alignment in 11_alignment_files/*_trimmed.afa; do 
+
+    # extract basename 
+    name=$(basename "$alignment" _trimmed.afa) 
 
     # sed to rename sampleA_part1 -> sampleA etc. for supermatrix (treats same headers as one sequence in supermatrix)
-    sed -i 's/_part[0-9]*//g' "$alignment"  > "$name"_filtered.afa 
+    sed 's/_part[0-9]*//g' "$alignment"  > "$name"_filtered.afa 
 
 done 
 
 
 
 ########## 
-# 4. create supermatrix using catfasta2phyml 
+# 5. create supermatrix alignment using catfasta2phyml 
 ########## 
 catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filtered.afa > supermatrix.afa 
 
@@ -86,12 +96,15 @@ catfasta2phyml -f --concatenate part1_filtered.afa part2_filtered.afa part3_filt
 # 6. create partition text file for supermatrix
 ##########
 
-# this defines where each part resides on the supermatrix 
-echo "AA, part1 = 1-175
-AA, part2 = 176-351
-AA, part3 = 352-517" > partition.txt
+# this defines where each part resides on the supermatrix which allows for different mutation rates to be used per part in the tree build
+# these numbers are generated in STDOUT when catfasta2phyml is run (above)
+echo "AA, part1 = 1-170
+AA, part2 = 171-337
+AA, part3 = 338-422" > partition.txt
 
 mv supermatrix.afa partition.txt 11_supermatrix_files/
 rm part*_filtered.afa 
+
+
 
 cd ..
