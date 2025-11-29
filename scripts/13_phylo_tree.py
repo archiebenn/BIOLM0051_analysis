@@ -54,5 +54,5 @@ ax = fig.add_subplot(1, 1, 1)
 Phylo.draw(full_tree, axes=ax, do_show=False)
 
 # save out the svg
-plt.savefig(f"{results_directory}/full_tree.svg")
+plt.savefig(f"{results_directory}/samples_tree.svg")
 plt.close()
