@@ -1,7 +1,7 @@
 #nexus
 
 BEGIN Taxa;
-DIMENSIONS ntax=11;
+DIMENSIONS ntax=10;
 TAXLABELS
 [1] 'Thunnus_thynnus'
 [2] 'Thunnus_maccoyii'
@@ -11,14 +11,13 @@ TAXLABELS
 [6] 'Eubalaena_japonica'
 [7] 'Eubalaena_glacialis'
 [8] 'Balaena_mysticetus'
-[9] 'Eschrichtius_robustus'
-[10] 'Monodon_monoceros'
-[11] 'Delphinapterus_leucas'
+[9] 'Monodon_monoceros'
+[10] 'Delphinapterus_leucas'
 ;
 END; [Taxa]
 
 BEGIN Splits;
-DIMENSIONS ntax=11 nsplits=64;
+DIMENSIONS ntax=10 nsplits=36;
 FORMAT labels=no weights=yes confidences=no intervals=no;
 MATRIX
 	100	 2,
@@ -26,65 +25,37 @@ MATRIX
 	100	 4,
 	100	 6,
 	100	 7,
-	67	 6 7,
+	70	 6 7,
 	100	 8,
-	100	 9,
-	52	 8 9,
-	21	 6 7 8 9,
-	47	 4 6 7 8 9,
+	53	 6 7 8,
+	89	 4 6 7 8,
 	100	 5,
-	100	 11,
-	95	 5 11,
 	100	 10,
-	98	 5 10 11,
+	94	 5 10,
+	100	 9,
+	99	 5 9 10,
 	100	 1 2 3,
 	100	 1 2,
 	100	 1,
-	39	 5 9 10 11,
-	17	 5 8 9 10 11,
-	30	 1 2 3 4,
-	12	 4 8 9,
-	8	 4 6 8 9,
-	24	 4 6 7,
-	13	 6 8,
-	28	 6 7 8,
-	14	 4 6 7 8,
-	4	 10 11,
-	1	 5 6 10 11,
-	2	 5 6 7 10 11,
-	1	 9 10,
-	2	 5 6 9 10 11,
-	2	 1 2 3 4 7,
-	1	 4 9,
-	1	 4 7 8 9,
-	1	 1 2 3 5 11,
-	1	 4 6,
-	5	 7 8,
-	1	 1 2 3 6 7,
-	1	 5 9 11,
-	2	 4 5 10 11,
-	0	 4 5 6 10 11,
-	2	 1 2 3 8 9,
-	1	 6 8 9,
-	0	 1 2 3 4 8,
-	2	 6 9,
-	0	 4 6 9,
-	0	 4 5 7 10 11,
-	1	 1 2 3 9,
-	0	 6 7 8 9 10,
-	1	 4 6 7 10,
-	1	 6 7 9,
-	0	 5 7 10 11,
-	2	 5 8 10 11,
-	1	 5 7 8 10 11,
-	0	 4 7 8,
-	0	 7 8 9,
-	0	 7 9,
-	0	 5 10,
-	0	 4 7,
-	0	 1 2 3 5,
-	0	 6 7 10,
+	11	 6 8,
+	10	 4 7,
+	36	 4 6 7,
+	1	 1 2 3 5 10,
+	4	 5 8 9 10,
+	8	 1 2 3 4,
+	4	 7 8,
+	6	 9 10,
+	5	 4 6,
+	4	 4 8,
+	3	 1 2 3 8,
+	2	 4 5 9 10,
+	1	 4 7 8,
+	1	 1 2 3 6 8,
+	1	 1 2 3 4 8,
 	0	 4 6 8,
+	0	 1 2 3 7 8,
+	0	 1 2 3 4 7,
+	0	 1 2 3 6 7,
 ;
 END; [Splits]
 

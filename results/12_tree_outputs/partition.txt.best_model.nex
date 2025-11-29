@@ -2,5 +2,5 @@
 begin sets;
   charset part1_part2_part3 = AA,, 1-169  170-336  337-421;
   charpartition mymodels =
-    MTZOA: part1_part2_part3{0.333927};
+    MTZOA: part1_part2_part3{0.328116};
 end;
