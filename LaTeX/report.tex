@@ -82,22 +82,22 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Abstract} %200 WORDS
-\lipsum[1-2]
 
 
 
-\section*{Introduction}
-\lipsum[3-4]
+
+\section*{Introduction} % 200 WORDS
 
 
 
-\section*{Methods}
+
+\section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
 
 
 
 
-Some python code: 
+
 %%%%%%%%%%%%%%%
 % Python block
 %%%%%%%%%%%%%%%
@@ -112,20 +112,17 @@ Some python code:
 %%%%%%%%%%%%%%%
 % Table
 %%%%%%%%%%%%%%%
-\section*{Results}
+\section*{Results} % 150 WORDS
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{../results/13_tree_plots/samples_tree.pdf}
 	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and their top BLAST hits}
-	\label{fig:tree_pdf}
+	\label{fig:main_tree}
 \end{figure}
 
 
-\section*{Discussion}
-\texttt{sampleD\_part1} nt length is 524bp, whereas the efetch FASTA lengths are 525bp. This single deletion could be causing the frame shift visible towards the end of the \texttt{GAINFITTIIN} region in Fig. 2. This deletion may have been caused by an error during sequencing.
+\section*{Discussion} % 300 WORDS
 
-Figure X. Maximum-likelihood tree from the original protein alignment.
-Figure Y. Maximum-likelihood tree from a manually corrected alignment in which one ambiguous base - N -  was inserted into \texttt{sampleD\_part1} at the suspected deletion site to restore the reading frame. This tree is shown to assess the impact of the putative sequencing error on branch length and topology.
 
 
 %%%%%%%%%%%%%%%
@@ -143,7 +140,7 @@ Figure Y. Maximum-likelihood tree from a manually corrected alignment in which o
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Subset of supermatrix alignment with potential frame shift error in \texttt{sampleD} near the highly-conserved \texttt{INFITTIIN} region.}
+	\caption{Subset of supermatrix alignment with potential frame-shift error in \texttt{sampleD} near the highly-conserved \texttt{INFITTIIN} region.}
 \label{fig:supermatrix}
 \end{figure}
 
@@ -163,7 +160,7 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 \raisebox{2em}{\hspace{4.25cm}$\big\uparrow$}
 \vspace{-2em}
     \captionsetup{justification=centering}
-	\caption{Nucleotide Needleman-Wunsch pairwise global alignment of the tail end of \texttt{sampleD\_part1} against closest reference, \textit{Dermochelys coriacea}, and showing a possible sequencing base miss at position 486 in \texttt{sampleD\_part1}.}
+	\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence (\textit{Dermochelys coriacea}). The alignment gap indicates a possible base miss at position 486 in \texttt{sampleD\_part1} during sequencing.}
 
 \label{fig:needleman}
 \end{figure}
@@ -179,7 +176,7 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 \section*{Supplementary Data}
 Supplementary data and all scripts can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
 
-\section*{Appendix: Figures for Manual Correction of Suspected Sequencing Error}
+\section*{Appendix: Exploratory Figures for Manual Correction of Suspected Sequencing Error}
 
 \begin{figure}[H]
 	\centering
@@ -194,14 +191,14 @@ Supplementary data and all scripts can be found within the GitHub repository for
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Subset supermatrix alignment after manually correcting \texttt{sampleD\_part1} with one ambiguous base (N) inserted in the nucleotide sequence (other references left out of figure still contribute to the conserved residue \%). The altered protein sequence from one ambiguous base addition in the nucleotide sequence aligns more closely to highly-conserved \texttt{INFITTIIN} region seen across other sequences compared to Figure~\ref{fig:supermatrix}.}
+	\caption{Subset of supermatrix alignment after inserting one ambiguous base (N) to the nucleotide sequence of \texttt{sampleD\_part1}. This base resolves the apparent frame-shift, resulting in a protein sequence which aligns much more closely to highly-conserved \texttt{INFITTIIN} region compared to in Figure~\ref{fig:supermatrix}.}
 	\label{fig:supermatrix2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth]{figures/sampleD_branch_tree.pdf}
-	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. The resulting branch length of \texttt{sampleD} is much shorter than in Figure~\ref{fig:supermatrix}, indicating that a frame shift due to a sequencing base miss caused the extended branch length from the rest of the turtle clade.}
+	\includegraphics[width=0.8\linewidth]{figures/sampleD_branch_tree.pdf}
+	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}.}
 	\label{fig:tree_pdf2}
 \end{figure}
 
