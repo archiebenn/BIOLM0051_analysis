@@ -46,16 +46,33 @@ for clade in full_tree.find_clades():
 for clade in full_tree.get_nonterminals():
     clade.name = None
 
-# resize the plot
-fig = plt.figure(figsize=(15, 12))
+# resize the plot to fit a4 landscape
+fig = plt.figure(figsize=(18, 14))
 ax = fig.add_subplot(1, 1, 1)
 
 # flip branches in y axis
 full_tree.ladderize() 
 
 # draw the tree and save out to results directory
-Phylo.draw(full_tree, axes=ax, do_show=False)
+Phylo.draw(full_tree, axes = ax, do_show = False)
 
-# save out the svg
-plt.savefig(f"{results_directory}/samples_tree.svg")
+# title and axes labels
+plt.xlabel("Substitutions per site", labelpad=20, fontsize = 26)
+plt.ylabel("")
+
+# set tip label size
+for text in ax.texts:
+    text.set_fontsize(18)
+
+# remove y ticks
+ax.set_yticks([])
+
+# set tick font size
+ax.tick_params(axis = 'x', labelsize = 20)
+
+# reduce border size
+plt.tight_layout(pad=5)
+
+# save out the pdf
+plt.savefig(f"{results_directory}/samples_tree.pdf")
 plt.close()

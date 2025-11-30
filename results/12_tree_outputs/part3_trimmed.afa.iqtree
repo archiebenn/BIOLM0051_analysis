@@ -2,7 +2,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 
 Input file name: 11_alignment_files/part3_trimmed.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 74186
+Random seed number: 823720
 
 REFERENCES
 ----------
@@ -374,22 +374,22 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 |  +--sampleC_part3
 +**| (100)
    |                                           +**sampleA_part3
-   |                                        +**| (78)
+   |                                        +**| (84)
    |                                        |  |     +**Eubalaena_japonica
-   |                                        |  |  +**| (56)
+   |                                        |  |  +**| (90)
    |                                        |  |  |  +**Eubalaena_glacialis
-   |                                        |  +**| (49)
+   |                                        |  +**| (55)
    |                                        |     +--Balaena_mysticetus
    +----------------------------------------| (100)
                                             |                +**sampleB_part3
-                                            |         +------| (96)
+                                            |         +------| (95)
                                             |         |      +**Delphinapterus_leucas
-                                            +---------| (98)
+                                            +---------| (99)
                                                       +**Monodon_monoceros
 
 Tree in newick format:
 
-(Thunnus_thynnus:0.0000010000,Thunnus_maccoyii:0.0000010000,(sampleC_part3:0.0141948539,((sampleA_part3:0.0000010000,((Eubalaena_japonica:0.0000010000,Eubalaena_glacialis:0.0000010000)56:0.0000010000,Balaena_mysticetus:0.0118107771)49:0.0000010000)78:0.0000010000,((sampleB_part3:0.0000010000,Delphinapterus_leucas:0.0000010000)96:0.0362794555,Monodon_monoceros:0.0000010000)98:0.0484933396)100:0.1891184471)100:0.0000010000);
+(Thunnus_thynnus:0.0000010000,Thunnus_maccoyii:0.0000010000,(sampleC_part3:0.0141948539,((sampleA_part3:0.0000010000,((Eubalaena_japonica:0.0000010000,Eubalaena_glacialis:0.0000010000)90:0.0000010000,Balaena_mysticetus:0.0118107843)55:0.0000010000)84:0.0000010000,((sampleB_part3:0.0000010000,Delphinapterus_leucas:0.0000010000)95:0.0362794554,Monodon_monoceros:0.0000010000)99:0.0484933411)100:0.1891184939)100:0.0000010000);
 
 CONSENSUS TREE
 --------------
@@ -409,19 +409,19 @@ Numbers in parentheses are bootstrap supports (%)
 |  |  |  +--sampleC_part3
 |  |  +--| (100)
 |  |     |                                           +--sampleA_part3
-|  |     |                                        +--| (78)
+|  |     |                                        +--| (84)
 |  |     |                                        |  |        +**Eubalaena_japonica
 |  |     |                                        |  |     +--|
 |  |     |                                        |  |     |  +**Eubalaena_australis
-|  |     |                                        |  |  +--| (56)
+|  |     |                                        |  |  +--| (90)
 |  |     |                                        |  |  |  +--Eubalaena_glacialis
-|  |     |                                        |  +--| (49)
+|  |     |                                        |  +--| (55)
 |  |     |                                        |     +--Balaena_mysticetus
 |  |     +----------------------------------------| (100)
 |  |                                              |                +--sampleB_part3
-|  |                                              |         +------| (96)
+|  |                                              |         +------| (95)
 |  |                                              |         |      +--Delphinapterus_leucas
-|  |                                              +---------| (98)
+|  |                                              +---------| (99)
 |  |                                                        +--Monodon_monoceros
 +**|
 |  +**Thunnus_obesus
@@ -431,7 +431,7 @@ Numbers in parentheses are bootstrap supports (%)
 
 Consensus tree in newick format: 
 
-(Thunnus_thynnus:0.0000000000,((Thunnus_maccoyii:0.0000024452,(sampleC_part3:0.0141933331,((sampleA_part3:0.0000024452,(((Eubalaena_japonica:0.0000000000,Eubalaena_australis:0.0000000000):0.0000024452,Eubalaena_glacialis:0.0000024452)56:0.0000024452,Balaena_mysticetus:0.0118107778)49:0.0000024452)78:0.0000024546,((sampleB_part3:0.0000024452,Delphinapterus_leucas:0.0000024452)96:0.0362788454,Monodon_monoceros:0.0000024452)98:0.0484926713)100:0.1891187772)100:0.0000021328):0.0000024452,Thunnus_obesus:0.0000000000):0.0000000000,Thunnus_tonggol:0.0000000000);
+(Thunnus_thynnus:0.0000000000,((Thunnus_maccoyii:0.0000024452,(sampleC_part3:0.0141933331,((sampleA_part3:0.0000024452,(((Eubalaena_japonica:0.0000000000,Eubalaena_australis:0.0000000000):0.0000024452,Eubalaena_glacialis:0.0000024452)90:0.0000024452,Balaena_mysticetus:0.0118107778)55:0.0000024452)84:0.0000024546,((sampleB_part3:0.0000024452,Delphinapterus_leucas:0.0000024452)95:0.0362788454,Monodon_monoceros:0.0000024452)99:0.0484926713)100:0.1891187772)100:0.0000021328):0.0000024452,Thunnus_obesus:0.0000000000):0.0000000000,Thunnus_tonggol:0.0000000000);
 
 ALISIM COMMAND
 --------------
@@ -452,7 +452,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Sun Nov 30 09:31:58 2025
-Total CPU time used: 70.425226 seconds (0h:1m:10s)
-Total wall-clock time used: 29.63035423 seconds (0h:0m:29s)
+Date and time: Sun Nov 30 17:42:51 2025
+Total CPU time used: 50.251147 seconds (0h:0m:50s)
+Total wall-clock time used: 26.55822232 seconds (0h:0m:26s)
 
