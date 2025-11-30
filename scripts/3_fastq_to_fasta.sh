@@ -46,7 +46,7 @@ for fastq in "$input_dir"/*.FASTQ; do
     # seqtk directly to raw fasta conversion (no trimming) and remove any spaces, then save
     seqtk seq -a "$fastq" | tr -d ' ' > "3_FASTA_raw/${name}_raw.fasta"
 
-    # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), then convert to fasta and save
+    # convert seqtk to mask bases to 'N' if lower than Q20 (threshold at 99%+ confidence), convert to fasta, delete any spaces, and save
     seqtk seq -q20 -n N "$fastq" | seqtk seq -a - | tr -d ' ' > "3_FASTA_Q20/${name}_Q20.fasta"
     
 done

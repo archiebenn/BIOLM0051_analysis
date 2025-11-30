@@ -17,7 +17,7 @@ dependencies:
   - seqkit
   - matplotlib
   - trimal
-  - figtree
+  - mafft
   - aliview
   - catfasta2phyml
   - pip

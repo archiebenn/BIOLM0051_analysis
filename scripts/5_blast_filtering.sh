@@ -1,5 +1,5 @@
 #!/bin/bash
-# blast_filtering.sh - separates blast output back into parts 1, 2 and 3 and selects top blast hit for each staxid
+# blast_filtering.sh - separates blast output back into parts 1, 2 and 3 and selects top blast hit for each species
 # run from project root 
 
 ##########

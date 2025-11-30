@@ -42,7 +42,7 @@ grep -v 'Eretmochelys imbricata x Chelonia mydas' 5_blast_filtering/sampleD_part
 mv temp 5_blast_filtering/sampleD_part1_filtered_hits.tsv
 
 
-# reduce filtered tsv size to a maximum length of 5 hits
+# reduce filtered tsv size to a maximum length of 4 hits
 # these are already sorted by e value -> bitscore -> length so these are the 10 most biologically relevant BLAST hits
 for tsv in "$input_dir"/*.tsv; do
 

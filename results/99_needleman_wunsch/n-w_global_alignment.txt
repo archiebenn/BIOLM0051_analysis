@@ -1,0 +1,78 @@
+########################################
+# Program: needle
+# Rundate: Sun 30 Nov 2025 14:28:19
+# Commandline: needle
+#    -asequence 99_needleman_wunsch/d_coriacea.fasta
+#    -bsequence 99_needleman_wunsch/sampleD_part1.fasta
+#    -gapopen 10
+#    -gapextend 0.5
+#    -outfile 99_needleman_wunsch/n-w_global_alignment.txt
+# Align_format: srspair
+# Report_file: 99_needleman_wunsch/n-w_global_alignment.txt
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: Dermochelys_coriacea
+# 2: sampleD_part1
+# Matrix: EDNAFULL
+# Gap_penalty: 10.0
+# Extend_penalty: 0.5
+#
+# Length: 525
+# Identity:     506/525 (96.4%)
+# Similarity:   506/525 (96.4%)
+# Gaps:          11/525 ( 2.1%)
+# Score: 2504.0
+# 
+#
+#=======================================
+
+Dermochelys_c      1 ----------CTCGCTGATTTTTTTCTACTAATCATAAAGACATTGGCAC     40
+                               ||||||||||||||||||||||||||||||||||||||||
+sampleD_part1      1 NNNNNNNNNNCTCGCTGATTTTTTTCTACTAATCATAAAGACATTGGCAC     50
+
+Dermochelys_c     41 CCTATACCTAATTTTTGGGGCCTGAGCAGGAATAGTAGGCACAGCACTCA     90
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1     51 CCTATACCTAATTTTTGGGGCCTGAGCAGGAATAGTAGGCACAGCACTCA    100
+
+Dermochelys_c     91 GCCTATTAATCCGTGCAGAACTAAGCCAACCGGGAACCCTCCTAGGAGAT    140
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    101 GCCTATTAATCCGTGCAGAACTAAGCCAACCGGGAACCCTCCTAGGAGAT    150
+
+Dermochelys_c    141 GACCAAATTTACAATGTCATCGTTACAGCCCATGCCTTCATTATAATCTT    190
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    151 GACCAAATTTACAATGTCATCGTTACAGCCCATGCCTTCATTATAATCTT    200
+
+Dermochelys_c    191 CTTCATAGTTATACCAGTTATAATCGGCGGTTTCGGAAACTGACTTGTTC    240
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    201 CTTCATAGTTATACCAGTTATAATCGGCGGTTTCGGAAACTGACTTGTTC    250
+
+Dermochelys_c    241 CCCTTATAATTGGAGCACCAGACATGGCATTCCCACGAATAAACAACATA    290
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    251 CCCTTATAATTGGAGCACCAGACATGGCATTCCCACGAATAAACAACATA    300
+
+Dermochelys_c    291 AGCTTTTGACTTTTACCTCCCTCACTGTTACTACTTCTAGCATCATCAGG    340
+                     ||||||||........||||||||||||||||||||||||||||||||||
+sampleD_part1    301 AGCTTTTGNNNNNNNNCTCCCTCACTGTTACTACTTCTAGCATCATCAGG    350
+
+Dermochelys_c    341 AATTGAAGCAGGTGCAGGAACAGGCTGAACAGTCTATCCTCCACTAGCTG    390
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    351 AATTGAAGCAGGTGCAGGAACAGGCTGAACAGTCTATCCTCCACTAGCTG    400
+
+Dermochelys_c    391 GAAACCTAGCCCACGCTGGTGCTTCTGTAGACCTAACTATCTTTTCTCTG    440
+                     ||||||||||||||||||||||||||||||||||||||||||||||||||
+sampleD_part1    401 GAAACCTAGCCCACGCTGGTGCTTCTGTAGACCTAACTATCTTTTCTCTG    450
+
+Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
+                     |||||||||||||||||||||||||||||||||||| |||||||||||||
+sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
+
+Dermochelys_c    491 AGCAATCAACATAAAATCTCCAGCT    515
+                     |||||||||||||||||||||||||
+sampleD_part1    500 AGCAATCAACATAAAATCTCCAGCT    524
+
+
+#---------------------------------------
+#---------------------------------------

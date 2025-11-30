@@ -3,7 +3,7 @@
 \usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
-%\usepackage{minted}   % syntax highlighting in code blocks
+\usepackage{minted}   % syntax highlighting in code blocks
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
@@ -60,7 +60,7 @@
 \renewcommand{\bibfont}{\sffamily\footnotesize\color{black!70}}
 
 
-\title{\LARGE\textbf{Short Analysis Pipeline}\\\vspace{1mm}\large BIOLM0051}
+\title{\LARGE\textbf{Mystery Meat Analysis}\\\vspace{1mm}\large BIOLM0051}
 \author{Archie Benn}
 \date{}
 
@@ -73,19 +73,9 @@
 \begin{document}
 \maketitle
 \subsection*{\textit{Scenario}}
-A suitcase containing deez several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.
+A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.
 
 Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -94,92 +84,15 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 \section*{Introduction}
 \lipsum[3-4]
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 \section*{Methods}
 \subsection*{Pipeline Overview}
 
-The FASTQ files in this report are small and the use of HPC resources in this case is not necessary. However, this workflow is designed to scale easily to similar analyses with much larger datasets. All steps here are able to run on an HPC cluster without modification, demonstrating reproduciility, automation, and capacity for high-throughput analyses. \\ \\
-\noindent Note: In addition to the part-wise analysis (e.g., A1, A2, A3), an exploratory alignment and tree inference were also performed using the merged FASTA sequences for each sample (A, B, C, D combined). This reruns scripts 9–11 but is not part of the core pipeline.
 
-
-%%%%%%%%%%%%%%%
-% Pipeline workflow figure
-%%%%%%%%%%%%%%%
-\begin{figure}[htbp]
-\begin{center}
-\resizebox{0.8\linewidth}{!}{%
-\begin{tikzpicture}[node distance=2.4cm]
-\node (start) [startstop] {\textbf{Raw FASTQ files}};
-\node (pro2) [process, below of=start, align=center] {\textbf{QC and pre-processing}\\Concatenation, masking, and \\FASTQ to FASTA};
-\node (pro3) [process, below of=pro2, align=center] {\textbf{BLAST search}\\Remote \texttt{blastn} against query FASTAs};
-\node (pro4) [process, below of=pro3, align=center] {\textbf{BLAST filtering}\\ Filtering per staxid, applying \texttt{taxonkit} \\and manual selection};
-\node (pro5) [process, below of=pro4, align=center] {\textbf{FASTA retrieval}\\Retrieve with \texttt{efetch} with trimming \\to match query region};
-\node (pro6a) [process, below of=pro5, align=center] {\textbf{Combined FASTA}\\Query FASTA merged with \\BLAST hit FASTAs};
-\node (pro6b) [process, right of=pro6a, align=center] at ([xshift=3cm]pro6a) {\textbf{Query FASTA}\\ Sequences retrieved};
-\node (pro7) [process, below of=pro6a, align=center] {\textbf{Translation and Alignment}\\Biopython to translate and \\\texttt{muscle5} to align};
-\node (pro8) [process, below of=pro7, align=center] {\textbf{Tree building and Viewing}\\Build with \texttt{iqtree3} and \\produce trees using Biopython};
-\node (stop) [startstop, below of=pro8, align=center] {\textbf{Species identification, where possible}};
-
-\node (scr1) [io, left of=pro2, align=center] at ([xshift=-3cm]pro2) {Scripts 1--3};
-\node (scr2) [io, left of=pro3, align=center] at ([xshift=-3cm]pro3) {Script 4};
-\node (scr3) [io, left of=pro4, align=center] at ([xshift=-3cm]pro4) {Script 5--6};
-\node (scr4) [io, left of=pro5, align=center] at ([xshift=-3cm]pro5) {Script 7};
-\node (scr5) [io, left of=pro6a, align=center] at ([xshift=-3cm]pro6a) {Script 8};
-\node (scr6) [io, left of=pro7, align=center] at ([xshift=-3cm]pro7) {Scripts 9--10};
-\node (scr7) [io, left of=pro8, align=center] at ([xshift=-3cm]pro8) {Scripts 11--?};
-
-\draw [arrow] (start) -- (pro2);
-\draw [arrow] (pro2) -- (pro3);
-\draw [arrow] (pro3) -- (pro4);
-\draw [arrow] (pro4) -- (pro5);
-\draw [arrow] (pro5) -- (pro6a);
-\draw [arrow] (pro6b) -- (pro6a);
-\draw [arrow] (pro6a) -- (pro7);
-\draw [arrow] (pro7) -- (pro8);
-\draw [arrow] (pro8) -- (stop);
-\draw [arrow] (pro2) -| (pro6b);
-
-\draw [arrow] (scr1) -- (scr2);
-\draw [arrow] (scr2) -- (scr3);
-\draw [arrow] (scr3) -- (scr4);
-\draw [arrow] (scr4) -- (scr5);
-\draw [arrow] (scr5) -- (scr6);
-\draw [arrow] (scr6) -- (scr7);
-
-\end{tikzpicture}
-}
-\end{center}
-\caption{Workflow of analysis pipeline.}
-    \label{fig:workflow}
-\end{figure}
 
 
 
@@ -193,92 +106,57 @@ Some python code:
  %   print(record.id, record.seq.translate())
 %\end{minted} 
 
-Some Bash script:
-%%%%%%%%%%%%%%%
-% Bash block
-%%%%%%%%%%%%%%%
-%\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{bash}
-%#!/bin/bash
-%#SBATCH --job-name=blast_job
-%#SBATCH --partition=teach_cpu
-%#SBATCH --time=01:00:00
-%#SBATCH --mem=2000M
-
-%blastn -db nt -query sequence.fa -out results.out -outfmt 7 -remote
-%\end{minted}
 
 
 %%%%%%%%%%%%%%%
 % Table
 %%%%%%%%%%%%%%%
-\begin{table}[ht]
-\centering
-\caption{Top 15 BLASTP hits for sample OMRGCv2f\_11922010\_1 against SwissProt.}
-\label{tab:blast_top15}
-\resizebox{\linewidth}{!}{% force margin fit
-\footnotesize\sffamily\color{black!70}
-\begin{tabular}{l l r r r r}
-\hline
-\textbf{\color{black}Query} & \textbf{\color{black}Subject} & \textbf{\color{black}\% Identity} & \textbf{\color{black}Alignment Length} & \textbf{\color{black}E-value} & \textbf{\color{black}Bitscore} \\
-\hline
-OMRGCv2f\_11922010\_1 & A5UYW4.1 & 55.56 & 63 & 1.3e-17 & 85.1 \\
-OMRGCv2f\_11922010\_1 & A7NS65.1 & 55.56 & 63 & 1.8e-17 & 83.5 \\
-% ... repeat for top 15
-\hline
-\end{tabular}
-}
-\end{table}
-
-
-
-
-
-
-
-
-
-
 
 \section*{Results}
-\lipsum[5-6]
 
-%\begin{minted}[frame=single, framesep=1.5mm, bgcolor=gray!1]{python}
-%import pandas as pd
-%data = pd.read_csv("expression.csv")
-%normalized = data.apply(lambda x: np.log2(x+1))
-%\end{minted}
+\section*{Discussion}
+\texttt{sampleD\_part1} nt length is 524bp, whereas the efetch FASTA lengths are 525bp. This single deletion could be causing the frame shift visible towards the end of the \texttt{GAINFITTIIN} region in Fig. 2. This deletion may have been caused by an error during sequencing.
 
-Alignment results using Clustal Omega on some test data: 
+Figure X. Maximum-likelihood tree from the original protein alignment.
+Figure Y. Maximum-likelihood tree from a manually corrected alignment in which one ambiguous base - N -  was inserted into \texttt{sampleD\_part1} at the suspected deletion site to restore the reading frame. This tree is shown to assess the impact of the putative sequencing error on branch length and topology.
+
+
 %%%%%%%%%%%%%%%
 % Texshade alignment
 %%%%%%%%%%%%%%%
-%\begin{figure}[htbp]
-%\begin{texshade}{}
-%\threshold[80]{50}
-%\setends{1}{0..110}
-%\hideconsensus
-%\showlegend
-%\end{texshade}
-%\caption{Alignment using Clustal Omega and Identity mode in texshade}
-%\label{fig:workflow}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{Subset of supermatrix alignment with potential frame shift error in \texttt{sampleD} near the highly-conserved \texttt{INFITTIIN} region.}
+	\begin{texshade}{../results/11_supermatrix_files/supermatrix.afa}
+		\threshold[80]{50}
+		\setends{1}{141..180}
+		\feature{top}{1}{0..170}{---}{Part 1}
+		\feature{top}{1}{171..336}{,-,}{Part 2}
+		\feature{bottom}{1}{159..170}{brace}{Potential frame-shift in sampleD (tail of part 1)}
+		\hideconsensus
+		\showlegend
+	\end{texshade}
+\label{fig:supermatrix}
+\end{figure}
 
 
+%%%%%%%%%%%%%%%
+% Bash block
+%%%%%%%%%%%%%%%
+\begin{figure}[H]
+	\centering
+	
+\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{text}
+Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
+                     |||||||||||||||||||||||||||||||||||| |||||||||||||
+sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
+\end{minted}
+    \captionsetup{justification=centering}
+	\caption{Nucleotide Needleman-Wunsch pairwise global alignment of the tail end of \texttt{sampleD\_part1} against closest reference, \textit{Dermochelys coriacea}, and showing a possible sequencing base miss at position 486 in \texttt{sampleD\_part1}.}
 
-
-
-
-
-\section*{Discussion}
-\lipsum[5-6]
-Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe even from this guy \cite{baker1997signaling,wolin1997microbe}
-
-
-
-
-
-
-
+\label{fig:needleman}
+\end{figure}
 
 
 
@@ -287,18 +165,6 @@ Yadadadada \citep{kent2002blat} and then also \citep{wolin1997microbe} and maybe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check .bib ordering for years and surnames etc.
 \bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-%Acknowledging the use of HPC Facilities
-%When you write articles about your research for publication, 
-%conference proceedings or for other reasons, please acknowledge use of the ACRC facilities by including the following:
-
-\section*{Acknowledgments}
-This work was carried out using the computational facilities of the Advanced Computing Research Centre, University of Bristol - \url{http://www.bristol.ac.uk/acrc/}
-
-
 
 
 \section*{Supplementary Data}
