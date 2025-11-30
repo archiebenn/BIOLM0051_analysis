@@ -116,7 +116,7 @@ Some python code:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{../results/13_tree_plots/samples_tree.pdf}
-	\caption{Phylogenetic placement of unknown meat samples and their top BLAST hits}
+	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and their top BLAST hits}
 	\label{fig:tree_pdf}
 \end{figure}
 
@@ -138,7 +138,7 @@ Figure Y. Maximum-likelihood tree from a manually corrected alignment in which o
 		\setends{1}{141..180}
 		\feature{top}{1}{140..170}{--,}{Part 1}
 		\feature{top}{1}{171..180}{,--}{Part 2}
-		\feature{bottom}{1}{159..170}{brace}{Potential frame-shift in sample D (tail of part 1)}
+		\feature{bottom}{1}{159..170}{brace}{Potential frame-shift in sample D}
 		\hideconsensus
 		\showlegend
 	\end{texshade}
@@ -159,7 +159,9 @@ Figure Y. Maximum-likelihood tree from a manually corrected alignment in which o
 Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
                      |||||||||||||||||||||||||||||||||||| |||||||||||||
 sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
-\end{minted}
+\end{minted} 
+\raisebox{2em}{\hspace{4.25cm}$\big\uparrow$}
+\vspace{-2em}
     \captionsetup{justification=centering}
 	\caption{Nucleotide Needleman-Wunsch pairwise global alignment of the tail end of \texttt{sampleD\_part1} against closest reference, \textit{Dermochelys coriacea}, and showing a possible sequencing base miss at position 486 in \texttt{sampleD\_part1}.}
 
@@ -192,14 +194,14 @@ Supplementary data and all scripts can be found within the GitHub repository for
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Subset of supermatrix alignment of \texttt{sampleD} with clade references and other samples resulting from manually edited \texttt{sampleD} nucleotide sequence (other references left out of figure contribute to the conserved residue \%). The altered protein sequence from one ambiguous base addition in the nucleotide sequence aligns much more closely to highly-conserved \texttt{INFITTIIN} region seen in other sequences.}
+	\caption{Subset supermatrix alignment after manually correcting \texttt{sampleD\_part1} with one ambiguous base (N) inserted in the nucleotide sequence (other references left out of figure still contribute to the conserved residue \%). The altered protein sequence from one ambiguous base addition in the nucleotide sequence aligns more closely to highly-conserved \texttt{INFITTIIN} region seen across other sequences compared to Figure~\ref{fig:supermatrix}.}
 	\label{fig:supermatrix2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{figures/sampleD_branch_tree.pdf}
-	\caption{Phylogeny of Mystery Meat samples and closest BLAST matches.}
+	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. The resulting branch length of \texttt{sampleD} is much shorter than in Figure~\ref{fig:supermatrix}, indicating that a frame shift due to a sequencing base miss caused the extended branch length from the rest of the turtle clade.}
 	\label{fig:tree_pdf2}
 \end{figure}
 
