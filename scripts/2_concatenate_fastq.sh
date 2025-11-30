@@ -9,20 +9,18 @@
 # strict mode - exit on errors and pipeline failures
 set -eo pipefail
 
-# move into samples/ and exit if not in root
+# move into data/ and exit if not in root
 cd data/ || \
 { echo "Data directory not found, please ensure you are running this script from project root"; exit 1; }
 
-fastq_folder=results/2_FASTQ_processed                                  
-
 # remove output folder if it exists (if re-running with existing results/)
-rm -rf ../../results/2_FASTQ_processed
+rm -rf ../results/2_FASTQ_processed
 
 # create ouput folder
-mkdir -p ../../results/2_FASTQ_processed   
+mkdir -p ../results/2_FASTQ_processed   
 
 # set input folder to read from
-input_dir=samples/samples
+input_dir=samples/samples/
 
 # check that the input folder from previous script contains files for the loop (and silences internal errors)
 ls "$input_dir"/*.FASTQ >/dev/null 2>&1 || \
@@ -38,7 +36,7 @@ ls "$input_dir"/*.FASTQ >/dev/null 2>&1 || \
 for letter in {A..D}; do     
 
     # create array of all FASTQ files for sample                                            
-    files=(sample"${letter}"*.FASTQ)                                               
+    files=(samples/samples/sample"${letter}"*.FASTQ)                                               
     
     echo "Concatenating sample${letter} files..." 
 
@@ -91,9 +89,9 @@ for letter in {A..D}; do
     # copy temp file over sample${x}_processed.FASTQ when finished 
     mv "$temp" "sample${letter}_processed.FASTQ"
 
-    # move the concatenated file to processed fastq directory in other part of repo                           
+    # move the concatenated file to results                          
     mv "sample${letter}_processed.FASTQ" ../results/2_FASTQ_processed     
       
 done
 
-cd ../..
+cd ../

@@ -21,7 +21,7 @@ mkdir -p ../results
 mkdir -p samples
 mkdir -p ../results/1_checked_FASTQ
 
-# check that the input folder from previous script contains files for the loop (and silences internal errors)
+# check that the input folder contains files for the loop (and silences internal errors)
 ls *.zip >/dev/null 2>&1 || \
 { echo "[ISSUE] No zip file found in data/. Please ensure zipped data are present in this directory to begin analysis. Exiting script."; exit 1; }
 
@@ -55,6 +55,6 @@ for fastq in *.FASTQ; do
 done
 
 # move check file out to results folder
-mv 1_FASTQ_format_check.txt ../../../results/1_FASTQ_check                           
+mv 1_FASTQ_format_check.txt ../../../results/1_checked_FASTQ                          
 
 cd ../../../
