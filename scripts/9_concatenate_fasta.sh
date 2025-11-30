@@ -118,22 +118,17 @@ done
 
 
 
+##########
+# 4. Rename one header
+##########
 
+# In sample D pt. 2 one header (from accession NC_018550) is returning 'Natator Depressa' 
+# while another (accession OZ223967) returns 'Natator Depressus'
+# these are both the same species on NCBI, and it is called 'Natator Depressus' there
+# these names must match for the supermatrix alignment and tree build downstream to be considered the same organism
 
-############### remove if fine
-##### add back  to loop 3.if not
-### # only attach outgroup fasta files to part1 and part2. 
-    # this is following alignments where part3 did not align at all with the outgroups which broke the global alignment using muscle5, so leaving part3 outgroups out
-   # if [[ "$number" -lt 3 ]]; then 
-#
- #       # header edit as in loop above, applied to outgroup full mitochondria genome and concatenated to the main fasta part file
-  #      awk '/^>/ {print ">" $2 "_" $3; next} {print}' "$input_dir4"/*.fasta >>  part"$number"_complete.fasta
-   # fi
-
-
-
-
-
+# replace 'depressa' with 'depressus' in part2 complete fasta
+sed -i 's/Natator_depressa/Natator_depressus/g' part2_complete.fasta
 
 
 
