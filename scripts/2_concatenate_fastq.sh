@@ -95,3 +95,6 @@ for letter in {A..D}; do
 done
 
 cd ../
+
+# keeping data/ clean
+rm -rf data/samples/
