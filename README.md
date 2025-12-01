@@ -24,7 +24,8 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
 This pipeline consists of 13 scipts and is deigned to run from the original `samples.zip` file all the way through to the creation of the final phylogenetic tree in one line in the terminal. The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeling using `./scripts/pipeline.sh <script-number>` (see step 2B for more details).
-<img src="./LaTeX/pipeline.svg" width="400">
+<img src="./LaTeX/pipeline.svg" width="400">  
+
 
 | Script number | Step                | Script Description                               |
 |---------------|---------------------|--------------------------------------------------|
@@ -40,7 +41,8 @@ This pipeline consists of 13 scipts and is deigned to run from the original `sam
 | 10            | Python translation  | Biopython script to translate to protein seqs    |
 | 11            | Alignment           | Uses `muscle5` to align protein sequences        |
 | 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
-| 13            | Tree View           | Visualise and root tree using Python             |
+| 13            | Tree View           | Visualise and root tree using Python             |  
+
 
 # Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
