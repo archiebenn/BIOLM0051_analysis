@@ -23,7 +23,7 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
-![Alt text](./controllers_brief.svg)
+![Alt text](./LaTeX/pipeline.sh)
 <img src="./LaTeX/pipeline.svg>
 
 
