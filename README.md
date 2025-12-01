@@ -22,7 +22,10 @@ tar -xzf taxdump.tar.gz
 # move files
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
-## Project directory overview 
+## Pipeline overview
+![Alt text](./controllers_brief.svg)
+<img src="./LaTeX/pipeline.svg>
+
 
 ```
 BIOLM0051_analysis
