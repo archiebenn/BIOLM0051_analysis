@@ -24,7 +24,6 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
 ![Alt text](./LaTeX/pipeline.svg)
-<img src="./LaTeX/pipeline.svg>
 
 
 ```
