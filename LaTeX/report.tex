@@ -1,16 +1,18 @@
 \documentclass[11pt]{article}
 
-\usepackage[left=2.5cm,right=2.5cm,top=2.25cm,bottom=2.25cm]{geometry}
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
 \usepackage{minted}   % syntax highlighting in code blocks
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+
 \usepackage{microtype}  % nicer typesetting
-\usepackage{libertinus}% serif font for main body text
+\usepackage{newtxtext} % serif font for main body text
 \usepackage{helvet} % sans serif font for headings/tables etc
 \usepackage{inconsolata}  % font for comments in code blocks
+
 \usepackage{sectsty}
 \usepackage{caption} 
 \captionsetup{font={footnotesize,sf}, 
@@ -37,11 +39,9 @@
 
 \pagestyle{fancy}
 \fancyhf{} 
-\fancyhead[R]{Page \thepage\ of \pageref*{LastPage}} % page numbers top right and 'x of y'
-\renewcommand{\headrulewidth}{0pt} % remove header underline
-\linespread{1.1}
-
-
+\fancyhead[L]{BIOLM0051}
+\fancyhead[R]{Page \thepage\ of \pageref*{LastPage}}
+\linespread{1.15}
 
 % changing section heading fonts and sizing/spacing
 \titleformat{\section}
@@ -74,6 +74,7 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 \subsection*{\textit{Scenario}}
 A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.
 
@@ -87,11 +88,9 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Introduction} % 200 WORDS
-Global 
+\noindent CITES was established in 1975 as a key legal framework to protect endangered species from global trade, yet from 1975 to 2014 the volume of CITES-listed organisms traded per year quadrupled to over 100 million whole-organism equivalents, a level which directly threatens both populations and whole ecosystems \citep{harfoot2018unveiling}. Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction \citep{hughes2023ecological}. 
 
-The Washington Convention, also known as CITES, was established in 1975 as a key legal framework to protect endangered species from global trade, yet from 1975 to 2014 the volume of CITES-listed organisms traded per year quadrupled to over 100 million whole-organism equivalents \citep{harfoot2018unveiling}. This  
-
-
+\par \noindent Given the challenge of identifying meat by morphology alone    
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
@@ -160,7 +159,7 @@ Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
                      |||||||||||||||||||||||||||||||||||| |||||||||||||
 sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 \end{minted} 
-\raisebox{2em}{\hspace{4.25cm}$\big\uparrow$}
+\raisebox{2em}{\hspace{5.25cm}$\big\uparrow$}
 \vspace{-2em}
     \captionsetup{justification=centering}
 	\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence (\textit{Dermochelys coriacea}). The alignment gap indicates a possible base miss at position 486 in \texttt{sampleD\_part1} during sequencing.}
