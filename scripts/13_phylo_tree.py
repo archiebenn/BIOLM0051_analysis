@@ -47,14 +47,13 @@ for clade in full_tree.get_nonterminals():
     clade.name = None
 
 # resize the plot to fit a4 landscape
-fig = plt.figure(figsize=(18, 14))
+fig = plt.figure(figsize=(12, 10))
 ax = fig.add_subplot(1, 1, 1)
 
 # flip branches in y axis
 full_tree.ladderize() 
 
-
-# draw the tree and save out to results directory
+# draw the tree
 Phylo.draw(full_tree, axes = ax, do_show = False)
 
 # set sample tips in red after drawing tree
@@ -66,17 +65,17 @@ for text in ax.texts:
 
 # set tip label size
 for text in ax.texts:
-    text.set_fontsize(18)
+    text.set_fontsize(13)
 
 # title and axes labels
-plt.xlabel("Substitutions per site", labelpad=20, fontsize = 26)
+plt.xlabel("Substitutions per site", labelpad=12, fontsize = 16)
 plt.ylabel("")
 
 # remove y ticks
 ax.set_yticks([])
 
 # set tick font size
-ax.tick_params(axis = 'x', labelsize = 20)
+ax.tick_params(axis = 'x', labelsize = 12)
 
 # reduce border size
 plt.tight_layout(pad=0)
