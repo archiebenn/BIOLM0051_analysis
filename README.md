@@ -23,8 +23,10 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
-![Alt text](./LaTeX/pipeline.svg)
 
+| |
+|:--:|
+| <img src="./LaTeX/pipeline.svg" width="400"> |
 
 ```
 BIOLM0051_analysis
