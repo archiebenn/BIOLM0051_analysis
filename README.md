@@ -32,7 +32,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 
 | Script number | Step                | Script Description                               |
 |---------------|---------------------|--------------------------------------------------|
-| 1             | FASTQ check         | Checks input FASTQ file formats                  |
+| 1             | FASTQ check         | Extracts and checks input FASTQ file formats     |
 | 2             | Concatenate FASTQ   | Combine split FASTQ parts                        |
 | 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA      |
 | 4             | BLAST search        | Carries out remote `blastn` searches             |
