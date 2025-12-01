@@ -5,11 +5,9 @@ import os
 import matplotlib.pyplot as plt
 from Bio import Phylo
 
-
 ##########
 # 1. setup and error handling
 ##########
-
 # remove output folder if it exists (if re-running with existing results/))
 shutil.rmtree("results/13_tree_plots", ignore_errors=True)
 
@@ -20,6 +18,8 @@ os.makedirs("results/13_tree_plots", exist_ok=True)
 treefile_directory = "results/12_tree_files"
 results_directory = "results/13_tree_plots"
 
+# serif font
+plt.rcParams["font.family"] = "serif"
 
 ##########
 # 2. create tree and root it with outgroup
@@ -53,16 +53,24 @@ ax = fig.add_subplot(1, 1, 1)
 # flip branches in y axis
 full_tree.ladderize() 
 
+
 # draw the tree and save out to results directory
 Phylo.draw(full_tree, axes = ax, do_show = False)
 
-# title and axes labels
-plt.xlabel("Substitutions per site", labelpad=20, fontsize = 26)
-plt.ylabel("")
+# set sample tips in red after drawing tree
+for text in ax.texts:
+    label = text.get_text().strip()
+    # if label starts with 'sample' colour it firebrick
+    if label.startswith("sample"):
+        text.set_color("firebrick")
 
 # set tip label size
 for text in ax.texts:
     text.set_fontsize(18)
+
+# title and axes labels
+plt.xlabel("Substitutions per site", labelpad=20, fontsize = 26)
+plt.ylabel("")
 
 # remove y ticks
 ax.set_yticks([])
@@ -71,7 +79,7 @@ ax.set_yticks([])
 ax.tick_params(axis = 'x', labelsize = 20)
 
 # reduce border size
-plt.tight_layout(pad=5)
+plt.tight_layout(pad=0)
 
 # save out the pdf
 plt.savefig(f"{results_directory}/samples_tree.pdf")

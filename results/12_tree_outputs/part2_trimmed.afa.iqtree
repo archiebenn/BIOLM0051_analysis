@@ -2,7 +2,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 
 Input file name: 11_alignment_files/part2_trimmed.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 465870
+Random seed number: 499867
 
 REFERENCES
 ----------
@@ -77,7 +77,7 @@ MTMET+G4           -633.996    1319.992 - 9.22e-08    1329.950 - 7.83e-08    140
 MTVER+I+G4         -633.103    1320.205 - 8.29e-08    1331.005 - 4.62e-08    1404.552 - 6.63e-09
 MTVER+R2           -633.211    1320.421 - 7.44e-08    1331.221 - 4.15e-08    1404.768 - 5.95e-09
 MTMET+I+G4         -633.885    1321.770 - 3.79e-08    1332.570 - 2.11e-08    1406.117 - 3.03e-09
-MTMET+R2           -633.952    1321.904 - 3.55e-08    1332.704 - 1.97e-08    1406.251 - 2.83e-09
+MTMET+R2           -633.952    1321.904 - 3.55e-08    1332.704 - 1.98e-08    1406.251 - 2.83e-09
 MTINV              -643.760    1337.521 - 1.44e-11    1346.676 - 1.83e-11    1415.620 - 2.62e-11
 CPREV              -645.032    1340.065 - 4.04e-12    1349.219 - 5.12e-12    1418.164 - 7.34e-12
 MTINV+I            -643.428    1338.855 -  7.4e-12    1348.813 - 6.28e-12    1420.078 - 2.82e-12
@@ -291,7 +291,7 @@ Q.BIRD+F+G4        -617.729    1325.458 -    6e-09    1359.392 - 3.17e-14    146
 DCMUT+F+G4         -617.759    1325.518 - 5.82e-09    1359.452 - 3.07e-14    1466.096 - 2.87e-22
 FLU+F+I            -617.853    1325.706 -  5.3e-09    1359.640 -  2.8e-14    1466.284 - 2.61e-22
 FLU+F+G4           -617.923    1325.846 - 4.94e-09    1359.780 - 2.61e-14    1466.424 - 2.43e-22
-HIVB+I+G4          -664.111    1382.222 - 2.83e-21    1393.022 - 1.58e-21    1466.570 - 2.26e-22
+HIVB+I+G4          -664.111    1382.223 - 2.83e-21    1393.023 - 1.58e-21    1466.570 - 2.26e-22
 CPREV+F+I+G4       -615.712    1323.424 - 1.66e-08    1359.160 - 3.55e-14    1467.127 - 1.71e-22
 CPREV+F+R2         -615.720    1323.440 - 1.65e-08    1359.176 - 3.53e-14    1467.142 -  1.7e-22
 BLOSUM62+F+I+G4    -615.723    1323.446 - 1.64e-08    1359.181 - 3.52e-14    1467.148 - 1.69e-22
@@ -310,7 +310,7 @@ DAYHOFF+F+R2       -617.707    1327.414 - 2.26e-09    1363.149 - 4.84e-15    147
 DCMUT+F+I+G4       -617.731    1327.461 -  2.2e-09    1363.197 - 4.72e-15    1471.164 - 2.27e-23
 FLU+F+I+G4         -617.892    1327.784 - 1.87e-09    1363.520 - 4.02e-15    1471.487 - 1.93e-23
 DCMUT+F+R2         -617.971    1327.943 - 1.73e-09    1363.678 - 3.71e-15    1471.645 - 1.79e-23
-FLU+F+R2           -617.982    1327.964 - 1.71e-09    1363.700 - 3.67e-15    1471.667 - 1.77e-23
+FLU+F+R2           -617.982    1327.965 - 1.71e-09    1363.700 - 3.67e-15    1471.667 - 1.77e-23
 FLAVI+F            -624.358    1336.717 - 2.15e-11    1368.912 - 2.71e-16    1474.171 - 5.06e-24
 HIVB+F             -624.976    1337.952 - 1.16e-11    1370.148 - 1.46e-16    1475.407 - 2.73e-24
 FLAVI+F+I          -622.757    1335.513 - 3.93e-11    1369.448 - 2.07e-16    1476.092 - 1.94e-24
@@ -351,7 +351,7 @@ Model of rate heterogeneity: Uniform
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Log-likelihood of the tree: -619.5716 (s.e. 27.6292)
+Log-likelihood of the tree: -619.5716 (s.e. 27.6293)
 Unconstrained log-likelihood (without tree): -651.9642
 Number of free parameters (#branches + #model parameters): 25
 Akaike information criterion (AIC) score: 1289.1432
@@ -359,9 +359,9 @@ Corrected Akaike information criterion (AICc) score: 1298.2981
 Bayesian information criterion (BIC) score: 1367.2423
 
 Total tree length (sum of branch lengths): 0.2419
-Sum of internal branch lengths: 0.1406 (58.1323% of tree length)
+Sum of internal branch lengths: 0.1440 (59.5392% of tree length)
 
-WARNING: 5 near-zero internal branches (<0.0060) should be treated with caution
+WARNING: 4 near-zero internal branches (<0.0060) should be treated with caution
          Such branches are denoted by '**' in the figure below
 
 NOTE: Tree is UNROOTED although outgroup taxon 'Heptranchias_perlo' is drawn at root
@@ -369,83 +369,83 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 
 +-------------Heptranchias_perlo
 |
-|               +**Etmopterus_spinax
-+---------------| (100)
-|               +**Etmopterus_pusillus
+|              +**Etmopterus_spinax
++--------------| (100)
+|              +**Etmopterus_pusillus
 |
 |                                                             +**sampleB_part2
-|                                                          +--| (84)
+|                                                          +--| (86)
 |                                                          |  +**Monodon_monoceros
-|                                                       +--| (72)
+|                                                       +--| (69)
 |                                                       |  +--Delphinapterus_leucas
-|                                 +---------------------| (87)
-|                                 |                     |     +**Eubalaena_japonica
-|                                 |                     |  +**| (92)
-|                                 |                     |  |  +**Eubalaena_glacialis
-|                                 |                     +--| (85)
-|                                 |                        +--sampleA_part2
-|                              +**| (56)
-|                              |  +**Eretmochelys_imbricata
-+------------------------------| (98)
-                               |     +--sampleD_part2
-                               |  +**| (50)
-                               |  |  |  +**Dermochelys_coriacea
-                               |  |  +**| (79)
-                               |  |     +**Natator_depressus
-                               +**| (35)
-                                  +--Stigmochelys_pardalis
+|                                  +--------------------| (85)
+|                                  |                    |     +**Eubalaena_japonica
+|                                  |                    |  +**| (92)
+|                                  |                    |  |  +**Eubalaena_glacialis
+|                                  |                    +--| (86)
+|                                  |                       +--sampleA_part2
+|                               +--| (50)
+|                               |  +**Eretmochelys_imbricata
+|                            +**| (35)
+|                            |  |  +--sampleD_part2
+|                            |  +**| (48)
+|                            |     |  +**Dermochelys_coriacea
+|                            |     +**| (85)
+|                            |        +**Natator_depressus
++----------------------------| (97)
+                             +**Stigmochelys_pardalis
 
 Tree in newick format:
 
-(Heptranchias_perlo:0.0337612636,(Etmopterus_spinax:0.0000010000,Etmopterus_pusillus:0.0000010000)100:0.0370062840,(((((sampleB_part2:0.0000010000,Monodon_monoceros:0.0000010000)84:0.0061415767,Delphinapterus_leucas:0.0060318670)72:0.0060987014,((Eubalaena_japonica:0.0000010000,Eubalaena_glacialis:0.0000010000)92:0.0000010000,sampleA_part2:0.0060531498)85:0.0061165665)87:0.0509476778,Eretmochelys_imbricata:0.0000010000)56:0.0032546679,((sampleD_part2:0.0062497226,(Dermochelys_coriacea:0.0000010000,Natator_depressus:0.0000010000)79:0.0000010000)50:0.0000010000,Stigmochelys_pardalis:0.0060186067)35:0.0027704101)98:0.0714269869);
+(Heptranchias_perlo:0.0337612451,(Etmopterus_spinax:0.0000010000,Etmopterus_pusillus:0.0000010000)100:0.0370066052,((((((sampleB_part2:0.0000010000,Monodon_monoceros:0.0000010000)86:0.0061416868,Delphinapterus_leucas:0.0060307367)69:0.0060987998,((Eubalaena_japonica:0.0000010000,Eubalaena_glacialis:0.0000010000)92:0.0000010000,sampleA_part2:0.0060533990)86:0.0061165469)85:0.0509474950,Eretmochelys_imbricata:0.0000010000)50:0.0060225103,(sampleD_part2:0.0062497169,(Dermochelys_coriacea:0.0000010000,Natator_depressus:0.0000010000)85:0.0000010000)48:0.0000010000)35:0.0034048750,Stigmochelys_pardalis:0.0026154518)97:0.0714272271);
 
 CONSENSUS TREE
 --------------
 
 Consensus tree is constructed from 1000 bootstrap trees
-Log-likelihood of consensus tree: -619.574312
+Log-likelihood of consensus tree: -619.574311
 Robinson-Foulds distance between ML tree and consensus tree: 2
 
 Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
 Numbers in parentheses are bootstrap supports (%)
 
-+-------------Heptranchias_perlo
++--------------Heptranchias_perlo
 |
-|              +--Etmopterus_spinax
-+--------------| (100)
-|              +--Etmopterus_pusillus
+|               +--Etmopterus_spinax
++---------------| (100)
+|               +--Etmopterus_pusillus
 |
-|                                                              +--sampleB_part2
-|                                                           +--| (84)
-|                                                           |  +--Monodon_monoceros
-|                                                        +--| (72)
-|                                                        |  +--Delphinapterus_leucas
-|                                   +--------------------| (87)
-|                                   |                    |           +**Eubalaena_japonica
-|                                   |                    |        +**|
-|                                   |                    |        |  +**Eubalaena_australis
-|                                   |                    |     +--|
-|                                   |                    |     |  +**Balaena_mysticetus
-|                                   |                    |  +--| (92)
-|                                   |                    |  |  +--Eubalaena_glacialis
-|                                   |                    +--| (85)
-|                                   |                       +--sampleA_part2
-|                                +--| (56)
-|                                |  +--Eretmochelys_imbricata
-|                             +--| (42)
-|                             |  |  +--sampleD_part2
-|                             |  +--| (50)
-|                             |     |  +--Dermochelys_coriacea
-|                             |     +--| (79)
-|                             |        +--Natator_depressus
-+-----------------------------| (98)
-                              +--Stigmochelys_pardalis
+|                                                             +--sampleB_part2
+|                                                          +--| (86)
+|                                                          |  +--Monodon_monoceros
+|                                                       +--| (69)
+|                                                       |  +--Delphinapterus_leucas
+|                                 +---------------------| (85)
+|                                 |                     |           +**Eubalaena_japonica
+|                                 |                     |        +**|
+|                                 |                     |        |  +**Eubalaena_australis
+|                                 |                     |     +--|
+|                                 |                     |     |  +**Balaena_mysticetus
+|                                 |                     |  +--| (92)
+|                                 |                     |  |  +--Eubalaena_glacialis
+|                                 |                     +--| (86)
+|                                 |                        +--sampleA_part2
+|                              +--| (50)
+|                              |  +--Eretmochelys_imbricata
++------------------------------| (97)
+                               |     +--sampleD_part2
+                               |  +--| (48)
+                               |  |  |  +--Dermochelys_coriacea
+                               |  |  +--| (85)
+                               |  |     +--Natator_depressus
+                               +--| (39)
+                                  +--Stigmochelys_pardalis
 
 
 Consensus tree in newick format: 
 
-(Heptranchias_perlo:0.0337613708,(Etmopterus_spinax:0.0000024577,Etmopterus_pusillus:0.0000024577)100:0.0370057310,((((((sampleB_part2:0.0000024577,Monodon_monoceros:0.0000024577)84:0.0061419278,Delphinapterus_leucas:0.0060310763)72:0.0060983501,((((Eubalaena_japonica:0.0000000000,Eubalaena_australis:0.0000000000):0.0000000000,Balaena_mysticetus:0.0000000000):0.0000024577,Eubalaena_glacialis:0.0000024577)92:0.0000024577,sampleA_part2:0.0060535768)85:0.0061161392)87:0.0509471836,Eretmochelys_imbricata:0.0000024577)56:0.0060231263,(sampleD_part2:0.0062499580,(Dermochelys_coriacea:0.0000024577,Natator_depressus:0.0000024577)79:0.0000024577)50:0.0000024577)42:0.0000728756,Stigmochelys_pardalis:0.0059461389)98:0.0714320190);
+(Heptranchias_perlo:0.0337613707,(Etmopterus_spinax:0.0000024577,Etmopterus_pusillus:0.0000024577)100:0.0370057310,(((((sampleB_part2:0.0000024577,Monodon_monoceros:0.0000024577)86:0.0061417412,Delphinapterus_leucas:0.0060310549)69:0.0060986075,((((Eubalaena_japonica:0.0000000000,Eubalaena_australis:0.0000000000):0.0000000000,Balaena_mysticetus:0.0000000000):0.0000024577,Eubalaena_glacialis:0.0000024577)92:0.0000024577,sampleA_part2:0.0060534426)86:0.0061156593)85:0.0509474694,Eretmochelys_imbricata:0.0000024577)50:0.0000767469,((sampleD_part2:0.0062501013,(Dermochelys_coriacea:0.0000024577,Natator_depressus:0.0000024577)85:0.0000024577)48:0.0000024577,Stigmochelys_pardalis:0.0060188131)39:0.0059464264)97:0.0714319985);
 
 ALISIM COMMAND
 --------------
@@ -466,7 +466,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Sun Nov 30 17:51:36 2025
-Total CPU time used: 84.239344 seconds (0h:1m:24s)
-Total wall-clock time used: 34.17367949 seconds (0h:0m:34s)
+Date and time: Mon Dec  1 09:44:07 2025
+Total CPU time used: 106.216597 seconds (0h:1m:46s)
+Total wall-clock time used: 36.04690397 seconds (0h:0m:36s)
 
