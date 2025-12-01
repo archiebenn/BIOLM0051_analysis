@@ -1,5 +1,5 @@
 #!/bin/bash
-# run_all.sh - runs all shell scripts in pipeline order
+# pipeline.sh - runs all shell scripts in pipeline order
 # run from project root
 
 start=$(date +%s)
