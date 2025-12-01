@@ -81,13 +81,13 @@ Overview of script numbers and steps involved
 Execute all scripts in the correct order for this pipeline: 
 
 ```bash
-./scripts/run_pipeline.sh
+./scripts/pipeline.sh
 ```
 
 Example run:
 
 ```
-./scripts/run_pipeline.sh 
+./scripts/pipeline.sh 
 
     __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
    /  |/  /\ \/ / __/_  __/ __/ _ \ \/ /   /  |/  / __/ _ /_  __/   / _ | / |/ / _ | / /\ \/ / __/  _/ __/
@@ -114,12 +114,12 @@ Analysis runtime: 00h:23m:05s
 Allows skipping slow steps of the pipeline which can lead to significantly shorter run times:  
 
 ```bash
-./scripts/run_pipeline.sh <script-number>
+./scripts/pipeline.sh <script-number>
 ```
 
 For example starting from script 5 (after BLAST search which can take > 20 minutes): 
 ```
-./scripts/run_pipeline.sh 5
+./scripts/pipeline.sh 5
 
     __  _____  _____________________  __    __  __________ ______    ___   _  _____   ____  ______________
    /  |/  /\ \/ / __/_  __/ __/ _ \ \/ /   /  |/  / __/ _ /_  __/   / _ | / |/ / _ | / /\ \/ / __/  _/ __/
