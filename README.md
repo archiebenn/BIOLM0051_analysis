@@ -23,20 +23,25 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
+This pipeline consists of 13 scipts and is deigned to run from the original `samples.zip` file all the way through to the creation of the final phylogenetic tree in one line in the terminal. The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeling using `./scripts/pipeline.sh <script-number>` (see step 2B for more details).
+<img src="./LaTeX/pipeline.svg" width="400">
 
-| <img src="./LaTeX/pipeline.svg" width="400"> |
+| Script number | Step                | Script Description                               |
+|---------------|---------------------|--------------------------------------------------|
+| 1             | FASTQ check         | Checks input FASTQ file formats                  |
+| 2             | Concatenate FASTQ   | Combine split FASTQ parts                        |
+| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA      |
+| 4             | BLAST search        | Carries out remote `blastn` searches             |
+| 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`   |
+| 6             | Manual Selection    | Selects BLAST hits based on manual filters       |
+| 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences   |
+| 8             | Retrieve Outgroup   | Uses `efetch` to retrieve chosen outgroup FASTAs |
+| 9             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs   |
+| 10            | Python translation  | Biopython script to translate to protein seqs    |
+| 11            | Alignment           | Uses `muscle5` to align protein sequences        |
+| 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
+| 13            | Tree View           | Visualise and root tree using Python             |
 
-```
-BIOLM0051_analysis
-├── data
-├── environment.yml
-├── LaTeX
-├── notes.md
-├── README.md
-├── report
-├── results
-└── scripts
-```
 # Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
 
@@ -60,25 +65,7 @@ chmod +x scripts/*
 # Step 2: Running the scripts  
 > [!IMPORTANT]
 > Please run all scripts from the project root.
-
-## Script Table
-Overview of script numbers and steps involved  
-| Script number | Step                | Script Description                               |
-|---------------|---------------------|--------------------------------------------------|
-| 1             | FASTQ check         | Checks input FASTQ file formats                  |
-| 2             | Concatenate FASTQ   | Combine split FASTQ parts                        |
-| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA      |
-| 4             | BLAST search        | Carries out remote `blastn` searches             |
-| 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`   |
-| 6             | Manual Selection    | Selects BLAST hits based on manual filters       |
-| 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences   |
-| 8             | Retrieve Outgroup   | Uses `efetch` to retrieve chosen outgroup FASTAs |
-| 9             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs   |
-| 10            | Python translation  | Biopython script to translate to protein seqs    |
-| 11            | Alignment           | Uses `muscle5` to align protein sequences        |
-| 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
-| 13            | Tree View           | Visualise and root tree using Python             |
-
+> 
 ## Option A - Run Full Pipeline
 Execute all scripts in the correct order for this pipeline: 
 
