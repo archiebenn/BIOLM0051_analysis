@@ -24,8 +24,6 @@ mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
 
-| |
-|:--:|
 | <img src="./LaTeX/pipeline.svg" width="400"> |
 
 ```
