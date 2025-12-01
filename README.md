@@ -27,7 +27,7 @@ This pipeline consists of 13 scipts and is deigned to run using just the origina
 
 The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeling using `./scripts/pipeline.sh <script-number>` (see step 2B for more details on this).  
 
-
+<img src="./LaTeX/pipeline.svg" width="400">  
 
 
 | Script number | Step                | Script Description                               |
