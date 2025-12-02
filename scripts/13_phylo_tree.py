@@ -48,10 +48,10 @@ ax = fig.add_subplot(1, 1, 1)
 
 
 # flip branches in y axis
-full_tree.ladderize() 
+full_tree.ladderize()
 
 # draw the tree
-Phylo.draw(full_tree, axes = ax, do_show = False)
+Phylo.draw(full_tree, axes=ax, do_show=False)
 
 bootstrap_values = []
 
@@ -63,48 +63,70 @@ for t in ax.texts:
         bootstrap_values.append(t)
     except ValueError:
         pass
+
+
 # create a list of bootstrap values to move (on final)
-selected_y_bootstraps = (100,57,96,98,50,67)
-selected_x_bootstraps = (99,100,43,85,37,75,29,76,67,71,53,91)
+selected_y_bootstraps = (100, 57, 96, 98, 50, 67)
+selected_x_bootstraps = (99, 100, 43, 85, 37, 75, 29, 76, 67, 71, 53, 91)
+
+# x - value move
+# bootstrap values to change are hard-coded into tuples above
+# if any change on re-runs this try: should stop the script from failing and set bootstrap values to be ignored on tree
+try:
+    # x- value move
+    # for loop to move any selected x values a certain amount due to overcrowding with bootstrap values on original
+    for bs in selected_x_bootstraps:
+        # retrieve all the text stored within the tree
+        for text in ax.texts:
+            # try if get_text() returns a float which would indicate a bootstrap value, not a species name
+            # e.g Text(0.1165523644, 18.5, '50') -> get_text() returns 50 -> evaluates to True
+            try:
+                float(text.get_text())
+
+                # if selected bootstrap value == integer of the returned get_text() (as bs is an integer):
+                if bs == int(text.get_text()):
+                    # retrieve x,y coordinates of the text
+                    x, y = text.get_position()
+                    # set new x coordinates
+                    text.set_position((x - 0.0035, y - 0))
+
+            # if not float, ignore
+            except ValueError:
+                pass
+# if bootstrap values have changed on a re-run, don't print the bootstrap values (as messy)
+except Exception:
+    pass
 
 
-for text in ax.texts:
 
-    # retrieve the value of the text e.g (Text(0.0980949282, 21, ' Balaena_mysticetus') becomes Balaena_mysticetus
-    value = text.get_text()
+# y - value move
+# bootstrap values to change are hard-coded into tuples above
+# if any change on re-runs this try: should stop the script from failing and set bootstrap values to be ignored on tree
+try:
+    # for loop to move any selected x values a certain amount due to overcrowding with bootstrap values on original
+    for bs in selected_y_bootstraps:
+        # retrieve all the text stored within the tree
+        for text in ax.texts:
+            # try if get_text() returns a float which would indicate a bootstrap value, not a species name
+            # e.g Text(0.1165523644, 18.5, '50') -> get_text() returns 50 -> evaluates to True
+            try:
+                float(text.get_text())
 
-    try:
-        float(value)
-    
-    except ValueError:
-        pass
-        #x, y = value.get_position()
-        #value.set_position((x - 0.00, y - 10))
+                # if selected bootstrap value == integer of the returned get_text() (as bs is an integer):
+                if bs == int(text.get_text()):
+                    # retrieve x,y coordinates of the text
+                    x, y = text.get_position()
+                    # set new x coordinates
+                    text.set_position((x - 0, y - 0.1))
+
+            # if not float, ignore
+            except ValueError:
+                pass
+# if bootstrap values have changed on a re-run, don't print the bootstrap values (as messy)
+except Exception:
+    pass
 
 
-for bs in selected_x_bootstraps:
-
-    for text in ax.texts:
-
-        value = text.get_text()
-
-        try:
-            int(value)
-        
-        except ValueError:
-            pass
-
-        print(type)
-
-        if bs == value: 
-
-            print(value)
-
-            x, y = value.get_position()
-
-            print(x,y)
-
-            value.set_position((x - 1, y - 0))
 
 
 
@@ -122,14 +144,14 @@ for text in ax.texts:
     text.set_fontsize(13)
 
 # title and axes labels
-plt.xlabel("Substitutions per site", labelpad=12, fontsize = 16)
+plt.xlabel("Substitutions per site", labelpad=12, fontsize=16)
 plt.ylabel("")
 
 # remove y ticks
 ax.set_yticks([])
 
 # set tick font size
-ax.tick_params(axis = 'x', labelsize = 12)
+ax.tick_params(axis="x", labelsize=12)
 
 # reduce border size
 plt.tight_layout(pad=0)
