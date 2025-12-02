@@ -67,7 +67,7 @@ cd ..
 # re-run analysis from script 10 -> end
 echo "[99] Re-running pipeline with manually edited base in sampleD_part1 nucleotide sequence"
 echo
-./scripts/run_pipeline.sh 10
+./scripts/pipeline.sh 10
 echo
 echo "[99] Pipeline with manually edited sampleD_part1 base successfully finished. Find updated tree plot in results/13_tree_plots"
 

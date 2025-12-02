@@ -42,19 +42,73 @@ full_tree.root_with_outgroup(shark_clade)
 for clade in full_tree.find_clades():
     clade.width = 1.25
 
-# hide bootstrap labels
-#for clade in full_tree.get_nonterminals():
- #   clade.name = None
-
 # resize the plot to fit a4 landscape
-fig = plt.figure(figsize=(12, 18))
+fig = plt.figure(figsize=(12, 10))
 ax = fig.add_subplot(1, 1, 1)
+
 
 # flip branches in y axis
 full_tree.ladderize() 
 
 # draw the tree
 Phylo.draw(full_tree, axes = ax, do_show = False)
+
+bootstrap_values = []
+
+for t in ax.texts:
+    s = t.get_text()
+
+    try:
+        float(s)
+        bootstrap_values.append(t)
+    except ValueError:
+        pass
+# create a list of bootstrap values to move (on final)
+selected_y_bootstraps = (100,57,96,98,50,67)
+selected_x_bootstraps = (99,100,43,85,37,75,29,76,67,71,53,91)
+
+
+for text in ax.texts:
+
+    # retrieve the value of the text e.g (Text(0.0980949282, 21, ' Balaena_mysticetus') becomes Balaena_mysticetus
+    value = text.get_text()
+
+    try:
+        float(value)
+    
+    except ValueError:
+        pass
+        #x, y = value.get_position()
+        #value.set_position((x - 0.00, y - 10))
+
+
+for bs in selected_x_bootstraps:
+
+    for text in ax.texts:
+
+        value = text.get_text()
+
+        try:
+            int(value)
+        
+        except ValueError:
+            pass
+
+        print(type)
+
+        if bs == value: 
+
+            print(value)
+
+            x, y = value.get_position()
+
+            print(x,y)
+
+            value.set_position((x - 1, y - 0))
+
+
+
+
 
 # set sample tips in red after drawing tree
 for text in ax.texts:
