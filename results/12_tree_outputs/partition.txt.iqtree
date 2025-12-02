@@ -3,7 +3,7 @@ IQ-TREE 3.0.1 built Jul  9 2025
 Partition file name: 11_supermatrix_files/partition.txt
 Input file name: 11_supermatrix_files/supermatrix.afa
 Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
-Random seed number: 936975
+Random seed number: 358989
 
 REFERENCES
 ----------
@@ -45,7 +45,7 @@ SEQUENCE ALIGNMENT
 Input data: 24 taxa with 1 partitions and 421 total sites (0% missing data)
 
   ID	Type	Seq	Site	Unique	Infor	Invar	Const	Name
-   1	AA	23	421	221	60	351	351	part1+part2+part3
+   1	AA	23	421	227	59	345	345	part1+part2+part3
 
 Column meanings:
   Unique: Number of unique site patterns
@@ -61,7 +61,7 @@ Best-fit model according to BIC: MTZOA:part1+part2+part3
 List of best-fit models per partition:
 
   ID  Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
-   1  MTZOA             -1672.037    3346.074 + 6.95e-310    3346.083 + 6.95e-310    3350.117 + 6.95e-310
+   1  MTZOA             -1743.315    3488.631 + 6.95e-310    3488.640 + 6.95e-310    3492.673 + 6.95e-310
 
 AIC, w-AIC   : Akaike information criterion scores and weights.
 AICc, w-AICc : Corrected AIC scores and weights.
@@ -81,20 +81,20 @@ Edge-linked-proportional partition model with separate substitution models and s
 MAXIMUM LIKELIHOOD TREE
 -----------------------
 
-Log-likelihood of the tree: -1670.5752 (s.e. 50.4036)
-Unconstrained log-likelihood (without tree): -2141.6246
+Log-likelihood of the tree: -1734.7006 (s.e. 55.2544)
+Unconstrained log-likelihood (without tree): -2154.8661
 Number of free parameters (#branches + #model parameters): 43
-Akaike information criterion (AIC) score: 3427.1504
-Corrected Akaike information criterion (AICc) score: 3437.1875
-Bayesian information criterion (BIC) score: 3600.9836
+Akaike information criterion (AIC) score: 3555.4012
+Corrected Akaike information criterion (AICc) score: 3565.4383
+Bayesian information criterion (BIC) score: 3729.2344
 
-Mixture-based log-likelihood of the tree: -1670.5752
-Marginal Akaike information criterion (mAIC) score: 3427.1504
+Mixture-based log-likelihood of the tree: -1734.7006
+Marginal Akaike information criterion (mAIC) score: 3555.4012
 
-Total tree length (sum of branch lengths): 0.2988
-Sum of internal branch lengths: 0.1981 (66.2932% of tree length)
+Total tree length (sum of branch lengths): 0.3252
+Sum of internal branch lengths: 0.1946 (59.8488% of tree length)
 
-WARNING: 11 near-zero internal branches (<0.0024) should be treated with caution
+WARNING: 10 near-zero internal branches (<0.0024) should be treated with caution
          Such branches are denoted by '**' in the figure below
 
 NOTE: Tree is UNROOTED although outgroup taxon 'Balaena_mysticetus' is drawn at root
@@ -102,44 +102,44 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 
 +--Balaena_mysticetus
 |
-|                                            +**Caretta_caretta
-|                                         +--| (67)
-|                                         |  |        +**Dermochelys_coriacea
-|                                         |  |     +--| (71)
-|                                         |  |     |  +--sampleD
-|                                         |  |  +**| (67)
-|                                         |  |  |  +--Stigmochelys_pardalis
-|                                         |  +**| (76)
-|                                         |     +**Natator_depressus
-|                              +----------| (98)
-|                              |          +**Eretmochelys_imbricata
+|                                             +**Caretta_caretta
+|                                          +--| (16)
+|                                          |  +**Natator_depressus
+|                                       +--| (58)
+|                                       |  |     +**Dermochelys_coriacea
+|                                       |  |  +**| (52)
+|                                       |  |  |  +------------sampleD
+|                                       |  +--| (43)
+|                                       |     +--Stigmochelys_pardalis
+|                              +--------| (92)
+|                              |        +**Eretmochelys_imbricata
 |     +------------------------| (100)
-|     |                        |                                    +**Etmopterus_pusillus
-|     |                        |                   +----------------| (100)
-|     |                        |                   |                +**Etmopterus_spinax
-|     |                        |  +----------------| (99)
+|     |                        |                                   +**Etmopterus_pusillus
+|     |                        |                   +---------------| (100)
+|     |                        |                   |               +**Etmopterus_spinax
+|     |                        |  +----------------| (98)
 |     |                        |  |                +-------Heptranchias_perlo
 |     |                        +**| (57)
-|     |                           |                      +**Thunnus_albacares
-|     |                           |                   +**| (43)
-|     |                           |                   |  |     +**Thunnus_maccoyii
-|     |                           |                   |  |  +**| (37)
-|     |                           |                   |  |  |  |     +------sampleC
-|     |                           |                   |  |  |  |  +**| (29)
-|     |                           |                   |  |  |  |  |  +**Thunnus_tonggol
-|     |                           |                   |  |  |  +**| (75)
-|     |                           |                   |  |  |     +**Thunnus_obesus
-|     |                           |                   |  +**| (85)
-|     |                           |                   |     +**Thunnus_thynnus
+|     |                           |                   +**Thunnus_albacares
 |     |                           +-------------------| (96)
-|     |                                               +**Thunnus_orientalis
-|  +**| (96)
+|     |                                               |        +**Thunnus_maccoyii
+|     |                                               |     +**| (40)
+|     |                                               |     |  |     +------sampleC
+|     |                                               |     |  |  +**| (23)
+|     |                                               |     |  |  |  +**Thunnus_tonggol
+|     |                                               |     |  +**| (82)
+|     |                                               |     |     +**Thunnus_obesus
+|     |                                               |  +**| (81)
+|     |                                               |  |  +**Thunnus_thynnus
+|     |                                               +**| (42)
+|     |                                                  +**Thunnus_orientalis
+|  +**| (97)
 |  |  |          +--Delphinapterus_leucas
-|  |  |       +--| (50)
+|  |  |       +--| (53)
 |  |  |       |  +**sampleB
 |  |  +-------| (100)
 |  |          +--Monodon_monoceros
-+**| (53)
++**| (54)
 |  +--sampleA
 |
 |  +**Eubalaena_australis
@@ -148,14 +148,14 @@ Numbers in parentheses are  ultrafast bootstrap support (%)
 
 Tree in newick format:
 
-(Balaena_mysticetus:0.0023941267,(((((Caretta_caretta:0.0000010000,(((Dermochelys_coriacea:0.0000010000,sampleD:0.0030576856)71:0.0029463803,Stigmochelys_pardalis:0.0060189881)67:0.0000296273,Natator_depressus:0.0000010000)76:0.0000010000)67:0.0033362489,Eretmochelys_imbricata:0.0000010000)98:0.0248290635,(((Etmopterus_pusillus:0.0000010000,Etmopterus_spinax:0.0000010000)100:0.0378386080,Heptranchias_perlo:0.0188912706)99:0.0382196930,((Thunnus_albacares:0.0000010000,((Thunnus_maccoyii:0.0000010000,((sampleC:0.0159911018,Thunnus_tonggol:0.0000010000)29:0.0000010000,Thunnus_obesus:0.0000010000)75:0.0000010000)37:0.0000010000,Thunnus_thynnus:0.0000010000)85:0.0000010000)43:0.0000010000,Thunnus_orientalis:0.0000010000)96:0.0458773577)57:0.0000021001)100:0.0557047269,((Delphinapterus_leucas:0.0086705336,sampleB:0.0000029394)50:0.0054478656,Monodon_monoceros:0.0053872610)100:0.0199019116)96:0.0017732815,sampleA:0.0024439372)53:0.0000010000,(Eubalaena_australis:0.0000010000,Eubalaena_glacialis:0.0000010000)91:0.0000010000);
+(Balaena_mysticetus:0.0023944613,((((((Caretta_caretta:0.0000010000,Natator_depressus:0.0000024522)16:0.0029733197,((Dermochelys_coriacea:0.0000010000,sampleD:0.0298698368)52:0.0000024057,Stigmochelys_pardalis:0.0060185144)43:0.0030045933)58:0.0029985345,Eretmochelys_imbricata:0.0000010000)92:0.0211991790,(((Etmopterus_pusillus:0.0000010000,Etmopterus_spinax:0.0000010000)100:0.0378617147,Heptranchias_perlo:0.0189162276)98:0.0383791557,(Thunnus_albacares:0.0000010000,(((Thunnus_maccoyii:0.0000010000,((sampleC:0.0160095626,Thunnus_tonggol:0.0000010000)23:0.0000010000,Thunnus_obesus:0.0000010000)82:0.0000010000)40:0.0000010000,Thunnus_thynnus:0.0000010000)81:0.0000010000,Thunnus_orientalis:0.0000010000)42:0.0000010000)96:0.0453023119)57:0.0000020034)100:0.0566031293,((Delphinapterus_leucas:0.0086720160,sampleB:0.0000021473)53:0.0054485186,Monodon_monoceros:0.0053885095)100:0.0198426377)97:0.0018328247,sampleA:0.0024441342)54:0.0000010000,(Eubalaena_australis:0.0000010000,Eubalaena_glacialis:0.0000010000)91:0.0000010000);
 
 CONSENSUS TREE
 --------------
 
 Consensus tree is constructed from 1000 bootstrap trees
-Log-likelihood of consensus tree: -1670.580098
-Robinson-Foulds distance between ML tree and consensus tree: 4
+Log-likelihood of consensus tree: -1734.706761
+Robinson-Foulds distance between ML tree and consensus tree: 6
 
 Branches with support >0.000000% are kept (extended consensus)
 Branch lengths are optimized by maximum likelihood on original alignment
@@ -163,44 +163,44 @@ Numbers in parentheses are bootstrap supports (%)
 
 +--Balaena_mysticetus
 |
-|                                            +--Caretta_caretta
-|                                         +--| (67)
-|                                         |  |        +--Dermochelys_coriacea
-|                                         |  |     +--| (71)
-|                                         |  |     |  +--sampleD
-|                                         |  |  +--| (67)
-|                                         |  |  |  +--Stigmochelys_pardalis
-|                                         |  +--| (76)
-|                                         |     +--Natator_depressus
-|                              +----------| (98)
-|                              |          +--Eretmochelys_imbricata
+|                                          +--Caretta_caretta
+|                                       +--| (58)
+|                                       |  |        +--Dermochelys_coriacea
+|                                       |  |     +--| (52)
+|                                       |  |     |  +------------sampleD
+|                                       |  |  +--| (43)
+|                                       |  |  |  +--Stigmochelys_pardalis
+|                                       |  +--| (42)
+|                                       |     +--Natator_depressus
+|                              +--------| (92)
+|                              |        +--Eretmochelys_imbricata
 |     +------------------------| (100)
 |     |                        |                                   +--Etmopterus_pusillus
 |     |                        |                   +---------------| (100)
 |     |                        |                   |               +--Etmopterus_spinax
-|     |                        |  +----------------| (99)
+|     |                        |  +----------------| (98)
 |     |                        |  |                +-------Heptranchias_perlo
 |     |                        +--| (57)
-|     |                           |                   +--Thunnus_albacares
+|     |                           |                      +--Thunnus_albacares
+|     |                           |                   +--| (47)
+|     |                           |                   |  |     +--Thunnus_maccoyii
+|     |                           |                   |  |  +--| (40)
+|     |                           |                   |  |  |  |  +------sampleC
+|     |                           |                   |  |  |  +--| (82)
+|     |                           |                   |  |  |     |  +--Thunnus_obesus
+|     |                           |                   |  |  |     +--| (49)
+|     |                           |                   |  |  |        +--Thunnus_tonggol
+|     |                           |                   |  +--| (81)
+|     |                           |                   |     +--Thunnus_thynnus
 |     |                           +-------------------| (96)
-|     |                                               |        +--Thunnus_maccoyii
-|     |                                               |     +--| (37)
-|     |                                               |     |  |  +------sampleC
-|     |                                               |     |  +--| (75)
-|     |                                               |     |     |  +--Thunnus_obesus
-|     |                                               |     |     +--| (43)
-|     |                                               |     |        +--Thunnus_tonggol
-|     |                                               |  +--| (85)
-|     |                                               |  |  +--Thunnus_thynnus
-|     |                                               +--| (45)
-|     |                                                  +--Thunnus_orientalis
-|  +--| (96)
+|     |                                               +--Thunnus_orientalis
+|  +--| (97)
 |  |  |          +--Delphinapterus_leucas
-|  |  |       +--| (50)
+|  |  |       +--| (53)
 |  |  |       |  +--sampleB
 |  |  +-------| (100)
 |  |          +--Monodon_monoceros
-+--| (53)
++--| (54)
 |  +--sampleA
 |
 |     +**Eubalaena_australis
@@ -212,7 +212,7 @@ Numbers in parentheses are bootstrap supports (%)
 
 Consensus tree in newick format: 
 
-(Balaena_mysticetus:0.0023941356,(((((Caretta_caretta:0.0000021608,(((Dermochelys_coriacea:0.0000021608,sampleD:0.0030576883)71:0.0023607858,Stigmochelys_pardalis:0.0060172374)67:0.0006159473,Natator_depressus:0.0000021608)76:0.0033355402)67:0.0000021626,Eretmochelys_imbricata:0.0000021608)98:0.0248270392,(((Etmopterus_pusillus:0.0000021608,Etmopterus_spinax:0.0000021608)100:0.0378372647,Heptranchias_perlo:0.0188923303)99:0.0382182358,(Thunnus_albacares:0.0000021608,(((Thunnus_maccoyii:0.0000021608,(sampleC:0.0159977924,(Thunnus_obesus:0.0000021608,Thunnus_tonggol:0.0000021608)43:0.0000021608)75:0.0000027462)37:0.0000021626,Thunnus_thynnus:0.0000021608)85:0.0000021611,Thunnus_orientalis:0.0000021608)45:0.0000021842)96:0.0458390066)57:0.0000023358)100:0.0557178134,((Delphinapterus_leucas:0.0086710467,sampleB:0.0000024427)50:0.0054479067,Monodon_monoceros:0.0053865268)100:0.0199043225)96:0.0017723237,sampleA:0.0024439347)53:0.0000021608,((Eubalaena_australis:0.0000000000,Eubalaena_japonica:0.0000000000):0.0000021608,Eubalaena_glacialis:0.0000021608)91:0.0000021608);
+(Balaena_mysticetus:0.0023943221,(((((Caretta_caretta:0.0000021608,(((Dermochelys_coriacea:0.0000021608,sampleD:0.0298698716)52:0.0023444691,Stigmochelys_pardalis:0.0060171919)43:0.0006623158,Natator_depressus:0.0029711924)42:0.0024318276)58:0.0005689641,Eretmochelys_imbricata:0.0000021608)92:0.0211986479,(((Etmopterus_pusillus:0.0000021608,Etmopterus_spinax:0.0000021608)100:0.0378610595,Heptranchias_perlo:0.0189163141)98:0.0383775403,((Thunnus_albacares:0.0000021608,((Thunnus_maccoyii:0.0000021608,(sampleC:0.0160143586,(Thunnus_obesus:0.0000021608,Thunnus_tonggol:0.0000021608)49:0.0000021608)82:0.0000027462)40:0.0000021626,Thunnus_thynnus:0.0000021608)81:0.0000020858)47:0.0000021842,Thunnus_orientalis:0.0000021608)96:0.0452724166)57:0.0000023358)100:0.0566132983,((Delphinapterus_leucas:0.0086718146,sampleB:0.0000023816)53:0.0054483823,Monodon_monoceros:0.0053874673)100:0.0198455664)97:0.0018319875,sampleA:0.0024441318)54:0.0000021608,((Eubalaena_australis:0.0000000000,Eubalaena_japonica:0.0000000000):0.0000021608,Eubalaena_glacialis:0.0000021608)91:0.0000021608);
 
 ALISIM COMMAND
 --------------
@@ -233,7 +233,7 @@ For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
 TIME STAMP
 ----------
 
-Date and time: Tue Dec  2 15:23:24 2025
-Total CPU time used: 225.810078 seconds (0h:3m:45s)
-Total wall-clock time used: 120.2917992 seconds (0h:2m:0s)
+Date and time: Tue Dec  2 17:44:16 2025
+Total CPU time used: 195.365411 seconds (0h:3m:15s)
+Total wall-clock time used: 130.2119853 seconds (0h:2m:10s)
 
