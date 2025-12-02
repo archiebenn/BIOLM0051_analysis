@@ -148,8 +148,8 @@ fi
 if (( start_pipeline_from <= 13 )); then
    echo "[13] Rooted tree PDF being created..."
    sleep 3
-   python3 scripts/13_phylo_tree.py
-   echo "[13] Rooted tree plot created. Please find the phylogenetic tree in results/13_tree_plots"
+   python3 scripts/13_view_tree.py
+   echo "[13] Rooted tree plot created - SEE TERMINAL VERSION ABOVE! Please find the full tree pdf in results/13_tree_plots"
    echo
 fi
 

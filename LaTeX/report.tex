@@ -28,6 +28,7 @@
 \usepackage{titlesec}
 \usepackage{lipsum}
 \usepackage{pdflscape}
+\usepackage[export]{adjustbox}
 
 
 % defining tikz shapes
@@ -116,8 +117,9 @@ Given the serious implications for public health, food safety, and wildlife cons
 \section*{Results} % 150 WORDS
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth]{../results/13_tree_plots/final_tree.pdf}
-	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and their top BLAST hits}
+	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
+	\captionsetup{justification=centering}
+	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits}
 	\label{fig:main_tree}
 \end{figure}
 
@@ -200,7 +202,7 @@ Supplementary data and all scripts can be found within the GitHub repository for
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.88\linewidth]{figures/sampleD_branch_tree.pdf}
+	\includegraphics[width=0.86\linewidth, frame]{figures/final_tree_D_branch.pdf}
 	\captionsetup{justification=centering}
 	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}.}
 	\label{fig:tree_pdf2}

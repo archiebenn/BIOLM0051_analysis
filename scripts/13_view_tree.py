@@ -27,10 +27,12 @@ results_directory = "results/13_tree_plots"
 # create the tree by reading from the .treefile in results
 t3 = Tree3(f"{treefile_directory}/partition.txt.treefile")
 
-# set most recent common ancestor of selected outgroups (sharks) for re-rooting 
-mrca_sharks = t3.get_common_ancestor("Etmopterus_spinax", "Heptranchias_perlo", "Etmopterus_pusillus")
+# set most recent common ancestor of selected outgroups (sharks) for re-rooting
+mrca_sharks = t3.get_common_ancestor(
+    "Etmopterus_spinax", "Heptranchias_perlo", "Etmopterus_pusillus"
+)
 
-# set outgroup to sharks 
+# set outgroup to sharks
 t3.set_outgroup(mrca_sharks)
 
 
@@ -47,20 +49,17 @@ ts.show_leaf_name = False
 ts.show_branch_support = True
 
 # allow some spacing vertically between branches
-ts.branch_vertical_margin = 10
+ts.branch_vertical_margin = 2
 
-# show a scale bar 
+# show a scale bar
 ts.show_scale = True
 
 # scale in the x axis to fit the page
 ts.scale = 5000
 
-# add a border around the plot
-TreeStyle().show_border = True
 
 # iterate over the leaves/tips to change their appearance on the tree
 for leaf in t3.iter_leaves():
-    
     # set each tip label to times new roman (consisten with report) and size 11 font
     lf = TextFace(
         leaf.name,
@@ -76,10 +75,10 @@ for leaf in t3.iter_leaves():
     lf.margin_left = 6
 
     # apply each label to the tree
-    leaf.add_face(lf, column = 0)
+    leaf.add_face(lf, column=0)
 
 # set node size = 0
-ns["size"] = 0 
+ns["size"] = 0
 
 # apply node size across all nodes in tree to hide them
 for n in t3.traverse():
@@ -91,10 +90,10 @@ t3.render(f"{results_directory}/final_tree.pdf", tree_style=ts)
 
 # using ete4 to print a mini tree to the terminal at pipeline end because why not
 t4 = Tree4(f"{treefile_directory}/partition.txt.treefile")
-mrca_sharks = t4.common_ancestor("Etmopterus_spinax", "Heptranchias_perlo", "Etmopterus_pusillus")
+mrca_sharks = t4.common_ancestor(
+    "Etmopterus_spinax", "Heptranchias_perlo", "Etmopterus_pusillus"
+)
 t4.set_outgroup(mrca_sharks)
 print()
-print("FULL PDF OF THIS TREE CAN BE FOUND IN RESULTS:")
-print()
 print(t4)
-
+print()
