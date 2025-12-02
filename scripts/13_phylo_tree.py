@@ -115,7 +115,7 @@ full_tree.root_with_outgroup(shark_clade)
 
 # widen plot branches
 for clade in full_tree.find_clades():
-    clade.width = 1.25
+    clade.width = 1
 
 # resize the plot to fit a4 landscape
 fig = plt.figure(figsize=(12, 10))
