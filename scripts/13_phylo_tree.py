@@ -43,11 +43,11 @@ for clade in full_tree.find_clades():
     clade.width = 1.25
 
 # hide bootstrap labels
-for clade in full_tree.get_nonterminals():
-    clade.name = None
+#for clade in full_tree.get_nonterminals():
+ #   clade.name = None
 
 # resize the plot to fit a4 landscape
-fig = plt.figure(figsize=(12, 10))
+fig = plt.figure(figsize=(12, 18))
 ax = fig.add_subplot(1, 1, 1)
 
 # flip branches in y axis
