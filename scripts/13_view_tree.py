@@ -32,7 +32,7 @@ mrca_sharks = t3.get_common_ancestor(
     "Etmopterus_spinax", "Heptranchias_perlo", "Etmopterus_pusillus"
 )
 
-# set outgroup to sharks
+# set outgroup to sharks (re-root here)
 t3.set_outgroup(mrca_sharks)
 
 
@@ -83,6 +83,12 @@ ns["size"] = 0
 # apply node size across all nodes in tree to hide them
 for n in t3.traverse():
     n.set_style(ns)
+    
+def make_branches_bigger(node, new_size):
+    node.img_style["hz_line_width"] = new_size # Change the horizotal lines stroke size
+    node.img_style["vt_line_width"] = new_size # Change the vertical lines stroke size
+    for c in node.children:
+        make_branches_bigger(c, new_size)
 
 # save out the tree yo a pdf in results/
 t3.render(f"{results_directory}/final_tree.pdf", tree_style=ts)
