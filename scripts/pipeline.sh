@@ -157,4 +157,4 @@ fi
 end=$(date +%s)
 runtime=$((end - start))
 echo "Pipeline finished succesfully"
-echo "Analysis runtime: $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))"
+echo "Runtime: $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))"
