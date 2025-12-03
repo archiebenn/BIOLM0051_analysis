@@ -49,7 +49,7 @@ ts.show_leaf_name = False
 ts.show_branch_support = True
 
 # allow some spacing vertically between branches
-ts.branch_vertical_margin = 2
+ts.branch_vertical_margin = 5
 
 # show a scale bar
 ts.show_scale = True
@@ -63,7 +63,7 @@ for leaf in t3.iter_leaves():
     # set each tip label to times new roman (consisten with report) and size 11 font
     lf = TextFace(
         leaf.name,
-        fsize=11,
+        fsize=10,
         ftype="Times",
     )
 
@@ -83,12 +83,6 @@ ns["size"] = 0
 # apply node size across all nodes in tree to hide them
 for n in t3.traverse():
     n.set_style(ns)
-    
-def make_branches_bigger(node, new_size):
-    node.img_style["hz_line_width"] = new_size # Change the horizotal lines stroke size
-    node.img_style["vt_line_width"] = new_size # Change the vertical lines stroke size
-    for c in node.children:
-        make_branches_bigger(c, new_size)
 
 # save out the tree yo a pdf in results/
 t3.render(f"{results_directory}/final_tree.pdf", tree_style=ts)
