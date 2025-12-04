@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 
-\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[left=3.65cm,right=3.65cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
 \usepackage{minted}   % syntax highlighting in code blocks
@@ -39,9 +39,9 @@
 
 
 \pagestyle{fancy}
-\fancyhf{} 
-\fancyhead[L]{BIOLM0051}
-\fancyhead[R]{Page \thepage\ of \pageref*{LastPage}}
+\fancyhf{}
+\fancyhead[L]{\scriptsize\sffamily 1935263 \textit{Introduction to Bioinformatics}}
+\fancyhead[R]{\scriptsize\sffamily Page \thepage\ of \pageref*{LastPage}}
 \linespread{1.15}
 
 % changing section heading fonts and sizing/spacing
@@ -64,10 +64,9 @@
 \renewcommand{\bibfont}{\sffamily\footnotesize}
 
 
-\title{\LARGE\textbf{Mystery Meat Analysis}\\\vspace{1mm}\large BIOLM0051}
-\author{Archie Benn}
+\title{\LARGE\textbf{Identification of Undocumented Meat \\Samples Seized at Heathrow Airport}}
+\author{1935263}
 \date{}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COMPILE WITH THE FOLLOWING: 
 %pdflatex -shell-escape report.tex 
@@ -92,7 +91,7 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Introduction} % 200 WORDS
-\noindent Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction and threaten whole ecosystems \citep{hughes2023ecological}. Species-level identification of undocumented meat samples is key in public health for validating the meat being delivered to consumers, but  may also uncover networks carrying out illegal imports of endangered species, thus aiding conservation efforts by providing routes to intervene in the trade of these species.\\
+\noindent Rarity status attributed to a species often increases its price and demand, with critically endangered species fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction and threaten whole ecosystems \citep{hughes2023ecological}. Species-level identification of undocumented meat samples is key in public health for validating the meat being delivered to consumers, but  may also uncover networks carrying out illegal imports of endangered species, thus aiding conservation efforts by providing routes to intervene in the trade of these species.\\
 
 \par \noindent If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low which enables species-level identification  \citep{dawnay2007validation}. Cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.\\
 
@@ -100,23 +99,33 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
+This pipeline consists of thirteen scripts which are used to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximise reproducibility and minimise incorporating bias or human error into the analysis. The four main stages are described here.
+
+
 
 \subsection*{QC and Pre-Processing}
+FASTQ sequence files were extracted from \texttt{samples.zip} and 
+
+
 \subsection*{BLAST}
+
+
+
+\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{bash}
+  sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv \
+  | awk -F'\t' '!seen[$3]++' > top_hits.tsv
+\end{minted} 
+
+
+
 \subsection*{Translation and Alignment}
+
+
+
 \subsection*{Tree Building and Viewing}
 
 
 
-
-
-%%%%%%%%%%%%%%%
-% Python block
-%%%%%%%%%%%%%%%
-\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{bash}
-sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv \
- | awk -F'\t' '!seen[$3]++' > top_hits.tsv
-\end{minted} 
 
 
 
@@ -147,7 +156,9 @@ Where cyt b and D-Loop sequences do exist, very few of these have been generated
 	\begin{texshade}{../results/11_supermatrix_files/supermatrix.afa}
 		\orderseqs{6,7,11,1,2,3,4,5,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24}
 		\threshold[85]{50}
-		\setends{1}{141..180}
+		\conservedresidues{Black}{Yellow}{upper}{filled}
+		\allmatchresidues{Black}{SeaGreen}{upper}{filled}
+		\setends{1}{145..179}
 		\feature{top}{1}{140..170}{--,}{Part 1}
 		\feature{top}{1}{171..180}{,--}{Part 2}
 		\feature{bottom}{1}{159..170}{brace}{Potential frame-shift in sample D}
@@ -172,10 +183,10 @@ Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
                      |||||||||||||||||||||||||||||||||||| |||||||||||||
 sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 \end{minted} 
-\raisebox{2em}{\hspace{5.25cm}$\big\uparrow$}
+\raisebox{2em}{\hspace{6.55cm}$\big\uparrow$}
 \vspace{-2em}
     \captionsetup{justification=centering}
-	\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence (\textit{Dermochelys coriacea}). The alignment gap indicates a possible base miss at position 486 in \texttt{sampleD\_part1} during sequencing.}
+	\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence. Alignment gap indicates a possible base miss in \texttt{sampleD\_part1} during sequencing.}
 
 \label{fig:needleman}
 \end{figure}
@@ -192,17 +203,19 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 Supplementary data and all scripts can be found within the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
 
 \newpage
-\section*{Appendix: Exploratory Figures for Manual Correction of Suspected Sequencing Error}
+\section*{Appendix: Exploratory Figures in Suspected Sequencing Error}
 
 \begin{figure}[H]
 	\centering
 	\begin{texshade}{figures/sampleD_supermatrix.afa}
 		\hideseq{1,3,6,7,8,9,10,11,12,15,16,17,18,19,20,21,22,23}
+		\conservedresidues{Black}{Yellow}{upper}{filled}
+		\allmatchresidues{Black}{SeaGreen}{upper}{filled}
 		\threshold[85]{50}
-		\setends{1}{145..184}
+		\setends{1}{145..179}
 		\feature{top}{1}{0..171}{--,}{Part 1}
 		\feature{top}{1}{172..184}{,--}{Part 2}
-		\feature{bottom}{1}{159..171}{brace}{Altered sample D protein sequence follows conserved region closely}
+		\feature{bottom}{1}{159..171}{brace}{Altered protein sequence follows conserved region closely}
 		\hideconsensus
 		\showlegend
 	\end{texshade}
