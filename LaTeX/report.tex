@@ -54,6 +54,7 @@
 \titleformat{\subsection}
   {\small\sffamily\bfseries}
   {\thesubsection}{1em}{}
+  
 \titlespacing*{\subsection}
   {0pt}{1.25ex plus .2ex}{0.5ex}
 
@@ -77,27 +78,33 @@
 \maketitle
 \thispagestyle{empty}
 \subsection*{\textit{Scenario}}
-A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.
+A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.\\
 
 Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
 
 
 
-\section*{Abstract} %200 WORDS
+\section*{Abstract} %200 WORDS - excluded
+\subsection*{Background}
+\subsection*{Results}
+\subsection*{Conclusions}
 
-\citep{huerta2016ete}
 
 
 \section*{Introduction} % 200 WORDS
-\noindent CITES was established in 1975 as a key legal framework to protect endangered species from global trade, yet from 1975 to 2014 the volume of CITES-listed organisms traded per year quadrupled to over 100 million whole-organism equivalents, a level which directly threatens both populations and whole ecosystems \citep{harfoot2018unveiling}. Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction \citep{hughes2023ecological}. Species-level identification of undocumented meat may uncover networks carrying out illegal imports of endangered species, and is therefore of great significance for the conservation efforts of these species.
+\noindent Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction and threaten whole ecosystems \citep{hughes2023ecological}. Species-level identification of undocumented meat samples is key in public health for validating the meat being delivered to consumers, but  may also uncover networks carrying out illegal imports of endangered species, thus aiding conservation efforts by providing routes to intervene in the trade of these species.\\
 
+\par \noindent If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low which enables species-level identification  \citep{dawnay2007validation}. Cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.\\
 
-\par \noindent If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low and thus enabling species-level identification  \citep{dawnay2007validation}. For example, cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI which permit sample barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.\\
-
-\par \noindent This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. 
+\par \noindent This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. The sequenced samples provide the starting point of this analysis pipeline.
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
+
+\subsection*{QC and Pre-Processing}
+\subsection*{BLAST}
+\subsection*{Translation and Alignment}
+\subsection*{Tree Building and Viewing}
 
 
 
@@ -106,11 +113,10 @@ Given the serious implications for public health, food safety, and wildlife cons
 %%%%%%%%%%%%%%%
 % Python block
 %%%%%%%%%%%%%%%
-%\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{python}
-%from Bio import SeqIO
-%for record in SeqIO.parse("sequence.fasta", "fasta"):
- %   print(record.id, record.seq.translate())
-%\end{minted} 
+\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{bash}
+sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv \
+ | awk -F'\t' '!seen[$3]++' > top_hits.tsv
+\end{minted} 
 
 
 
@@ -122,7 +128,7 @@ Given the serious implications for public health, food safety, and wildlife cons
 	\centering
 	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
 	\captionsetup{justification=centering}
-	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits}
+	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits. Created with \texttt{ete3} \citep{huerta2016ete}.}
 	\label{fig:main_tree}
 \end{figure}
 
@@ -209,7 +215,7 @@ Supplementary data and all scripts can be found within the GitHub repository for
 	\centering
 	\includegraphics[width=0.86\linewidth, frame]{figures/final_tree_D_branch.pdf}
 	\captionsetup{justification=centering}
-	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}.}
+	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}. Created with \texttt{ete3} \citep{huerta2016ete}. }
 	\label{fig:tree_pdf2}
 \end{figure}
 

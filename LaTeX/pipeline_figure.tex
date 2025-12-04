@@ -15,8 +15,8 @@
 %%%%%%%%%%%%%%%
 
 \begin{tikzpicture}[node distance=2.4cm]
-				\node (start) [startstop] {\textbf{\texttt{samples.zip}}};
-				\node (pro2) [process, below of=start, align=center] {\textbf{QC and pre-processing}\\Extraction, concatenation, \\masking, and FASTQ to FASTA};
+				\node (start) [startstop] {{\texttt{samples.zip}}};
+				\node (pro2) [process, below of=start, align=center] {\textbf{QC and pre-processing}\\File extraction, concatenation, \\masking, and FASTQ to FASTA};
 				\node (pro3) [process, below of=pro2, align=center] {\textbf{BLAST search}\\Remote \texttt{blastn} against query FASTAs};
 				\node (pro4) [process, below of=pro3, align=center] {\textbf{BLAST filtering}\\ BLAST hit sorting \\and saving top hits by species};\textsc{}
 				\node (pro5) [process, below of=pro4, align=center] {\textbf{Reference FASTA retrieval}\\Retrieve with \texttt{efetch} with trimming \\to match query region};
@@ -24,7 +24,7 @@
 				\node (pro7a) [process, below of=pro6, align=center] {\textbf{Combined FASTA}\\Query and outgroup FASTA \\merged with BLAST hit FASTAs};
 				\node (pro7b) [process, right of=pro7a, align=center] at ([xshift=3cm]pro7a) {\textbf{Query FASTA}\\ Sequences retrieved};
 				\node (pro8) [process, below of=pro7a, align=center] {\textbf{Translation and Alignment}\\Biopython to translate and \\\texttt{muscle5} to align};
-				\node (pro9) [process, below of=pro8, align=center] {\textbf{Tree building and Viewing}\\Build with \texttt{iqtree3} and \\produce trees using Biopython};
+				\node (pro9) [process, below of=pro8, align=center] {\textbf{Tree building and Viewing}\\Build with \texttt{iqtree3} and \\produce trees using \texttt{ete3}};
 				\node (stop) [startstop, below of=pro9, align=center] {\textbf{Sample Identification}};
 				
 				\node (scr1) [io, left of=pro2, align=center] at ([xshift=-3cm]pro2) {Scripts 1--3};
