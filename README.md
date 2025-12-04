@@ -2,7 +2,7 @@
 This analysis takes unknown raw FASTQ files and produces species identifications and a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline.
 
 ## Requirements  
-- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
+- `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, run:
 
 ```bash
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
