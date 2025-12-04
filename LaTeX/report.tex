@@ -89,9 +89,12 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Introduction} % 200 WORDS
-\noindent CITES was established in 1975 as a key legal framework to protect endangered species from global trade, yet from 1975 to 2014 the volume of CITES-listed organisms traded per year quadrupled to over 100 million whole-organism equivalents, a level which directly threatens both populations and whole ecosystems \citep{harfoot2018unveiling}. Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction \citep{hughes2023ecological}. 
+\noindent CITES was established in 1975 as a key legal framework to protect endangered species from global trade, yet from 1975 to 2014 the volume of CITES-listed organisms traded per year quadrupled to over 100 million whole-organism equivalents, a level which directly threatens both populations and whole ecosystems \citep{harfoot2018unveiling}. Rarity status attributed to a species often increases its price and demand, with critically endangered species often fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction \citep{hughes2023ecological}. Species-level identification of undocumented meat may uncover networks carrying out illegal imports of endangered species, and is therefore of great significance for the conservation efforts of these species.
 
-\par \noindent Given the challenge of identifying meat by morphology alone    
+
+\par \noindent If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low and thus enabling species-level identification  \citep{dawnay2007validation}. For example, cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI which permit sample barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.\\
+
+\par \noindent This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. 
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
@@ -125,7 +128,9 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Discussion} % 300 WORDS
+Where cyt b and D-Loop sequences do exist, very few of these have been generated as part of forensic studies [23], with the vast majority submitted to databases as part of phylogenetic, molecular ecological and conservation studies [24], [25], [26]. Such sequence data can be generated and accepted into databases without any need for standard protocols or quality control, raising doubts over their suitability for forensic application \citep{dawnay2007validation}
 
+ However, unlike BOLD, GenBank does not store sequence chromatograms, collection metadata or photographs [6]. BOLD is a curation tool that also stores sequences, while GenBank is just a sequence repository. \citep{meiklejohn2019assessment}
 
 
 %%%%%%%%%%%%%%%
@@ -207,6 +212,7 @@ Supplementary data and all scripts can be found within the GitHub repository for
 	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}.}
 	\label{fig:tree_pdf2}
 \end{figure}
+
 
 
 \end{document}
