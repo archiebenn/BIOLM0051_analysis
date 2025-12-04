@@ -61,8 +61,9 @@ micromamba create -n mystery-meat-env -f environment.yml
 # activate project environment
 micromamba activate mystery-meat-env
 ```
-
-Ensure all scripts are executable:
+> [!IMPORTANT]
+> Ensure all scripts are executable:
+> 
 ```
 chmod +x scripts/*
 ```
