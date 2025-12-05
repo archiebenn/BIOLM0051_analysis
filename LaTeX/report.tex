@@ -64,7 +64,7 @@
 \renewcommand{\bibfont}{\sffamily\footnotesize}
 
 
-\title{\LARGE\textbf{Identification of Undocumented Meat \\Samples Seized at Heathrow Airport}}
+\title{\LARGE\textbf{Identification of Undocumented Meat Samples Seized at Heathrow Airport}}
 \author{1935263}
 \date{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,46 +84,42 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Abstract} %200 WORDS - excluded
-\subsection*{Background}
-\subsection*{Results}
-\subsection*{Conclusions}
-
 
 
 \section*{Introduction} % 200 WORDS
-\noindent Rarity status attributed to a species often increases its price and demand, with critically endangered species fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction and threaten whole ecosystems \citep{hughes2023ecological}. Species-level identification of undocumented meat samples is key in public health for validating the meat being delivered to consumers, but  may also uncover networks carrying out illegal imports of endangered species, thus aiding conservation efforts by providing routes to intervene in the trade of these species.\\
-
-\par \noindent If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low which enables species-level identification  \citep{dawnay2007validation}. Cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.\\
-
-\par \noindent This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. The sequenced samples provide the starting point of this analysis pipeline.
+\noindent Rarity status attributed to a species often increases its price and demand, with critically endangered species fetching the highest prices \citep{sung2018assessing, courchamp2006rarity}. The fallout of this is a positive feedback loop between rarity and demand which may drive an endangered species towards extinction and threaten whole ecosystems \citep{hughes2023ecological}. Species-level identification of undocumented meat samples is key in public health for validating the meat being delivered to consumers, but  may also uncover networks carrying out illegal imports of endangered species, thus aiding conservation efforts by providing routes to intervene in the trade of these species.
+\par If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, keeping within-species diversity low which enables species-level identification  \citep{dawnay2007validation}. Cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.
+\par This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. The sequenced samples provide the starting point of this analysis pipeline.
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
-This pipeline consists of thirteen scripts which are used to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximise reproducibility and minimise incorporating bias or human error into the analysis. The four main stages are described here.
-
-
+The pipeline consists of thirteen scripts which take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximises reproducibility and minimises incorporating bias or human error into the analysis. The four key pipeline stages are described here.
 
 \subsection*{QC and Pre-Processing}
-FASTQ sequence files were extracted from \texttt{samples.zip} and 
+FASTQ sequence files were first extracted from \texttt{samples.zip} before undergoing quality control to enforce a consistent FASTQ structure - including headers and line counts. Every part file (1-3) belonging to the four samples (A-D) were then concatenated into multi-read FASTQ files by sample. \texttt{seqtk} \citep{seqtk} was used to convert each to FASTA while masking any bases with quality scores $<$ 20 to `N', ensuring bases were called at a confidence $\geq$ 99\% during sequencing to reduce the chances of false positives and increase confidence in downstream BLAST results.
 
+\subsection*{BLAST and FASTA Concatenation}
+BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+} with the results saved to tsv files. BLAST results displayed homology between parts across samples - for this reason parts were treated as homologous loci and hits were split back into tsv files by sample part to enable finer-tuned filtering and to create per-part alignments downstream. These results were then sorted by biological relevance (Fig.~\ref{fig:blastcode}) and collapsed by species with \texttt{taxonkit} \citep{taxonkit} staxid values before saving the top four results for each sample and part.
 
-\subsection*{BLAST}
-
-
-
-\begin{minted}[fontsize=\small, bgcolor=gray!1, framesep=1.5mm, frame=single]{bash}
+\begin{figure}[H]
+\begin{minted}[fontsize=\small, bgcolor=gray!0, framesep=1.5mm, frame=single]{bash}
   sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv \
   | awk -F'\t' '!seen[$3]++' > top_hits.tsv
 \end{minted} 
+\captionsetup{justification=centering}
+\caption{Bash line to sort BLAST hits by ascending e-value (12), descending bitscore (13), and descending length (5), saving only sorted-unique staxid hits (3).}
+\label{fig:blastcode}
+\end{figure}
 
+\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} to be used as an outgroup before all FASTA sequences - query, BLAST hits, and outgroups - were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}.
 
 
 \subsection*{Translation and Alignment}
-
-
+Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython's \citep{biopython} \texttt{.translate()} method and \texttt{table=2}. To counteract potential frame shift errors during translation, ORFs were identified by splitting each translated sequence by STOP (*) codons, and the longest sequence containing no STOPs saved as the protein sequence for each read.  
+\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments on the three part-protein files, and \texttt{trimAl} \citep{trimal} trimmed the alignment files to reduce post-translational artefacts while retaining internal sites for a cleaner and more stable tree build downstream. To build a single tree from the three trimmed alignments, a supermatrix alignment file was produced using \texttt{catfasta2phyml} \citep{catfasta}. This produces a concatenated supermatrix alignment along with partitions for each part to allow for different mutation rates per loci within a single alignment upon tree building. 
 
 \subsection*{Tree Building and Viewing}
-
+The final tree file was built using \texttt{iqtree3} \citep{iqtree} from the supermatrix alignment file and provided partition file. The Python library \texttt{ete3} \citep{huerta2016ete} was used to visually display the phylogenetic tree as well as rooting to the outgroup Selachii clade.
 
 
 
