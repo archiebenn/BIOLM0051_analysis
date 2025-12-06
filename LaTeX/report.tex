@@ -17,7 +17,7 @@
 \usepackage{caption} 
 \captionsetup{font={footnotesize,sf}, 
                     labelfont=bf,
-                    textfont={color=black!70}} % sans serif figure and table captions
+                    textfont={color=black!80}} % sans serif figure and table captions
 \usepackage{texshade}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows} 
@@ -29,21 +29,14 @@
 \usepackage{lipsum}
 \usepackage{pdflscape}
 \usepackage[export]{adjustbox}
-
-
-% defining tikz shapes
-\tikzstyle{startstop} = [rectangle, minimum width=3cm, minimum height=1cm,inner sep=8pt,text centered, draw=black, fill=blue!30]
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, inner sep=8pt,  text centered, draw=black, fill=orange!30]
-\tikzstyle{io} = [rectangle, inner sep=8pt, text centered, draw=black, fill=gray!15]
-\tikzstyle{arrow} = [thick,->,>=stealth]
-
+\usepackage{tcolorbox}
 
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\scriptsize\sffamily 1935263 \textit{Introduction to Bioinformatics}}
 \fancyhead[R]{\scriptsize\sffamily Page \thepage\ of \pageref*{LastPage}}
 
-\linespread{1.25}
+\linespread{1.2}
 
 % changing section heading fonts and sizing/spacing
 \titleformat{\section}
@@ -60,7 +53,6 @@
   {0pt}{1.25ex plus .2ex}{0.5ex}
 
 
-
 \bibliographystyle{unsrtnat}
 \renewcommand{\bibfont}{\sffamily\footnotesize}
 
@@ -75,17 +67,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+{\sffamily
 \maketitle
 \thispagestyle{empty}
-\subsection*{\textit{Scenario}}
-A suitcase containing several packages of unidentified frozen meat has been intercepted at Heathrow Airport by UK Border Force officers during routine inspections. The shipment had no import documentation, raising concerns that the meat may originate from protected or endangered species.\\
-
-Given the serious implications for public health, food safety, and wildlife conservation, the case has been referred to the Animal and Plant Health Agency (APHA). As a bioinformatician assisting with the inquiry, you have been tasked with determining the species of origin for each meat sample. DNA barcoding has already been performed in the laboratory, and you have now received the resulting FASTAQ sequence files for analysis.
-
-
-
-\section*{Abstract} %200 WORDS - excluded
+\begin{tcolorbox}[colframe=BlueGreen, colback=white, boxrule=0.5pt]\section*{Abstract} %200 WORDS - excluded
+\small\color{black!80}
 A modular pipeline was constructed to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximises reproducibility and minimises incorporating bias or human error into the analysis
+\end{tcolorbox}
+}
 
 
 \section*{Introduction} % 200 WORDS
@@ -126,7 +115,7 @@ BLAST results provided preliminary identifcations for each sample. Sample A cons
 	\centering
 	\caption{Top BLAST hit per part across all samples}
 	\label{tab:blast_hits}
-		\footnotesize\sffamily\color{black!70}
+		\footnotesize\sffamily\color{black!80}
 		\begin{tabular}{l l l l l}
 			\hline
 			\textbf{\color{black}Sample} & \textbf{\color{black}Part} & \textbf{\color{black}Species} & \textbf{\color{black}\% Identity} & \textbf{\color{black}e-value} \\
@@ -174,14 +163,14 @@ BLAST results provided preliminary identifcations for each sample. Sample A cons
 \end{figure}
 
 \par The resulting phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four well resolved vertebrate clades: a Cetacea (whales) clade, containing samples A and B; a Testudine (turtle and tortoises) clade, containing sample D; a Scombridae (tuna) clade, containing sample C; and the outgroup Selachii (sharks) clade. Bootstrap support at nodes placing each sample within each major clade was $\geq$ 90\%, indicating consistently supported sample placement within Cetacea, Testudines, and Scombridae. 
-\par Within Cetacea, sample A fell into a strongly supported Balaenid clade (96\% bootstrap support), and within the Balaenid clade there was weak support for placement of sample A with the 
+\par Placement of sample A within Balaenidae was strongly supported (95\% bootstrap), but internal bootstraps within the family were very low with short branch lengths, giving poor species-level resolution. However, BLAST consistently returned \textit{Eubalaena japonica} as the top hit with a high percentage identity across all parts, suggesting this as the leading candidate species for sample A.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
 	\captionsetup{justification=centering}
-	\caption{Maximum likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits.}
+	\caption{Maximum likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits. Scale bar corresponds to 0.01 substitutions per site. Bootstrap support (\%) shown at nodes.}
 	\label{fig:main_tree}
 \end{figure}
 

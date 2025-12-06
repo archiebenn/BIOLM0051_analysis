@@ -57,19 +57,24 @@ ts.show_scale = True
 # scale in the x axis to fit the page
 ts.scale = 5000
 
-
 # iterate over the leaves/tips to change their appearance on the tree
 for leaf in t3.iter_leaves():
-    # set each tip label to times new roman (consisten with report) and size 11 font
+
+    # remove underscores in organism name
+    leaf.name = leaf.name.replace("_", " ")
+
+    # set each tip label to italicised times new roman (consisten with report) and size 11 font
     lf = TextFace(
         leaf.name,
         fsize=10,
         ftype="Times",
+        fstyle='italic'
     )
 
-    # for clarity set sample tips to firebrick red
+    # for clarity set sample tips to firebrick red and non-italicised
     if leaf.name.startswith("sample"):
         lf.fgcolor = "firebrick"
+        lf.fstyle = 'normal'
 
     # increase margin from tip labbel to the branch end
     lf.margin_left = 6

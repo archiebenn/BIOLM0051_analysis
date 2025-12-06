@@ -1,6 +1,6 @@
 ########################################
 # Program: needle
-# Rundate: Tue  2 Dec 2025 22:56:24
+# Rundate: Sat  6 Dec 2025 21:15:07
 # Commandline: needle
 #    -asequence 99_needleman_wunsch/d_coriacea.fasta
 #    -bsequence 99_needleman_wunsch/sampleD_part1.fasta
