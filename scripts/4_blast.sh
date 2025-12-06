@@ -34,6 +34,7 @@ ls "$input_dir"/*.fasta >/dev/null 2>&1 || \
 ##########
 
 echo 'BLAST search - this may take a while...'
+
 # loops through each processed FASTA file
 for fasta in "$input_dir"/*.fasta; do
 

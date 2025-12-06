@@ -43,7 +43,7 @@
 \fancyhead[L]{\scriptsize\sffamily 1935263 \textit{Introduction to Bioinformatics}}
 \fancyhead[R]{\scriptsize\sffamily Page \thepage\ of \pageref*{LastPage}}
 
-\linespread{1.15}
+\linespread{1.25}
 
 % changing section heading fonts and sizing/spacing
 \titleformat{\section}
@@ -94,7 +94,7 @@ A modular pipeline was constructed to take the provided sequence data (\texttt{s
 \par This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. The sequenced samples provide the starting point of this analysis pipeline.
 
 \section*{Methods} % 250 WORDS
-\subsection*{Pipeline Overview}
+\subsection*{Overview}
 A modular pipeline was constructed to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The four key pipeline stages are described here.
 
 \subsection*{QC and Pre-Processing}
@@ -106,8 +106,8 @@ BLAST \citep{blast} searches were carried out using the FASTA files as query seq
 
 
 \subsection*{Translation and Alignment}
-Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython \citep{biopython}. To counteract potential frame shift errors during translation, ORFs were identified selected as the protein sequence for each read.  
-\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments on the three part-protein files, and \texttt{trimAl} \citep{trimal} removed poorly aligned regions while retaining internal sites for more stable tree build. Inspection of BLAST results indicated that each part derived from COI, so the trimmed alignments were concatenated into a supermatrix alignment with \texttt{catfasta2phyml} \citep{catfasta}, retaining partitions for each part. 
+Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython \citep{biopython}. To counteract potential frame shift errors during translation, ORFs were identified and selected as the protein sequence for each read.  
+\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments on the three part-protein files, and \texttt{trimAl} \citep{trimal} removed poorly aligned regions while retaining internal sites for a more stable tree build. Inspection of BLAST results indicated that each part derived from COI, so the trimmed alignments were concatenated into a supermatrix alignment with \texttt{catfasta2phyml} \citep{catfasta}, retaining partitions for each part. 
 
 \subsection*{Tree Building and Viewing}
 Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE3} \citep{iqtree} with ModelFinder Plus selecting the best model to improve accuracy, and included 1000 ultrafast bootstrap replicates to evaluate branch support. The Python library \texttt{ete3} \citep{huerta2016ete} was used to visually display the phylogenetic tree as well as rooting to the outgroup Selachii clade.
@@ -120,9 +120,7 @@ Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE
 % Table
 %%%%%%%%%%%%%%%
 \section*{Results} % 150 WORDS
-BLAST results provided preliminary assignments for each sample. Sample A consistently matched Right and Bowhead Whales (\textit{Eubalaena} spp. and \textit{Balaena} spp.), with sample B returning delphinids (\textit{Delphinapterus} and \textit{Monodon)} . Sample C matched true tunas (\textit{Thunnus} spp.), and sample D matched sea turtle species (Cryptodira) as well as \textit{Homo sapiens}. Top species per part are shown in Table~\ref{tab:blast_hits}. 
-\par 
-
+BLAST results provided preliminary identifcations for each sample. Sample A consistently matched Right and Bowhead Whales (Balaenidae), with sample B returning Beluga whale and Narwhal (Monodontidae). Sample C matched true tunas (\textit{Thunnus} spp.), and sample D matched sea turtle species (Cryptodira) as well as \textit{Homo sapiens}. Top species per part are shown in Table~\ref{tab:blast_hits}. 
 
 \begin{table}[htbp]
 	\centering
@@ -151,7 +149,7 @@ BLAST results provided preliminary assignments for each sample. Sample A consist
 		\end{tabular}
 \end{table}
 
-
+\par The supermatrix alignment of the translated protein sequences shows high overall homology across all sequences, with good sequence coverage in all except sample C and related reference sequences (Fig.~\ref{fig:supermatrix}). Sample D also displays a potential frameshift within a highly conserved region at the tail-end of part 1. 
 
 %%%%%%%%%%%%%%%
 % Texshade alignment
@@ -175,6 +173,9 @@ BLAST results provided preliminary assignments for each sample. Sample A consist
 \label{fig:supermatrix}
 \end{figure}
 
+\par The resulting phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four well resolved vertebrate clades: a Cetacea (whales) clade, containing samples A and B; a Testudine (turtle and tortoises) clade, containing sample D; a Scombridae (tuna) clade, containing sample C; and the outgroup Selachii (sharks) clade. Bootstrap support at nodes placing each sample within each major clade was $\geq$ 90\%, indicating consistently supported sample placement within Cetacea, Testudines, and Scombridae. 
+\par Within Cetacea, sample A fell into a strongly supported Balaenid clade (96\% bootstrap support), and within the Balaenid clade there was weak support for placement of sample A with the 
+
 
 \begin{figure}[H]
 	\centering
@@ -188,6 +189,13 @@ BLAST results provided preliminary assignments for each sample. Sample A consist
 Where cyt b and D-Loop sequences do exist, very few of these have been generated as part of forensic studies [23], with the vast majority submitted to databases as part of phylogenetic, molecular ecological and conservation studies [24], [25], [26]. Such sequence data can be generated and accepted into databases without any need for standard protocols or quality control, raising doubts over their suitability for forensic application \citep{dawnay2007validation}
 
 However, unlike BOLD, GenBank does not store sequence chromatograms, collection metadata or photographs [6]. BOLD is a curation tool that also stores sequences, while GenBank is just a sequence repository. \citep{meiklejohn2019assessment}
+
+As pointed out by Efron, Halloran and Holmes
+(1996), the bootstrap compares the bootstrapped values
+to the original estimate, not to the truth. The essential
+bootstrap identity is that the bootstrapped values are to
+the original estimate what the original estimate is to the
+true parameter \citep{holmes2003bootstrapping}
 
 
 
