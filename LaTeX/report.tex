@@ -42,6 +42,7 @@
 \fancyhf{}
 \fancyhead[L]{\scriptsize\sffamily 1935263 \textit{Introduction to Bioinformatics}}
 \fancyhead[R]{\scriptsize\sffamily Page \thepage\ of \pageref*{LastPage}}
+
 \linespread{1.15}
 
 % changing section heading fonts and sizing/spacing
@@ -84,6 +85,7 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 
 \section*{Abstract} %200 WORDS - excluded
+A modular pipeline was constructed to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximises reproducibility and minimises incorporating bias or human error into the analysis
 
 
 \section*{Introduction} % 200 WORDS
@@ -93,33 +95,22 @@ Given the serious implications for public health, food safety, and wildlife cons
 
 \section*{Methods} % 250 WORDS
 \subsection*{Pipeline Overview}
-The pipeline consists of thirteen scripts which take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The minimal input design of the pipeline and provided \texttt{environment.yml} file maximises reproducibility and minimises incorporating bias or human error into the analysis. The four key pipeline stages are described here.
+A modular pipeline was constructed to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The four key pipeline stages are described here.
 
 \subsection*{QC and Pre-Processing}
 FASTQ sequence files were first extracted from \texttt{samples.zip} before undergoing quality control to enforce a consistent FASTQ structure - including headers and line counts. Every part file (1-3) belonging to the four samples (A-D) were then concatenated into multi-read FASTQ files by sample. \texttt{seqtk} \citep{seqtk} was used to convert each to FASTA while masking any bases with quality scores $<$ 20 to `N', ensuring bases were called at a confidence $\geq$ 99\% during sequencing to reduce the chances of false positives and increase confidence in downstream BLAST results.
 
 \subsection*{BLAST and FASTA Concatenation}
-BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+} with the results saved to tsv files. BLAST results displayed homology between parts across samples - for this reason parts were treated as homologous loci and hits were split back into tsv files by sample part to enable finer-tuned filtering and to create per-part alignments downstream. These results were then sorted by biological relevance (Fig.~\ref{fig:blastcode}) and collapsed by species with \texttt{taxonkit} \citep{taxonkit} staxid values before saving the top four results for each sample and part.
-
-\begin{figure}[H]
-\begin{minted}[fontsize=\small, bgcolor=gray!0, framesep=1.5mm, frame=single]{bash}
-  sort -k12,12g -k13,13gr -k5,5gr 5_blast_filtering/"$part_name"_blast.tsv \
-  | awk -F'\t' '!seen[$3]++' > top_hits.tsv
-\end{minted} 
-\captionsetup{justification=centering}
-\caption{Bash line to sort BLAST hits by ascending e-value (12), descending bitscore (13), and descending length (5), saving only sorted-unique staxid hits (3).}
-\label{fig:blastcode}
-\end{figure}
-
-\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} to be used as an outgroup before all FASTA sequences - query, BLAST hits, and outgroups - were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}.
+BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+}. As the samples were labeled parts 1-3 without information on genomic region, each part was treated as a separate fragment and BLAST results for each sample were split into part-specific files, enabling downstream alignment per-part across all samples. These results were then sorted by ascending e-value, descending bitscore, and descending alignment length before collapsing by species with \texttt{taxonkit} \citep{taxonkit}. The top four for each part and sample were selected.
+\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} as an outgroup before all FASTA sequences were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}.
 
 
 \subsection*{Translation and Alignment}
-Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython's \citep{biopython} \texttt{.translate()} method and \texttt{table=2}. To counteract potential frame shift errors during translation, ORFs were identified by splitting each translated sequence by STOP (*) codons, and the longest sequence containing no STOPs saved as the protein sequence for each read.  
-\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments on the three part-protein files, and \texttt{trimAl} \citep{trimal} trimmed the alignment files to reduce post-translational artefacts while retaining internal sites for a cleaner and more stable tree build downstream. To build a single tree from the three trimmed alignments, a supermatrix alignment file was produced using \texttt{catfasta2phyml} \citep{catfasta}. This produces a concatenated supermatrix alignment along with partitions for each part to allow for different mutation rates per loci within a single alignment upon tree building. 
+Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython \citep{biopython}. To counteract potential frame shift errors during translation, ORFs were identified selected as the protein sequence for each read.  
+\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments on the three part-protein files, and \texttt{trimAl} \citep{trimal} removed poorly aligned regions while retaining internal sites for more stable tree build. Inspection of BLAST results indicated that each part derived from COI, so the trimmed alignments were concatenated into a supermatrix alignment with \texttt{catfasta2phyml} \citep{catfasta}, retaining partitions for each part. 
 
 \subsection*{Tree Building and Viewing}
-The final tree file was built using \texttt{iqtree3} \citep{iqtree} from the supermatrix alignment file and provided partition file. The Python library \texttt{ete3} \citep{huerta2016ete} was used to visually display the phylogenetic tree as well as rooting to the outgroup Selachii clade.
+Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE3} \citep{iqtree} with ModelFinder Plus selecting the best model to improve accuracy, and included 1000 ultrafast bootstrap replicates to evaluate branch support. The Python library \texttt{ete3} \citep{huerta2016ete} was used to visually display the phylogenetic tree as well as rooting to the outgroup Selachii clade.
 
 
 
@@ -129,19 +120,37 @@ The final tree file was built using \texttt{iqtree3} \citep{iqtree} from the sup
 % Table
 %%%%%%%%%%%%%%%
 \section*{Results} % 150 WORDS
-\begin{figure}[H]
+BLAST results provided preliminary assignments for each sample. Sample A consistently matched Right and Bowhead Whales (\textit{Eubalaena} spp. and \textit{Balaena} spp.), with sample B returning delphinids (\textit{Delphinapterus} and \textit{Monodon)} . Sample C matched true tunas (\textit{Thunnus} spp.), and sample D matched sea turtle species (Cryptodira) as well as \textit{Homo sapiens}. Top species per part are shown in Table~\ref{tab:blast_hits}. 
+\par 
+
+
+\begin{table}[htbp]
 	\centering
-	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
-	\captionsetup{justification=centering}
-	\caption{Maximum-likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits. Created with \texttt{ete3} \citep{huerta2016ete}.}
-	\label{fig:main_tree}
-\end{figure}
+	\caption{Top BLAST hit per part across all samples}
+	\label{tab:blast_hits}
+		\footnotesize\sffamily\color{black!70}
+		\begin{tabular}{l l l l l}
+			\hline
+			\textbf{\color{black}Sample} & \textbf{\color{black}Part} & \textbf{\color{black}Species} & \textbf{\color{black}\% Identity} & \textbf{\color{black}e-value} \\
+			\hline
+			A & 1 & \textit{Eubalaena japonica} & 97.5 & 0.0 \\	
+			A & 2 & \textit{Eubalaena japonica} & 99.6 & 0.0 \\
+			A & 3 & \textit{Eubalaena japonica} & 93.4 & 7.0e-160 \\
+			B & 1 & \textit{Delphinapterus leucas} & 92.3 & 0.0 \\
+			B & 2 & \textit{Delphinapterus leucas} & 92.8 & 0.0 \\
+			B & 3 & \textit{Monodon monoceros} & 89.2 & 0.0 \\
+			C & 1 & \textit{Thunnus thynnus} & 81.7 & 3.7e-103 \\
+			C & 2 & --- & --- & --- \\
+			C & 3 & \textit{Thunnus thynnus} & 89.2 & 1.2e-157 \\
+			D & 1 & \textit{Dermochelys coriacea} & 98.3 & 0.0 \\
+			D & 2 & \textit{Dermochelys coriacea} & 96.2 & 0.0 \\
+			D & 3 & \textit{Homo Sapiens} & 100 & 6.3e-46 \\
+			
+			% ... repeat for top 15	
+			\hline	
+		\end{tabular}
+\end{table}
 
-
-\section*{Discussion} % 300 WORDS
-Where cyt b and D-Loop sequences do exist, very few of these have been generated as part of forensic studies [23], with the vast majority submitted to databases as part of phylogenetic, molecular ecological and conservation studies [24], [25], [26]. Such sequence data can be generated and accepted into databases without any need for standard protocols or quality control, raising doubts over their suitability for forensic application \citep{dawnay2007validation}
-
- However, unlike BOLD, GenBank does not store sequence chromatograms, collection metadata or photographs [6]. BOLD is a curation tool that also stores sequences, while GenBank is just a sequence repository. \citep{meiklejohn2019assessment}
 
 
 %%%%%%%%%%%%%%%
@@ -167,26 +176,18 @@ Where cyt b and D-Loop sequences do exist, very few of these have been generated
 \end{figure}
 
 
-
-%%%%%%%%%%%%%%%
-% Bash block
-%%%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
-	
-\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{text}
-Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
-                     |||||||||||||||||||||||||||||||||||| |||||||||||||
-sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
-\end{minted} 
-\raisebox{2em}{\hspace{6.55cm}$\big\uparrow$}
-\vspace{-2em}
-    \captionsetup{justification=centering}
-	\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence. Alignment gap indicates a possible base miss in \texttt{sampleD\_part1} during sequencing.}
-
-\label{fig:needleman}
+	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
+	\captionsetup{justification=centering}
+	\caption{Maximum likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits.}
+	\label{fig:main_tree}
 \end{figure}
 
+\section*{Discussion} % 300 WORDS
+Where cyt b and D-Loop sequences do exist, very few of these have been generated as part of forensic studies [23], with the vast majority submitted to databases as part of phylogenetic, molecular ecological and conservation studies [24], [25], [26]. Such sequence data can be generated and accepted into databases without any need for standard protocols or quality control, raising doubts over their suitability for forensic application \citep{dawnay2007validation}
+
+However, unlike BOLD, GenBank does not store sequence chromatograms, collection metadata or photographs [6]. BOLD is a curation tool that also stores sequences, while GenBank is just a sequence repository. \citep{meiklejohn2019assessment}
 
 
 
@@ -200,6 +201,24 @@ Supplementary data and all scripts can be found within the GitHub repository for
 
 \newpage
 \section*{Appendix: Exploratory Figures in Suspected Sequencing Error}
+\vspace{2em}
+%%%%%%%%%%%%%%%
+% Bash block
+%%%%%%%%%%%%%%%
+\begin{figure}[H]
+\centering	
+\begin{minted}[fontsize=\small, frame=single, framesep=1.5mm, bgcolor=gray!1]{text}
+Dermochelys_c    441 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATTAACTTCATTACTAC    490
+                     |||||||||||||||||||||||||||||||||||| |||||||||||||
+sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
+\end{minted} 
+\raisebox{2em}{\hspace{6.55cm}$\big\uparrow$}
+\vspace{-2em}
+\captionsetup{justification=centering}
+\caption{Needleman-Wunsch global pairwise alignment at the tail end of \texttt{sampleD\_part1} against closest reference sequence. Alignment gap indicates a possible base miss in \texttt{sampleD\_part1} during sequencing.}
+\label{fig:needleman}
+\end{figure}
+\vspace{5em}
 
 \begin{figure}[H]
 	\centering
@@ -216,15 +235,15 @@ Supplementary data and all scripts can be found within the GitHub repository for
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Subset of supermatrix alignment with \texttt{sampleD} and innner clade after inserting one ambiguous base (N) to the nucleotide sequence of \texttt{sampleD\_part1}. This base resolves the apparent frame-shift, resulting in a protein sequence which aligns much more closely to highly-conserved \texttt{NFITTIIN} region compared to in Figure~\ref{fig:supermatrix}.}
+	\caption{Subset of supermatrix alignment with \texttt{sampleD} and innner clade after inserting one ambiguous base (N) to the nucleotide sequence of \texttt{sampleD\_part1}. This base resolves the apparent frame-shift, resulting in a protein sequence which aligns much more closely to highly-conserved \texttt{NFITTIIN} region compared to in Fig.~\ref{fig:supermatrix}.}
 	\label{fig:supermatrix2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.86\linewidth, frame]{figures/final_tree_D_branch.pdf}
+	\includegraphics[width=\linewidth, frame]{figures/final_tree_D_branch.pdf}
 	\captionsetup{justification=centering}
-	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Figure~\ref{fig:main_tree}. Created with \texttt{ete3} \citep{huerta2016ete}. }
+	\caption{Maximum-likelihood phylogenetic tree after manually corrected alignment in which one ambiguous base (N) was inserted into \texttt{sampleD\_part1}. This tree is shown to demonstrate the impact of sequencing error and downstream frame-shift on branch lengths compared to Fig.~\ref{fig:main_tree}.}
 	\label{fig:tree_pdf2}
 \end{figure}
 
