@@ -1,5 +1,5 @@
 # Heathrow "Mystery Meat" analysis pipeline  
-This analysis takes unknown raw FASTQ files and produces species identifications and a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline.
+This analysis uses unknown raw FASTQ files and produces a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline. The main steps involved in this are shown in the pipeline figure below.
 
 ## Requirements  
 - `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, run:
