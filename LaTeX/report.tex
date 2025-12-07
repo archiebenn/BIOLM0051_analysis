@@ -90,8 +90,8 @@ A modular pipeline was constructed to take the provided sequence data (\texttt{s
 FASTQ sequence files were first extracted from \texttt{samples.zip} before undergoing quality control to enforce a consistent FASTQ structure - including headers and line counts. Every part file (1-3) belonging to the four samples (A-D) were then concatenated into multi-read FASTQ files by sample. \texttt{seqtk} \citep{seqtk} was used to convert each to FASTA while masking any bases with quality scores $<$ 20 to `N', ensuring bases were called at a confidence $\geq$ 99\% during sequencing to reduce the chances of false positives and increase confidence in downstream BLAST results.
 
 \subsection*{BLAST and FASTA Concatenation}
-BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+}. As the samples were labeled parts 1-3 without information on genomic region, each part was treated as a separate fragment and BLAST results for each sample were split into part-specific files, enabling downstream alignment per-part across all samples. These results were then sorted by ascending e-value, descending bitscore, and descending alignment length before collapsing by species with \texttt{taxonkit} \citep{taxonkit}. The top four for each part and sample were selected.
-\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} as an outgroup before all FASTA sequences were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}.
+BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+}. As the samples were labeled parts 1-3 without information on genomic region, each part was treated as a separate fragment and BLAST results for each sample were split into part-specific files, enabling downstream alignment per-part across all samples. These results were then sorted by ascending e-value, descending bitscore, and descending alignment length before collapsing by species with \texttt{taxonkit} \citep{taxonkit}. The top four for each part and sample were selected. \texttt{sampleD\_part3} returned \textit{Homo sapiens}, consistent with human contamination, and was therefore removed.
+\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} as an outgroup before all FASTA sequences were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}. 
 
 
 \subsection*{Translation and Alignment}
@@ -109,7 +109,7 @@ Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE
 % Table
 %%%%%%%%%%%%%%%
 \section*{Results} % 150 WORDS
-BLAST results provided preliminary identifcations for each sample. Sample A consistently matched Right and Bowhead Whales (Balaenidae), with sample B returning Beluga whale and Narwhal (Monodontidae). Sample C matched true tunas (\textit{Thunnus} spp.), and sample D matched sea turtle species (Cryptodira) as well as \textit{Homo sapiens}. Top species per part are shown in Table~\ref{tab:blast_hits}. 
+BLAST searches suggested that the samples corresponded to mtDNA COI, and provided preliminary COI identifications for each sample. Sample A consistently matched Right and Bowhead Whales, with sample B returning Beluga and Narwhal. Sample C matched true tunas, and sample D matched sea turtle species and \textit{Homo sapiens} (Table~\ref{tab:blast_hits}). 
 
 \begin{table}[htbp]
 	\centering
@@ -123,10 +123,10 @@ BLAST results provided preliminary identifcations for each sample. Sample A cons
 			A & 1 & \textit{Eubalaena japonica} & 97.5 & 0.0 \\	
 			A & 2 & \textit{Eubalaena japonica} & 99.6 & 0.0 \\
 			A & 3 & \textit{Eubalaena japonica} & 93.4 & 7.0e-160 \\
-			B & 1 & \textit{Delphinapterus leucas} & 92.3 & 0.0 \\
+			B & 1 & \textit{Delphinapterus leucas}; \textit{Monodon monoceros} (tie) & 92.3 & 0.0 \\
 			B & 2 & \textit{Delphinapterus leucas} & 92.8 & 0.0 \\
 			B & 3 & \textit{Monodon monoceros} & 89.2 & 0.0 \\
-			C & 1 & \textit{Thunnus thynnus} & 81.7 & 3.7e-103 \\
+			C & 1 & \textit{Thunnus thynnus}; \textit{Thunnus orientalis} (tie) & 81.7 & 3.7e-103 \\
 			C & 2 & --- & --- & --- \\
 			C & 3 & \textit{Thunnus thynnus} & 89.2 & 1.2e-157 \\
 			D & 1 & \textit{Dermochelys coriacea} & 98.3 & 0.0 \\
@@ -137,8 +137,6 @@ BLAST results provided preliminary identifcations for each sample. Sample A cons
 			\hline	
 		\end{tabular}
 \end{table}
-
-\par The supermatrix alignment of the translated protein sequences shows high overall homology across all sequences, with good sequence coverage in all except sample C and related reference sequences (Fig.~\ref{fig:supermatrix}). Sample D also displays a potential frameshift within a highly conserved region at the tail-end of part 1. 
 
 %%%%%%%%%%%%%%%
 % Texshade alignment
@@ -162,19 +160,29 @@ BLAST results provided preliminary identifcations for each sample. Sample A cons
 \label{fig:supermatrix}
 \end{figure}
 
-\par The resulting phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four well resolved vertebrate clades: a Cetacea (whales) clade, containing samples A and B; a Testudine (turtle and tortoises) clade, containing sample D; a Scombridae (tuna) clade, containing sample C; and the outgroup Selachii (sharks) clade. Bootstrap support at nodes placing each sample within each major clade was $\geq$ 90\%, indicating consistently supported sample placement within Cetacea, Testudines, and Scombridae. 
-\par Placement of sample A within Balaenidae was strongly supported (95\% bootstrap), but internal bootstraps within the family were very low with short branch lengths, giving poor species-level resolution. However, BLAST consistently returned \textit{Eubalaena japonica} as the top hit with a high percentage identity across all parts, suggesting this as the leading candidate species for sample A.
-
+\par The phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four well-resolved vertebrate clades: a Cetacean clade (whales); a Testudine clade (turtle and tortoises); a Scombridae clade (tuna); and the outgroup Selachii clade (sharks). 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth, frame]{../results/13_tree_plots/final_tree.pdf}
+	\includegraphics[width=\linewidth, frame]{figures/final_tree.pdf}
 	\captionsetup{justification=centering}
 	\caption{Maximum likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits. Scale bar corresponds to 0.01 substitutions per site. Bootstrap support (\%) shown at nodes.}
 	\label{fig:main_tree}
 \end{figure}
+ 
+\par Sample A placement was strongly supported within Balaenidae (95\% ),  but species-level resolution within was poor. However, BLAST consistently returned \textit{Eubalaena japonica} as the top hit with a high percentage identity across all parts, suggesting North Pacific right whale as the leading candidate species.
+\par Sample B placement within Monodontidae was fully supported (100\%), but internal node support and species resolution was weak (55\%). Only \textit{Delphinapterus leucas} and \textit{Monodon monoceros} exist in this family, therefore sample B must represent one of these species.
+\par Sample C placement was strongly supported within \textit{Thunnus} (97\%), with low-moderate internal node support. BLAST suggested \textit{Thunnus thynnus}, but this is not confirmed by the phylogeny.
+\par Sample D placement within Testudines was strongly supported (92\%), with very low support within this clade (11-59\%). Sample D is placed with \textit{Dermochelys coriacea}, consistent with BLAST, suggesting Leatherback sea turtle as the leading candidate species.
+
+
 
 \section*{Discussion} % 300 WORDS
+This analysis identified 
+
+Species-level resolution was limited in this analysis due to low internal bootstrap support values and 
+
+
 Where cyt b and D-Loop sequences do exist, very few of these have been generated as part of forensic studies [23], with the vast majority submitted to databases as part of phylogenetic, molecular ecological and conservation studies [24], [25], [26]. Such sequence data can be generated and accepted into databases without any need for standard protocols or quality control, raising doubts over their suitability for forensic application \citep{dawnay2007validation}
 
 However, unlike BOLD, GenBank does not store sequence chromatograms, collection metadata or photographs [6]. BOLD is a curation tool that also stores sequences, while GenBank is just a sequence repository. \citep{meiklejohn2019assessment}
@@ -188,7 +196,26 @@ true parameter \citep{holmes2003bootstrapping}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check .bib ordering for years and surnames etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check ordering for years and surnames etc.
 \bibliography{references}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

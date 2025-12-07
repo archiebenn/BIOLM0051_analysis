@@ -55,7 +55,6 @@ for tsv in "$input_dir"/*.tsv; do
 done
 
 # remove sampleD_part3. this is only hitting homo sapiens from blast, so is likely contamination.
-# emptying instead of deleting as deleting the file causes downstream loop issues
 rm 6_blast_selected/sampleD_part3_selected.tsv
 
 cd ..
