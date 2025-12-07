@@ -18,7 +18,6 @@ dependencies:
   - matplotlib
   - trimal
   - mafft
-  - aliview
   - catfasta2phyml
   - ete3
   - ete4
