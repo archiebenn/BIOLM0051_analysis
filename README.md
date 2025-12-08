@@ -1,5 +1,5 @@
 # Heathrow "Mystery Meat" analysis pipeline  
-This analysis uses unknown raw FASTQ files and produces a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline. The main steps involved in this are shown in the pipeline figure below.
+This analysis uses unknown raw FASTQ files and produces a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline. The main steps involved in this are shown in the pipeline figure below. Typical pipeline runtime is 20-35 minutes depending on BLAST connection.
 
 ## Requirements  
 - `micromamba` installation  (see: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). To install, run:
@@ -46,6 +46,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 | 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
 | 13            | Tree View           | Visualise and root tree using Python             |  
 
+Along with these scripts, an additional exploratory script (`99_reduce_branch_sampleD.sh`) can be found in `scripts` and run to reproduce the exploration, but does not form part of the main pipeline. 
 
 # Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
@@ -137,29 +138,28 @@ Analysis runtime: 00h:06m:22s
 Please note this is only possible as a complete `results/` folder is included here on GitHub - if without `results/` the full pipeline must be run (option A).
 
 
-
 # Step 3: Viewing Results
-All pipeline results are stored in the `results/` folder. This contains sub-directories number-linked to the respective scripts where the results were generated.
+All pipeline results are stored in the `results/` folder. This contains sub-directories number-linked to the respective scripts where the results were generated. All intermediate files generated from the pipeline can be found here, as well as the final tree. 
 
-`results/` general structure: 
+`results/` structure: 
 ```
-results
-├── 1_FASTQ_check
-├── 2_FASTQ_processed
-├── 3_FASTA_Q20
-├── 3_FASTA_raw
-├── 3_FASTQC_reports
-├── 4_blast_outputs
-├── 5_blast_filtering
-├── 6_blast_selected
-├── 7_efetch_FASTA
-├── 7_outgroup_blasts
-├── 8_outgroup_FASTA
-├── 9_complete_FASTA
-├── 10_protein_FASTA
-├── 11_alignment_files
-├── 11_supermatrix_files
-├── 12_tree_files
-├── 12_tree_outputs
-└── 13_tree_pdfs
+├── results
+│   ├── 1_checked_FASTQ
+│   ├── 2_FASTQ_processed
+│   ├── 3_FASTA_Q20
+│   ├── 3_FASTA_raw
+│   ├── 4_blast_outputs
+│   ├── 5_blast_filtering
+│   ├── 6_blast_selected
+│   ├── 7_efetch_FASTA
+│   ├── 8_outgroup_FASTA
+│   ├── 9_complete_FASTA
+│   ├── 10_protein_FASTA
+│   ├── 11_alignment_files
+│   ├── 11_supermatrix_files
+│   ├── 12_tree_files
+│   ├── 12_tree_outputs
+│   ├── 13_tree_plots
+|   └── 99_needleman_wunsch
 ```
+The final tree pdf can be found in `13_tree_plots/`
