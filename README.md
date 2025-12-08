@@ -13,7 +13,7 @@ This analysis uses raw FASTQ files of unidentified meat DNA sequences, provided 
 ```bash
 mkdir -p ~/.taxonkit
 
-# download latest NCBI taxonomy dump
+# download latest NCBI taxonomy dump (macOS users may need to use curl or install wget)
 wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
 
 # extract
