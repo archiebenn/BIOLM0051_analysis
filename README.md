@@ -53,7 +53,7 @@ Creating and activating the `micromamba` environment is recommended to ensure re
 
 ```bash
 # clone this repo and navigate into project root
-git clone git@github.com:archiebenn/BIOLM0051_analysis.git
+git clone https://github.com/archiebenn/BIOLM0051_analysis.git
 cd BIOLM0051_analysis
 
 # create project environment
