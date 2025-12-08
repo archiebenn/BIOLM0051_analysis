@@ -2,8 +2,8 @@
 This analysis uses raw FASTQ files of unidentified meat DNA sequences, provided in `data/` as `samples.zip`, and produces a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline. The main steps involved in this are shown in the pipeline figure below. Typical pipeline runtime is 20-35 minutes depending on BLAST connection.
 
 ## OS Compatability 
-- Tested on Linux (Ubuntu 24.04).
-- Expected to work on macOS and other linux distributions, but untested.
+- Tested on Linux (Ubuntu 24.04)
+- Expected to work on macOS and other linux distributions, but untested
 - Not supported or tested on Windows 
 
 ## Requirements  
