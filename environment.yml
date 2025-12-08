@@ -21,3 +21,4 @@ dependencies:
   - catfasta2phyml
   - ete3
   - ete4
+  - pip
