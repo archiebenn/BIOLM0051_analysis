@@ -60,8 +60,6 @@ for filename in os.listdir(fasta_directory):
 
     # use file name and SeqIO to open and then parse the fasta contents
     for sequence in SeqIO.parse(f"{fasta_directory}/{filename}", "fasta"):
-        print(sequence.id, len(sequence.seq))
-
         protein_seq = find_orf(sequence)
 
         # write out > + sequence id + protein sequence to results folder

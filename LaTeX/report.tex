@@ -40,7 +40,7 @@
 
 % changing section heading fonts and sizing/spacing
 \titleformat{\section}
-  {\normalsize\sffamily\bfseries} % font size & style
+  {\large\sffamily\bfseries} % font size & style
   {\thesection}{1em}{}       % number + spacing
 \titlespacing*{\section}
   {0pt}{1.5ex plus .2ex}{0.2em} % left, before, after spacing
@@ -72,48 +72,42 @@
 \thispagestyle{empty}
 \begin{tcolorbox}[colframe=BlueGreen, colback=white, boxrule=0.5pt]\section*{Abstract} %200 WORDS - excluded
 \small\color{black!80}
-
+A modular pipeline was constructed to take the provided sequence data (\texttt{samples.zip}) to phylogenetic tree visualisation for sample identification.
 \end{tcolorbox}
 }
 
 
-\section*{Introduction} % 200 WORDS
-\noindent The illegal wildlife trade drives endangered species towards extinction - threatening ecosystems while also reinforcing a detrimental feedback loop between species rarity and value \citep{hughes2023ecological}. Species identification of undocumented meat samples is key in consumer and public health, but can also uncover networks carrying out illegal imports of endangered species, aiding conservation efforts by providing routes to intervene in this trade.
-\par If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving the species of the sample \citep{haye2012authentication, ahmed2022pragmatic}. Mitochondrial DNA (mtDNA) genes are commonly used for DNA barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, enabling species-level identification  \citep{dawnay2007validation}. Cytochrome c oxidase I (COI), found within mtDNA, is the primary barcode marker in the animal kingdom, and reference sequences for COI are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.
-\par This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport. The sequenced samples provide the starting point of this analysis pipeline.
+\section*{Introduction} % 193 WORDS
+\noindent The illegal wildlife trade drives endangered species towards extinction, threatening ecosystems and reinforcing a detrimental feedback loop between species rarity and value \citep{hughes2023ecological}. Species identification of undocumented meat samples is key in  public health, but can also uncover networks carrying out illegal imports of endangered species, aiding conservation efforts by providing routes for intervention.
+\par If the morphology of a sample is compromised, DNA barcoding - comparing genetic sequences in a sample against known references - can aid in resolving species identity \citep{haye2012authentication, ahmed2022pragmatic}. Mitochondrial genes are used for barcoding because they occur in high copy numbers relative to nuclear DNA and typically lack recombination, enabling species identification \citep{dawnay2007validation}. Cytochrome c oxidase I (COI) is the primary barcode marker in Metazoa, and COI sequences are abundant in databases such as BOLD and NCBI, permitting barcoding against a diverse set of organisms \citep{porter2018over,ratnasingham2024bold}.
+\par This analysis aims to resolve the species of four meat samples intercepted by UK Border Force officers at Heathrow Airport.
 
-\section*{Methods} % 250 WORDS
-\subsection*{Overview}
-A modular pipeline was constructed, with reproducibility in mind, to take the provided sequence data (\texttt{samples.zip}) through to the visualisation of a phylogenetic tree for sample identification. The four key pipeline stages are described here.
 
-\subsection*{QC and Pre-Processing}
-FASTQ sequence files were first extracted from \texttt{samples.zip} before undergoing quality control to enforce a consistent FASTQ structure - including headers and line counts. Every part file (1-3) belonging to the four samples (A-D) were then concatenated into multi-read FASTQ files by sample. \texttt{seqtk} \citep{seqtk} was used to convert each to FASTA while masking any bases with quality scores $<$ 20 to `N', ensuring bases were called at a confidence $\geq$ 99\% during sequencing to reduce the chances of false positives and increase confidence in downstream BLAST results.
 
-\subsection*{BLAST and FASTA Concatenation}
-BLAST \citep{blast} searches were carried out using the FASTA files as query sequences against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+}. As the samples were labeled parts 1-3 without information on genomic region, each part was treated as a separate fragment and BLAST results for each sample were split into part-specific files, enabling downstream alignment per-part across all samples. These results were then sorted by ascending e-value, descending bitscore, and descending alignment length before collapsing by species with \texttt{taxonkit} \citep{taxonkit}. The top four for each part and sample were selected. \texttt{sampleD\_part3} returned \textit{Homo sapiens}, consistent with human contamination, and was therefore removed.
-\par \texttt{efetch} \citep{efetch} was used to download the FASTA sequences for each BLAST hit accession, and the \texttt{sstart} and \texttt{ssend} values were used to trim these sequences to match the query region using \texttt{seqtk}, reverse complementing if an opposite strand is matched in BLAST. COI sequences of three Selachii species were retrieved using \texttt{efetch} as an outgroup before all FASTA sequences were concatenated by part into three complete FASTA files (parts 1-3) using \texttt{seqkit} \citep{seqkit}. 
+\section*{Methods} % 351 WORDS
+\subsection*{Pre-Processing}
+FASTQ sequence files were extracted from \texttt{samples.zip} before undergoing quality control. Samples were concatenated and \texttt{seqtk} \citep{seqtk} converted to FASTA, masking bases with quality scores $<$ 20 to ensure bases were called at a confidence $\geq$ 99\%, reducing false positives from BLAST.
 
+\subsection*{BLAST}
+BLAST \citep{blast} searches were performed against the NCBI Nucleotide database using \texttt{blastn} \citep{blast+}. As samples were labeled without genomic region context, parts were treated as separate fragments and BLAST results were split by part. These were sorted and the top four hits selected. \texttt{sampleD\_part3} returned \textit{Homo sapiens}, consistent with human contamination, and was removed.
+\par Accessions were downloaded with \texttt{efetch} \citep{efetch} and trimmed to the query region using \texttt{seqtk}. FASTA sequences were concatenated by part into three complete files using \texttt{seqkit} \citep{seqkit}. Selachii were included as the outgroup.
 
 \subsection*{Translation and Alignment}
-Translation of the FASTA sequences using the vertebrate mitochondrial code was carried out using Biopython \citep{biopython}. To counteract potential frame shift errors during translation, ORFs were identified and selected as the protein sequence for each read.  
-\par MUSCLE5 \citep{muscle5} was used to carry out multiple sequence alignments (MSA) on the protein sequences, and \texttt{trimAl} \citep{trimal} removed poorly aligned regions while retaining internal sites for a more stable tree build. Inspection of BLAST results indicated that each part derived from COI, so the trimmed alignments were concatenated into a supermatrix alignment with \texttt{catfasta2phyml} \citep{catfasta}, retaining partitions for each part. 
+Sequences were translated using Biopython \citep{biopython} and the vertebrate mitochondrial code. MUSCLE5 \citep{muscle5} generated multiple sequence alignments, and \texttt{trimAl} \citep{trimal} removed poorly aligned regions. BLAST results indicated all parts originated from COI, so the alignments were concatenated into a supermatrix alignment with \texttt{catfasta2phyml} \citep{catfasta}, retaining the three partitions.
 
-\subsection*{Tree Building and Viewing}
-Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE3} \citep{iqtree} with ModelFinder Plus selecting the best model to improve accuracy, and included 1000 ultrafast bootstrap replicates to evaluate branch support. The Python library \texttt{ete3} \citep{huerta2016ete} was used to visually display the phylogenetic tree as well as rooting to the outgroup Selachii clade.
-
-
-
-
+\subsection*{Tree Building}
+Phylogenetic inference was performed using maximum likelihood in \texttt{IQ-TREE3} \citep{iqtree} with ModelFinder Plus and 1000 ultrafast bootstrap replicates to estimate the tree with the best-fitting substitution model with statistical node support. The resulting tree was rooted to the outgroup and visualised using Python with \texttt{ete3} \citep{huerta2016ete}.
 
 %%%%%%%%%%%%%%%
 % Table
 %%%%%%%%%%%%%%%
-\section*{Results} % 150 WORDS
-BLAST searches suggested that the samples corresponded to COI, and provided preliminary identifications for each sample. Sample A consistently matched Right and Bowhead Whales, with sample B returning Beluga and Narwhal. Sample C matched true tunas, and sample D matched sea turtle species and \textit{Homo sapiens} (Table~\ref{tab:blast_hits}). 
+\section*{Results} % 229 WORDS
+BLAST searches suggested that the samples corresponded to COI and provided preliminary identifications. No hits returned from \texttt{sampleC\_part2}, reducing usable sequence length (Table~\ref{tab:blast_hits}).
+\par The phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four resolved vertebrate clades: Cetaceans, Testudines, Scombridae, and outgroup Selachii.
 
 \begin{table}[htbp]
 	\centering
-	\caption{Top BLAST hit per part across all samples}
+	\caption{Top BLAST hit across all samples}
 	\label{tab:blast_hits}
 		\footnotesize\sffamily\color{black!80}
 		\begin{tabular}{l l l l l}
@@ -151,37 +145,34 @@ BLAST searches suggested that the samples corresponded to COI, and provided prel
 		\setends{1}{145..179}
 		\feature{top}{1}{140..170}{--,}{Part 1}
 		\feature{top}{1}{171..180}{,--}{Part 2}
-		\feature{bottom}{1}{159..170}{brace}{Potential frame-shift in sample D}
+		\feature{bottom}{1}{159..170}{brace}{Potential frame shift in sample D}
 		\hideconsensus
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Window of supermatrix alignment with potential frame-shift error in \texttt{sampleD} near the highly-conserved \texttt{NFITTIIN} region.}
+	\caption{Window of supermatrix alignment}
 \label{fig:supermatrix}
-\end{figure}
-
-\par The phylogenetic tree (Fig.~\ref{fig:main_tree}) recovered four well-resolved vertebrate clades: a Cetacean clade (whales); a Testudine clade (turtle and tortoises); a Scombridae clade (tuna); and the outgroup Selachii clade (sharks). 
+\end{figure} 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth, frame]{figures/final_tree.pdf}
 	\captionsetup{justification=centering}
-	\caption{Maximum likelihood phylogenetic tree with placement of unknown meat samples and top BLAST hits. Scale bar corresponds to 0.01 substitutions per site. Bootstrap support (\%) shown at nodes.}
+	\caption{Phylogenetic tree with placement of unknown meat samples and closest BLAST hits. Scale bar = 0.01 substitutions per site. Bootstrap support shown at nodes.}
 	\label{fig:main_tree}
 \end{figure}
  
-\par Sample A placement was strongly supported within Balaenidae (95\% ),  but species-level resolution within was poor. However, BLAST consistently returned \textit{Eubalaena japonica} as the top hit with a high percentage identity across all parts, suggesting North Pacific right whale as the leading candidate species.
-\par Sample B placement within Monodontidae was fully supported (100\%), but internal node support and species resolution was weak (55\%). Only \textit{Delphinapterus leucas} and \textit{Monodon monoceros} exist in this family, therefore sample B must represent one of these species.
-\par Sample C placement was strongly supported within \textit{Thunnus} (97\%), with low-moderate internal node support. BLAST suggested \textit{Thunnus thynnus}, but this is not confirmed by the phylogeny. As such, sample C can only be assigned to the \textit{Thunnus} genus.
-\par Sample D placement within Testudines was strongly supported (92\%), with very low support within this clade (11-59\%). Sample D is placed with \textit{Dermochelys coriacea}, consistent with BLAST, suggesting Leatherback sea turtle as the leading candidate species.
+\par Sample A placement was strongly supported within Balaenidae (95\%), but species level resolution was poor. BLAST consistently returned \textit{Eubalaena japonica} as the top hit with a high percentage identity across all parts, suggesting North Pacific right whale as the leading candidate.
+\par Sample B placement within Monodontidae was fully supported (100\%), but internal support was weak (55\%). Only \textit{Delphinapterus leucas} and \textit{Monodon monoceros} exist in this family, therefore sample B represents one of these species.
+\par Sample C placement was strongly supported within \textit{Thunnus} (97\%), with low-moderate internal node support. BLAST suggested \textit{Thunnus thynnus}, but this is not confirmed by the phylogeny. Sample C may only be assigned to the \textit{Thunnus} genus.
+\par Sample D placement within Testudines was strongly supported (92\%), with low support within (11-59\%). Sample D clustered with \textit{Dermochelys coriacea}, consistent with BLAST, suggesting Leatherback sea turtle as the leading candidate.
 
 
-
-\section*{Discussion} % 300 WORDS
-Across all samples, order-level placement was strongly supported with confident assignment to major vertebrate groups. However, species confidence was generally low and relied on BLAST compliance with phylogeny where candidate species were identified. 
-\par The COI fragment for barcoding is ~650bp long which makes species inference sensitive to sequencing errors, with low quality reads providing limited phylogenetic signal \citep{ahmed2022pragmatic}. FastQC \citep{fastqc} reports showed all samples displayed regions of low quality calls, reducing usable bases in already short sequences, and likely contributed to weakened inter-specific discriminatory power with inflated branch lengths and reduced bootstrap support. An exploratory analysis investigated the inflated branch length of sample D: a Needleman-Wunsch alignment (Fig.~\ref{fig:needleman}) indicated a potential sequencing mis-read leading to the apparent frame-shift in Fig.~\ref{fig:supermatrix}. Adding an ambiguous base and re-running the analysis reduced branch length and increased bootstrap support within the Testudine clade (Figs.~\ref{fig:supermatrix2}, \ref{fig:tree_pdf2}), illustrating the downstream effects a single base can have on phylogenetic confidence. Furthermore, references from databases such as GenBank (which BLAST searches) which do not require strict standards or quality control must be interpreted cautiously for species identification \citep{dawnay2007validation, meiklejohn2019assessment}. 
-\par The candidate species of sample A, \textit{Eubalaena japonica}, is currently listed as `Endangered' on the IUCN Red List \citep{eubalaena}. The presence of this sample raises serious conservation concerns if confirmed, and could reflect trade of a vulnerable whale species. The sample B candidate monotonid species are both listed under `Least Concern' on the IUCN Red List, with regulated international trade \citep{monodon, delphinapterus}. Their presence may indicate by-catch from fisheries in or near conservation sites, but without sample origin the conservation implications cannot be assessed fully. IUCN Red List assessments for the \textit{Thunnus} genus range from `Least Concern' (\textit{Thunnus albacares}) to `Endangered' (\textit{Thunnus maccoyii}) \citep{albacares, maccoyii}. Without species level identification the conservation implications of sample C cannot be assessed fully. The sample D candidate, \textit{Dermochelys coriacea}, is listed on the IUCN Red List as `Vulnerable'. This species inhabits conservation sites across its range as well as protected areas. The presence of this sample raises conservation concerns and may reflect illegal trade, depending on the origin of the sample.
-\par Overall, this analysis demonstrated the use of COI in order and family level identification, but displays a lack of resolution in identifying the unknown samples to the species level. Subsequent sequencing of samples using longer mitochondrial barcodes may improve resolution among more recently diverged species. Re-sequencing to obtain multiple reads of each sequence may reduce mis-reads and base ambiguity, while the use of curated reference databases, such as BOLD, is also suggested to increase confidence in reference sequences \citep{meiklejohn2019assessment}. These suggestions should improve species level resolution and provide more confident conservation claims for the meat samples. Nevertheless, the detection of candidate species from undocumented meat illustrates the value of DNA barcoding in the context of the illegal wildlife trade. 
+\section*{Discussion} % 469 WORDS
+Order level placement was strongly supported with confident assignment to major vertebrate groups. However, species confidence was low and relied on BLAST compliance with phylogeny for candidate species proposals.
+\par The COI fragment for barcoding is $\approx$ 650bp which makes species inference sensitive to sequencing errors, with low quality reads providing limited phylogenetic signal \citep{ahmed2022pragmatic}. FastQC \citep{fastqc} showed low quality calls within all samples, reducing usable bases and likely weakening discriminatory power and reducing bootstrap support. Exploratory alignment (Fig~\ref{fig:needleman}) indicated a potential sequencing misread leading to the apparent frame shift in Fig.~\ref{fig:supermatrix}. Adding one ambiguous base increased sample D/\textit{Dermochelys coriacea} clade support from 56\% to 72\% (Figs.~\ref{fig:supermatrix2}, \ref{fig:tree_pdf2}), illustrating the impact of data quality on phylogenetic confidence. Furthermore, reference sequences from GenBank do not require strict validation and must be interpreted cautiously for species identification \citep{dawnay2007validation, meiklejohn2019assessment}. 
+\par Sample A candidate, \textit{Eubalaena japonica}, is listed as `Endangered' \citep{eubalaena}. Presence of this sample raises serious conservation concerns if confirmed, and could reflect trade of a vulnerable whale species. Both sample B candidates are listed under `Least Concern' \citep{monodon, delphinapterus}. Their presence may indicate by-catch from fisheries in or near conservation sites, but without sample origin these implications cannot be assessed fully. \textit{Thunnus} assessments range from `Least Concern' (\textit{Thunnus albacares}) to `Endangered' (\textit{Thunnus maccoyii}) \citep{albacares, maccoyii}. Without species level identification the conservation implications of sample C cannot be assessed. Sample D candidate, \textit{Dermochelys coriacea}, is listed as `Vulnerable' \citep{dermochelys}. This species inhabits protected areas across its range, as such the presence of this sample raises conservation concerns and may reflect illegal trade, depending on the origin of the sample.
+\par Overall, COI barcoding here resolved order and family level identity but lacked species level resolution. Longer barcode regions and multiple reads of sample sequences could reduce misreads while increasing resolution among recently diverged species. The use of curated reference databases, such as BOLD, would increase confidence in reference sequences \citep{meiklejohn2019assessment}. These suggestions will allow more confident conservation claims for the meat samples. Nevertheless, the detection of candidate species from undocumented meat illustrates the value of DNA barcoding in the context of the illegal wildlife trade. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% check ordering for years and surnames etc.
@@ -190,7 +181,7 @@ Across all samples, order-level placement was strongly supported with confident 
 
 
 \section*{Supplementary Data}
-Supplementary data and all scripts can be found in the GitHub repository for this project: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
+Supplementary data and scripts are found in the following GitHub repository: \url{https://github.com/archiebenn/BIOLM0051_analysis.git}
 
 \newpage
 \section*{Appendix: Exploratory Figures}
@@ -208,7 +199,7 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 \raisebox{2em}{\hspace{6.55cm}$\big\uparrow$}
 \vspace{-2em}
 \captionsetup{justification=centering}
-\caption{Needleman-Wunsch alignment of \texttt{sampleD\_part1} against closest reference. Gap indicates a possible mis-read during sequencing.}
+\caption{MAFFT \cite{mafft} Needleman-Wunsch alignment. Gap indicates a possible misread during sequencing.}
 \label{fig:needleman}
 \end{figure}
 \vspace{5em}
@@ -228,7 +219,7 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 		\showlegend
 	\end{texshade}
 	\captionsetup{justification=centering}
-	\caption{Supermatrix alignment after inserting one ambiguous base (N) to \texttt{sampleD\_part1}. This base resolves the apparent frame-shift, resulting in a protein sequence which aligns much more closely to highly-conserved region}
+	\caption{Alignment after inserting one ambiguous base (N) in \texttt{sampleD\_part1}}
 	\label{fig:supermatrix2}
 \end{figure}
 
@@ -236,7 +227,7 @@ sampleD_part1    451 CACCTAGCTGGTGTTTCATCAATTTTAGGAGCTATT-ACTTCATTACTAC    499
 	\centering
 	\includegraphics[width=\linewidth, frame]{figures/final_tree_D_branch.pdf}
 	\captionsetup{justification=centering}
-	\caption{Phylogenetic tree resulting from insertion of an ambiguous base (N) into  \texttt{sampleD\_part1}. Demonstrates the impact of sequencing error on branch lengths and bootstraps compared to Fig.~\ref{fig:main_tree}.}
+	\caption{Phylogenetic tree resulting from altered alignment (Fig. \ref{fig:supermatrix2}).}
 	\label{fig:tree_pdf2}
 \end{figure}
 

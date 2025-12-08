@@ -99,7 +99,7 @@ Concatenating sampleB files...
 .
 .
 .
-[13] Rooted tree PDF created. Please find the phylogenetic tree pdf in results/13_tree_pdfs
+[13] Rooted tree plot created - see terminal version above! Please find the full tree pdf in results/13_tree_plots
 
 Pipeline finished succesfully
 Analysis runtime: 00h:23m:05s 
@@ -128,7 +128,7 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 .
 .
 .
-[13] Rooted tree PDF created. Please find the phylogenetic tree pdf in results/13_tree_pdfs
+[13] Rooted tree plot created - see terminal version above! Please find the full tree pdf in results/13_tree_plots
 
 Pipeline finished succesfully
 Analysis runtime: 00h:06m:22s 
