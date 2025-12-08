@@ -2,7 +2,7 @@
 results/3_FASTQC_reports/*
 
 # latex  files to ignore
-LaTeX/*
+LaTeX/
 
 # ignore micromamba env 
 report-env/
