@@ -110,7 +110,7 @@ Analysis runtime: 00h:23m:05s
 Allows skipping slow steps of the pipeline which can lead to significantly shorter run times:  
 
 ```bash
-./scripts/pipeline.sh <script-number>
+./scripts/pipeline.sh <script number>
 ```
 
 For example starting from script 5 (after BLAST search which can take > 20 minutes): 
