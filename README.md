@@ -37,7 +37,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 | 3             | FASTQ -> FASTA      | `seqtk` to convert to FASTA and mask             |
 | 4             | BLAST search        | Carries out remote `blastn` searches             |
 | 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`   |
-| 6             | Manual Selection    | Selects BLAST hits based on manual filters       |
+| 6             | BLAST sorting       | Sorts and selects BLAST hits                     |
 | 7             | efetch              | Uses `efetch` to collect BLAST FASTA sequences   |
 | 8             | Retrieve Outgroup   | Uses `efetch` to retrieve chosen outgroup FASTAs |
 | 9             | Concatenate FASTA   | Joins original query FASTAs to `efetch` FASTAs   |
