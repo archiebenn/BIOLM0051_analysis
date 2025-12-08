@@ -34,7 +34,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 |---------------|---------------------|--------------------------------------------------|
 | 1             | FASTQ check         | Extracts and checks input FASTQ file formats     |
 | 2             | Concatenate FASTQ   | Combine split FASTQ parts                        |
-| 3             | FASTQ -> FASTA      | FASTQC and uses `seqtk` to convert to FASTA      |
+| 3             | FASTQ -> FASTA      | `seqtk` to convert to FASTA and mask             |
 | 4             | BLAST search        | Carries out remote `blastn` searches             |
 | 5             | BLAST taxonomies    | Converts back to parts and attaches `taxonkit`   |
 | 6             | Manual Selection    | Selects BLAST hits based on manual filters       |
@@ -44,7 +44,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 | 10            | Python translation  | Biopython script to translate to protein seqs    |
 | 11            | Alignment           | Uses `muscle5` to align protein sequences        |
 | 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
-| 13            | Tree View           | Visualise and root tree using Python             |  
+| 13            | Tree View           | Visualise and root tree using `ete3` and Python  |  
 
 Along with these scripts, an additional exploratory script (`99_reduce_branch_sampleD.sh`) can be found in `scripts` and run to reproduce the exploration, but does not form part of the main pipeline. 
 
