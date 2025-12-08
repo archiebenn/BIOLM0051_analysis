@@ -27,7 +27,7 @@ This pipeline consists of 13 scripts and is designed to run using just the origi
 
 The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeline using `./scripts/pipeline.sh <script-number>` (see step 2B for more details on this).  
 
-<img src="./LaTeX/pipeline.svg" width="400">  
+<img src="./report/pipeline_figure.pdf" width="400">  
 
 
 | Script number | Step                | Script Description                               |
