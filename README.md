@@ -23,9 +23,9 @@ tar -xzf taxdump.tar.gz
 mv *.dmp *.prt readme.txt ~/.taxonkit/
 ```
 ## Pipeline overview
-This pipeline consists of 13 scipts and is deigned to run using just the original `samples.zip` file placed in `data/` all the way through to the creation of the final phylogenetic tree using a single terminal prompt.   
+This pipeline consists of 13 scripts and is designed to run using just the original `samples.zip` file placed in `data/` all the way through to the creation of the final phylogenetic tree using a single terminal prompt.   
 
-The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeling using `./scripts/pipeline.sh <script-number>` (see step 2B for more details on this).  
+The following figure gives an outline of the workflow this pipeline follows along with the script numbers which correspond to each step on the left hand side. A table with more explicit script numbering is also given below which is helpful if running the pipeline using `./scripts/pipeline.sh <script-number>` (see step 2B for more details on this).  
 
 <img src="./LaTeX/pipeline.svg" width="400">  
 
@@ -102,7 +102,7 @@ Concatenating sampleB files...
 .
 [13] Rooted tree plot created - see terminal version above! Please find the full tree pdf in results/13_tree_plots
 
-Pipeline finished succesfully
+Pipeline finished successfully
 Analysis runtime: 00h:23m:05s 
 ```
 
@@ -131,7 +131,7 @@ Splitting sampleB back into parts, sorting by staxid, adding taxonomic lineages,
 .
 [13] Rooted tree plot created - see terminal version above! Please find the full tree pdf in results/13_tree_plots
 
-Pipeline finished succesfully
+Pipeline finished successfully
 Analysis runtime: 00h:06m:22s 
 ```
 
