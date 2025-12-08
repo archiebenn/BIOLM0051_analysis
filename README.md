@@ -46,7 +46,7 @@ The following figure gives an outline of the workflow this pipeline follows alon
 | 12            | Tree Build          | Uses `iqtree3` to build phylogenetic tree        |
 | 13            | Tree View           | Visualise and root tree using `ete3` and Python  |  
 
-Along with these scripts, an additional exploratory script (`99_reduce_branch_sampleD.sh`) can be found in `scripts` and run to reproduce the exploration, but does not form part of the main pipeline. 
+Along with these scripts, an additional exploratory script (`99_reduce_branch_sampleD.sh`) can be found in `scripts` and run to reproduce the exploration mentioned in the report discussion, but does not form part of the main pipeline. 
 
 # Step 1: Setting up the pipeline environment
 Creating and activating the `micromamba` environment is recommended to ensure reproducibility
