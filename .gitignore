@@ -2,18 +2,7 @@
 results/3_FASTQC_reports/*
 
 # latex  files to ignore
-*.out
-LaTeX/*.log
-*.aux
-_minted-*
-*.bbl
-*.blg
-*.toc
-*.lof
-*.lot
-*.fls
-*.fdb_latexmk
-*.synctex.gz
+LaTeX/*
 
 # ignore micromamba env 
 report-env/
