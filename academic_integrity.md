@@ -16,10 +16,10 @@ Category 3 Selective – AI tools can be used in limited and clearly defined way
 **AI tools (chatGPT) were used in the following ways for this submission:**  
 - Clarifying pipeline "run time" code 
 - Understanding `pipefail` for pipeline safety on each script
-- Use of `while read -r line; do` to loop over each line in a file in comparison of current line to previous line in FASTQ files (script 2)
-- Learning what external tools exist and reading examples (before reading official documentation online, where available) (`seqtk`,`taxonkit`, `efetch`,`seqkit`, `catfasta2phyml`, `trimal`, `iqtree3`, `ete3`, `ete4`, `needle`)
+- Understanding use of `while read -r line; do` to loop over each line in a file in comparison of current line to previous line in FASTQ files (script 2)
+- Learning what external tools exist and reading examples (before reading official documentation online, where available): `seqtk`,`taxonkit`, `efetch`,`seqkit`, `catfasta2phyml`, `trimal`, `iqtree3`, `ete3`, `ete4`, `needle`  
 - Learning how to use `basename` to extract names within loops  
-- BLAST log example  (script 4)
+- Learning how to implement a BLAST log to document time and `blastn` version used (script 4)
 - Understanding use of `!seen[$x]++` to skip non-unique variables (script 5)
 - Understanding use of `while IFS=$\t read x y z; do` to extract values from a tsv and settting as new variable names (script 7)
 - Understanding reference sequence direction orientation using BLAST `sstart` and `ssend` values (script 7)
