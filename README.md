@@ -1,4 +1,5 @@
 # Heathrow "Mystery Meat" analysis pipeline  
+**MSc Bioinformatics | BIOLM0051 | Final mark: 83**
 This analysis uses raw FASTQ files of unidentified meat DNA sequences, provided in `data/` as `samples.zip`, and produces a final phylogenetic tree in order to identify sample species through a fully automated and reproducible pipeline. The main steps involved in this are shown in the pipeline figure below. Typical pipeline runtime is 20-35 minutes depending on BLAST connection.
 
 ## OS Compatibility 
